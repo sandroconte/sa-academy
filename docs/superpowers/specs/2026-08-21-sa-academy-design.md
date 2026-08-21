@@ -55,7 +55,8 @@ chanakaudaya/solution-architecture-patterns ──┐
 sandroconte/lectures/solution-architecture ───┤
                                               ▼
                     GitHub Action (in sa-academy repo)
-                    triggers: cron every 6h + workflow_dispatch + push
+                    triggers: cron every 6h + workflow_dispatch
+                    (manual) + push to sa-academy itself
                     ├─ clones both repos
                     ├─ parses every .md → structured JSON
                     │   (title, section tree, key terms, definitions,
