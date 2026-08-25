@@ -25,8 +25,16 @@ export const useContent = create<ContentState>((set, get) => ({
   refresh: async () => {
     if (get().syncing) return;
     set({ syncing: true });
-    const result = await syncContent();
-    await get().loadLocalMeta();
-    set({ syncing: false, stale: result.stale || !result.ok });
+    try {
+      const result = await syncContent();
+      await get().loadLocalMeta();
+      set({
+        syncing: false,
+        stale: result.stale || !result.ok,
+        ...(result.ok && !result.stale ? { lastSyncedAt: Date.now() } : {}),
+      });
+    } catch {
+      set({ syncing: false, stale: true });
+    }
   },
 }));
