@@ -1,9 +1,11 @@
 import { PACK_BASE } from "./config";
 import { getDb, getSyncState, setSyncState } from "./db";
-import { diffManifest, filesToRemove } from "./syncDiff";
-import type { Exercise, Manifest, PackDoc } from "./types";
+import { diffManifest, filesToRemove, mergeFailedIntoPrev } from "./syncDiff";
+import type { Exercise, Manifest, ManifestDoc, PackDoc } from "./types";
 
-export interface FetchLike { (url: string): Promise<{ ok: boolean; status: number; text(): Promise<string> }> }
+export interface FetchLike {
+  (url: string): Promise<{ ok: boolean; status: number; text(): Promise<string> }>;
+}
 
 async function fetchJson<T>(file: string, fetchImpl: FetchLike): Promise<T> {
   const res = await fetchImpl(`${PACK_BASE}/${file}`);
@@ -11,36 +13,52 @@ async function fetchJson<T>(file: string, fetchImpl: FetchLike): Promise<T> {
   return JSON.parse(await res.text()) as T;
 }
 
-export interface SyncResult { ok: boolean; changed: number; stale: boolean }
+export interface SyncResult { ok: boolean; changed: number; failed: number; stale: boolean }
 
 export async function syncContent(fetchImpl: FetchLike = fetch): Promise<SyncResult> {
   let manifest: Manifest;
   try {
     manifest = await fetchJson<Manifest>("manifest.json", fetchImpl);
   } catch {
-    return { ok: false, changed: 0, stale: true };
+    return { ok: false, changed: 0, failed: 0, stale: true };
   }
-  const prevRaw = await getSyncState("manifest");
-  const prev: Manifest | null = prevRaw ? (JSON.parse(prevRaw) as Manifest) : null;
-  const files = diffManifest(prev, manifest);
 
+  let prev: Manifest | null = null;
+  const prevRaw = await getSyncState("manifest");
+  if (prevRaw) {
+    try {
+      prev = JSON.parse(prevRaw) as Manifest;
+    } catch {
+      prev = null; // corrupt cache → full resync
+    }
+  }
+
+  const filesSet = new Set(diffManifest(prev, manifest));
+
+  // Phase 1 — fetch everything OUTSIDE the db transaction (no lock across network).
+  interface Group { meta: ManifestDoc; doc: PackDoc; exercises: Exercise[] }
+  const groups: Group[] = [];
+  const failedIds = new Set<string>();
+  for (const meta of manifest.docs) {
+    if (!filesSet.has(meta.file)) continue;
+    try {
+      const doc = await fetchJson<PackDoc>(meta.file, fetchImpl);
+      const ex = await fetchJson<{ docId: string; items: Exercise[] }>(meta.exercisesFile, fetchImpl);
+      groups.push({ meta, doc, exercises: ex.items }); // both payloads present before any write
+    } catch (e) {
+      console.warn(`skip ${meta.id}:`, (e as Error).message);
+      failedIds.add(meta.id);
+    }
+  }
+
+  // Phase 2 — single short write transaction (writes only).
   const db = await getDb();
+  const saved = mergeFailedIntoPrev(prev, manifest, failedIds);
   await db.withTransactionAsync(async () => {
     for (const id of filesToRemove(prev, manifest)) await removeDoc(db, id);
-    for (const file of files) {
-      try {
-        if (file.startsWith("docs/")) {
-          const doc = await fetchJson<PackDoc>(file, fetchImpl);
-          const meta = manifest.docs.find((d) => d.file === file)!;
-          await upsertDoc(db, doc, meta.sha256);
-          const ex = await fetchJson<{ docId: string; items: Exercise[] }>(
-            manifest.docs.find((d) => d.id === doc.id)!.exercisesFile, fetchImpl,
-          );
-          await replaceExercises(db, ex.docId, ex.items);
-        }
-      } catch (e) {
-        console.warn(`skip ${file}:`, (e as Error).message);
-      }
+    for (const g of groups) {
+      await upsertDoc(db, g.doc, g.meta.sha256);
+      await replaceExercises(db, g.doc.id, g.exercises);
     }
     await db.runAsync("DELETE FROM modules");
     for (const m of manifest.modules)
@@ -50,9 +68,10 @@ export async function syncContent(fetchImpl: FetchLike = fetch): Promise<SyncRes
     for (const md of manifest.moduleDocs)
       await db.runAsync("INSERT INTO module_docs(module_id,doc_id,position) VALUES(?,?,?)",
         [md.moduleId, md.docId, md.position]);
-    await setSyncState("manifest", JSON.stringify(manifest));
+    await setSyncState("manifest", JSON.stringify(saved));
   });
-  return { ok: true, changed: files.length / 2, stale: false };
+
+  return { ok: true, changed: groups.length, failed: failedIds.size, stale: false };
 }
 
 type Db = Awaited<ReturnType<typeof getDb>>;
@@ -61,6 +80,7 @@ async function removeDoc(db: Db, id: string): Promise<void> {
   await db.runAsync("DELETE FROM documents WHERE id=?", [id]);
   await db.runAsync("DELETE FROM exercises WHERE doc_id=?", [id]);
   await db.runAsync("DELETE FROM search_index WHERE doc_id=?", [id]);
+  await db.runAsync("DELETE FROM module_docs WHERE doc_id=?", [id]);
 }
 
 async function upsertDoc(db: Db, doc: PackDoc, sha256: string): Promise<void> {

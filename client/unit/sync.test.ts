@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { diffManifest, filesToRemove } from "../src/lib/syncDiff";
+import { diffManifest, filesToRemove, mergeFailedIntoPrev } from "../src/lib/syncDiff";
 import type { Manifest } from "../src/lib/types";
 
 function manifestWith(ids: [string, string][]): Manifest {
@@ -44,5 +44,27 @@ describe("diffManifest", () => {
 
   it("filesToRemove with null prev returns empty", () => {
     expect(filesToRemove(null, manifestWith([["a", "1"]]))).toEqual([]);
+  });
+});
+
+describe("mergeFailedIntoPrev", () => {
+  it("keeps previous entry for failed existing docs (retried next sync)", () => {
+    const prev = manifestWith([["a", "1"]]);
+    const next = manifestWith([["a", "9"]]);
+    const saved = mergeFailedIntoPrev(prev, next, new Set(["a"]));
+    expect(saved.docs[0]!.sha256).toBe("1");
+    expect(diffManifest(saved, next)).toEqual(["docs/a.json", "exercises/a.json"]);
+  });
+
+  it("omits failed brand-new docs so they stay new", () => {
+    const prev = null;
+    const next = manifestWith([["a", "1"], ["b", "2"]]);
+    const saved = mergeFailedIntoPrev(prev, next, new Set(["b"]));
+    expect(saved.docs.map((d) => d.id)).toEqual(["a"]);
+  });
+
+  it("passes through when no failures", () => {
+    const next = manifestWith([["a", "1"]]);
+    expect(mergeFailedIntoPrev(null, next, new Set())).toEqual(next);
   });
 });
