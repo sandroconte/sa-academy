@@ -23,7 +23,7 @@ export default function Learn() {
     })();
   }, [version]);
 
-  const firstUnread = modules.flatMap((m) => m.docIds).find((id) => docsMap.get(id)?.status !== "read");
+  const firstUnread = modules.flatMap((m) => m.docIds).find((id) => { const d = docsMap.get(id); return d && d.status !== "read"; });
 
   return (
     <FlatList

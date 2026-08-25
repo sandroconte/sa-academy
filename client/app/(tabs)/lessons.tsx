@@ -17,12 +17,11 @@ export default function Lessons() {
   useEffect(() => {
     (async () => {
       const lectures = await getAllDocs("lecture");
-      const secs: { title: string; data: Doc[] }[] = [];
-      secs.push({
-        title: lectures.length > 0 ? "🎓 Your Lectures" : "🎓 Your Lectures — empty",
-        data: lectures,
-      });
-      setSections(secs);
+      if (lectures.length === 0) {
+        setSections([]);
+        return;
+      }
+      setSections([{ title: "🎓 Your Lectures", data: lectures }]);
     })();
   }, [version]);
 
