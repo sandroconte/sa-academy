@@ -62,7 +62,7 @@ export function extractTerms(
   for (const h of headings) add(h, null);
   for (const b of boldTerms) add(b, null);
 
-  const defRe = /^(?:(?:the|a|an)\s+)?([A-Z][A-Za-z0-9 .\-]{2,58}?)\s+\b(is|are)\b\s+(?:a|an|the)?\s*(.{15,})$/;
+  const defRe = /^(?:(?:the|The|[aA]n?|[Tt]he)\s+)?([A-Z][A-Za-z0-9 .\-]{2,58}?)\s+\b(is|are)\b\s+(?:a|an|the)?\s*(.{15,})$/;
   const colonRe = /^([A-Z][A-Za-z0-9 .\-]{2,58}?):\s+(.{15,})$/;
 
   for (const para of blocksText) {
