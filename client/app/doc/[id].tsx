@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ScrollView, View, Text, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import type { NativeScrollEvent, NativeSyntheticEvent } from "react-native";
 import { useLocalSearchParams, Stack } from "expo-router";
@@ -12,9 +12,12 @@ export default function DocScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const version = useContent((st) => st.version); // re-read after sync
   const [doc, setDoc] = useState<(PackDoc & { status: DocStatus; percent: number }) | null>(null);
+  const [livePct, setLivePct] = useState<number | null>(null);
+  const lastWrittenRef = useRef<number>(-1);
 
   useEffect(() => {
     if (!id) return;
+    setLivePct(null);
     getDocsByIds([id]).then((r) => setDoc(r[0] ?? null));
   }, [id, version]);
 
@@ -24,7 +27,11 @@ export default function DocScreen() {
       const { height } = e.nativeEvent.contentSize;
       const visible = e.nativeEvent.layoutMeasurement.height;
       const pct = Math.min(100, Math.round(((e.nativeEvent.contentOffset.y + visible) / Math.max(height, 1)) * 100));
-      void setPercent(id, pct);
+      setLivePct(pct);
+      if (pct !== lastWrittenRef.current) {
+        lastWrittenRef.current = pct;
+        void setPercent(id, pct);
+      }
     },
     [id],
   );
@@ -35,7 +42,7 @@ export default function DocScreen() {
   return (
     <View style={{ flex: 1 }}>
       <Stack.Screen options={{ title: displayTitle(doc.title) }} />
-      <View style={s.barWrap}><View style={[s.bar, { width: `${Math.max(doc.percent, 2)}%` as `${number}%` }]} /></View>
+      <View style={s.barWrap}><View style={[s.bar, { width: `${Math.max(livePct ?? doc.percent, 2)}%` as `${number}%` }]} /></View>
       <ScrollView onScroll={onScroll} scrollEventThrottle={200} contentContainerStyle={s.content}>
         <Text style={s.meta}>{doc.category} · {doc.readingMin} min · {doc.status}</Text>
         {doc.blocks.map((b, i) => <BlockView key={i} block={b} doc={doc} />)}
