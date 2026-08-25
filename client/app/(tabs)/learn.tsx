@@ -30,14 +30,21 @@ export default function Learn() {
       data={modules}
       keyExtractor={(m) => m.id}
       ListHeaderComponent={
-        firstUnread ? (
-          <Link href={`/doc/${firstUnread}`} asChild>
-            <Pressable style={s.continue}>
-              <Text style={s.continueLabel}>Continue</Text>
-              <Text style={s.continueTitle}>{displayTitle(docsMap.get(firstUnread)?.title ?? "")}</Text>
+        <View>
+          <Link href="/search" asChild>
+            <Pressable style={s.searchEntry}>
+              <Text style={s.searchTxt}>🔍 Search all content</Text>
             </Pressable>
           </Link>
-        ) : null
+          {firstUnread ? (
+            <Link href={`/doc/${firstUnread}`} asChild>
+              <Pressable style={s.continue}>
+                <Text style={s.continueLabel}>Continue</Text>
+                <Text style={s.continueTitle}>{displayTitle(docsMap.get(firstUnread)?.title ?? "")}</Text>
+              </Pressable>
+            </Link>
+          ) : null}
+        </View>
       }
       renderItem={({ item }) => {
         const docs = item.docIds.map((id) => docsMap.get(id)).filter(Boolean) as (PackDoc & { status: DocStatus })[];
@@ -65,6 +72,8 @@ export default function Learn() {
 }
 
 const s = StyleSheet.create({
+  searchEntry: { borderWidth: 1, borderColor: "#0002", borderRadius: 12, padding: 14, marginBottom: 10 },
+  searchTxt: { color: "#666", fontSize: 15 },
   continue: { backgroundColor: "#3b82f6", borderRadius: 12, padding: 16, marginBottom: 4 },
   continueLabel: { color: "#dbeafe", fontSize: 12, fontWeight: "700", textTransform: "uppercase" },
   continueTitle: { color: "white", fontSize: 17, fontWeight: "700", marginTop: 4 },
