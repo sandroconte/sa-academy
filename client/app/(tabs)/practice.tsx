@@ -1,5 +1,6 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { View, Text, Pressable, ScrollView, StyleSheet, TextInput } from "react-native";
+import { useLocalSearchParams } from "expo-router";
 import {
   getAllDocs,
   getExercisesForDoc,
@@ -21,6 +22,7 @@ function toSessionItem(e: Exercise & { docId: string }): SessionItem {
 }
 
 export default function Practice() {
+  const { doc } = useLocalSearchParams<{ doc?: string }>();
   const [phase, setPhase] = useState<Phase>({ name: "pick" });
   const [queue, setQueue] = useState<SessionItem[]>([]);
   const [answersCorrect, setAnswersCorrect] = useState<boolean[]>([]);
@@ -28,7 +30,7 @@ export default function Practice() {
   const [orderingOrder, setOrderingOrder] = useState<number[] | null>(null);
   const inFlight = useRef(false);
 
-  const start = useCallback(async (mode: "mixed" | "review") => {
+  const start = useCallback(async (mode: "mixed" | "review", docFilter?: string) => {
     let items: SessionItem[];
     if (mode === "review") {
       const missedIds = await getMissedExerciseIds(50);
@@ -41,6 +43,7 @@ export default function Practice() {
         const exs = await getExercisesForDoc(d.id);
         pool.push(...exs.map(toSessionItem));
       }
+      if (docFilter) pool = pool.filter((it) => it.docId === docFilter);
       items = pool;
       if (items.length === 0) return;
     }
@@ -48,6 +51,14 @@ export default function Practice() {
     setAnswersCorrect([]);
     setPhase({ name: "quiz", idx: 0 });
   }, []);
+
+  const startedRef = useRef(false);
+  useEffect(() => {
+    if (doc && !startedRef.current) {
+      startedRef.current = true;
+      void start("mixed", doc);
+    }
+  }, [doc, start]);
 
   const current = phase.name === "quiz" ? queue[phase.idx] : undefined;
 

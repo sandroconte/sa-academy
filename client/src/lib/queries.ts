@@ -77,6 +77,15 @@ export async function setStatus(docId: string, status: DocStatus): Promise<void>
   );
 }
 
+export async function markModuleDocs(moduleId: string, status: DocStatus): Promise<void> {
+  const db = await getDb();
+  const rows = await db.getAllAsync<{ doc_id: string }>(
+    "SELECT doc_id FROM module_docs WHERE module_id=? ORDER BY position",
+    [moduleId],
+  );
+  for (const r of rows) await setStatus(r.doc_id, status);
+}
+
 export async function setPercent(docId: string, percent: number): Promise<void> {
   const db = await getDb();
   const clamped = Math.max(0, Math.min(100, percent));

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet, Pressable } from "react-native";
 import { Link } from "expo-router";
-import { getModules, getDocsByIds } from "../../src/lib/queries";
+import { getModules, getDocsByIds, markModuleDocs } from "../../src/lib/queries";
 import { moduleStats, type DocStatus } from "../../src/lib/progress";
 import { Ring } from "../../src/components/Ring";
 import { DocRow } from "../../src/components/DocRow";
@@ -14,14 +14,16 @@ export default function Learn() {
   const [docsMap, setDocsMap] = useState<Map<string, PackDoc & { status: DocStatus; percent: number }>>(new Map());
   const [open, setOpen] = useState<string | null>(null);
 
+  const load = useCallback(async () => {
+    const mods = await getModules();
+    const all = await getDocsByIds(mods.flatMap((m) => m.docIds));
+    setModules(mods);
+    setDocsMap(new Map(all.map((d) => [d.id, d])));
+  }, []);
+
   useEffect(() => {
-    (async () => {
-      const mods = await getModules();
-      const all = await getDocsByIds(mods.flatMap((m) => m.docIds));
-      setModules(mods);
-      setDocsMap(new Map(all.map((d) => [d.id, d])));
-    })();
-  }, [version]);
+    void load();
+  }, [version, load]);
 
   const firstUnread = modules.flatMap((m) => m.docIds).find((id) => { const d = docsMap.get(id); return d && d.status !== "read"; });
 
@@ -30,21 +32,14 @@ export default function Learn() {
       data={modules}
       keyExtractor={(m) => m.id}
       ListHeaderComponent={
-        <View>
-          <Link href="/search" asChild>
-            <Pressable style={s.searchEntry}>
-              <Text style={s.searchTxt}>🔍 Search all content</Text>
+        firstUnread ? (
+          <Link href={`/doc/${firstUnread}`} asChild>
+            <Pressable style={s.continue}>
+              <Text style={s.continueLabel}>Continue</Text>
+              <Text style={s.continueTitle}>{displayTitle(docsMap.get(firstUnread)?.title ?? "")}</Text>
             </Pressable>
           </Link>
-          {firstUnread ? (
-            <Link href={`/doc/${firstUnread}`} asChild>
-              <Pressable style={s.continue}>
-                <Text style={s.continueLabel}>Continue</Text>
-                <Text style={s.continueTitle}>{displayTitle(docsMap.get(firstUnread)?.title ?? "")}</Text>
-              </Pressable>
-            </Link>
-          ) : null}
-        </View>
+        ) : null
       }
       renderItem={({ item }) => {
         const docs = item.docIds.map((id) => docsMap.get(id)).filter(Boolean) as (PackDoc & { status: DocStatus })[];
@@ -58,6 +53,17 @@ export default function Learn() {
                 <Text style={s.modTitle}>{item.title}</Text>
                 <Text style={s.modSub}>{stats.done}/{stats.total} read</Text>
               </View>
+              {expanded && (
+                <Pressable
+                  hitSlop={8}
+                  onPress={async () => {
+                    await markModuleDocs(item.id, "read");
+                    await load();
+                  }}
+                >
+                  <Text style={s.markAllTxt}>Mark all read</Text>
+                </Pressable>
+              )}
               <Text>{expanded ? "▾" : "▸"}</Text>
             </Pressable>
             {expanded && docs.map((d) => (
@@ -72,13 +78,12 @@ export default function Learn() {
 }
 
 const s = StyleSheet.create({
-  searchEntry: { borderWidth: 1, borderColor: "#0002", borderRadius: 12, padding: 14, marginBottom: 10 },
-  searchTxt: { color: "#666", fontSize: 15 },
   continue: { backgroundColor: "#3b82f6", borderRadius: 12, padding: 16, marginBottom: 4 },
   continueLabel: { color: "#dbeafe", fontSize: 12, fontWeight: "700", textTransform: "uppercase" },
   continueTitle: { color: "white", fontSize: 17, fontWeight: "700", marginTop: 4 },
   card: { borderWidth: StyleSheet.hairlineWidth, borderColor: "#0002", borderRadius: 12 },
   head: { flexDirection: "row", gap: 12, alignItems: "center", padding: 12 },
+  markAllTxt: { color: "#3b82f6", fontWeight: "600", fontSize: 13 },
   modTitle: { fontSize: 16, fontWeight: "700" },
   modSub: { fontSize: 12, color: "#777" },
 });
