@@ -1,7 +1,13 @@
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
-import type { Root, RootContent, ListContent, TableContent, PhrasingContent } from "mdast";
+import type {
+  Root,
+  RootContent,
+  TableContent,
+  PhrasingContent,
+  Paragraph,
+} from "mdast";
 import type { Block, ParsedDoc, Term } from "./types.js";
 
 const processor = unified().use(remarkParse).use(remarkGfm);
@@ -103,7 +109,7 @@ export function parseMarkdown(raw: string, meta: ParseMeta): ParsedDoc {
     boldAll.push(...bold);
   };
 
-  const visit = (node: RootContent | ListContent | TableContent): void => {
+  const visit = (node: RootContent | TableContent): void => {
     switch (node.type) {
       case "heading": {
         const b: Block = { type: "heading", level: node.depth };
@@ -129,9 +135,11 @@ export function parseMarkdown(raw: string, meta: ParseMeta): ParsedDoc {
       case "list": {
         const items = node.children.map((li) => {
           const texts = li.children
-            .filter((c): c is Extract<ListContent, { type: "paragraph" }> => c.type === "paragraph")
+            .filter((c): c is Paragraph => c.type === "paragraph")
             .map((p) => phrasingText(p.children).text);
-          const nested = li.children.filter((c) => c.type === "list") as unknown as ListContent[];
+          const nested = li.children.filter(
+            (c) => (c as unknown as { type: string }).type === "list",
+          ) as unknown as RootContent[];
           nested.forEach(visit);
           return texts.join(" ");
         });
