@@ -1,0 +1,45 @@
+{
+  "subjects": [
+    {
+      "id": "solution-architecture",
+      "name": "Solution Architecture",
+      "sources": [
+        {
+          "repo": "chanakaudaya/solution-architecture-patterns",
+          "kind": "patterns",
+          "paths": ["vendor-neutral", "industry-specific", "technology-selection-guides", "vendor-specific"]
+        },
+        {
+          "repo": "sandroconte/lectures",
+          "kind": "lectures",
+          "path": "solution-architecture"
+        }
+      ],
+      "curriculum": {
+        "modules": [
+          {
+            "id": "foundations",
+            "title": "Foundations",
+            "rules": ["layered", "enterprise-software-stack", "decentralized-enterpise", "micro-architecture", "innovation-driven"]
+          },
+          {
+            "id": "integration-apis",
+            "title": "Integration & APIs",
+            "rules": ["api", "graphql", "openapi", "event-driven", "kafka", "nats", "change-data-capture", "hybrid-integration", "soa"]
+          },
+          {
+            "id": "cloud-microservices",
+            "title": "Cloud & Microservices",
+            "rules": ["cloud", "kubernetes", "istio", "service-mesh", "microservice", "strangler", "cicd", "sidecar"]
+          },
+          {
+            "id": "security-governance",
+            "title": "Security & Governance",
+            "rules": ["security", "identity", "access-management", "governance"]
+          }
+        ],
+        "extraModuleTitle": "Extra patterns"
+      }
+    }
+  ]
+}
