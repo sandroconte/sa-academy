@@ -56,11 +56,11 @@ export async function getModules(): Promise<{ id: string; subjectId: string; tit
   }));
 }
 
-export async function getExercisesForDoc(docId: string): Promise<Exercise[]> {
+export async function getExercisesForDoc(docId: string): Promise<(Exercise & { docId: string })[]> {
   const db = await getDb();
   const rows = await db.getAllAsync<{ id: string; doc_id: string; type: ExerciseType; payload_json: string; answer_key: string }>(
     "SELECT * FROM exercises WHERE doc_id=?", [docId]);
-  return rows.map((r) => ({ id: r.id, type: r.type, payload: JSON.parse(r.payload_json), answerKey: JSON.parse(r.answer_key) }));
+  return rows.map((r) => ({ id: r.id, docId: r.doc_id, type: r.type, payload: JSON.parse(r.payload_json), answerKey: JSON.parse(r.answer_key) }));
 }
 
 export async function setStatus(docId: string, status: DocStatus): Promise<void> {
@@ -120,7 +120,7 @@ export async function getMissedExerciseIds(limit = 50): Promise<string[]> {
   return rows.map((r) => r.exercise_id);
 }
 
-export async function getExercisesByIds(ids: string[]): Promise<Exercise[]> {
+export async function getExercisesByIds(ids: string[]): Promise<(Exercise & { docId: string })[]> {
   if (ids.length === 0) return [];
   const db = await getDb();
   const placeholders = ids.map(() => "?").join(",");

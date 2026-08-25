@@ -16,8 +16,8 @@ type Phase =
   | { name: "quiz"; idx: number }
   | { name: "done"; correct: number; total: number };
 
-function toSessionItem(e: Exercise & { docId?: string }): SessionItem {
-  return { exerciseId: e.id, docId: e.docId ?? "", type: e.type, payload: e.payload, answerKey: e.answerKey };
+function toSessionItem(e: Exercise & { docId: string }): SessionItem {
+  return { exerciseId: e.id, docId: e.docId, type: e.type, payload: e.payload, answerKey: e.answerKey };
 }
 
 export default function Practice() {
