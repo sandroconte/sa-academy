@@ -1,0 +1,45 @@
+name: content-pipeline
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/**"
+      - "subjects.config.json"
+
+concurrency:
+  group: content-pipeline
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install & test
+        working-directory: pipeline
+        run: |
+          npm ci
+          npm test
+      - name: Build pack
+        working-directory: pipeline
+        run: npm run pipeline
+      - name: Commit pack
+        run: |
+          git config user.name "sa-academy-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add content-pack
+          if git diff --cached --quiet; then
+            echo "No pack changes"
+          else
+            git commit -m "chore(content-pack): rebuild [skip ci]"
+            git push
+          fi
