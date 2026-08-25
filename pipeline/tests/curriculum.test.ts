@@ -33,13 +33,13 @@ function doc(slug: string): ParsedDoc {
 describe("assignModules", () => {
   it("matches slugs against rules in module order", () => {
     const { modules, moduleDocs } = assignModules(
-      [doc("graphql-pattern"), doc("layered-architecture-pattern"), doc("mystery-pattern")],
+      [doc("api-security-pattern"), doc("layered-architecture-pattern"), doc("mystery-pattern")],
       subject,
     );
     expect(modules.map((m) => m.id)).toEqual(["foundations", "apis", "solution-architecture-extra"]);
     const byDoc = Object.fromEntries(moduleDocs.map((md) => [md.docId, md.moduleId]));
     expect(byDoc["solution-architecture-pattern-layered-architecture-pattern"]).toBe("foundations");
-    expect(byDoc["solution-architecture-pattern-graphql-pattern"]).toBe("apis");
+    expect(byDoc["solution-architecture-pattern-api-security-pattern"]).toBe("apis");
     expect(byDoc["solution-architecture-pattern-mystery-pattern"]).toBe("solution-architecture-extra");
   });
 });
