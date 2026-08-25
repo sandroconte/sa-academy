@@ -35,4 +35,14 @@ describe("diffManifest", () => {
     const next = manifestWith([["a", "1"]]);
     expect(filesToRemove(prev, next)).toEqual(["b"]);
   });
+
+  it("empty next removes all docs", () => {
+    const prev = manifestWith([["a", "1"]]);
+    expect(filesToRemove(prev, manifestWith([]))).toEqual(["a"]);
+    expect(diffManifest(prev, manifestWith([]))).toEqual([]);
+  });
+
+  it("filesToRemove with null prev returns empty", () => {
+    expect(filesToRemove(null, manifestWith([["a", "1"]]))).toEqual([]);
+  });
 });
