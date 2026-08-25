@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { View, Text, Pressable, ScrollView, StyleSheet, TextInput } from "react-native";
 import {
   getAllDocs,
@@ -26,6 +26,7 @@ export default function Practice() {
   const [answersCorrect, setAnswersCorrect] = useState<boolean[]>([]);
   const [matchingOrder, setMatchingOrder] = useState<number[]>([]);
   const [orderingOrder, setOrderingOrder] = useState<number[] | null>(null);
+  const inFlight = useRef(false);
 
   const start = useCallback(async (mode: "mixed" | "review") => {
     let items: SessionItem[];
@@ -41,6 +42,7 @@ export default function Practice() {
         pool.push(...exs.map(toSessionItem));
       }
       items = pool;
+      if (items.length === 0) return;
     }
     setQueue(buildSession(items, 10));
     setAnswersCorrect([]);
@@ -51,20 +53,25 @@ export default function Practice() {
 
   const submit = useCallback(
     async (answer: number | boolean | number[]) => {
-      if (!current || phase.name !== "quiz") return;
-      const ok = grade(
-        { id: current.exerciseId, type: current.type, payload: current.payload, answerKey: current.answerKey },
-        answer,
-      );
-      await recordAttempt(current.exerciseId, current.docId, ok);
-      const nextCorrect = [...answersCorrect, ok];
-      setAnswersCorrect(nextCorrect);
-      setMatchingOrder([]);
-      setOrderingOrder(null);
-      if (phase.idx + 1 >= queue.length) {
-        setPhase({ name: "done", correct: nextCorrect.filter(Boolean).length, total: queue.length });
-      } else {
-        setPhase({ name: "quiz", idx: phase.idx + 1 });
+      if (!current || phase.name !== "quiz" || inFlight.current) return;
+      inFlight.current = true;
+      try {
+        const ok = grade(
+          { id: current.exerciseId, type: current.type, payload: current.payload, answerKey: current.answerKey },
+          answer,
+        );
+        await recordAttempt(current.exerciseId, current.docId, ok);
+        const nextCorrect = [...answersCorrect, ok];
+        setAnswersCorrect(nextCorrect);
+        setMatchingOrder([]);
+        setOrderingOrder(null);
+        if (phase.idx + 1 >= queue.length) {
+          setPhase({ name: "done", correct: nextCorrect.filter(Boolean).length, total: queue.length });
+        } else {
+          setPhase({ name: "quiz", idx: phase.idx + 1 });
+        }
+      } finally {
+        inFlight.current = false;
       }
     },
     [current, phase, queue.length, answersCorrect],
@@ -123,7 +130,8 @@ export default function Practice() {
         const left = p.pairsLeft as unknown as string[];
         const right = p.pairsRight as unknown as string[];
         const chosen = matchingOrder;
-        const ready = left.length > 0 && chosen.length === left.length && chosen.every((c) => c >= 0);
+        const filled = chosen.filter((c) => typeof c === "number" && c >= 0).length;
+        const ready = left.length > 0 && filled === left.length;
         return (
           <View>
             {left.map((term, li) => (
