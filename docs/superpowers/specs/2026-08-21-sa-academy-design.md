@@ -3,6 +3,36 @@
 Date: 2026-08-21
 Status: Approved (pending implementation plan)
 
+## Extensibility — multiple subjects
+
+Adding further study subjects later requires **no re-engineering**, only a
+small additive refactor when the second subject arrives:
+
+- **v1 (now):** pipeline sources + curriculum are driven by a
+  `pipeline/subjects.config.json` file:
+
+  ```json
+  {
+    "subjects": [
+      {
+        "id": "solution-architecture",
+        "name": "Solution Architecture",
+        "sources": [
+          { "repo": "chanakaudaya/solution-architecture-patterns", "paths": ["vendor-neutral", "industry-specific", "technology-selection-guides", "vendor-specific"] },
+          { "repo": "sandroconte/lectures", "path": "solution-architecture", "kind": "lectures" }
+        ],
+        "curriculum": { "moduleOrder": ["foundations", "integration-apis", "cloud-microservices", "security-governance"], "extraModuleTitle": "Extra patterns" }
+      }
+    ]
+  }
+  ```
+
+  Tab titles, course name, and parsing targets derive from this config.
+- **Subject #2 (future refactor):** add `subject_id` column to `documents`,
+  `modules`, `exercises`; add `subjects[]` map to the manifest; group the UI by
+  subject. Pack format, parser, exercise engine, grading, sync, and SQLite
+  schema are content-agnostic and stay untouched.
+
 ## 1. Overview
 
 SA Academy is a cross-platform learning app (iOS, Android, Web) for professional
@@ -142,7 +172,17 @@ Expo + TypeScript. Navigation via `expo-router`, 4 tabs:
 
 Shared **reader screen**: renders structured blocks natively (no runtime MD
 parsing), images loaded from source-repo raw URLs, reading progress bar,
-"Practice this lesson" button.
+"Practice this lesson" button, and a **"Mark as read"** toggle (also available
+per module, marking all its documents).
+
+### Global search
+
+Search reachable from every tab (header search icon → full-screen search):
+queries run against an SQLite FTS5 index built app-side during pack import from
+document blocks (titles, headings, body text, key terms). Results are grouped
+by area (Course / Patterns / Your Lectures), ranked by relevance, support
+prefix matching, and deep-link into the reader screen at the matching heading.
+The index is rebuilt incrementally for changed documents only.
 
 Stack details: `expo-sqlite`, `zustand` (UI state), `expo-file-system`
 (downloads). Grading and sync logic are pure functions.
@@ -154,7 +194,10 @@ documents        (id, source, category, title, slug, sha, blocks_json, reading_m
 modules          (id, title, position)
 module_docs      (module_id, doc_id, position)
 exercises        (id, doc_id, type, payload_json, answer_key)
-progress         (doc_id, status, percent, last_read_at)
+progress         (doc_id, status: unread|reading|read, percent,
+                  last_read_at, read_marked_at)   ← 'read' set automatically
+                  (percent ≥ 95) or via manual mark-as-read
+search_index     (FTS5 virtual table: doc_id, title, headings, body, terms)
 attempts         (exercise_id, correct, answered_at)
 sync_state       (pack_version, last_synced_at)
 ```
@@ -189,8 +232,9 @@ identical pack. Grading happens in-app against `answer_key`.
 
 - **Pipeline**: vitest unit tests against fixture markdown files; determinism
   test (same input + seed = same output); golden snapshot of a small pack.
-- **App**: vitest for sync diffing, grading, progress calculation; render smoke
-  tests; manual e2e checklist for v1.
+- **App**: vitest for sync diffing, grading, progress calculation (including
+  auto-read threshold and module-level mark-as-read), and FTS indexing/search
+  ranking; render smoke tests; manual e2e checklist for v1.
 - The Action runs pipeline tests before committing any pack.
 
 ## 10. Future work (out of scope v1)
