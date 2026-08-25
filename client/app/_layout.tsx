@@ -2,9 +2,11 @@ import { useFonts } from 'expo-font';
 import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { Text, View } from 'react-native';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import { useContent } from '../src/stores/content';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -35,6 +37,10 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
+  useEffect(() => {
+    useContent.getState().refresh();
+  }, []);
+
   if (!loaded) {
     return null;
   }
@@ -46,12 +52,26 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="search" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <View style={{ flex: 1 }}>
+      <StaleBanner />
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="search" options={{ presentation: 'modal' }} />
+        </Stack>
+      </ThemeProvider>
+    </View>
+  );
+}
+
+function StaleBanner() {
+  const stale = useContent((s) => s.stale);
+  const syncing = useContent((s) => s.syncing);
+  if (!stale || syncing) return null;
+  return (
+    <Text style={{ backgroundColor: "#f59e0b22", color: "#92400e", textAlign: "center", paddingVertical: 4 }}>
+      Offline — showing cached content
+    </Text>
   );
 }
