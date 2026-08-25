@@ -29,10 +29,15 @@ CREATE VIRTUAL TABLE IF NOT EXISTS search_index USING fts5(
 
 export async function getDb(): Promise<SQLite.SQLiteDatabase> {
   if (!dbPromise) {
-    dbPromise = SQLite.openDatabaseAsync("sa-academy.db").then(async (db) => {
-      await db.execAsync(DDL);
-      return db;
-    });
+    dbPromise = SQLite.openDatabaseAsync("sa-academy.db")
+      .then(async (db) => {
+        await db.execAsync(DDL);
+        return db;
+      })
+      .catch((err) => {
+        dbPromise = null;
+        throw err;
+      });
   }
   return dbPromise;
 }
