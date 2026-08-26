@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are deployed for high availability and each instance is running on a separate AZ.",
+        "options": [
+          "Two instances of WSO2 EI",
+          "AWS Region",
+          "EC2 instance type of c5.xlarge",
+          "A public subnet"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is one or more discrete data centers with redundant power, networking, and connectivity in an AWS region.",
+        "options": [
+          "All 3 nodes",
+          "An AZ",
+          "API gateway and the developer portal URLs",
+          "Each product and component"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is called an Availability Zone (AZ).",
+        "options": [
+          "Each product and component",
+          "A group of logical data centers",
+          "Amazon EC2",
+          "A c5.large EC2 instance"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are deployed for high availability and each instance is running on a separate AZ.",
+        "options": [
+          "WSO2",
+          "Two instances of WSO2 APIM",
+          "Amazon VPC",
+          "There"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "There",
+          "The carbon portal",
+          "API gateway and the developer portal URLs",
+          "Amazon VPC"
+        ],
+        "pairsRight": [
+          "Amazon VPC is a service that lets users launch AWS resources in a logically isolated virtual network that the user defines.",
+          "The carbon portal is exposed through a separate ALB which is deployed in a private subnet within a different AZ.",
+          "The API gateway and the developer portal URLs are exposed through the ALB which is deployed in the public subnet (DMZ).",
+          "There are private subnets created for each availability zone."
+        ]
+      },
+      "answerKey": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Two instances of WSO2 EI?",
+        "options": [
+          "Two instances of WSO2 EI are deployed for high availability and each instance is running on a separate AZ.",
+          "If there is a need to connect with on-premise systems such as databases, ERP, CRM from WSO2 EI, the same VPN connection can be utilized.",
+          "Amazon EC2 is a cloud service that provides secure, resizable compute capacity in the cloud.",
+          "Amazon VPC is a service that lets users launch AWS resources in a logically isolated virtual network that the user defines."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is An AZ?",
+        "options": [
+          "A group of logical data centers is called an Availability Zone (AZ).",
+          "Two instances of WSO2 EI are deployed for high availability and each instance is running on a separate AZ.",
+          "An AZ is one or more discrete data centers with redundant power, networking, and connectivity in an AWS region.",
+          "All 3 nodes are connected to the database that is running on the same VPC but in a different private subnet."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is A group of logical data centers?",
+        "options": [
+          "A group of logical data centers is called an Availability Zone (AZ).",
+          "Each product and component is deployed with the minimum high availability.",
+          "The deployment is designed so that it is deployed within a single AWS region (North America) across 3 different AZs",
+          "The dashboard profile is okay to deploy as a single instance given the lower importance of the tool."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The dashboard profile is okay to deploy as a single instance given the lower importance of the tool."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "WSO2 is an open-source, enterprise middleware platform that offers software products for API Management, Integration and Identity, and Access Management."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "API gateway and the developer portal URLs is created to host ALB that exposes the WSO2 API Manager gateway for external consumers."
+      },
+      "answerKey": false
+    }
+  ]
+}

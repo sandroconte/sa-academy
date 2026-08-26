@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are building a digital economy that is driven by APIs or the so-called API economy.",
+        "options": [
+          "If there",
+          "All these movements",
+          "Figure",
+          "Depending on which vendor you"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is one of the best tools available in the market that can help you to implement a reusable API platform from the get-go.",
+        "options": [
+          "If you",
+          "The above list",
+          "WSO2 API Manager",
+          "When the APIs"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is an essential part of implementing a successful API program.",
+        "options": [
+          "API Management",
+          "WSO2 API Developer portal",
+          "API governance",
+          "The consumers"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "If your organization is having a fully-fledged IT team, the process of _____ consists of the steps mentioned below in most cases.",
+        "options": [
+          "API Development",
+          "These problems",
+          "All these movements",
+          "If there"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "WSO2 API Developer portal",
+          "WSO2 API Manager",
+          "Figure",
+          "The consumers"
+        ],
+        "pairsRight": [
+          "The WSO2 API Developer portal is useful in the API governance process where it provides a singular view of all the APIs that are developed by different teams within the organization.",
+          "Figure: Reusable API platform with WSO2 API Manager",
+          "WSO2 API Manager is one of the best tools available in the market that can help you to implement a reusable API platform from the get-go.",
+          "The consumers are interacting with your business to get products and services through digital means (mobile phones, tabs, computers, terminals, etc.) more than any other means."
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is All these movements?",
+        "options": [
+          "All these movements are building a digital economy that is driven by APIs or the so-called API economy.",
+          "If your organization is having a fully-fledged IT team, the process of API development consists of the steps mentioned below in most cases.",
+          "The WSO2 API Developer portal is useful in the API governance process where it provides a singular view of all the APIs that are developed by different teams within the organization.",
+          "API governance is an essential part of implementing a successful API program."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is WSO2 API Manager?",
+        "options": [
+          "These problems are nothing new to business leaders since they deal with these sorts of problems day in day out.",
+          "That is where the concept of reusability comes in handy.",
+          "The above list is only a limited set of features from the full list.",
+          "WSO2 API Manager is one of the best tools available in the market that can help you to implement a reusable API platform from the get-go."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is API governance?",
+        "options": [
+          "Application Programming Interface or APIs are the digital connectors that connect your business with the digital world which is out there.",
+          "If there is a need to share the same application that is used to subscribe to APIs in the developer portal with multiple users, that can be supported through the application sharing functionality in WSO2 API Manager.",
+          "API governance is an essential part of implementing a successful API program.",
+          "API marketplace is a concept that discusses how you can make your API program a success by increased adoption within your organization as well as outside your organization within customers and partners."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Depending on which vendor you are going to choose, you will end up with a considerable cost."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "If your organization is having a fully-fledged IT team, the process of API development consists of the steps mentioned below in most cases."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here is to find an API and use that by the consumers."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are the main building blocks of the hospitality industry.",
+        "options": [
+          "There can be certain APIs that",
+          "Figure",
+          "The hospitality industry",
+          "But the above mentioned"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is one of the oldest and highly regarded industries in the world.",
+        "options": [
+          "Introduction",
+          "Choosing a technology platform that",
+          "The method to achieve this type of segregation",
+          "The hospitality industry"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to have microgateways that are specific to a certain client channel and scale them based on the needs of individual channels rather than putting all the APIs into one common gateway and scale that monolithic gateway.",
+        "options": [
+          "Choosing a technology platform that",
+          "The 3 main functional components that",
+          "The method to achieve this type of segregation",
+          "Introduction"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is built from the bottom up to support these capabilities will help enterprises immensely in the future.",
+        "options": [
+          "There can be certain APIs that",
+          "There",
+          "Choosing a technology platform that",
+          "The 3 main functional components that"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Some APIs",
+          "There",
+          "But the above mentioned",
+          "The hospitality industry"
+        ],
+        "pairsRight": [
+          "There are many other connected groups and functions that help the hospitality industry to operate.",
+          "Some APIs are only exposed to internal applications while others are exposed to external applications.",
+          "But the above mentioned are the main building blocks of the hospitality industry.",
+          "The hospitality industry is one of the oldest and highly regarded industries in the world."
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But the above mentioned?",
+        "options": [
+          "The hospitality industry is one of the oldest and highly regarded industries in the world.",
+          "But the above mentioned are the main building blocks of the hospitality industry.",
+          "Choosing a technology platform that is built from the bottom up to support these capabilities will help enterprises immensely in the future.",
+          "Application Programming Interface or APIs are the most commonly used method for exposing business data to consumer applications via a standard, secure and managed manner."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The hospitality industry?",
+        "options": [
+          "With the introduction of technology-based, community-driven, social-driven platforms like Uber, Lyft, Airbnb, etc.",
+          "Application Programming Interface or APIs are the most commonly used method for exposing business data to consumer applications via a standard, secure and managed manner.",
+          "The hospitality industry is one of the oldest and highly regarded industries in the world.",
+          "The method to achieve this type of segregation is to have microgateways that are specific to a certain client channel and scale them based on the needs of individual channels rather than putting all the APIs into one common gateway and scale that monolithic gateway."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The method to achieve this type of segregation?",
+        "options": [
+          "But the above mentioned are the main building blocks of the hospitality industry.",
+          "There can be certain APIs that are exposed both internally and externally with different security scopes.",
+          "Figure: Hospitality industry stakeholders",
+          "The method to achieve this type of segregation is to have microgateways that are specific to a certain client channel and scale them based on the needs of individual channels rather than putting all the APIs into one common gateway and scale that monolithic gateway."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure: Hospitality industry stakeholders"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The hospitality industry is one of the oldest and highly regarded industries in the world."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Choosing a technology platform that is called the hospitality industry in layman’s terms."
+      },
+      "answerKey": false
+    }
+  ]
+}

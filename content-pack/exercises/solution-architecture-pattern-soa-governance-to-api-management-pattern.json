@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-soa-governance-to-api-management-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to support these backend services governance through the same API management plane which is used to govern the APIs which are deployed in gateways.",
+        "options": [
+          "Once it",
+          "One option to cater to this requirement",
+          "The above figure",
+          "IT teams"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are the most common denominator of the lifecycle stages defined within SOA governance projects.",
+        "options": [
+          "The other option",
+          "SOA Governance",
+          "Above mentioned stages",
+          "The above figure"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "With the _____ of new architectures and concepts like REST, Microservices, Containers, people started moving out of expensive SOA governance tools and looked for alternative solutions that can do the same job for a better price in a better way.",
+        "options": [
+          "SOA Governance",
+          "Figure",
+          "IT teams",
+          "Introduction"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: SOA governance stakeholders and service lifecycle",
+        "options": [
+          "The above figure",
+          "Introduction",
+          "Figure",
+          "That"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "API Management",
+          "This",
+          "SOA Governance",
+          "That"
+        ],
+        "pairsRight": [
+          "SOA governance was a complicated process and many enterprises have failed to apply that within their SOA projects.",
+          "One of the reasons for the higher rate of adoption for API management platforms was that some of the governance aspects were already built into the API management solutions.",
+          "That is where the need for SOA governance emerged.",
+          "This is sometimes called as “API Federation” or “Bring Your Own Gateway” (BYOG)."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is One option to cater to this requirement?",
+        "options": [
+          "One option to cater to this requirement is to support these backend services governance through the same API management plane which is used to govern the APIs which are deployed in gateways.",
+          "IT teams are looking at putting more organization, governance, and security into their processes because IT services have become the customer-facing interface of every enterprise.",
+          "The above figure is an extension to the previous figure where there is an additional API gateway component along with backend services that are introduced to the architecture.",
+          "That is where the need for SOA governance emerged."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Above mentioned stages?",
+        "options": [
+          "Above mentioned stages are the most common denominator of the lifecycle stages defined within SOA governance projects.",
+          "IT teams are looking at putting more organization, governance, and security into their processes because IT services have become the customer-facing interface of every enterprise.",
+          "Once it is done, the QA team is notified to carry out the testing and if the testing is passed, services will be deployed into the production servers by the DevOps team.",
+          "That is where the need for SOA governance emerged."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Introduction?",
+        "options": [
+          "This is sometimes called as “API Federation” or “Bring Your Own Gateway” (BYOG).",
+          "IT teams are looking at putting more organization, governance, and security into their processes because IT services have become the customer-facing interface of every enterprise.",
+          "With the introduction of new architectures and concepts like REST, Microservices, Containers, people started moving out of expensive SOA governance tools and looked for alternative solutions that can do the same job for a better price in a better way.",
+          "The other option is to find a modern governance tool that can support SOA governance while integrating with API governance (management) tools offered by the API management vendors."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is sometimes called as “API Federation” or “Bring Your Own Gateway” (BYOG)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "SOA governance was a complicated process and many enterprises have failed to apply that within their SOA projects."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is where the need for SOA governance emerged."
+      },
+      "answerKey": false
+    }
+  ]
+}

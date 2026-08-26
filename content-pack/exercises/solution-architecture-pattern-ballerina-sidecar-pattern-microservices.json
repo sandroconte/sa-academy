@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is designed to be distributed in nature.",
+        "options": [
+          "Cellery",
+          "Here",
+          "Rather I would say Ballerina",
+          "The microservices architecture pattern"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are leading technologies that have become the front runners in the SM race.",
+        "options": [
+          "That",
+          "There",
+          "Security",
+          "Here"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that, it is more or less against the MSA strategy.",
+        "options": [
+          "Microservices security",
+          "But the problem",
+          "Ballerina",
+          "The architecture presented in that article"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a new programming language developed by a team at WSO2 with the focus of making application integration more powerful than ever before.",
+        "options": [
+          "Rather I would say Ballerina",
+          "Ballerina",
+          "Security",
+          "But the problem"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Security",
+          "Microservices security",
+          "Cellery",
+          "The microservices architecture pattern"
+        ],
+        "pairsRight": [
+          "Security is not an afterthought anymore.",
+          "Cellery is such an attempt to build a management layer for these sorts of complex architectures.",
+          "The microservices architecture pattern is designed to be distributed in nature.",
+          "Microservices security is still at the early stages and people are trying out different approaches to provide security (authentication, authorization) for microservices which are written in polyglot fashion."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The microservices architecture pattern?",
+        "options": [
+          "The microservices architecture pattern is designed to be distributed in nature.",
+          "But the problem is that, it is more or less against the MSA strategy.",
+          "The architecture presented in that article is shown below for reference.",
+          "There are leading technologies that have become the front runners in the SM race."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "The microservices architecture pattern is designed to be distributed in nature.",
+          "That is where this Open Policy Agent (OPA) comes in handy where it provides a mechanism to delegate security-related functionality to an external agent (sidecar) which is running along with the microservice.",
+          "There are leading technologies that have become the front runners in the SM race.",
+          "Here are some of the requirements which we are using libraries/frameworks to implement."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But the problem?",
+        "options": [
+          "But the problem is that, it is more or less against the MSA strategy.",
+          "That is where this Open Policy Agent (OPA) comes in handy where it provides a mechanism to delegate security-related functionality to an external agent (sidecar) which is running along with the microservice.",
+          "Here are some of the requirements which we are using libraries/frameworks to implement.",
+          "Microservices security is still at the early stages and people are trying out different approaches to provide security (authentication, authorization) for microservices which are written in polyglot fashion."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here are some of the requirements which we are using libraries/frameworks to implement."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Security is not an afterthought anymore."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Cellery is where this Open Policy Agent (OPA) comes in handy where it provides a mechanism to delegate security-related functionality to an external agent (sidecar) which is running along with the microservice."
+      },
+      "answerKey": false
+    }
+  ]
+}

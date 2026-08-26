@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-energy-information-technology-reference-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is becoming more and more usable and cost-effective, it is yet to fulfill the continuity requirement of energy demand.",
+        "options": [
+          "That",
+          "Even though renewable energy",
+          "Figure",
+          "This means that the dynamics around the energy industry"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a list of requirements in the energy industry that we can address through the application of technology.",
+        "options": [
+          "Figure",
+          "Given below",
+          "The good news for such users",
+          "Urbanization"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are laid out to build the solution architecture.",
+        "options": [
+          "The below figure depicts how these components",
+          "Given below",
+          "Even though renewable energy",
+          "Given this architecture"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the functionality of various devices used at different locations within the grid and those devices generate millions of events every minute.",
+        "options": [
+          "The below figure depicts how these components",
+          "The good news for such users",
+          "This means that the dynamics around the energy industry",
+          "That"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "It makes sure that systems",
+          "All the required integration points",
+          "Given this architecture",
+          "Even though renewable energy"
+        ],
+        "pairsRight": [
+          "Given this architecture is independent of any particular vendor or specific technology, users can use their preferred cloud vendor that offers these basic functional components with their offering.",
+          "Even though renewable energy is becoming more and more usable and cost-effective, it is yet to fulfill the continuity requirement of energy demand.",
+          "All the required integration points are available for such improvements to the system.",
+          "It makes sure that systems are connected as and when required with minimum effort or customization on those systems."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Even though renewable energy?",
+        "options": [
+          "This means that the dynamics around the energy industry is shaping into a common model that is similar to industries like financial services, the automotive industry with specific aspects like markets, operations, and 3rd party service providers are involved in the energy industry.",
+          "Given this architecture is independent of any particular vendor or specific technology, users can use their preferred cloud vendor that offers these basic functional components with their offering.",
+          "Even though renewable energy is becoming more and more usable and cost-effective, it is yet to fulfill the continuity requirement of energy demand.",
+          "Figure: Transformation of the energy industry"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Given below?",
+        "options": [
+          "It makes sure that systems are connected as and when required with minimum effort or customization on those systems.",
+          "Figure: Transformation of the energy industry",
+          "That is the functionality of various devices used at different locations within the grid and those devices generate millions of events every minute.",
+          "Given below is a list of requirements in the energy industry that we can address through the application of technology."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The below figure depicts how these components?",
+        "options": [
+          "Urbanization is bringing more and more people to cities.",
+          "The below figure depicts how these components are laid out to build the solution architecture.",
+          "Given this architecture is independent of any particular vendor or specific technology, users can use their preferred cloud vendor that offers these basic functional components with their offering.",
+          "This functionality is called the “ESB” or “Integration” in most cases."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This functionality is called the “ESB” or “Integration” in most cases."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "That is the functionality of various devices used at different locations within the grid and those devices generate millions of events every minute."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure is called the “ESB” or “Integration” in most cases."
+      },
+      "answerKey": false
+    }
+  ]
+}

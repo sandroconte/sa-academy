@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-openapi-based-digital-transformation-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to talk about the social impact of the digital transformation rather than the enterprise side of it.",
+        "options": [
+          "The main intention of this post",
+          "If you",
+          "But these services",
+          "GSMA"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is transparent from the operator.",
+        "options": [
+          "But that",
+          "The more generalized form of the above architecture",
+          "Digital Transformation",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the value-added services (VAS).",
+        "options": [
+          "Apple CEO Tim Cook may be thrilled to see that iPhone",
+          "This",
+          "One of the main business trends in the telecom industry",
+          "Digital Transformation"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the global body which is responsible for the governance of the MNOs across the globe.",
+        "options": [
+          "The more generalized form of the above architecture",
+          "If you",
+          "GSMA",
+          "Another frontrunner in this space"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "We know for a fact that there",
+          "But these services",
+          "The more generalized form of the above architecture",
+          "The main intention of this post"
+        ],
+        "pairsRight": [
+          "But these services are limited only to the customer base which is owned by that particular MNO.",
+          "The more generalized form of the above architecture is mentioned below.",
+          "The main intention of this post is to talk about the social impact of the digital transformation rather than the enterprise side of it.",
+          "We know for a fact that there are more mobile phones than the world population right now (2020 March)."
+        ]
+      },
+      "answerKey": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The main intention of this post?",
+        "options": [
+          "The main intention of this post is to talk about the social impact of the digital transformation rather than the enterprise side of it.",
+          "GSMA is the global body which is responsible for the governance of the MNOs across the globe.",
+          "Figure: Mobile subscribers and population",
+          "Another frontrunner in this space is the financial industry."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But that?",
+        "options": [
+          "This is not a story anymore.",
+          "One of the main business trends in the telecom industry is the value-added services (VAS).",
+          "We know for a fact that there are more mobile phones than the world population right now (2020 March).",
+          "But that is transparent from the operator."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is One of the main business trends in the telecom industry?",
+        "options": [
+          "One of the main business trends in the telecom industry is the value-added services (VAS).",
+          "There are so many localized companies coming up every day to copy the concept and helping the process.",
+          "If you are in the technology industry, you may have heard of the term “Digital Transformation” along with the words like Micro Services Architecture (MSA), DevOps, Containers, Service Mesh, Artificial Intelligence, Analytics.",
+          "We know for a fact that there are more mobile phones than the world population right now (2020 March)."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But this is true for all sorts of different industries."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "We know for a fact that there are more mobile phones than the world population right now (2020 March)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Apple CEO Tim Cook may be thrilled to see that iPhone is the value-added services (VAS)."
+      },
+      "answerKey": false
+    }
+  ]
+}

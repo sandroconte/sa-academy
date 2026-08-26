@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are all the sales happening if not at stores?",
+        "options": [
+          "The brick-and-mortar stores",
+          "Table 1",
+          "Here",
+          "So where"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is popular amongst its consumers in the United States for the omnichannel experience it provides across all interfaces.",
+        "options": [
+          "So where",
+          "Retail shopping",
+          "Walgreens mobile retail app",
+          "But this technical architecture"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that there are a large number of medium-sized retailers who are yet to concur with the technology landscape and build effective retail businesses to compete with mega-retailers.",
+        "options": [
+          "Every retail store",
+          "But the reality",
+          "Once these integrations",
+          "Today consumers"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is one of the most popular applications of digital connectivity.",
+        "options": [
+          "Retail shopping",
+          "Improvised mechanisms",
+          "Technology",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Retail business",
+          "Every retail store",
+          "The retail industry",
+          "Retail shopping"
+        ],
+        "pairsRight": [
+          "The retail industry is on the rise like never before.",
+          "Retail business is one of the most innovative and technology-centric businesses at the moment.",
+          "Every retail store is different in size, capacity, resources, location, and accessibility.",
+          "Retail shopping is one of the most popular applications of digital connectivity."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is So where?",
+        "options": [
+          "Here are the main middleware components and their functionalities used when deployed in the control center.",
+          "Today consumers are not only using one channel to shop, they are engaged with retailers through several touchpoints.",
+          "So where are all the sales happening if not at stores?",
+          "Apache FTP server is an open-source file server that can support the required capabilities."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Walgreens mobile retail app?",
+        "options": [
+          "This is the functionality provided by a comprehensive middleware platform.",
+          "Walgreens mobile retail app is popular amongst its consumers in the United States for the omnichannel experience it provides across all interfaces.",
+          "So where are all the sales happening if not at stores?",
+          "Today consumers are not only using one channel to shop, they are engaged with retailers through several touchpoints."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But the reality?",
+        "options": [
+          "Every retail store is different in size, capacity, resources, location, and accessibility.",
+          "But the reality is that there are a large number of medium-sized retailers who are yet to concur with the technology landscape and build effective retail businesses to compete with mega-retailers.",
+          "The brick-and-mortar stores are long gone and retailers like Amazon, Walmart have made the shopping experience so simple that you just have to press a button to refill your essential items.",
+          "The architectures are based on an analysis of the projected retail landscape influenced by changing customer behaviors, evolving stores, omnichannel experiences, and demands for same-day delivery of consumers."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Irrespective of whether you are a large retail chain like Walmart, The Home Depot, Walgreens, Marks & Spencer, Carrefour, a medium-chain or a mom-and-pop retail store in the locality, all retailers are equally challenged by shifts in consumer behavior, growth of personal computing devices, developments in technology and other changes in the past few decades."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Each retail enterprise is different from a business perspective; in the simplest instance, Walmart competes in the market on the lowest price strategy and appeals to mass markets."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But the reality is different in size, capacity, resources, location, and accessibility."
+      },
+      "answerKey": false
+    }
+  ]
+}

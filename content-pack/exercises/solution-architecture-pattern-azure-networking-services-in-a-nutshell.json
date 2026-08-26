@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-azure-networking-services-in-a-nutshell",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "As depicted in the above figure, _____ cover the full spectrum of connectivity between services spanning from service delivery, application security, intra/inter networking to the monitoring of the services.",
+        "options": [
+          "Figure",
+          "Microsoft Azure",
+          "These",
+          "Azure networking services"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is critical when using cloud services since these resources are hosted all over the internet.",
+        "options": [
+          "Microsoft Azure",
+          "These",
+          "These services make sure that applications",
+          "User experience"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are delivered to consumers with better performance without any jitter.",
+        "options": [
+          "These",
+          "These services make sure that applications",
+          "User experience",
+          "Figure"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Azure networking services in a nutshell",
+        "options": [
+          "These services make sure that applications",
+          "Figure",
+          "Azure networking services",
+          "Microsoft Azure"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Microsoft Azure",
+          "User experience",
+          "Figure",
+          "These services make sure that applications"
+        ],
+        "pairsRight": [
+          "User experience is critical when using cloud services since these resources are hosted all over the internet.",
+          "Figure: Azure networking services in a nutshell",
+          "Microsoft Azure is one of the up and coming cloud service providers that can be used to host your applications in the cloud.",
+          "These services make sure that applications are delivered to consumers with better performance without any jitter."
+        ]
+      },
+      "answerKey": [
+        2,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Azure networking services?",
+        "options": [
+          "User experience is critical when using cloud services since these resources are hosted all over the internet.",
+          "Microsoft Azure is one of the up and coming cloud service providers that can be used to host your applications in the cloud.",
+          "As depicted in the above figure, azure networking services cover the full spectrum of connectivity between services spanning from service delivery, application security, intra/inter networking to the monitoring of the services.",
+          "Figure: Azure networking services in a nutshell"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is User experience?",
+        "options": [
+          "Figure: Azure networking services in a nutshell",
+          "These services make sure that applications are delivered to consumers with better performance without any jitter.",
+          "These are the services that are used to build the connectivity between components within the cloud as well as outside the cloud.",
+          "User experience is critical when using cloud services since these resources are hosted all over the internet."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is These services make sure that applications?",
+        "options": [
+          "Figure: Azure networking services in a nutshell",
+          "Microsoft Azure is one of the up and coming cloud service providers that can be used to host your applications in the cloud.",
+          "These are the services that are used to build the connectivity between components within the cloud as well as outside the cloud.",
+          "These services make sure that applications are delivered to consumers with better performance without any jitter."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "As depicted in the above figure, azure networking services cover the full spectrum of connectivity between services spanning from service delivery, application security, intra/inter networking to the monitoring of the services."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "These services make sure that applications are delivered to consumers with better performance without any jitter."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Azure networking services is one of the up and coming cloud service providers that can be used to host your applications in the cloud."
+      },
+      "answerKey": false
+    }
+  ]
+}

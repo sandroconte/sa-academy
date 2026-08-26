@@ -1,0 +1,134 @@
+{
+  "id": "solution-architecture-pattern-cloud-application-security-pattern",
+  "subjectId": "solution-architecture",
+  "kind": "pattern",
+  "category": "vendor-specific",
+  "slug": "cloud-application-security-pattern",
+  "title": "Cloud Application Security Pattern",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Cloud Application Security Pattern"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Introduction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases. There are many cloud software service providers who is dominating the respective technology area."
+    },
+    {
+      "type": "paragraph",
+      "text": "With the introduction of more and more cloud based applications, user management within the enterprise will become challenging. Here are some of the challenges"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Different cloud applications have different mechanisms to authenticate users",
+        "Remembering different username/password pairs for different applications will be cumbersome to the users",
+        "Different applications will need different levels of security (2FA, SSO)",
+        "Keeping user profiles within each application will be hard to maintain"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Using a centralized Identity Provider (IdP) is the solution to address the above challenges and come up with a user-friendly, scalable experience to identity admins as well as users."
+    },
+    {
+      "type": "image",
+      "url": "../images/Cloud-Application-Security-Pattern.png",
+      "alt": "Cloud-Application-Security-Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "As depicted in the above figure, cloud applications are configured within the WSO2 Identity Server (or any IdP) as service providers. Based on the authentication mechanism supported by the relevant application (e.g. SAML2, OIDC, WS-Federation), WSO2 IS can be configured. In the meantime, WSO2 IS needs to be configured as an Identity Provider within the relevant cloud application side. Once these settings are done, when a user tries to log into the respective cloud application, it will be redirected to the WSO2 IS authentication endpoint. Now users can provide the credentials which are stored within the enterprise user store (AD, LDAP, JDBC) which is connected with the WSO2 IS."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Advantages"
+    },
+    {
+      "type": "paragraph",
+      "text": "With the above mentioned architecture, enterprises will be able to reap the following benefits."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Enterprise users can be centrally managed regardless of whether they sit within the enterprise or outside the enterprise",
+        "Applications can have their own authentication protocols and connect with the WSO2 IS for authentication",
+        "Different applications can be enabled with Single-Sign-On so that users don't need to log into multiple applications"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Additional reading"
+    },
+    {
+      "type": "paragraph",
+      "text": "WSO2 Identity Server Documentation"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Introduction"
+    },
+    {
+      "title": "Architecture"
+    },
+    {
+      "title": "Advantages"
+    },
+    {
+      "title": "Additional reading"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Introduction",
+      "definition": "With the introduction of more and more cloud based applications, user management within the enterprise will become challenging."
+    },
+    {
+      "term": "Architecture",
+      "definition": "With the above mentioned architecture, enterprises will be able to reap the following benefits."
+    },
+    {
+      "term": "Advantages",
+      "definition": null
+    },
+    {
+      "term": "Additional reading",
+      "definition": null
+    },
+    {
+      "term": "Enterprises",
+      "definition": "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases."
+    },
+    {
+      "term": "There",
+      "definition": "There are many cloud software service providers who is dominating the respective technology area."
+    },
+    {
+      "term": "Here",
+      "definition": "Here are some of the challenges"
+    },
+    {
+      "term": "Once these settings",
+      "definition": "Once these settings are done, when a user tries to log into the respective cloud application, it will be redirected to the WSO2 IS authentication endpoint."
+    },
+    {
+      "term": "Now users can provide the credentials which",
+      "definition": "Now users can provide the credentials which are stored within the enterprise user store (AD, LDAP, JDBC) which is connected with the WSO2 IS."
+    }
+  ]
+}

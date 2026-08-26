@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-centralized-identity-access-management-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is critical when managing the security of these applications since adding, modifying, deleting users across multiple systems can be a cumbersome process which will cause many human errors.",
+        "options": [
+          "Here",
+          "There",
+          "User management functionality",
+          "Since authentication"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are cloud based while others are on-premise based.",
+        "options": [
+          "Once the authentication and authorization",
+          "The above mentioned applications",
+          "Some",
+          "When there"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a list of the most popular IAM platforms.",
+        "options": [
+          "Authentication and authorization capabilities",
+          "Figure 1",
+          "Here",
+          "There"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are open source and some are proprietary.",
+        "options": [
+          "Some",
+          "Figure 2",
+          "Once the authentication and authorization",
+          "Some of them"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Once the authentication and authorization",
+          "When there",
+          "Since authentication",
+          "There"
+        ],
+        "pairsRight": [
+          "Since authentication is a commodity functionality which needs to be implemented in a standard manner, it is moved into the IAM platform.",
+          "Once the authentication and authorization is moved out of the back end services implementation, there should be a component which is going to enforce the authorization.",
+          "There are many Identity and Access Management (IAM) solutions available in the market.",
+          "When there are more and more systems, integrating these systems with each other is an essential part of enterprise architecture which can be achieved with a proper integration platform."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is User management functionality?",
+        "options": [
+          "Some of them are open source and some are proprietary.",
+          "User management functionality is critical when managing the security of these applications since adding, modifying, deleting users across multiple systems can be a cumbersome process which will cause many human errors.",
+          "Some are cloud based while others are on-premise based.",
+          "Since authentication is a commodity functionality which needs to be implemented in a standard manner, it is moved into the IAM platform."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Some?",
+        "options": [
+          "The above mentioned applications are developed by different vendors and they have their own mechanisms of securing the applications.",
+          "Some are cloud based while others are on-premise based.",
+          "There are many Identity and Access Management (IAM) solutions available in the market.",
+          "Figure 1: Application security implementation in a traditional enterprise"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "Enterprises are strengthening their IT capacity by bringing in more and more software solutions into the system.",
+          "Authentication and authorization capabilities are required by each and every application running in your enterprise.",
+          "Once the authentication and authorization is moved out of the back end services implementation, there should be a component which is going to enforce the authorization.",
+          "Here is a list of the most popular IAM platforms."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Enterprises are strengthening their IT capacity by bringing in more and more software solutions into the system."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1: Application security implementation in a traditional enterprise"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Some of them is moved out of the back end services implementation, there should be a component which is going to enforce the authorization."
+      },
+      "answerKey": false
+    }
+  ]
+}

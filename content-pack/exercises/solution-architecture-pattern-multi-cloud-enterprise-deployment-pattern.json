@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are expanding their IT operations to match with the consumer demand and to become the leader in their respective industries.",
+        "options": [
+          "While there",
+          "Usage Patterns",
+          "Enterprises",
+          "Maintaining a multi cloud deployment"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not a trivial task.",
+        "options": [
+          "But the market has been changed and there",
+          "Usage Patterns",
+          "Maintaining a multi cloud deployment",
+          "Multi-cloud strategy"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Given below is a high level solutions _____ on how you can deploy your applications within a multi cloud environment.",
+        "options": [
+          "Architecture",
+          "Usage Patterns",
+          "But the market has been changed and there",
+          "Enterprises"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are many advantages in the multi cloud strategy, there are challenges which needs to be properly managed.",
+        "options": [
+          "Maintaining a multi cloud deployment",
+          "While there",
+          "Enterprises",
+          "Architecture"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Maintaining a multi cloud deployment",
+          "Architecture",
+          "But the market has been changed and there",
+          "Here"
+        ],
+        "pairsRight": [
+          "Given below is a high level solutions architecture on how you can deploy your applications within a multi cloud environment.",
+          "But the market has been changed and there are many other vendors who offers cloud infrastructure at a competitive price.",
+          "Maintaining a multi cloud deployment is not a trivial task.",
+          "Here are few advantages."
+        ]
+      },
+      "answerKey": [
+        2,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Enterprises?",
+        "options": [
+          "While there are many advantages in the multi cloud strategy, there are challenges which needs to be properly managed.",
+          "But the market has been changed and there are many other vendors who offers cloud infrastructure at a competitive price.",
+          "Enterprises are expanding their IT operations to match with the consumer demand and to become the leader in their respective industries.",
+          "Here are few advantages."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Maintaining a multi cloud deployment?",
+        "options": [
+          "Here are few advantages.",
+          "While there are many advantages in the multi cloud strategy, there are challenges which needs to be properly managed.",
+          "While there are many advantages in the multi cloud strategy, there are challenges which needs to be properly managed.",
+          "Maintaining a multi cloud deployment is not a trivial task."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Architecture?",
+        "options": [
+          "Given below is a high level solutions architecture on how you can deploy your applications within a multi cloud environment.",
+          "While there are many advantages in the multi cloud strategy, there are challenges which needs to be properly managed.",
+          "Here are some of the usage patterns.",
+          "Given below is a high level solutions architecture on how you can deploy your applications within a multi cloud environment."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here are few advantages."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Maintaining a multi cloud deployment is not a trivial task."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Given below is a high level solutions Given below on how you can deploy your applications within a multi cloud environment."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-graphql-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is similar to a database query where we request only the required information.",
+        "options": [
+          "This",
+          "But this",
+          "The above 3 patterns",
+          "Solution Architecture Patterns"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The intention of this post is to discuss possible _____ that can be used to implement systems with GraphQL.",
+        "options": [
+          "Solution Architecture Patterns",
+          "GraphQL",
+          "This",
+          "The above 3 patterns"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are the standard GraphQL patterns recommended by the GraphQL community.",
+        "options": [
+          "That",
+          "The intention of this post",
+          "The above 3 patterns",
+          "Solution Architecture Patterns"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is more or less a foundation article on building real-world systems with GraphQL specification.",
+        "options": [
+          "This article",
+          "That",
+          "This",
+          "Solution Architecture Patterns"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "But this",
+          "These",
+          "Solution Architecture Patterns",
+          "This"
+        ],
+        "pairsRight": [
+          "But this is not scalable with the changing demands from customers and the business.",
+          "This is similar to a database query where we request only the required information.",
+          "The intention of this post is to discuss possible solution architecture patterns that can be used to implement systems with GraphQL.",
+          "These are not the only patterns and there can be more and more patterns evolved with the time."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "GraphQL is becoming popular in the tech industry as a replacement for REST.",
+          "This is similar to a database query where we request only the required information.",
+          "The intention of this post is to discuss possible solution architecture patterns that can be used to implement systems with GraphQL.",
+          "But this is not scalable with the changing demands from customers and the business."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Solution Architecture Patterns?",
+        "options": [
+          "These are not the only patterns and there can be more and more patterns evolved with the time.",
+          "The intention of this post is to discuss possible solution architecture patterns that can be used to implement systems with GraphQL.",
+          "This is similar to a database query where we request only the required information.",
+          "This article is more or less a foundation article on building real-world systems with GraphQL specification."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The above 3 patterns?",
+        "options": [
+          "The intention of this post is to discuss possible solution architecture patterns that can be used to implement systems with GraphQL.",
+          "But this is not scalable with the changing demands from customers and the business.",
+          "These are not the only patterns and there can be more and more patterns evolved with the time.",
+          "The above 3 patterns are the standard GraphQL patterns recommended by the GraphQL community."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is similar to a database query where we request only the required information."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The intention of this post is to discuss possible solution architecture patterns that can be used to implement systems with GraphQL."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But this is why it is called as GraphQL."
+      },
+      "answerKey": false
+    }
+  ]
+}

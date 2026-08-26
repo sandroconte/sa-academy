@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-integration-platform-selection-guide",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are deployed in a microservices type of architecture with each service having its own API gateways, that sort of architecture should be supported by the integration platform.",
+        "options": [
+          "The selection of the underlying infrastructure layer",
+          "If those components",
+          "But it",
+          "Most of the IT teams across the enterprise"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the deployment model of the platform.",
+        "options": [
+          "This list shows that there",
+          "If those components",
+          "Once the functional components",
+          "The next thing that we should consider"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are called stream processing or streaming integrations.",
+        "options": [
+          "Sometimes these use cases",
+          "These high-level requirements",
+          "More and more business use cases in the enterprise world",
+          "One thing to consider here"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are in the process of selecting an integration platform for your enterprise, you should look at the most related functional requirements and architecture considerations mentioned in the article.",
+        "options": [
+          "If you",
+          "Developer Experience",
+          "Sometimes these use cases",
+          "A new set of event-driven use cases"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "One advantage of this approach",
+          "This list shows that there",
+          "This sort of integration",
+          "One drawback with this approach"
+        ],
+        "pairsRight": [
+          "One advantage of this approach is that the system has the highest level of flexibility in terms of customizations that are required for the specific customer.",
+          "This list shows that there are a certain number of aspects we need to consider when choosing the right platform for your integration needs.",
+          "This sort of integration is called hybrid integration.",
+          "One drawback with this approach is that the flexibility in terms of customization is very since this is a shared infrastructure."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is If those components?",
+        "options": [
+          "More and more business use cases in the enterprise world are built around handling large amounts of data.",
+          "If those components are deployed in a microservices type of architecture with each service having its own API gateways, that sort of architecture should be supported by the integration platform.",
+          "The next thing that we should consider is the deployment model of the platform.",
+          "Given below is a list of such capabilities available in an integration platform."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The next thing that we should consider?",
+        "options": [
+          "This sort of integration is called hybrid integration.",
+          "The next thing that we should consider is the deployment model of the platform.",
+          "But it is the role of the architect to design the solution so that it can be deployed in any infrastructure without much issue.",
+          "Sometimes these use cases are called stream processing or streaming integrations."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Sometimes these use cases?",
+        "options": [
+          "The above architecture is an extension of the API-led architecture that we discussed in earlier sections.",
+          "Once the functional components are divided into compatible yet independent modules, the deployment becomes much more flexible.",
+          "The selection of the underlying infrastructure layer is totally up to the respective organization.",
+          "Sometimes these use cases are called stream processing or streaming integrations."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "If you are in the process of selecting an integration platform for your enterprise, you should look at the most related functional requirements and architecture considerations mentioned in the article."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "These high-level requirements are fulfilled with a set of functional capabilities available in those integration platforms."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The only thing you require is designed to provide the best of both worlds in terms of flexibility and the management of the infrastructure."
+      },
+      "answerKey": false
+    }
+  ]
+}

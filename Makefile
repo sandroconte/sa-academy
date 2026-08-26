@@ -14,8 +14,8 @@ DATE_UTC    := $(shell date -u +%FT%TZ)
 
 .DEFAULT_GOAL := help
 .PHONY: help install pack build build-pipeline build-web test test-pipeline test-client \
-        verify typecheck run-web run-ios run-android device serve-pack deploy-web \
-        publish-pack clean distclean
+        verify typecheck run-web run-ios run-android device release-android serve-pack \
+        deploy-web publish-pack clean distclean
 
 help: ## Show available targets
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -79,6 +79,28 @@ device: ## Physical device via Expo Go (uses LAN IP; same Wi-Fi required)
 	@if [ -z "$(LAN_IP)" ]; then echo "No LAN IP found on en0 — set it manually."; exit 1; fi
 	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://$(LAN_IP):$(PACK_PORT) npx expo start
 	@echo "Scan the QR with Expo Go — pack base: http://$(LAN_IP):$(PACK_PORT)"
+
+# Standalone APK install on a connected device (no Expo Go / dev server).
+# Builds the native project once, then installs via adb.
+# ANDROID_VARIANT defaults to debug (no signing); set release to build a signed release.
+ANDROID_VARIANT ?= debug
+export ANDROID_HOME := $(shell for p in "$(ANDROID_HOME)" "$$HOME/Library/Android/sdk" "$$HOME/Android/Sdk" "$$HOME/android-sdk"; do [ -d "$$p" ] && { echo "$$p"; break; }; done)
+ifeq ($(ANDROID_VARIANT),release)
+ANDROID_TASK := assembleRelease
+else
+ANDROID_TASK := assembleDebug
+endif
+ANDROID_APK_DIR  := $(CLIENT_DIR)/android/app/build/outputs/apk/$(ANDROID_VARIANT)
+ANDROID_APK      := $(ANDROID_APK_DIR)/app-$(ANDROID_VARIANT).apk
+
+release-android: ## Build standalone APK and install on a connected Android device (no Expo)
+	@command -v adb >/dev/null 2>&1 || { echo "adb not found in PATH"; exit 1; }
+	@if [ -z "$(ANDROID_HOME)" ]; then echo "Android SDK not found — set ANDROID_HOME"; exit 1; fi
+	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=$(PACK_BASE) npx expo prebuild --platform android --clean
+	@test -f $(CLIENT_DIR)/android/local.properties || echo "sdk.dir=$(ANDROID_HOME)" > $(CLIENT_DIR)/android/local.properties
+	cd $(CLIENT_DIR)/android && ./gradlew $(ANDROID_TASK) && \
+	adb install -r $(ANDROID_APK)
+	@echo "Installed $(ANDROID_APK) on connected device"
 
 # ---------------------------------------------------------------- deploy -----
 

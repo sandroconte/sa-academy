@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-enterprise-cicd-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-enterprise-cicd-pattern-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "The developers use an IDE or a code/configuration editor to make the change to the source code or a configuration file. It is advisable to use a configuration change to apply any change in the binary (e.g. patch, update or upgrade). Users can keep a configuration file with binary timestamp. When there is a new binary, modifying this timestamp will trigger the process.",
+          "The change in the source repository triggers a process in the CI server and it builds the developed artefacts. These artefacts are deployed into a artefact repository like nexus.",
+          "CI server will trigger another process to run the configuration management tool and create a runtime with environment specific parameters and artefacts blended into the binariesalong with the configurations. This runtime is then packaged into a docker image."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-cicd-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The below list contains a few types which are used within enterprise."
+      },
+      "answerKey": true
+    }
+  ]
+}

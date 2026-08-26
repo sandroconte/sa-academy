@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-digital-health-platform-open-source-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Digital Health Platform — Open Source reference architecture",
+        "options": [
+          "Once these tests",
+          "But there",
+          "Figure 5",
+          "The other aspect of bringing this sort of digital platform"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Healthcare ecosystem stakeholders",
+        "options": [
+          "Here",
+          "Figure 2",
+          "The other aspect of bringing this sort of digital platform",
+          "Figure 1"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not about where to find the best healthcare systems or how much it will cost you to buy health insurance.",
+        "options": [
+          "But there",
+          "Figure 1",
+          "This post",
+          "Once these tests"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are only accessible by authorized people — These special units which need minimum interaction from external people.",
+        "options": [
+          "Figure 2",
+          "This layer",
+          "This",
+          "Special internal facilities which"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Figure 3",
+          "Here",
+          "One of the fundamental aspects of the information exchange",
+          "This"
+        ],
+        "pairsRight": [
+          "Figure 3: Hospital information exchange",
+          "Here are some of the high-level advantages",
+          "One of the fundamental aspects of the information exchange is to decide the nature of the exchange.",
+          "This is a realtime information exchange scenario where the user needs access to patient data at that moment."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 5?",
+        "options": [
+          "Figure 5: Digital Health Platform — Open Source reference architecture",
+          "With the introduction of an API-driven, digital information system, the efficiency of the healthcare ecosystem can be improved in multitudes.",
+          "Building such a platform is a challenging and costly operation in reality.",
+          "Intermediate units which are accessible only by allowed people — These units can only be accessed through people with a relevant access card."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 1?",
+        "options": [
+          "The other aspect of bringing this sort of digital platform is to align people towards this technology and evangelize the idea and the advantages as much as possible.",
+          "Figure 1: Healthcare ecosystem stakeholders",
+          "This layer is supported by the presentation API layer which exposes data that needs to be accessed in a synchronous manner.",
+          "But there are open source technologies available in the software industry that can be used to build this sort of a platform step by step without spending loads of money."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This post?",
+        "options": [
+          "This is a realtime information exchange scenario where the user needs access to patient data at that moment.",
+          "Another common use case is that the patients are sent to laboratories to get various tests done.",
+          "This post is not about where to find the best healthcare systems or how much it will cost you to buy health insurance.",
+          "That becomes a chicken-and-egg problem if you are going to execute in that manner."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "One of the key things happen within the wards is doctors visiting each and every patient (called as ward round)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is a realtime information exchange scenario where the user needs access to patient data at that moment."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Another common use case are some of the high-level advantages"
+      },
+      "answerKey": false
+    }
+  ]
+}

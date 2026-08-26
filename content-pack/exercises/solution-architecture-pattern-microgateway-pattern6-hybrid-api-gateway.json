@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is what exactly the hybrid API gateway pattern provides."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Hybrid API gateway pattern is what exactly the hybrid API gateway pattern provides."
+      },
+      "answerKey": false
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway-truefalse-3",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This: Hybrid API gateway pattern"
+      },
+      "answerKey": false
+    }
+  ]
+}

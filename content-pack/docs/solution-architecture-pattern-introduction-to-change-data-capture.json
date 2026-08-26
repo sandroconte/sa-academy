@@ -1,0 +1,456 @@
+{
+  "id": "solution-architecture-pattern-introduction-to-change-data-capture",
+  "subjectId": "solution-architecture",
+  "kind": "pattern",
+  "category": "vendor-neutral",
+  "slug": "introduction-to-change-data-capture",
+  "title": "change-data-capture",
+  "readingMin": 7,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The motivation behind CDC"
+    },
+    {
+      "type": "paragraph",
+      "text": "Applications start with a small data footprint. Initially, a single database fulfils every data need of the application. When applications evolve, they need to support different data models and data access patterns. For example, they might need a search index to perform full-text searches, a cache to speed up the reads, and a data warehouse for complex analytics on data. Eventually, that simple architecture evolves into something like this."
+    },
+    {
+      "type": "image",
+      "url": "./images/cdc-intro.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "text": "Practically speaking, no one database can satisfy all those needs simultaneously. Consequently, applications have to use different data storage technologies such as indexes, caches, and warehouses together in their architecture. That forces them to keep their data in multiple places, in a redundant and denormalised manner."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Systems of Records and derived data"
+    },
+    {
+      "type": "paragraph",
+      "text": "When you have multiple versions of the same data set, you need to appoint one as the source of truth, or the authoritative version. That means, when there’s a discrepancy across versions, the source of truth will be accepted as the correct one. This version is often called Systems of Records data or source data."
+    },
+    {
+      "type": "paragraph",
+      "text": "The very first time a user creates data, it is captured into Systems of Records. For example, when a customer creates an order, it is first stored in the orders database."
+    },
+    {
+      "type": "paragraph",
+      "text": "Other systems can take source data, apply transformations, and store with own representations to serve different purposes. This data is called Derived Data — which is often redundant and in denormalised form. If you lose derived data, you can recreate it from the source."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Source data and derived data need to be synchronised"
+    },
+    {
+      "type": "paragraph",
+      "text": "Source data and derived data should not be kept in silos. They have to be synchronised to preserve consistency across the application. If we go back to our original example, a change made in the database has to be reflected in the search index, the cache, and ultimately in the warehouse. So there should be a way of capturing the changes done to the source data system and propagating them to derived data systems in a reliable and scalable manner. That paves the road for Change Data Capture."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Change Data Capture (CDC)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Process of observing all data changes written to a database and extracting them in a form in which they can be replicated to derived data systems."
+    },
+    {
+      "type": "paragraph",
+      "text": "Although the term CDC is relatively new, the underlying concept was there in the industry as database replication and ETL(Extract Transform Load). These approaches tend to be complex, required expensive licensing, and too slow. Hence, organisations were on the lookout for a real-time, event-driven way to synchronise source and target data systems."
+    },
+    {
+      "type": "paragraph",
+      "text": "The CDC process has three stages."
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Change detection",
+        "Change capture",
+        "Change propagation"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Change detection methods"
+    },
+    {
+      "type": "paragraph",
+      "text": "There are few options to detect the changes done to the source database."
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Polling the LAST_UPDATED column of tables periodically to detect changes.",
+        "Database triggers to capture row-level operations.",
+        "Watch the database transaction log for changes."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Polling is slow; it puts more load on the source database. Also, the implementation requires you to add dedicated columns to the source. Triggers deliver the results in real-time. But they are resource-intensive and can drag the database."
+    },
+    {
+      "type": "paragraph",
+      "text": "Watching the transaction log of the database is fast and does not impose a performance impact. Many CDC systems today have adopted this approach for their implementations."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How does a log-based CDC system work?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Users and applications make changes to the source database in terms of inserts, updates, and deletes. The database records these changes in the transaction log in the order of their occurrence."
+    },
+    {
+      "type": "paragraph",
+      "text": "CDC system watches the transaction log for any changes and propagates them into the target system while preserving the change order. The target system then replays the changes to update its internal state."
+    },
+    {
+      "type": "image",
+      "url": "./images/cdc-conceptual-view.png",
+      "alt": ""
+    },
+    {
+      "type": "paragraph",
+      "text": "In the above figure, Client 1 and client 2 update the value of X in two transactions. The transaction log records the changes. Eventually, the CDC system picks up the changes, delivers them to the destination so that the changes can be replayed to target systems."
+    },
+    {
+      "type": "paragraph",
+      "text": "That looks straightforward in theory. But designing a production-grade CDC system requires prior thinking in terms of scalability, reliability, and extensibility."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Requirements for a production-grade CDC system"
+    },
+    {
+      "type": "paragraph",
+      "text": "A production-grade CDC system should satisfy the following needs."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Message ordering guarantee — The order of changes MUST BE preserved so that they are propagated to the target systems as is.",
+        "Pub/sub — Should support asynchronous, pub/sub style change propagation to consumers.",
+        "Reliable and resilient delivery — At-leat-once delivery of changes. Cannot tolerate a message loss.",
+        "Message transformation support — Should support light-weight message transformations as the event payload need to match with the target system’s input format."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Making it event-driven"
+    },
+    {
+      "type": "paragraph",
+      "text": "Event-Driven Architecture (EDA) seems an ideal fit to achieve the above system requirements. EDA brings to the table the asynchrony, loose coupling, and scalability. By combing the EDA features, we can rethink the CDC architecture as follows."
+    },
+    {
+      "type": "image",
+      "url": "./images/cdc-architecture.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "1. Change event generation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The transaction log mining component captures the changes from the source database. It converts them into events and publishes them to the message bus. That happens in real-time while changes are made to the source database. Each event is timestamped and contains only a single change. The format of a typical change event would look like the following."
+    },
+    {
+      "type": "image",
+      "url": "./images/cdc-maxwell-event-format.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "2. Change event ingestion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Change events are then written to the message bus. It provides highly scalable, and reliable change event storage while preserving the order of received events. Also, depending on the implementation, the message bus can provide at-least-once or exactly-once delivery guarantees."
+    },
+    {
+      "type": "paragraph",
+      "text": "Change events are usually written to a topic so that any interested consumers can subscribe to receive updates."
+    },
+    {
+      "type": "paragraph",
+      "text": "A message broker like RabbitMQ or ActiveMQ can provide transient event storage while a streaming platform such as Kafka or Kinesis provides a durable event streaming capability. Choosing either of them should be use case driven. You can refer to my earlier post about their difference."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "3. Change event propagation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Any downstream application can subscribe to the above topic to receive change events. Usually, an intermediate component consumes the events, applies a light-weight transformation to the event payload, and publishes it to the target system. For example, a connector reads events from the topic, applies transformation, and updates a search index."
+    },
+    {
+      "type": "paragraph",
+      "text": "Depending on the use case, consumers can do event-driven consumption or streaming consumption."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Advantages"
+    },
+    {
+      "type": "paragraph",
+      "text": "The event-driven CDC approach adds the following benefits over traditional ETL and polling-based solutions."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Changes are detected, captured, and propagated in real-time as they happen. That enables downstream consumers to act upon changes quickly. Compared to traditional batch-oriented systems, that is a huge gain.",
+        "The loosely coupled nature allows adding or removing components to the architecture with minimum impact. Source and target systems can be upgraded or replaced without affecting each other.",
+        "The message bus in the middle provides reliable delivery of change events. Also, it can buffer incoming events if the rate of event production is higher than consumption. That will be beneficial for slow consumers.",
+        "Unlike polling and trigger-based methods, no performance impact on the source system."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Use cases"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cache invalidation",
+        "Search index building",
+        "Database migration (version upgrade, migrate to a different vendor, on-premise to the cloud)",
+        "Offline analytical processing",
+        "Data synchronisation in Microservices"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tools in the market"
+    },
+    {
+      "type": "paragraph",
+      "text": "There are both open source and commercial tools available in the CDC market. Many open-source tools are flexible enough to co-exist with popular messing systems and target systems whereas commercial tools sometimes ask you to buy their entire platform."
+    },
+    {
+      "type": "paragraph",
+      "text": "Mentioned below are some renowned open-source tools in the market."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Debezium"
+    },
+    {
+      "type": "paragraph",
+      "text": "Debezium is an open-source CDC platform built on top of Apache Kafka. Debezium has connectors to pull a change stream from databases like PostgreSQL, MySQL, MongoDB, Cassandra, and send that to Kafka. Kafka Connect is used as connectors for change detection and propagation. Even though Debezium utilises Kafka in its architecture, it offers other deployment options to cater to different infrastructure needs. Debezium can be used as a standalone server (with Debezium server), or you can embed it into your application code as a library. Visit here for more information on that."
+    },
+    {
+      "type": "image",
+      "url": "./images/cdc-debezium-architecture.png",
+      "alt": ""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Maxwell"
+    },
+    {
+      "type": "paragraph",
+      "text": "Maxwell reads MySQL binlogs and writes row updates as JSON to Kafka, Kinesis, or other streaming platforms. Maxwell has low operational overhead, requiring nothing but MySQL and a place to write."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Conclusion"
+    },
+    {
+      "type": "paragraph",
+      "text": "When applications evolve, the way they access and process data changes. That forces them to keep data in multiple places in different formats to serve unique purposes. A problem arises when these data need to be synchronised."
+    },
+    {
+      "type": "paragraph",
+      "text": "An event-driven, real-time CDC system allows source database changes to capture and propagated to target systems as they happen. That enables downstream systems to react to them without delays."
+    },
+    {
+      "type": "paragraph",
+      "text": "When choosing a CDC tool, you should pay attention to the throughput it can offer and the flexibility to work with different source and target systems."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "References"
+    },
+    {
+      "type": "paragraph",
+      "text": "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems — Martin Kleppmann"
+    }
+  ],
+  "sections": [
+    {
+      "title": "The motivation behind CDC"
+    },
+    {
+      "title": "Change Data Capture (CDC)"
+    },
+    {
+      "title": "How does a log-based CDC system work?"
+    },
+    {
+      "title": "Requirements for a production-grade CDC system"
+    },
+    {
+      "title": "Making it event-driven"
+    },
+    {
+      "title": "Advantages"
+    },
+    {
+      "title": "Use cases"
+    },
+    {
+      "title": "Tools in the market"
+    },
+    {
+      "title": "Conclusion"
+    },
+    {
+      "title": "References"
+    }
+  ],
+  "terms": [
+    {
+      "term": "The motivation behind CDC",
+      "definition": null
+    },
+    {
+      "term": "Change Data Capture (CDC)",
+      "definition": null
+    },
+    {
+      "term": "How does a log-based CDC system work?",
+      "definition": null
+    },
+    {
+      "term": "Requirements for a production-grade CDC system",
+      "definition": null
+    },
+    {
+      "term": "Making it event-driven",
+      "definition": null
+    },
+    {
+      "term": "Advantages",
+      "definition": null
+    },
+    {
+      "term": "Use cases",
+      "definition": null
+    },
+    {
+      "term": "Tools in the market",
+      "definition": "Mentioned below are some renowned open-source tools in the market."
+    },
+    {
+      "term": "Conclusion",
+      "definition": null
+    },
+    {
+      "term": "References",
+      "definition": null
+    },
+    {
+      "term": "source of truth",
+      "definition": "When you have multiple versions of the same data set, you need to appoint one as the source of truth, or the authoritative version."
+    },
+    {
+      "term": "observing all data changes",
+      "definition": "Process of observing all data changes written to a database and extracting them in a form in which they can be replicated to derived data systems."
+    },
+    {
+      "term": "database",
+      "definition": "Initially, a single database fulfils every data need of the application."
+    },
+    {
+      "term": "extracting",
+      "definition": "Process of observing all data changes written to a database and extracting them in a form in which they can be replicated to derived data systems."
+    },
+    {
+      "term": "derived data systems",
+      "definition": "So there should be a way of capturing the changes done to the source data system and propagating them to derived data systems in a reliable and scalable manner."
+    },
+    {
+      "term": "This version",
+      "definition": "This version is often called Systems of Records data or source data."
+    },
+    {
+      "term": "This data",
+      "definition": "This data is called Derived Data — which is often redundant and in denormalised form."
+    },
+    {
+      "term": "Although the term CDC",
+      "definition": "Although the term CDC is relatively new, the underlying concept was there in the industry as database replication and ETL(Extract Transform Load)."
+    },
+    {
+      "term": "There",
+      "definition": "There are few options to detect the changes done to the source database."
+    },
+    {
+      "term": "Polling",
+      "definition": "Polling is slow; it puts more load on the source database."
+    },
+    {
+      "term": "But they",
+      "definition": "But they are resource-intensive and can drag the database."
+    },
+    {
+      "term": "Watching the transaction log of the database",
+      "definition": "Watching the transaction log of the database is fast and does not impose a performance impact."
+    },
+    {
+      "term": "That happens in real-time while changes",
+      "definition": "That happens in real-time while changes are made to the source database."
+    },
+    {
+      "term": "Each event",
+      "definition": "Each event is timestamped and contains only a single change."
+    },
+    {
+      "term": "Change events",
+      "definition": "Change events are then written to the message bus."
+    },
+    {
+      "term": "Many open-source tools",
+      "definition": "Many open-source tools are flexible enough to co-exist with popular messing systems and target systems whereas commercial tools sometimes ask you to buy their entire platform."
+    },
+    {
+      "term": "Mentioned below",
+      "definition": "Mentioned below are some renowned open-source tools in the market."
+    },
+    {
+      "term": "Debezium",
+      "definition": "Debezium is an open-source CDC platform built on top of Apache Kafka."
+    },
+    {
+      "term": "Kafka Connect",
+      "definition": "Kafka Connect is used as connectors for change detection and propagation."
+    },
+    {
+      "term": "Designing Data-Intensive Applications",
+      "definition": "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems — Martin Kleppmann"
+    }
+  ]
+}

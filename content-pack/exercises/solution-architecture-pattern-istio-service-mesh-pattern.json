@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-pattern-istio-service-mesh-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the \"Service Mesh\" which is a \"Network of microservices which are communicated with each other, with external systems over standard protocols\".",
+        "options": [
+          "The other scenario",
+          "The solution for this complex problem",
+          "When the request",
+          "When istio"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are successful only, the request will be sent to the envoy proxy on the helloworld service side.",
+        "options": [
+          "Architecture",
+          "Some of the concepts used here",
+          "If those policy checks",
+          "The solution for this complex problem"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are 2 kubernetes services depicted in the above picture.",
+        "options": [
+          "When istio",
+          "There",
+          "Once the Istio SM",
+          "The other scenario"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are exposed as kubernetes services, they can talk to each other using service name as host name.",
+        "options": [
+          "Once the Istio SM",
+          "When the two envoy proxies",
+          "Given that both services",
+          "Some of the concepts used here"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Some of the concepts used here",
+          "Architecture",
+          "When istio",
+          "When the two envoy proxies"
+        ],
+        "pairsRight": [
+          "When istio is started, it starts up a set of pods called \"ingress-gateway\" which can accept traffic coming from external clients.",
+          "When the two envoy proxies are communicated with each other over the network, proxy on the testservice pod will push some attributes to the mixer for runtime policy checks.",
+          "Microservices Architecture (MSA) has given enterprise architects many challenges while offering outweighing number of advantages.",
+          "Some of the concepts used here are directly related to kubernetes."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The solution for this complex problem?",
+        "options": [
+          "The solution for this complex problem is the \"Service Mesh\" which is a \"Network of microservices which are communicated with each other, with external systems over standard protocols\".",
+          "Microservices Architecture (MSA) has given enterprise architects many challenges while offering outweighing number of advantages.",
+          "This pod is then exposed as a kubernetes service.",
+          "Istio is a service mesh technology which supports both data plane and control plane functionality with a platform independent manner."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is If those policy checks?",
+        "options": [
+          "Microservices Architecture (MSA) has given enterprise architects many challenges while offering outweighing number of advantages.",
+          "When the request is made from testservice, it will first go through the envoy proxy within its pod and then connect to envoy proxy within the helloworld service and then it will be forwarded to the helloworld service.",
+          "If those policy checks are successful only, the request will be sent to the envoy proxy on the helloworld service side.",
+          "The other scenario is the most common case where an external application which resides outside the service mesh wanted to communicate with a microservice."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "Some of the concepts used here are directly related to kubernetes.",
+          "Once the Istio SM is up and running with the above mentioned components, let's see how the communication between different components happen.",
+          "When the two envoy proxies are communicated with each other over the network, proxy on the testservice pod will push some attributes to the mixer for runtime policy checks.",
+          "There are 2 kubernetes services depicted in the above picture."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Pilot - It provides functionalities like service discovery, configuration of error handling and routing",
+          "Mixer - Which collects attributes from envoy proxies and enforce policy checks and collect telemetry information. If you need to extend the functionality of the mixer, you can write a mixer adapter which can process this metadata and do additional policy enforcements and analytics",
+          "Galley - This is a tool which validated the istio configurations and inject them to proxies and distribute within the service mesh",
+          "Citadel - This provides the service to service security (mTLS) as well as end user authentication (JWT) capabilities"
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "When the request is made from testservice, it will first go through the envoy proxy within its pod and then connect to envoy proxy within the helloworld service and then it will be forwarded to the helloworld service."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This pod is then exposed as a kubernetes service."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The other scenario is a service mesh technology which supports both data plane and control plane functionality with a platform independent manner."
+      },
+      "answerKey": false
+    }
+  ]
+}

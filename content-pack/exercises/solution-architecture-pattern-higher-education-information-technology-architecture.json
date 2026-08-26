@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-higher-education-information-technology-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are vast differences in the way graduates are perceived by the industry based on where they are graduated from, at the fundamental level, most of these institutions (universities, colleges) do common things when it comes to providing education to their students which is the primary task of the institution.",
+        "options": [
+          "Even though there",
+          "The world-renown universities like Stanford",
+          "The domain of higher education",
+          "Once the platform"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to identify these common functions and build an information technology reference architecture that can be used in most of these institutions.",
+        "options": [
+          "As long as users",
+          "Even though education institutions",
+          "There",
+          "The intention of this writing"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are many other challenges related to modernization of the platform, but let’s keep those aside for the moment and focus on how to solve these first.",
+        "options": [
+          "There",
+          "This",
+          "Even though education institutions",
+          "Once the platform"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is going through a major evolution with the concept of “platform business” where online, digital platforms making huge impacts on the physical services.",
+        "options": [
+          "The domain of higher education",
+          "Once the information technology architecture",
+          "The world-renown universities like Stanford",
+          "The first step in solving any problem"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "User experience",
+          "Once the integration platform",
+          "The intention of this writing",
+          "Even though education institutions"
+        ],
+        "pairsRight": [
+          "User experience is an area that most of the people care about when it comes to growth.",
+          "The intention of this writing is to identify these common functions and build an information technology reference architecture that can be used in most of these institutions.",
+          "Once the integration platform is settled in, the next phase of the evolution is to think about managing users and their identities across systems.",
+          "Even though education institutions are a place where a lot of innovations originating from, it is not much innovative when it comes to change and progress in terms of technology adoption."
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Even though there?",
+        "options": [
+          "The intention of this writing is to identify these common functions and build an information technology reference architecture that can be used in most of these institutions.",
+          "This is about the supporting Information Technology (IT) ecosystem within these institutions.",
+          "Once the system is well integrated and secured, the next step is to expand it to wider audiences beyond the traditional enrolled students and staff members and go head on with the modern digital education platforms.",
+          "Even though there are vast differences in the way graduates are perceived by the industry based on where they are graduated from, at the fundamental level, most of these institutions (universities, colleges) do common things when it comes to providing education to their students which is the primary task of the institution."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The intention of this writing?",
+        "options": [
+          "As long as users are getting a better experience, growth will become less challenging for an organization.",
+          "The domain of higher education is going through a major evolution with the concept of “platform business” where online, digital platforms making huge impacts on the physical services.",
+          "Once the integration platform is settled in, the next phase of the evolution is to think about managing users and their identities across systems.",
+          "The intention of this writing is to identify these common functions and build an information technology reference architecture that can be used in most of these institutions."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "Once the information technology architecture is evolved and improved so that the institution can take on any challenges coming from the competition, next step is to take it to the next level and go ahead of the curve.",
+          "The first step in solving any problem is to understand that there is one.",
+          "The world-renown universities like Stanford are offering their courses and degrees through these digital learning platforms.",
+          "There are many other challenges related to modernization of the platform, but let’s keep those aside for the moment and focus on how to solve these first."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "User experience is an area that most of the people care about when it comes to growth."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Even though education institutions are a place where a lot of innovations originating from, it is not much innovative when it comes to change and progress in terms of technology adoption."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Once the system are many other challenges related to modernization of the platform, but let’s keep those aside for the moment and focus on how to solve these first."
+      },
+      "answerKey": false
+    }
+  ]
+}

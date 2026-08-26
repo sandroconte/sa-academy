@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not there yet, we are getting closer to see something similar in the real world.",
+        "options": [
+          "Some examples of such applications",
+          "The below figure depicts a solution architecture that",
+          "Even though the world",
+          "All these capabilities"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are living beings, some are similar vehicles and others are stationary objects.",
+        "options": [
+          "Some objects",
+          "The automotive industry",
+          "What this means",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a small portion of the various smart functions that can be executed in modern automobiles through the HMI.",
+        "options": [
+          "The above list",
+          "There",
+          "These events",
+          "It requires certain components that"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is used to expose certain details about the vehicle, driving patterns, service schedules, and maintenance activities via mobile phone or a web application.",
+        "options": [
+          "The same API Gateway",
+          "These events",
+          "The above figure depicts the high-level components that",
+          "The below figure depicts a solution architecture that"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The below figure depicts a solution architecture that",
+          "Solution Architecture",
+          "All these capabilities",
+          "The above list"
+        ],
+        "pairsRight": [
+          "The above list is a small portion of the various smart functions that can be executed in modern automobiles through the HMI.",
+          "The below figure depicts a solution architecture that is built using the previously mentioned BA.",
+          "All these capabilities are great additions to the vehicles and automobile manufacturers are putting a lot of effort to add more and more capabilities to the vehicle.",
+          "The below figure depicts a solution architecture that is built using the previously mentioned BA."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Even though the world?",
+        "options": [
+          "Even though the world is not there yet, we are getting closer to see something similar in the real world.",
+          "Figure: Automotive ecosystem business architecture",
+          "It requires certain components that are essential to support the edge computing resources.",
+          "The same API Gateway is used to expose certain details about the vehicle, driving patterns, service schedules, and maintenance activities via mobile phone or a web application."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Some objects?",
+        "options": [
+          "Some objects are living beings, some are similar vehicles and others are stationary objects.",
+          "These events are captured and processed in real-time by an event processor or a stream processor and generate actionable insights and store them for further analysis by AI & ML services.",
+          "The below figure depicts a solution architecture that is built using the previously mentioned BA.",
+          "The below figure depicts a solution architecture that is built using the previously mentioned BA."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The above list?",
+        "options": [
+          "Some objects are living beings, some are similar vehicles and others are stationary objects.",
+          "The above list is a small portion of the various smart functions that can be executed in modern automobiles through the HMI.",
+          "Even though the world is not there yet, we are getting closer to see something similar in the real world.",
+          "Some examples of such applications are Routing, Shopping, Restaurants, Weather."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Vehicles are moving objects that travel from point A to point B without colliding with other objects on the way."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Some examples of such applications are Routing, Shopping, Restaurants, Weather."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "In this section of the article, we expand the This that we came up with within the previous section and discuss each component in relation to existing technology solutions."
+      },
+      "answerKey": false
+    }
+  ]
+}

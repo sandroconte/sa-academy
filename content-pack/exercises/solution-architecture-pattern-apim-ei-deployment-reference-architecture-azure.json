@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is used for workers since it does heavy data processing as and when events are received from the gateways.",
+        "options": [
+          "Azure VM type of F4s v2",
+          "Each product and component",
+          "An availability set",
+          "When an NSG"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are deployed across multiple isolated hardware nodes in a cluster.",
+        "options": [
+          "If there",
+          "The services that",
+          "Availability Sets ensure that the Azure virtual machines",
+          "A subnet"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is designed so that it is deployed within a single AWS region.",
+        "options": [
+          "When an NSG",
+          "Availability Zone",
+          "The deployment",
+          "We recommended that two or more VMs"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is an open-source, enterprise middleware platform that offers software products for API Management, Integration and Identity, and Access Management.",
+        "options": [
+          "WSO2",
+          "A public subnet",
+          "VM of type F2s v2",
+          "All 3 nodes"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Two instances of WSO2 EI",
+          "VNet",
+          "These flows",
+          "The deployment"
+        ],
+        "pairsRight": [
+          "Two instances of WSO2 EI are deployed for high availability within an availability set.",
+          "VNet is similar to a traditional network that you'd operate in your own data center, but brings with it additional benefits of Azure's infrastructure such as scale, availability, and isolation.",
+          "These flows are according to configured load-balancing rules and health probes.",
+          "The deployment is designed so that it is deployed within a single AWS region."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Azure VM type of F4s v2?",
+        "options": [
+          "Azure Load Balancer is a high-performance, ultra low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols.",
+          "All 3 nodes are connected to the database that is running on the same VNet but in a different private subnet.",
+          "A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network.",
+          "Azure VM type of F4s v2 is used for workers since it does heavy data processing as and when events are received from the gateways."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Availability Sets ensure that the Azure virtual machines?",
+        "options": [
+          "An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability.",
+          "The services that are running on WSO2 EI will be exposed to the API Manager and other systems via Azure classic load balancer.",
+          "Availability Sets ensure that the Azure virtual machines are deployed across multiple isolated hardware nodes in a cluster.",
+          "Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The deployment?",
+        "options": [
+          "The carbon portal is exposed through the application gateway.",
+          "The services that are running on WSO2 EI will be exposed to the API Manager and other systems via Azure classic load balancer.",
+          "A VM of type F2s v2 is used for the dashboard profile since it does not have heavy processing requirements.",
+          "The deployment is designed so that it is deployed within a single AWS region."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Microsoft Azure services are available globally to drive business applications at an optimal level."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is accessed by the internal organization staff members who manage the deployment."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The carbon portal are running on WSO2 EI will be exposed to the API Manager and other systems via Azure classic load balancer."
+      },
+      "answerKey": false
+    }
+  ]
+}

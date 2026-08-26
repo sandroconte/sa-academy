@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-kubernetes-deployment-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a key when monitoring the application level details for debugging issues.",
+        "options": [
+          "Having proper monitoring",
+          "Namespaces",
+          "Architecture",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are used to categorize different components which are related within kubernetes.",
+        "options": [
+          "Namespaces",
+          "A service",
+          "Architecture",
+          "Containers"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the smallest unit of execution in kubernetes.",
+        "options": [
+          "Architecture",
+          "Pod",
+          "These",
+          "A service"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are many articles which explains the advantages of containers vs virtual machines or physical machines.",
+        "options": [
+          "These",
+          "Architecture",
+          "Pod",
+          "There"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Containers",
+          "Namespaces",
+          "There",
+          "These"
+        ],
+        "pairsRight": [
+          "Namespaces are used to categorize different components which are related within kubernetes.",
+          "There are many articles which explains the advantages of containers vs virtual machines or physical machines.",
+          "These are the nodes which controls the state of the kubernetes cluster.",
+          "Containers are ephemeral in nature and they will come and go without keeping any state."
+        ]
+      },
+      "answerKey": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Having proper monitoring?",
+        "options": [
+          "Containers are ephemeral in nature and they will come and go without keeping any state.",
+          "Namespaces are used to categorize different components which are related within kubernetes.",
+          "All these activities are controller by the overlay network implemented in kubernetes platform.",
+          "Having proper monitoring is a key when monitoring the application level details for debugging issues."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Namespaces?",
+        "options": [
+          "Namespaces are used to categorize different components which are related within kubernetes.",
+          "There are many articles which explains the advantages of containers vs virtual machines or physical machines.",
+          "A deployment is a configuration which can create a given set of kubernetes artefacts like pods, services, replica sets, etc.",
+          "Container based deployments are becoming more and more popular within enterprise software architectures due to the many advantages it bring to the table."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Pod?",
+        "options": [
+          "Having proper monitoring is a key when monitoring the application level details for debugging issues.",
+          "All these activities are controller by the overlay network implemented in kubernetes platform.",
+          "Pod is the smallest unit of execution in kubernetes.",
+          "In kubernetes, there are few concepts which we need to understand before diving deep into the solutions architecture."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Namespaces are used to categorize different components which are related within kubernetes."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Having proper monitoring is a key when monitoring the application level details for debugging issues."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Pod are used to categorize different components which are related within kubernetes."
+      },
+      "answerKey": false
+    }
+  ]
+}

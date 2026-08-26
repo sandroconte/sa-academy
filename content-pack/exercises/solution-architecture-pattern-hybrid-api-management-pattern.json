@@ -1,0 +1,167 @@
+{
+  "docId": "solution-architecture-pattern-hybrid-api-management-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are many API Management vendors (both open source and proprietary) who offers these capabilities through their products.",
+        "options": [
+          "There",
+          "Enterprises",
+          "But it",
+          "APIM platforms which"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are the 3 most common ways of deploying an API Management platform.",
+        "options": [
+          "But it",
+          "Enterprises",
+          "There",
+          "Here"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are more and more moving towards cloud based infrastructure and having a fully managed software solution is preferred over on-premise software due to the ease of management.",
+        "options": [
+          "Enterprises",
+          "There",
+          "APIM platforms which",
+          "Here"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "In such a scenario, enterprises can use this _____.",
+        "options": [
+          "But it",
+          "There",
+          "Hybrid API Management Pattern",
+          "Enterprises"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Here",
+          "Enterprises",
+          "But it",
+          "APIM platforms which"
+        ],
+        "pairsRight": [
+          "Here are the 3 most common ways of deploying an API Management platform.",
+          "But it is not possible to go with full cloud solutions which are offered as SaaS solutions due to various regulatory requirements.",
+          "The APIM platforms which are implemented in a modularized nature can be deployed in a hybrid architecture as depicted in the below figure.",
+          "Enterprises are more and more moving towards cloud based infrastructure and having a fully managed software solution is preferred over on-premise software due to the ease of management."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "But it is not possible to go with full cloud solutions which are offered as SaaS solutions due to various regulatory requirements.",
+          "There are many API Management vendors (both open source and proprietary) who offers these capabilities through their products.",
+          "The APIM platforms which are implemented in a modularized nature can be deployed in a hybrid architecture as depicted in the below figure.",
+          "Enterprises are more and more moving towards cloud based infrastructure and having a fully managed software solution is preferred over on-premise software due to the ease of management."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "But it is not possible to go with full cloud solutions which are offered as SaaS solutions due to various regulatory requirements.",
+          "In such a scenario, enterprises can use this hybrid api management pattern.",
+          "There are many API Management vendors (both open source and proprietary) who offers these capabilities through their products.",
+          "Here are the 3 most common ways of deploying an API Management platform."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Enterprises?",
+        "options": [
+          "The APIM platforms which are implemented in a modularized nature can be deployed in a hybrid architecture as depicted in the below figure.",
+          "Here are the 3 most common ways of deploying an API Management platform.",
+          "Enterprises are more and more moving towards cloud based infrastructure and having a fully managed software solution is preferred over on-premise software due to the ease of management.",
+          "But it is not possible to go with full cloud solutions which are offered as SaaS solutions due to various regulatory requirements."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "On Cloud (Public SaaS or Managed/Private Cloud)",
+          "On premise",
+          "Hybrid"
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "There are many API Management vendors (both open source and proprietary) who offers these capabilities through their products."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "In such a scenario, enterprises can use this hybrid api management pattern."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Hybrid API Management Pattern are many API Management vendors (both open source and proprietary) who offers these capabilities through their products."
+      },
+      "answerKey": false
+    }
+  ]
+}
