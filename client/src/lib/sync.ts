@@ -1,5 +1,5 @@
 import { PACK_BASE } from "./config";
-import { getDb, getSyncState, setSyncState } from "./db";
+import { getDb, getSyncState, setSyncState, isFtsAvailable } from "./db";
 import { diffManifest, filesToRemove, mergeFailedIntoPrev } from "./syncDiff";
 import type { Exercise, Manifest, ManifestDoc, PackDoc } from "./types";
 
@@ -79,7 +79,7 @@ type Db = Awaited<ReturnType<typeof getDb>>;
 async function removeDoc(db: Db, id: string): Promise<void> {
   await db.runAsync("DELETE FROM documents WHERE id=?", [id]);
   await db.runAsync("DELETE FROM exercises WHERE doc_id=?", [id]);
-  await db.runAsync("DELETE FROM search_index WHERE doc_id=?", [id]);
+  if (isFtsAvailable()) await db.runAsync("DELETE FROM search_index WHERE doc_id=?", [id]);
   await db.runAsync("DELETE FROM module_docs WHERE doc_id=?", [id]);
 }
 
@@ -93,6 +93,7 @@ async function upsertDoc(db: Db, doc: PackDoc, sha256: string): Promise<void> {
     [doc.id, doc.subjectId, doc.kind, doc.category, doc.title, doc.slug, doc.readingMin,
      JSON.stringify(doc.blocks), JSON.stringify(doc.sections), JSON.stringify(doc.terms), sha256],
   );
+  if (!isFtsAvailable()) return;
   const headings = doc.blocks.filter((b) => b.type === "heading").map((b) => b.text ?? "").join(" ");
   const body = doc.blocks.filter((b) => b.type === "paragraph").map((b) => b.text ?? "").join(" ");
   const terms = doc.terms.map((t) => `${t.term} ${t.definition ?? ""}`).join(" ");

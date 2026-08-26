@@ -49,10 +49,10 @@ export default function Patterns() {
 }
 
 const s = StyleSheet.create({
-  search: { margin: 16, marginBottom: 8, borderWidth: 1, borderColor: "#0002", borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8 },
+  search: { margin: 16, marginBottom: 8, borderWidth: 1, borderColor: "#0002", borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, color: "#f2f2f2" },
   chips: { flexDirection: "row", flexWrap: "wrap", gap: 6, marginBottom: 8 },
   chip: { paddingHorizontal: 10, paddingVertical: 6, borderRadius: 999, backgroundColor: "#0001" },
   chipOn: { backgroundColor: "#3b82f6" },
-  chipTxt: { fontSize: 12 },
+  chipTxt: { fontSize: 12, color: "#ccc" },
   chipTxtOn: { fontSize: 12, color: "white", fontWeight: "600" },
 });

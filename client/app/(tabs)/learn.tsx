@@ -72,6 +72,14 @@ export default function Learn() {
           </View>
         );
       }}
+      ListEmptyComponent={
+        <View style={s.empty}>
+          <Text style={s.emptyTitle}>No content yet</Text>
+          <Text style={s.emptyTxt}>
+            Open the Lessons tab and pull down to sync. Content downloads once and then works offline.
+          </Text>
+        </View>
+      }
       contentContainerStyle={{ padding: 16, gap: 12 }}
     />
   );
@@ -84,6 +92,9 @@ const s = StyleSheet.create({
   card: { borderWidth: StyleSheet.hairlineWidth, borderColor: "#0002", borderRadius: 12 },
   head: { flexDirection: "row", gap: 12, alignItems: "center", padding: 12 },
   markAllTxt: { color: "#3b82f6", fontWeight: "600", fontSize: 13 },
-  modTitle: { fontSize: 16, fontWeight: "700" },
+  modTitle: { fontSize: 16, fontWeight: "700", color: "#f2f2f2" },
   modSub: { fontSize: 12, color: "#777" },
+  empty: { alignItems: "center", marginTop: 48, gap: 8 },
+  emptyTitle: { fontSize: 17, fontWeight: "700", color: "#666" },
+  emptyTxt: { fontSize: 14, color: "#999", textAlign: "center", lineHeight: 20 },
 });

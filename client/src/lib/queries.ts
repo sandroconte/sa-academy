@@ -1,4 +1,4 @@
-import { getDb } from "./db";
+import { getDb, isFtsAvailable } from "./db";
 import type { Block, Exercise, ExerciseType, PackDoc } from "./types";
 import type { DocStatus } from "./progress";
 
@@ -110,7 +110,7 @@ export async function recordAttempt(exerciseId: string, docId: string, correct: 
 }
 
 export async function searchDocs(ftsQuery: string, limit = 30): Promise<{ docId: string; snippet: string }[]> {
-  if (!ftsQuery) return [];
+  if (!ftsQuery || !isFtsAvailable()) return [];
   const db = await getDb();
   return db.getAllAsync<{ docId: string; snippet: string }>(
     `SELECT doc_id AS docId, snippet(search_index, 3, '<b>', '</b>', '…', 24) AS snippet

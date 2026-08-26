@@ -2,7 +2,7 @@ import * as SQLite from "expo-sqlite";
 
 let dbPromise: Promise<SQLite.SQLiteDatabase> | null = null;
 
-const DDL = `
+const CORE_DDL = `
 CREATE TABLE IF NOT EXISTS documents(
   id TEXT PRIMARY KEY, subject_id TEXT NOT NULL, kind TEXT NOT NULL, category TEXT NOT NULL,
   title TEXT NOT NULL, slug TEXT NOT NULL, reading_min INTEGER NOT NULL,
@@ -23,15 +23,32 @@ CREATE TABLE IF NOT EXISTS attempts(
   id INTEGER PRIMARY KEY AUTOINCREMENT, exercise_id TEXT NOT NULL, doc_id TEXT NOT NULL,
   correct INTEGER NOT NULL, answered_at INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS sync_state(key TEXT PRIMARY KEY, value TEXT NOT NULL);
-CREATE VIRTUAL TABLE IF NOT EXISTS search_index USING fts5(
-  doc_id UNINDEXED, title, headings, body, terms, tokenize='porter unicode61');
 `;
+
+const FTS_DDL = `CREATE VIRTUAL TABLE IF NOT EXISTS search_index USING fts5(
+  doc_id UNINDEXED, title, headings, body, terms, tokenize='porter unicode61');`;
+
+let ftsAvailable = true;
+
+/**
+ * The expo-sqlite web (wasm) build ships without FTS5; native builds have it.
+ * We probe once at open time so search degrades gracefully instead of crashing.
+ */
+export function isFtsAvailable(): boolean {
+  return ftsAvailable;
+}
 
 export async function getDb(): Promise<SQLite.SQLiteDatabase> {
   if (!dbPromise) {
     dbPromise = SQLite.openDatabaseAsync("sa-academy.db")
       .then(async (db) => {
-        await db.execAsync(DDL);
+        await db.execAsync(CORE_DDL);
+        try {
+          await db.execAsync(FTS_DDL);
+          ftsAvailable = true;
+        } catch {
+          ftsAvailable = false;
+        }
         return db;
       })
       .catch((err) => {
