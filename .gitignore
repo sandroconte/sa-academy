@@ -1,4 +1,39 @@
+# Node
 node_modules/
+*.tsbuildinfo
+
+# Pipeline build & sources
+pipeline/dist/
 .sources/
-dist/
+
+# Expo / React Native
+.expo/
+client/dist/
+ios/
+android/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro / bundler caches
+.metro-health-check*
+*.metro.jsbundle
+
+# Testing
+coverage/
+
+# Logs & OS noise
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 .DS_Store
+*.pem
+Thumbs.db
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
