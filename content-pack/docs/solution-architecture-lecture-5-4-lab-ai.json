@@ -1,0 +1,248 @@
+{
+  "id": "solution-architecture-lecture-5-4-lab-ai",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "5-4-lab-ai",
+  "title": "5.4 — Lab: AI-Enabled Architecture (RAG)",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5.4 — Lab: AI-Enabled Architecture (RAG)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 5 · Lesson 5.4 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Architect a Retrieval-Augmented Generation (RAG) system end to end.",
+        "Ingest documents, chunk and embed them into a vector store.",
+        "Implement semantic retrieval and augment an LLM prompt with context.",
+        "Diagram the components and their data flows.",
+        "Deliver a working prototype answering questions from your own docs."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "RAG — Retrieval-Augmented Generation: ground an LLM answer in retrieved documents to reduce hallucination.",
+        "Embedding — a vector representation of text capturing semantic meaning.",
+        "Vector store — a database (e.g., Chroma, pgvector, FAISS) indexing embeddings for similarity search.",
+        "Chunking — splitting documents into retrievable pieces with overlap.",
+        "Retriever + Generator — fetch relevant context, then feed it to the LLM prompt."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Scenario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build a \"Solution Architect Assistant\" that answers questions using your internal architecture docs. Instead of fine-tuning, you ingest the docs, embed them, and at query time retrieve the top-k relevant chunks to ground the LLM's answer."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Documents → loader → chunker → embedding model → vector store. At runtime: query → embedding → similarity search → top-k chunks → prompt template → LLM → answer with citations."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lab Steps"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Prerequisites"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Python 3.10+, pip install langchain openai chromadb tiktoken (or use pgvector).",
+        "An API key for an embedding + chat model (OpenAI, Cohere, or local via Ollama).",
+        "A folder docs/ with 3–5 markdown/text files."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 1 — Ingest"
+    },
+    {
+      "type": "paragraph",
+      "text": "Load files with a document loader, split into chunks (~500 tokens, 50 overlap):"
+    },
+    {
+      "type": "code",
+      "lang": "python",
+      "value": "from langchain.text_splitter import RecursiveCharacterTextSplitter\nsplitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)\ndocs = splitter.split_documents(raw_docs)"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 2 — Embed & store"
+    },
+    {
+      "type": "code",
+      "lang": "python",
+      "value": "from langchain.vectorstores import Chroma\nfrom langchain.embeddings import OpenAIEmbeddings\nvectordb = Chroma.from_documents(docs, OpenAIEmbeddings(), persist_directory=\"db\")"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 3 — Retrieve"
+    },
+    {
+      "type": "paragraph",
+      "text": "At query time, embed the question and return top-3 chunks:"
+    },
+    {
+      "type": "code",
+      "lang": "python",
+      "value": "retriever = vectordb.as_retriever(search_kwargs={\"k\": 3})\ncontext = retriever.get_relevant_documents(\"When should I write an ADR?\")"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 4 — Generate"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build a prompt that injects context and asks the LLM to answer with citations:"
+    },
+    {
+      "type": "code",
+      "lang": "python",
+      "value": "prompt = f\"Use this context:\\n{context}\\n\\nQuestion: {question}\\nAnswer with citations.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 5 — Evaluate"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ask 5 questions; verify answers cite the correct source chunks and are factually grounded."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    D[Docs] --> L[Loader]\n    L --> C[Chunker]\n    C --> E[Embedding Model]\n    E --> V[(Vector Store)]\n    Q[Question] --> EQ[Embedding]\n    EQ --> V\n    V --> R[Top-k Chunks]\n    R --> P[Prompt + LLM]\n    P --> A[Answer w/ Citations]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Validation / Deliverable"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A notebooks/ or src/ prototype that ingests docs/ and answers questions via RAG.",
+        "Screenshot or transcript of 5 grounded Q&A pairs with cited chunks.",
+        "An architecture diagram (extend the Mermaid above) showing where each component runs.",
+        "Bonus: add a guardrail that refuses to answer when retrieval score is below a threshold."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Retrieval-Augmented Generation for Knowledge-Intensive NLP\" — Lewis et al. (2020)",
+        "LangChain docs — https://python.langchain.com/docs/",
+        "Chroma — https://docs.trychroma.com/",
+        "pgvector — https://github.com/pgvector/pgvector",
+        "OpenAI Embeddings — https://platform.openai.com/docs/guides/embeddings"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Lab Steps"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Validation / Deliverable"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Lab Steps",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Validation / Deliverable",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "At runtime",
+      "definition": "At runtime: query → embedding → similarity search → top-k chunks → prompt template → LLM → answer with citations."
+    }
+  ]
+}

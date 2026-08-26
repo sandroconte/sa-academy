@@ -1,0 +1,173 @@
+{
+  "docId": "solution-architecture-lecture-7-4-security-mock",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a classification of threat types:",
+        "options": [
+          "Likely follow-up",
+          "Trade-off to mention",
+          "OIDC",
+          "STRIDE"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not a definitions dictionary — it's built around how to reason out loud in a case-study discussion.",
+        "options": [
+          "This",
+          "Trade-off to mention",
+          "OIDC",
+          "OAuth2"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "\" → Answer using _____, not \"fix everything.",
+        "options": [
+          "impact × likelihood",
+          "Core idea",
+          "talk through each section out loud in English",
+          "OIDC"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: \"How would you prioritize which threats to address first with limited engineering time?\" → Answer using impact × likelihood, not \"fix everything.\"",
+        "options": [
+          "Likely follow-up",
+          "how to reason out loud",
+          "impact × likelihood",
+          "product"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Likely follow-up",
+          "impact × likelihood",
+          "Core idea",
+          "STRIDE"
+        ],
+        "pairsRight": [
+          "Likely follow-up: \"How would you prioritize which threats to address first with limited engineering time?\" → Answer using impact × likelihood, not \"fix everything.\"",
+          "Core idea: before designing anything, identify what could go wrong.",
+          "\" → Answer using impact × likelihood, not \"fix everything.",
+          "STRIDE is a classification of threat types:"
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is STRIDE?",
+        "options": [
+          "Trade-off to mention: threat modeling has a cost in delivery speed — the skill is doing it proportionally (a lightweight STRIDE pass on a new service vs. a full formal review for a component handling PII/payment data).",
+          "STRIDE is a classification of threat types:",
+          "Core idea: before designing anything, identify what could go wrong.",
+          "OIDC = identity layer on top of OAuth2 (adds the ID Token — \"who is this user\")."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "OIDC = identity layer on top of OAuth2 (adds the ID Token — \"who is this user\").",
+          "STRIDE is a classification of threat types:",
+          "Core idea: before designing anything, identify what could go wrong.",
+          "This is not a definitions dictionary — it's built around how to reason out loud in a case-study discussion."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is impact × likelihood?",
+        "options": [
+          "Likely follow-up: \"How would you prioritize which threats to address first with limited engineering time?\" → Answer using impact × likelihood, not \"fix everything.\"",
+          "\" → Answer using impact × likelihood, not \"fix everything.",
+          "OIDC = identity layer on top of OAuth2 (adds the ID Token — \"who is this user\").",
+          "OAuth2 = authorization framework (delegated access — \"can this app act on my behalf\")."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Clarify — ask 2–3 sharp questions before designing anything (scale, compliance constraints, existing systems, what \"secure\" specifically means for this case).",
+          "Mention how you'd validate it — testing, monitoring, what would tell you it's working (or failing) in production.",
+          "Name trade-offs out loud, don't just pick one option silently — this is what a VP is actually evaluating.",
+          "Propose a design at a high level first, then drill into the parts they push on.",
+          "State assumptions explicitly — \"I'll assume X; let me know if that's wrong.\"",
+          "Identify trust boundaries and data sensitivity — what's the crown-jewel data here?"
+        ]
+      },
+      "answerKey": [
+        0,
+        4,
+        5,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Trade-off to mention: threat modeling has a cost in delivery speed — the skill is doing it proportionally (a lightweight STRIDE pass on a new service vs. a full formal review for a component handling PII/payment data)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Read once, then talk through each section out loud in English, as if answering."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "\" → Answer using Likely follow-up, not \"fix everything."
+      },
+      "answerKey": false
+    }
+  ]
+}

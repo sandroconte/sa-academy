@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-0-1-ruolo-architect",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Finally, hands-on Programming (quick POCs, strong in the relevant stack) and strong _____ skills (design patterns, analytics) ground the role in reality.",
+        "options": [
+          "Technical Leader",
+          "Analysis & Design",
+          "Relation management",
+          "Explanation"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "As a _____, they develop market and product knowledge, manage the backlog, and shape the roadmap.",
+        "options": [
+          "Mind",
+          "Business Analyst / Product Owner",
+          "Project Manager",
+          "Programming"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "As a _____, they build proof-of-concepts and perform code review.",
+        "options": [
+          "Presentation",
+          "Analysis & Design",
+          "Developer",
+          "Self-development"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ keeps competing priorities under control.",
+        "options": [
+          "Time management",
+          "Self-development",
+          "Relation management",
+          "Technical Consultant"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Technical Leader",
+          "Relation management",
+          "Time management",
+          "Technical Consultant"
+        ],
+        "pairsRight": [
+          "As a Technical Leader, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security.",
+          "Time management keeps competing priorities under control.",
+          "As a Technical Consultant, they manage stakeholders, support pre-sale activities, perform architecture assessments, produce cost and effort estimations, and help triage incidents.",
+          "Relation management requires empathy and emotional intelligence."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Analysis & Design?",
+        "options": [
+          "As a Technical Consultant, they manage stakeholders, support pre-sale activities, perform architecture assessments, produce cost and effort estimations, and help triage incidents.",
+          "Finally, hands-on Programming (quick POCs, strong in the relevant stack) and strong Analysis & Design skills (design patterns, analytics) ground the role in reality.",
+          "Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment.",
+          "Presentation skills (public speaking, white-boarding) let them communicate a vision."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Business Analyst / Product Owner?",
+        "options": [
+          "As a Business Analyst / Product Owner, they develop market and product knowledge, manage the backlog, and shape the roadmap.",
+          "As a Technical Leader, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security.",
+          "Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment.",
+          "Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Developer?",
+        "options": [
+          "As a Technical Consultant, they manage stakeholders, support pre-sale activities, perform architecture assessments, produce cost and effort estimations, and help triage incidents.",
+          "Presentation skills (public speaking, white-boarding) let them communicate a vision.",
+          "Self-development — continuous education, discipline, a growth plan, and the ability to learn quickly — keeps the SA current.",
+          "As a Developer, they build proof-of-concepts and perform code review."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Which personal skill helps an SA communicate vision through public speaking and white-boarding?",
+          "What does an SA \"own\" according to the SA mindset?",
+          "Which of the following is NOT typically a working role an SA occupies?",
+          "As a Technical Consultant, an SA is likely to perform which activity?"
+        ]
+      },
+      "answerKey": [
+        2,
+        1,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "As a Business Analyst / Product Owner, they develop market and product knowledge, manage the backlog, and shape the roadmap."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "As a Technical Leader, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "As a Technical Consultant, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security."
+      },
+      "answerKey": false
+    }
+  ]
+}

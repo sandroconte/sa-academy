@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-4-3-iac-automazione",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "A controller running in the cluster — _____ or Flux — continuously compares live state to Git and reconciles, pulling changes.",
+        "options": [
+          "Imperative",
+          "Flux",
+          "Declarative",
+          "ArgoCD"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is preferred for environments because it enables planning and idempotence.",
+        "options": [
+          "ArgoCD",
+          "Imperative",
+          "Declarative",
+          "Flux"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ approaches (raw CLI scripts, Ansible ad-hoc) describe steps.",
+        "options": [
+          "ArgoCD",
+          "Flux",
+          "Imperative",
+          "GitOps extends IaC"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Git holds the desired cluster state (manifests, Helm charts).",
+        "options": [
+          "ArgoCD",
+          "GitOps extends IaC",
+          "Imperative",
+          "Flux"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Imperative",
+          "Declarative",
+          "Flux",
+          "GitOps extends IaC"
+        ],
+        "pairsRight": [
+          "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts).",
+          "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes.",
+          "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps.",
+          "Declarative is preferred for environments because it enables planning and idempotence."
+        ]
+      },
+      "answerKey": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is ArgoCD?",
+        "options": [
+          "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts).",
+          "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes.",
+          "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes.",
+          "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Declarative?",
+        "options": [
+          "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps.",
+          "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes.",
+          "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts).",
+          "Declarative is preferred for environments because it enables planning and idempotence."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Imperative?",
+        "options": [
+          "Declarative is preferred for environments because it enables planning and idempotence.",
+          "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts).",
+          "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps.",
+          "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "GitOps uses which system as the single source of truth?",
+          "Which is an example of immutable infrastructure?",
+          "What is \"drift\" in infrastructure?",
+          "Which statement about declarative IaC is true?"
+        ]
+      },
+      "answerKey": [
+        3,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A controller running in the cluster — ArgoCD or GitOps extends IaC — continuously compares live state to Git and reconciles, pulling changes."
+      },
+      "answerKey": false
+    }
+  ]
+}

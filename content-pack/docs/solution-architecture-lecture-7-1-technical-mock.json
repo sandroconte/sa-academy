@@ -1,0 +1,690 @@
+{
+  "id": "solution-architecture-lecture-7-1-technical-mock",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "7-1-technical-mock",
+  "title": "7.1 — Technical Mock Interviews (Scenario-Based)",
+  "readingMin": 10,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "7.1 — Technical Mock Interviews (Scenario-Based)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 7 · Lesson 7.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Understand how technical Solution Architect interviews differ from coding interviews.",
+        "Practice structured, discussion-style answers to realistic architecture scenarios.",
+        "Use the Well-Architected lens (cost, reliability, security, ops, performance, sustainability) to frame every answer.",
+        "Communicate trade-offs clearly instead of claiming a single \"correct\" design."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "How Technical SA Interviews Work"
+    },
+    {
+      "type": "paragraph",
+      "text": "A technical Solution Architect interview is rarely a coding test. Instead, it is a conversation at the whiteboard (physical or shared, e.g. Miro/Excalidraw) where the interviewer throws a realistic, ambiguous problem at you and watches how you think. They are assessing five things:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Breadth vs. depth — can you name the relevant patterns, then go deep where it matters?",
+        "Trade-off reasoning — do you justify a choice with why, and what you gave up?",
+        "Pragmatism — do you reach for the simplest thing that meets the NFRs, not the trendiest?",
+        "Communication — can a non-specialist follow your diagram and narrative?",
+        "Curiosity & pushback — do you ask clarifying questions before designing?"
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Format tip: Open every answer with 2–3 clarifying questions. Silence the urge to \"just start drawing.\" Interviewers score the scoping as much as the solution."
+    },
+    {
+      "type": "paragraph",
+      "text": "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture. Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 1 — Migrating a 15-Year-Old Monolith to Cloud-Native"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"You're asked to migrate a 15-year-old monolith — a core ERP system — to a cloud-native architecture. Walk me through your approach.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Inventory the monolith: modules, dependencies, data stores, peak load, compliance constraints.",
+        "Map to the 7R strategies (Rehost, Replatform, Refactor, Rearchitect, Repurchase, Retain, Retire).",
+        "Classify each module's business criticality and change frequency.",
+        "Techniques: dependency mapping, event storming, DORA/health metrics baseline.",
+        "Tools: AWS Migration Evaluator, vFunction, static analysis (SonarQube), CMDB.",
+        "Output: a migration wave plan with R-decisions per capability."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Apply the Strangler Fig pattern: stand up an API facade/edge in front of the monolith and route one capability at a time to a new service.",
+        "Keep the monolith as the source of truth until each seam is extracted and verified.",
+        "Techniques: Branch by Abstraction, parallel run, shadow traffic.",
+        "Tools: API Gateway, feature flags (LaunchDarkly), service mesh (for gradual cutover).",
+        "Output: a strangler routing map and per-wave acceptance criteria."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Identify bounded contexts (e.g., Billing, Inventory, HR) to avoid a \"distributed monolith.\"",
+        "Each context owns its data (Database-per-Service).",
+        "Techniques: context mapping, anti-corruption layer between legacy and new.",
+        "Output: bounded-context map and the first 1–2 candidate services to extract."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Don't lift the 15-year-old schema wholesale. Use Change Data Capture (CDC) to sync legacy DB → new service DB during transition.",
+        "Techniques: dual-write with reconciliation, strangler at the data layer.",
+        "Tools: Debezium, AWS DMS.",
+        "Output: data sync pipeline + reconciliation report."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pick the lowest-risk, highest-learnings capability first (a \"learning wave\").",
+        "Wrap with resilience (Circuit Breaker, Bulkhead) at the gateway boundary.",
+        "Output: a measured pilot that de-risks the rest of the program."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Discovery & portfolio classification (don't start moving code yet)",
+        "Choose an incremental path, not a big-bang rewrite",
+        "Define target boundaries with DDD",
+        "Modernize data separately",
+        "Prove it with a pilot wave"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Did they resist the \"rewrite everything\" temptation? (Maturity signal.)",
+        "Do they mention strangler/7R/DDD specifically, not just \"we'll use microservices\"?",
+        "Do they separate application migration from data migration?",
+        "Trade-off awareness: speed (rehost) vs. long-term value (rearchitect)."
+      ]
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    Client[Client / UI] --> GW[API Gateway / Strangler Facade]\n    GW -->|new path| S1[Extracted Service A]\n    GW -->|legacy path| M[Legacy Monolith]\n    M --> LDB[(Legacy DB)]\n    S1 --> NDB[(New Service DB)]\n    LDB -->|CDC sync| NDB\n    subgraph Wave1[Wave 1: Learning]\n        S1\n    end"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 2 — Resilience Strategy for a Payments Service"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Design a resilience strategy for a payments service that must stay available even when downstream banks are slow or down.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Give payments its own thread/connection pool and its own deployment so a noisy neighbor can't starve it.",
+        "Techniques: separate resource pools, dedicated autoscaling group/namespace.",
+        "Tools: Hystrix/Resilience4j, Kubernetes resource quotas, separate node pools.",
+        "Output: isolated payment workload with bounded blast radius."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Wrap every bank call with a timeout and a circuit breaker; fail fast when the bank is unhealthy.",
+        "Techniques: half-open probing, exponential backoff + jitter on retry (idempotent only).",
+        "Tools: Resilience4j, Envoy/Linkerd sidecar, API Gateway policies.",
+        "Output: breaker config (threshold, cool-down) and timeout budget."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A payment is a distributed transaction: authorize → capture → settle. Use an orchestrated Saga with compensating actions.",
+        "Techniques: state machine orchestrator, idempotency keys, outbox pattern for reliable events.",
+        "Tools: Temporal/Camunda, event bus (Kafka), DB outbox.",
+        "Output: saga definition with compensations and a dead-letter path."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "If a bank is down, accept the payment asynchronously (queue it) and reconcile later rather than rejecting the user.",
+        "Techniques: queue + idempotent retry, eventual consistency with a ledger.",
+        "Tools: Kafka/RabbitMQ, a reconciliation batch job.",
+        "Output: \"accepted, settling\" UX + reconcile report."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "SLOs for payment success rate, p99 latency; alert on breaker trips and DLQ depth.",
+        "Techniques: RED/USE metrics, golden signals, chaos testing the bank dependency.",
+        "Tools: Prometheus/Grafana, OpenTelemetry, Chaos Mesh/Litmus.",
+        "Output: SLO dashboard + game-day results."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Isolate failure domains with Bulkhead",
+        "Stop cascading failures with Circuit Breaker + Timeout",
+        "Keep the money safe with Saga (orchestration)",
+        "Degrade gracefully with Fallback & Asynchronous reconciliation",
+        "Observe everything"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Do they treat payments as eventually consistent with compensations, not as a naive ACID transaction?",
+        "Is the user experience during partial failure considered (async accept vs. hard fail)?",
+        "Do they mention idempotency (double-charge avoidance)?",
+        "Do they test failure (chaos) rather than assume it works?"
+      ]
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant U as User\n    participant P as Payment Service\n    participant B as Circuit Breaker\n    participant Bank as Bank API\n    participant Q as Settlement Queue\n    U->>P: Pay(order)\n    P->>B: call Bank\n    alt Bank healthy\n        B->>Bank: authorize+capture\n        Bank-->>P: ok\n        P-->>U: success\n    else Bank down/slow\n        B-->>P: open (fail fast)\n        P->>Q: enqueue (async settle)\n        P-->>U: accepted, settling\n        Q->>Bank: retry later (idempotent)\n    end"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 3 — Orchestration vs. Choreography (Saga)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"How would you choose between orchestration and choreography for a distributed transaction spanning 4 services?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Orchestration = central coordinator drives steps + compensations. Easy to trace, debug, and enforce. Cost: a central component (though it can be highly available).",
+        "Choreography = services react to events, no coordinator. Maximal decoupling and no central failure point. Cost: harder to reason about, trace, and version; risk of event spaghetti.",
+        "Techniques: draw both on the whiteboard before choosing.",
+        "Output: a one-line recommendation with rationale."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Complexity & criticality: for money/movement flows (payments, orders), prefer orchestration — you want a clear audit trail and easy compensation.",
+        "Team autonomy & scale: for many independent teams reacting to the same event, choreography reduces coordination overhead.",
+        "Observability maturity: if you lack distributed tracing, orchestration is safer.",
+        "Tools: Temporal/Camundi (orchestration); Kafka + schema registry (choreography).",
+        "Output: a fit-for-purpose choice, not an ideology."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Orchestrate the critical core saga; let non-critical side-effects (notify, analytics) be choreographed events off the saga.",
+        "Techniques: saga emits a \"OrderCompleted\" event; downstream listeners choreograph.",
+        "Output: a clean core + loosely-coupled periphery."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "State the trade-off explicitly",
+        "Decision drivers",
+        "Hybrid is allowed"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Do they reject \"microservices must always be choreographed\"?",
+        "Do they tie the choice to observability and criticality, not fashion?",
+        "Do they recognize a hybrid is often best?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 4 — Monolith to Microservices: When NOT To"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"A team wants to split their monolith into 40 microservices next quarter. What do you tell them?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ask: what problem are we solving? Slow deployments? Scaling hotspots? Team boundaries? Microservices are a solution to org/scale problems, not a default.",
+        "Techniques: measure deploy frequency, lead time, module coupling (metrics from Module 4.2).",
+        "Tools: DORA metrics, Structure101, dependency graphs.",
+        "Output: the actual driver, quantified."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "40 services with shared DB and tight sync calls = worse than the monolith.",
+        "Techniques: modular monolith first; extract only true bounded contexts with independent data.",
+        "Output: a phased plan — modular monolith → 3–5 services → expand if justified."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "New costs: network latency, distributed transactions, observability, operational toil.",
+        "Techniques: TCO comparison, Well-Architected operational-excellence review.",
+        "Output: a cost/benefit that the team can't ignore."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Challenge the premise with data",
+        "Warn about the distributed-monolith trap",
+        "Make the hidden costs explicit"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Courage to say \"no\" or \"not yet.\"",
+        "Understanding that microservices are an organizational pattern, not a technical silver bullet.",
+        "Awareness of the operational tax."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 5 — Multi-Cloud with Terraform"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Design a multi-cloud strategy using Terraform so we're not locked to one vendor, but still move fast.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Keep business logic and Kubernetes portable; accept that some services (managed DB, AI) will be provider-specific.",
+        "Techniques: abstraction modules, provider-agnostic interfaces, keep state per-account/per-cloud.",
+        "Tools: Terraform with provider blocks (aws, azurerm, gcp), Terragrunt for DRY config.",
+        "Output: a module layout with clear \"portable core\" vs \"cloud-specific add-ons.\""
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "True active-active multi-cloud is expensive. Prefer: primary cloud + disaster-recovery/failover secondary, or per-workload placement.",
+        "Techniques: DNS-based failover, object storage replication, GitOps-promoted config.",
+        "Tools: Route53/Global LB, Terraform remote state in each cloud, ArgoCD.",
+        "Output: a failover topology, not a continuous dual-write nightmare."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Isolate state per environment/cloud; encrypt; lock via backend; CI-gated plans.",
+        "Techniques: PR-based terraform plan + policy-as-code.",
+        "Tools: Sentinel/OPA, S3/GCS/Azure blob backends, GitHub Actions.",
+        "Output: reproducible, auditable infra."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Separate portable from provider-specific",
+        "Avoid \"worst of both clouds\"",
+        "Governance & state hygiene"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Do they push back on \"no lock-in\" as an absolute (it has a real cost)?",
+        "Do they distinguish portability from active-active?",
+        "State management maturity (remote state, locking, policy)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 6 — AI/RAG Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"We want to add an AI assistant that answers questions from our internal 50k-document knowledge base. How would you architect it?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Retrieve relevant chunks, augment the prompt, generate. Keeps answers grounded in your docs and auditable.",
+        "Techniques: chunking + embeddings, vector similarity search, re-ranking, citation.",
+        "Tools: pgvector/Weaviate/Qdrant, embeddings (OpenAI/Cohere/local), LLM API.",
+        "Output: RAG pipeline with a grounding/citation step."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Guardrails: PII redaction, prompt-injection defenses, answer groundedness checks (reject if no retrieved context).",
+        "Techniques: retrieval confidence threshold, human-in-the-loop for high-risk actions.",
+        "Tools: LangChain/LlamaIndex orchestration, guardrail layer, caching of common queries.",
+        "Output: a guarded assistant with fallback to \"I don't know.\""
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Cache embeddings, cache frequent answers, use smaller models where possible, async re-indexing.",
+        "Techniques: embedding cache, semantic cache, batch re-index.",
+        "Output: a cost model per 1k queries."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "RAG over fine-tuning for fresh, citeable knowledge",
+        "Keep it safe and cost-aware",
+        "Cost & latency control"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "RAG vs fine-tune reasoning (freshness, cost, audit).",
+        "Do they address hallucination/grounding and cost?",
+        "Security: PII, injection, exfiltration."
+      ]
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    Q[User Question] --> E[Embed Query]\n    E --> V[(Vector Store: 50k docs)]\n    V --> R[Retrieve Top-K + Re-rank]\n    R --> G[LLM: Augment + Cite]\n    G --> A[Answer + Sources]\n    G -->|low confidence| F[Fallback: human / I don't know]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Scenario 7 — Cost & Trade-off Analysis Under Constraint"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Leadership wants to cut cloud spend 30% without hurting the customer experience. What's your plan?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Attribute cost by service, environment, and tag; find the top contributors.",
+        "Techniques: unit economics (cost per transaction), idle-resource detection.",
+        "Tools: AWS Cost Explorer/CUR, GCP Billing, Infracost in CI.",
+        "Output: a cost heatmap."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Right-size, move dev/test to schedules, use commitments (Savings Plans/Reserved) for stable baselines, delete orphaned storage.",
+        "Techniques: autoscaling tuning, spot for batch, storage lifecycle.",
+        "Output: a 30% plan with risk labels."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Tie every cut to an SLO; if p99 or error budget degrades, roll back.",
+        "Techniques: error-budget policy, canary on infra changes.",
+        "Output: a cost plan guarded by SLOs."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Measure before cutting",
+        "Target quick, safe wins",
+        "Protect experience with SLOs"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Do they cut with data and SLOs, not blanket \"turn things off\"?",
+        "FinOps maturity (unit cost, commitments, tagging)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Self-Assessment Checklist"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before your real interview, score yourself 1–5 on each:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I open every scenario with clarifying questions (scope, users, NFRs, constraints).",
+        "I can name the relevant pattern and explain the trade-off.",
+        "I tie decisions to Well-Architected pillars (reliability, cost, security, ops, perf, sustainability).",
+        "I produce a clean diagram (Mermaid/whiteboard) early and evolve it.",
+        "I explicitly state what I am not doing and why (e.g., not big-bang, not active-active multi-cloud).",
+        "I discuss data migration separately from application migration.",
+        "I mention observability/metrics as part of any design.",
+        "I can justify cost and operational implications of my design.",
+        "I stay pragmatic — simplest design that meets NFRs, not the trendiest.",
+        "I invite pushback and adapt when the interviewer adds constraints."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Drill: Take any one scenario above, set a 10-minute timer, and voice-record your answer. Then replay and note where you rambled or skipped the trade-off. Repeat weekly."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "How Technical SA Interviews Work"
+    },
+    {
+      "title": "Scenario 1 — Migrating a 15-Year-Old Monolith to Cloud-Native"
+    },
+    {
+      "title": "Scenario 2 — Resilience Strategy for a Payments Service"
+    },
+    {
+      "title": "Scenario 3 — Orchestration vs. Choreography (Saga)"
+    },
+    {
+      "title": "Scenario 4 — Monolith to Microservices: When NOT To"
+    },
+    {
+      "title": "Scenario 5 — Multi-Cloud with Terraform"
+    },
+    {
+      "title": "Scenario 6 — AI/RAG Architecture"
+    },
+    {
+      "title": "Scenario 7 — Cost & Trade-off Analysis Under Constraint"
+    },
+    {
+      "title": "Self-Assessment Checklist"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "How Technical SA Interviews Work",
+      "definition": null
+    },
+    {
+      "term": "Scenario 2 — Resilience Strategy for a Payments Service",
+      "definition": null
+    },
+    {
+      "term": "Scenario 3 — Orchestration vs. Choreography (Saga)",
+      "definition": null
+    },
+    {
+      "term": "Scenario 4 — Monolith to Microservices: When NOT To",
+      "definition": null
+    },
+    {
+      "term": "Scenario 5 — Multi-Cloud with Terraform",
+      "definition": null
+    },
+    {
+      "term": "Scenario 6 — AI/RAG Architecture",
+      "definition": null
+    },
+    {
+      "term": "Scenario 7 — Cost & Trade-off Analysis Under Constraint",
+      "definition": null
+    },
+    {
+      "term": "Self-Assessment Checklist",
+      "definition": null
+    },
+    {
+      "term": "rarely a coding test",
+      "definition": "A technical Solution Architect interview is rarely a coding test."
+    },
+    {
+      "term": "Format tip:",
+      "definition": null
+    },
+    {
+      "term": "mock scenarios",
+      "definition": "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture."
+    },
+    {
+      "term": "MODEL ANSWER",
+      "definition": "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note."
+    },
+    {
+      "term": "Interviewer listens for",
+      "definition": "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note."
+    },
+    {
+      "term": "Prompt:",
+      "definition": null
+    },
+    {
+      "term": "Drill:",
+      "definition": null
+    },
+    {
+      "term": "A technical Solution Architect interview",
+      "definition": "A technical Solution Architect interview is rarely a coding test."
+    },
+    {
+      "term": "They",
+      "definition": "They are assessing five things:"
+    },
+    {
+      "term": "The rest of this lesson",
+      "definition": "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture."
+    },
+    {
+      "term": "Prompt",
+      "definition": "Prompt: \"You're asked to migrate a 15-year-old monolith — a core ERP system — to a cloud-native architecture."
+    }
+  ]
+}

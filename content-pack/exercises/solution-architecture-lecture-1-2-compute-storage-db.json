@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-1-2-compute-storage-db",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is mandatory in real networks, so the practical choice is CP (strong consistency, may be unavailable) vs.",
+        "options": [
+          "Virtual Machines give you full control of the OS and",
+          "Partition tolerance",
+          "Virtual Machines",
+          "CAP theorem"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ (functions/event-driven) removes server management entirely and scales to zero, ideal for spiky or event-driven workloads but with constraints on runtime and state.",
+        "options": [
+          "File storage",
+          "Serverless",
+          "Block storage",
+          "Virtual Machines"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ give you full control of the OS and are best for legacy or stateful workloads.",
+        "options": [
+          "Consistency",
+          "Serverless",
+          "Virtual Machines",
+          "Availability"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and _____ (every request gets a response).",
+        "options": [
+          "Object storage",
+          "Availability",
+          "Virtual Machines",
+          "Serverless"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "File storage",
+          "Consistency",
+          "CAP theorem",
+          "Block storage"
+        ],
+        "pairsRight": [
+          "File storage provides a shared filesystem for multiple consumers needing POSIX-style access.",
+          "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response).",
+          "Block storage behaves like a disk and suits databases and VMs.",
+          "SQL databases enforce schemas and ACID transactions — right when consistency and relationships matter (finance, orders)."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Partition tolerance?",
+        "options": [
+          "Partition tolerance is mandatory in real networks, so the practical choice is CP (strong consistency, may be unavailable) vs.",
+          "Object storage is highly durable and cheap for unstructured data (images, backups, logs) accessed via HTTP APIs.",
+          "Serverless (functions/event-driven) removes server management entirely and scales to zero, ideal for spiky or event-driven workloads but with constraints on runtime and state.",
+          "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Serverless?",
+        "options": [
+          "Serverless (functions/event-driven) removes server management entirely and scales to zero, ideal for spiky or event-driven workloads but with constraints on runtime and state.",
+          "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads.",
+          "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads.",
+          "An SA picks based on domain: payments favor CP; a cache or feed may favor AP."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Virtual Machines?",
+        "options": [
+          "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads.",
+          "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response).",
+          "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response).",
+          "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Where are images, backups, and logs best stored economically?",
+          "According to CAP, during a network partition you choose between:",
+          "SQL databases are most appropriate when:",
+          "Which compute model scales to zero and requires no server management?"
+        ]
+      },
+      "answerKey": [
+        3,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Partition tolerance is mandatory in real networks, so the practical choice is CP (strong consistency, may be unavailable) vs."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Virtual Machines are best for legacy or stateful workloads."
+      },
+      "answerKey": false
+    }
+  ]
+}

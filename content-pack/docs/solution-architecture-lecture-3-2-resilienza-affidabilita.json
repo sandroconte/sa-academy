@@ -1,0 +1,278 @@
+{
+  "id": "solution-architecture-lecture-3-2-resilienza-affidabilita",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "3-2-resilienza-affidabilita",
+  "title": "3.2 — Resilience & Reliability Patterns (Circuit Breaker, Saga, Bulkhead)",
+  "readingMin": 4,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "3.2 — Resilience & Reliability Patterns (Circuit Breaker, Saga, Bulkhead)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 3 · Lesson 3.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Apply Circuit Breaker, Retry/Timeout, and Bulkhead to contain failures and protect availability.",
+        "Design Sagas for distributed transactions and choose between orchestration and choreography.",
+        "Use Rate Limiting and Fallback to keep systems stable under load and partial failure.",
+        "Reason about failure as a normal condition in distributed systems, not an exception."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Circuit Breaker — a proxy that stops calling a failing dependency after a threshold, failing fast during the open state and testing recovery.",
+        "Bulkhead — isolating resources (threads, connections, pools) so one overloaded component cannot exhaust shared capacity.",
+        "Retry / Timeout — bounded re-attempts with backoff; timeouts prevent indefinite waits.",
+        "Saga — a sequence of local transactions with compensating actions to achieve distributed consistency.",
+        "Orchestration (Saga) — a central coordinator drives each step and compensation.",
+        "Choreography (Saga) — services react to events; no central coordinator.",
+        "Rate Limiting — capping request rate to protect a service from overload.",
+        "Fallback — a degraded but safe response when a dependency fails (cache, default, stub)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Designing for Failure"
+    },
+    {
+      "type": "paragraph",
+      "text": "In distributed systems, partial failure is the steady state: a dependency will be slow or dead. The goal is to contain failure so one broken component degrades gracefully instead of cascading into a full outage. This is the job of resilience patterns."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Circuit Breaker, Retry, Timeout, Bulkhead"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Timeout: never wait forever. Bound every remote call; release the thread.",
+        "Retry with backoff + jitter: transient errors (network blips) often succeed on retry, but naive retries can amplify load — use exponential backoff and jitter, and only retry idempotent operations.",
+        "Circuit Breaker: wraps a call and tracks failures. After a threshold, it \"opens\" and fails fast without making the call, giving the dependency time to recover; after a cool-down it lets a trial call through (half-open). This prevents hammering a struggling service.",
+        "Bulkhead: partition resources (e.g., separate thread pools per downstream). If the payment pool is exhausted, the shipping path still works. Like compartments in a ship, one flood doesn't sink all."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Saga: Distributed Transactions"
+    },
+    {
+      "type": "paragraph",
+      "text": "A single ACID transaction cannot span microservices (they own their databases). A Saga replaces the distributed transaction with a sequence of local transactions; each step has a compensating action to undo it if a later step fails. Example: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order."
+    },
+    {
+      "type": "paragraph",
+      "text": "Orchestration uses a central coordinator (e.g., a Saga orchestrator/state machine) that tells each service what to do and triggers compensations. It is easier to reason about and debug, but adds a central component. Choreography has services react to each other's events with no coordinator; it is more decoupled and resilient to central failure, but harder to trace and easy to tangle. Choose orchestration for complex, critical flows (clear blame, easy monitoring) and choreography for simpler, loosely-coupled reactions."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Rate Limiting and Fallback"
+    },
+    {
+      "type": "paragraph",
+      "text": "Rate limiting (token bucket, leaky bucket) protects a service from spikes and abusive clients, often at the gateway. Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate. Together they keep the system \"mostly working\" rather than \"hard down.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "stateDiagram-v2\n    [*] --> Closed\n    Closed --> Open: failures >= threshold\n    Open --> HalfOpen: after cool-down\n    HalfOpen --> Closed: trial call OK\n    HalfOpen --> Open: trial call fails"
+    },
+    {
+      "type": "paragraph",
+      "text": "Saga orchestration:"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant O as Orchestrator\n    participant I as Inventory\n    participant P as Payment\n    O->>I: Reserve(id)\n    I-->>O: reserved\n    O->>P: Charge(id)\n    alt charge fails\n        P-->>O: error\n        O->>I: Compensate: Release(id)\n    else success\n        P-->>O: ok\n        O-->>O: Saga complete\n    end"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Retries every request immediately",
+        "b) Fails fast without calling the dependency, to let it recover",
+        "c) Doubles the traffic",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Caching all responses",
+        "b) Isolating resource pools so one failure cannot exhaust shared capacity",
+        "c) Disabling the network",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Is optional",
+        "b) Undoes a previously completed local transaction if a later step fails",
+        "c) Commits the whole distributed transaction",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) No coordinator to fail",
+        "b) Easier reasoning, monitoring, and clear compensation control",
+        "c) Less code",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Be infinite",
+        "b) Use backoff + jitter and only retry idempotent operations",
+        "c) Never be used",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "A Circuit Breaker in the \"open\" state:",
+        "The Bulkhead pattern protects availability by:",
+        "In a Saga, a compensating transaction:",
+        "A key advantage of Saga orchestration over choreography is:",
+        "Retries should generally:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Release It!\" — Michael Nygard (stability patterns, circuit breaker, bulkhead)",
+        "Martin Fowler, \"Circuit Breaker\": https://martinfowler.com/bliki/CircuitBreaker.html",
+        "Chris Richardson, \"Saga pattern\": https://microservices.io/patterns/data/saga.html",
+        "Resilience4j documentation: https://resilience4j.readme.io/",
+        "\"Patterns for Fault Tolerant Software\" — Robert Hanmer"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Saga",
+      "definition": "A Saga replaces the distributed transaction with a sequence of local transactions; each step has a compensating action to undo it if a later step fails."
+    },
+    {
+      "term": "Orchestration",
+      "definition": "Orchestration uses a central coordinator (e."
+    },
+    {
+      "term": "Choreography",
+      "definition": "Choreography has services react to each other's events with no coordinator; it is more decoupled and resilient to central failure, but harder to trace and easy to tangle."
+    },
+    {
+      "term": "Rate limiting",
+      "definition": "Rate limiting (token bucket, leaky bucket) protects a service from spikes and abusive clients, often at the gateway."
+    },
+    {
+      "term": "Fallback",
+      "definition": "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate."
+    },
+    {
+      "term": "The goal",
+      "definition": "The goal is to contain failure so one broken component degrades gracefully instead of cascading into a full outage."
+    },
+    {
+      "term": "This",
+      "definition": "This is the job of resilience patterns."
+    },
+    {
+      "term": "Example",
+      "definition": "Example: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order."
+    },
+    {
+      "term": "Fallback provides a safe degraded path",
+      "definition": "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate."
+    }
+  ]
+}

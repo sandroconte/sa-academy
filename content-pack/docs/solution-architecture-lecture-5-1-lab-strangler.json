@@ -1,0 +1,237 @@
+{
+  "id": "solution-architecture-lecture-5-1-lab-strangler",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "5-1-lab-strangler",
+  "title": "5.1 — Lab: Strangler Fig Modernization",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5.1 — Lab: Strangler Fig Modernization"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 5 · Lesson 5.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Apply the Strangler Fig pattern to incrementally migrate a monolith.",
+        "Place a routing facade/gateway in front of legacy and new services.",
+        "Extract one bounded feature behind the facade without a big-bang rewrite.",
+        "Verify routing correctness and measure the migration step."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Strangler Fig pattern — incrementally replace parts of a legacy system with new services, routing traffic at a facade.",
+        "Facade / API Gateway — the interception point that directs requests to old or new implementations.",
+        "Bounded context — a cohesive capability extracted as a unit (e.g., \"Orders\").",
+        "Parallel run — old and new implementations coexist; traffic is shifted gradually."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Scenario"
+    },
+    {
+      "type": "paragraph",
+      "text": "You have a monolithic \"Shop\" application with an Orders module you want to modernize into a standalone service, while keeping the rest of the monolith intact. Rather than a risky rewrite, you route /api/orders/* to a new Orders service and let everything else hit the monolith."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "A reverse proxy (Nginx / API Gateway / Traefik) fronts both. Initially 100% of traffic goes to the monolith. You deploy the new Orders service, flip the route for /api/orders, validate, then decommission the old module."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lab Steps"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Prerequisites"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Docker + Docker Compose installed.",
+        "A simple monolith (any language) exposing / (legacy) and /api/orders (to be extracted).",
+        "curl or Postman for testing."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 1 — Stand up the monolith"
+    },
+    {
+      "type": "paragraph",
+      "text": "Run a minimal monolith container exposing port 8080 with endpoints / (returns \"legacy home\") and /api/orders (returns legacy orders JSON)."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 2 — Build the new Orders service"
+    },
+    {
+      "type": "paragraph",
+      "text": "Create a small service (port 8081) implementing /api/orders with improved logic (e.g., returns enriched orders). Keep its contract identical to the legacy endpoint."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 3 — Add the facade"
+    },
+    {
+      "type": "paragraph",
+      "text": "Deploy an Nginx reverse proxy:"
+    },
+    {
+      "type": "code",
+      "lang": "nginx",
+      "value": "location /api/orders/  { proxy_pass http://orders-svc:8081/; }\nlocation /             { proxy_pass http://monolith:8080/; }"
+    },
+    {
+      "type": "paragraph",
+      "text": "Route /api/orders to the new service, everything else to the monolith."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 4 — Validate and shift"
+    },
+    {
+      "type": "list",
+      "items": [
+        "curl localhost/api/orders → should return the new service response.",
+        "curl localhost/ → should return legacy home.",
+        "Optionally set a weighted split (90% monolith / 10% new) to compare."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 5 — Decommission"
+    },
+    {
+      "type": "paragraph",
+      "text": "Once stable, remove the /api/orders code path from the monolith and update the ADR documenting the extraction."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    C[Client] --> G[API Gateway / Facade]\n    G -->|/api/orders| O[New Orders Service :8081]\n    G -->|other paths| M[Legacy Monolith :8080]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Validation / Deliverable"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A working docker-compose.yml with gateway + monolith + orders service.",
+        "curl proof that orders traffic hits the new service and other traffic hits the monolith.",
+        "A short ADR (use the 4.1 template) recording the extraction decision.",
+        "Bonus: weighted routing config demonstrating a canary shift."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Monolith to Microservices\" — Sam Newman (O'Reilly)",
+        "Strangler Fig pattern — https://martinfowler.com/bliki/StranglerFigApplication.html",
+        "Nginx reverse proxy guide — https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Lab Steps"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Validation / Deliverable"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Lab Steps",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Validation / Deliverable",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    }
+  ]
+}

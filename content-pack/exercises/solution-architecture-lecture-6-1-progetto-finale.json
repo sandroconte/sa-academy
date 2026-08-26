@@ -1,0 +1,173 @@
+{
+  "docId": "solution-architecture-lecture-6-1-progetto-finale",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt.",
+        "options": [
+          "The exercise mirrors real engagements",
+          "Your goal",
+          "You",
+          "This"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "See the rubric table in the _____ section.",
+        "options": [
+          "Explanation",
+          "Your goal",
+          "You",
+          "This"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs.",
+        "options": [
+          "You",
+          "This",
+          "The exercise mirrors real engagements",
+          "Explanation"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute.",
+        "options": [
+          "Your goal",
+          "The exercise mirrors real engagements",
+          "This",
+          "You"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Your goal",
+          "The exercise mirrors real engagements",
+          "You",
+          "This"
+        ],
+        "pairsRight": [
+          "This is the capstone of the Solution Architect Academy.",
+          "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt.",
+          "You are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs.",
+          "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+        ]
+      },
+      "answerKey": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The exercise mirrors real engagements?",
+        "options": [
+          "See the rubric table in the Explanation section.",
+          "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt.",
+          "This is the capstone of the Solution Architect Academy.",
+          "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Explanation?",
+        "options": [
+          "This is the capstone of the Solution Architect Academy.",
+          "See the rubric table in the Explanation section.",
+          "You are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs.",
+          "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is You?",
+        "options": [
+          "This is the capstone of the Solution Architect Academy.",
+          "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute.",
+          "You are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs.",
+          "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Migration Plan — map each legacy component to one of the 7R strategies; sequence using the Strangler Fig pattern; define cutover and rollback.",
+          "Cost & Risk Assessment — TCO model, savings thesis, top-10 risks with likelihood/impact/mitigation.",
+          "Architecture Decision Records (ADRs) — at least 6 ADRs for pivotal choices (cloud provider, decomposition strategy, data stores, event backbone, AI approach, multi-region topology). Each ADR must state context, decision, alternatives considered, and consequences.",
+          "The SAD Document — the integrated deliverable (structure below) that ties 1–5 together.",
+          "Logical & Physical Architecture — with diagrams. Logical: domains, bounded contexts, data flows. Physical: concrete services, clusters, regions, networks.",
+          "Resilience & Data Strategy — failure modes, circuit breakers, bulkheads, idempotency; data partitioning, replication, consistency, GDPR handling."
+        ]
+      },
+      "answerKey": [
+        2,
+        4,
+        0,
+        5,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "See the rubric table in the This section."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "docId": "solution-architecture-lecture-0-3-processo-progettazione",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) _____, and (6) Review, govern, and iterate.",
+        "options": [
+          "Validate with a POC or prototype",
+          "Gather and classify requirements",
+          "Options",
+          "Trade-offs"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The typical flow is: (1) Understand the context and stakeholders, (2) _____, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+        "options": [
+          "Review, govern, and iterate",
+          "Options",
+          "Validate with a POC or prototype",
+          "Gather and classify requirements"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The typical flow is: (1) _____, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+        "options": [
+          "Produce the design and documentation",
+          "Understand the context and stakeholders",
+          "The typical flow is",
+          "Explore and evaluate options"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are compared against the Well-Architected pillars.",
+        "options": [
+          "Understand the context and stakeholders",
+          "Options",
+          "Produce the design and documentation",
+          "Explore and evaluate options"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Validate with a POC or prototype?",
+        "options": [
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "Trade-offs are surfaced and documented.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Gather and classify requirements?",
+        "options": [
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "Trade-offs are surfaced and documented.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Understand the context and stakeholders?",
+        "options": [
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "Options are compared against the Well-Architected pillars.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate.",
+          "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "What triggers a return to the \"explore options\" phase?",
+          "Which type of requirement covers latency, security, and compliance?",
+          "What is the primary purpose of a Proof of Concept in the design process?",
+          "In the design process, trade-offs are typically evaluated against what?"
+        ]
+      },
+      "answerKey": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Options are compared against the Well-Architected pillars."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Explore and evaluate options: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+      },
+      "answerKey": false
+    }
+  ]
+}

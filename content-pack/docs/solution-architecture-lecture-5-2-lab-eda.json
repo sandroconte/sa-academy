@@ -1,0 +1,232 @@
+{
+  "id": "solution-architecture-lecture-5-2-lab-eda",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "5-2-lab-eda",
+  "title": "5.2 — Lab: Event-Driven Architecture with Kafka",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5.2 — Lab: Event-Driven Architecture with Kafka"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 5 · Lesson 5.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Stand up a local Kafka broker and create topics.",
+        "Build a producer that publishes events to a topic.",
+        "Build consumers that join a consumer group for parallel processing.",
+        "Observe partition rebalancing and delivery semantics.",
+        "Architect a small streaming app (e.g., order events → enrichment → analytics)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Topic — a named, partitioned, replicated log of events.",
+        "Producer — publishes messages with a key (controls partition) to a topic.",
+        "Consumer group — a set of consumers sharing the load; each partition is read by one group member.",
+        "Partition / Offset — units of parallelism and position within a topic.",
+        "Delivery semantics — at-most-once, at-least-once, exactly-once."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Scenario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build an \"Order Processing\" streaming pipeline: an Orders producer emits OrderCreated events; a consumer group enriches them and republishes OrderEnriched to a second topic; an analytics consumer counts orders per region."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kafka brokers hold topics orders and orders.enriched. Two consumer groups (enrich and analytics) read independently. Scaling consumers within a group scales partition consumption."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lab Steps"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Prerequisites"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Docker + Docker Compose.",
+        "Python 3.10+ with kafka-python, or Node.js with kafkajs.",
+        "kafka-console-producer/consumer (via bitnami/kafka image) available."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 1 — Start Kafka"
+    },
+    {
+      "type": "code",
+      "lang": "yaml",
+      "value": "services:\n  kafka:\n    image: bitnami/kafka:latest\n    ports: [\"9092:9092\"]\n    environment:\n      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092\n      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092\n      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: \"false\""
+    },
+    {
+      "type": "paragraph",
+      "text": "Run docker compose up -d."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 2 — Create topics"
+    },
+    {
+      "type": "code",
+      "lang": "bash",
+      "value": "docker exec -it <kafka> kafka-topics.sh --create --topic orders --partitions 3 --replication-factor 1 --bootstrap-server localhost:9092\ndocker exec -it <kafka> kafka-topics.sh --create --topic orders.enriched --partitions 3 --replication-factor 1 --bootstrap-server localhost:9092"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 3 — Producer"
+    },
+    {
+      "type": "paragraph",
+      "text": "Write a producer that sends 100 OrderCreated events with region as the message key (so same region → same partition)."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 4 — Enrich consumer group"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build a consumer in group enrich that reads orders, adds a timestamp and total, and publishes to orders.enriched. Run two instances to see partition rebalancing."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 5 — Analytics consumer group"
+    },
+    {
+      "type": "paragraph",
+      "text": "Build a consumer in group analytics reading orders.enriched that prints a running count of orders per region every 10 seconds."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    P[Producer: Orders] -->|OrderCreated| T1[(Topic: orders)]\n    T1 --> CG1[Consumer Group: enrich]\n    CG1 -->|OrderEnriched| T2[(Topic: orders.enriched)]\n    T2 --> CG2[Consumer Group: analytics]\n    CG2 --> D[(Dashboard / Counts)]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Validation / Deliverable"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Running Kafka with both topics created (show kafka-topics --list output).",
+        "Producer + two consumer groups functioning; demonstrate rebalancing by stopping one enrich consumer.",
+        "A short report showing order counts per region from the analytics consumer.",
+        "Bonus: configure enable.idempotence=true on the producer and explain exactly-once vs at-least-once."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Apache Kafka docs — https://kafka.apache.org/documentation/",
+        "\"Designing Event-Driven Systems\" — Ben Stopford (O'Reilly)",
+        "Confluent Kafka tutorials — https://developer.confluent.io/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Lab Steps"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Validation / Deliverable"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Lab Steps",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Validation / Deliverable",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "id": "solution-architecture-lecture-7-3-system-design-mock",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "7-3-system-design-mock",
+  "title": "7.3 — System Design Mock Interview",
+  "readingMin": 5,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "7.3 — System Design Mock Interview"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 7 · Lesson 7.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Internalize the live system-design interview loop: clarify → NFRs → high-level diagram → deep dive → trade-offs.",
+        "Practice thinking out loud and driving the whiteboard.",
+        "Produce an end-state architecture with a defensible trade-off discussion.",
+        "Use the reusable checklist to self-direct any prompt."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "The Live System-Design Interview Format"
+    },
+    {
+      "type": "paragraph",
+      "text": "Unlike a take-home, the live session is you and an interviewer at a whiteboard for 45–60 minutes. There is no single right answer. The interviewer scores your process:"
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Clarify requirements — who, what scale, what's the core use case. Never skip.",
+        "Pin down NFRs — latency, availability, consistency, compliance, cost envelope.",
+        "High-level diagram — boxes and arrows for the critical path first.",
+        "Deep dive — pick the riskiest part (data model, consistency, scaling) and go deep.",
+        "Trade-offs — state what you chose and what you gave up, and how you'd evolve it."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Golden rule: narrate your reasoning constantly. Silence reads as \"stuck.\" A \"let me think about the read path first\" is better than drawing in silence."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Full Worked Mock: \"Design an AI Customer-Support Assistant (RAG)\""
+    },
+    {
+      "type": "paragraph",
+      "text": "Below is a realistic transcript. I = Interviewer, C = Candidate (you)."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Phase 1 — Clarify (I → C)"
+    },
+    {
+      "type": "paragraph",
+      "text": "I: Design an AI customer-support assistant that answers customer questions using our help-center articles and order data."
+    },
+    {
+      "type": "paragraph",
+      "text": "C: Great. Before I draw anything, a few questions:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Users & scale: ~2M customers, peak ~500 requests/min, mostly web + mobile?",
+        "Core job-to-be-done: answer \"where's my order\" and \"how do I return\" type questions, citing sources?",
+        "Data sources: help-center articles (static-ish) + live order status (dynamic, PII)?",
+        "Languages: English only, or multilingual?",
+        "Must it take actions (issue refund) or only answer? I'll assume answer-only for v1, with a handoff to a human path.",
+        "Latency/availability NFRs: p95 < 3s, 99.9% available?",
+        "Compliance: order data is PII — must not leak across tenants."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "I: Good scoping. Yes to all your assumptions. 99.9%, p95 < 3s, PII isolation required."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Phase 2 — High-Level Diagram (C narrates while drawing)"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: Here's the critical path. A user asks a question; we retrieve grounding context, generate an answer with an LLM, and return it with citations. Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.\" We never send raw PII to the LLM."
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    U[User / Web+Mobile] --> GW[API Gateway + Auth]\n    GW --> O[Orchestrator / RAG Service]\n    O -->|embed query| E[Embedding Model]\n    O -->|KB search| V[(Vector Store)]\n    O -->|order context| OS[Order Service + PII Scrub]\n    V --> O\n    OS --> O\n    O -->|augment + cite| L[LLM]\n    L --> O\n    O -->|answer + sources| U\n    O -->|low confidence| H[Human Handoff]"
+    },
+    {
+      "type": "paragraph",
+      "text": "I: Why split retrieval into two paths instead of one?"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: Because they have different consistency and privacy needs. The KB is slow-changing, embeddable, and safe to vectorize. Order data is real-time and PII — I retrieve only the authorized customer's order, scrub fields, and pass minimal context. Mixing them in one index would risk leaking PII into embeddings."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Phase 3 — Deep Dive: Data & RAG Pipeline (C drives)"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: Let me go deep on the RAG core, the riskiest part."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Tools: LangChain/LlamaIndex, pgvector or Qdrant."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Techniques: hybrid search (keyword + vector) to catch product codes; re-ranking for precision."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Tools: guardrail layer, confidence threshold."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Techniques: tokenization, per-tenant isolation, short-lived session context."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ingestion: Help-center articles → chunk (≈500 tokens with overlap) → embed → upsert to vector store. Re-index nightly + on publish.",
+        "Retrieval: embed the query, similarity search top-K, re-rank, then inject into the prompt with explicit \"cite source\" instructions.",
+        "Grounding guardrail: if retrieval score < threshold, answer \"I don't know / hand to human\" — this fights hallucination.",
+        "PII handling: order context is fetched per-authenticated-user, fields minimized, and never persisted in the prompt store beyond the session."
+      ]
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant U as User\n    participant O as RAG Orchestrator\n    participant KB as Vector Store\n    participant OS as Order Service\n    participant L as LLM\n    U->>O: \"Where is my order #123?\"\n    O->>OS: getOrder(user, 123) scrubbed\n    O->>KB: embed + search top-K\n    KB-->>O: chunks\n    OS-->>O: minimal order ctx\n    O->>L: augment(question, ctx, cite)\n    L-->>O: answer + sources\n    O-->>U: answer + citations"
+    },
+    {
+      "type": "paragraph",
+      "text": "I: How do you keep answers fresh when articles change?"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: The ingestion job re-embeds on publish and on a nightly sweep; we version the index and can roll back. For hot fixes we support manual re-index of a single doc."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Phase 4 — Deep Dive: Resilience & Scale"
+    },
+    {
+      "type": "paragraph",
+      "text": "I: 500 req/min, p95 < 3s. What breaks first?"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: Two risks: (1) LLM latency/cost — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive. (2) Vector store load — it's read-heavy and scales horizontally; cache embeddings. The whole RAG service runs behind the API Gateway with Circuit Breaker + Bulkhead so a slow LLM doesn't take down auth or the human-handoff path."
+    },
+    {
+      "type": "paragraph",
+      "text": "C (cont.): On failure, we degrade: if the LLM is down, return a \"search these help articles\" fallback with the retrieved links — still useful, no hard error."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Phase 5 — Trade-offs & Evolution (C closes)"
+    },
+    {
+      "type": "paragraph",
+      "text": "C: My key trade-offs:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "RAG over fine-tuning: fresher, citeable, cheaper to update; cost is retrieval latency + infra.",
+        "Answer-only v1: avoids risky autonomous actions; we add a guarded \"request refund\" later behind human approval.",
+        "Single-cloud managed LLM: fastest, but creates dependency — we keep the orchestrator portable so we can swap providers.",
+        "Eventual vs. real-time KB: nightly re-index is fine for support articles; real-time only for order status (which is live anyway)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Evolution: add multilingual embeddings, agentic actions with approval, and eval/observability (answer-quality scoring) before scaling further."
+    },
+    {
+      "type": "paragraph",
+      "text": "I: That's a strong v1. Let's stop there."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "End-State Architecture (summary diagram)"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TB\n    subgraph Edge\n      U[Users: Web/Mobile] --> GW[API Gateway + AuthN/Z]\n    end\n    subgraph Core\n      GW --> OR[RAG Orchestrator]\n      OR --> CACHE[(Semantic + Embedding Cache)]\n      OR --> VEC[(Vector Store: KB)]\n      OR --> ORD[Order Service + PII Scrub]\n      OR --> LLM[LLM (swappable)]\n      OR --> GUARD[Guardrail / Grounding Check]\n      OR --> HUMAN[Human Handoff]\n    end\n    subgraph Ingestion\n      SRC[Help Center CMS] --> ING[Ingest: chunk+embed]\n      ING --> VEC\n    end\n    OR -.-> OBS[(Observability: traces, eval)]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Reusable System-Design Interview Checklist"
+    },
+    {
+      "type": "paragraph",
+      "text": "Run this loop on any prompt (booking platform, RAG assistant, payments, IoT ingest):"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "1. Requirements"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Who are the users and what is the core use case (1 sentence)?",
+        "Read path vs. write path — which dominates?",
+        "Clarifying questions asked before drawing."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "2. Capacity & Scale"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Estimated RPS / storage / growth rate stated.",
+        "Peak vs. average distinguished."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "3. NFRs"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Latency target (p95/p99) stated.",
+        "Availability/SLO target stated.",
+        "Consistency model (strong vs. eventual) chosen and justified.",
+        "Compliance/security constraints (PII, multi-tenant) called out."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "4. Diagram"
+    },
+    {
+      "type": "list",
+      "items": [
+        "High-level critical-path diagram drawn early.",
+        "Components labeled (gateway, services, datastores, async).",
+        "Mermaid/whiteboard is readable, not a box explosion."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "5. Data"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Data model / storage choice justified (SQL vs. NoSQL vs. vector).",
+        "Consistency & replication strategy addressed.",
+        "Migrations / ingestion considered (esp. AI/RAG or ETL)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "6. Resilience"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Failure modes identified (what breaks first?).",
+        "Patterns applied: Circuit Breaker, Bulkhead, Retry/Timeout, Fallback, Saga where relevant.",
+        "Degraded-mode behavior defined (not just \"it works\")."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "7. Cost & Trade-offs"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Major trade-off stated explicitly (what you gave up).",
+        "Cost levers mentioned (cache, commitments, right-sizing, model choice).",
+        "Simplicity preferred over trendiness."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "8. Evolution"
+    },
+    {
+      "type": "list",
+      "items": [
+        "v1 scope vs. future stated.",
+        "Clear \"how I'd extend\" (multilingual, agentic, multi-region).",
+        "Observability / eval plan included."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Drill: Pick \"Design a scalable ticket/event booking platform.\" Time-box 45 min: 5 clarify, 10 diagram, 15 deep dive (data + consistency), 10 resilience, 5 trade-offs. Record and critique against the checklist. Then swap with a peer and interview each other."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "The Live System-Design Interview Format"
+    },
+    {
+      "title": "Full Worked Mock: \"Design an AI Customer-Support Assistant (RAG)\""
+    },
+    {
+      "title": "Reusable System-Design Interview Checklist"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "The Live System-Design Interview Format",
+      "definition": null
+    },
+    {
+      "term": "Reusable System-Design Interview Checklist",
+      "definition": null
+    },
+    {
+      "term": "you and an interviewer at a whiteboard for 45–60 minutes",
+      "definition": "Unlike a take-home, the live session is you and an interviewer at a whiteboard for 45–60 minutes."
+    },
+    {
+      "term": "Golden rule:",
+      "definition": null
+    },
+    {
+      "term": "vector store",
+      "definition": "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order."
+    },
+    {
+      "term": "scrubbed order service",
+      "definition": "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order."
+    },
+    {
+      "term": "LLM latency/cost",
+      "definition": "C: Two risks: (1) LLM latency/cost — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive."
+    },
+    {
+      "term": "Vector store load",
+      "definition": "(2) Vector store load — it's read-heavy and scales horizontally; cache embeddings."
+    },
+    {
+      "term": "C (cont.):",
+      "definition": null
+    },
+    {
+      "term": "Drill:",
+      "definition": null
+    },
+    {
+      "term": "There",
+      "definition": "There is no single right answer."
+    },
+    {
+      "term": "Below",
+      "definition": "Below is a realistic transcript."
+    },
+    {
+      "term": "Two retrieval paths",
+      "definition": "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.\" We never send raw PII to the LLM."
+    },
+    {
+      "term": "The KB",
+      "definition": "The KB is slow-changing, embeddable, and safe to vectorize."
+    },
+    {
+      "term": "Order data",
+      "definition": "Order data is real-time and PII — I retrieve only the authorized customer's order, scrub fields, and pass minimal context."
+    },
+    {
+      "term": "Evolution",
+      "definition": "Evolution: add multilingual embeddings, agentic actions with approval, and eval/observability (answer-quality scoring) before scaling further."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-lecture-5-3-lab-multicloud",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-5-3-lab-multicloud-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "State is stored in each provider's native object store (S3 for AWS, GCS for GCP) to respect blast-radius isolation."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-5-3-lab-multicloud-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Confirm both resources exist via cloud consoles and terraform state list."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-5-3-lab-multicloud-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Resources is stored in each provider's native object store (S3 for AWS, GCS for GCP) to respect blast-radius isolation."
+      },
+      "answerKey": false
+    }
+  ]
+}

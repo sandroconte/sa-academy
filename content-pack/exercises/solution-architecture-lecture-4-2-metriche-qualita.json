@@ -1,0 +1,47 @@
+{
+  "docId": "solution-architecture-lecture-4-2-metriche-qualita",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-4-2-metriche-qualita-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "If a component has Ca = 2 and Ce = 6, its instability I is:",
+          "A fitness function is best described as:",
+          "Which DORA metric measures time to recover from a failure?",
+          "High cohesion combined with low coupling generally indicates:"
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-4-2-metriche-qualita-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Cohesion is the counterpart: a highly cohesive module does one thing well, which lowers cognitive load and coupling."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-4-2-metriche-qualita-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A module with high Ca is a \"hub\" — changing it risks many consumers, so it should be stable (low Ce)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-4-2-metriche-qualita-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A module with high Ca is the counterpart: a highly cohesive module does one thing well, which lowers cognitive load and coupling."
+      },
+      "answerKey": false
+    }
+  ]
+}

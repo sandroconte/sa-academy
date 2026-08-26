@@ -1,0 +1,250 @@
+{
+  "id": "solution-architecture-lecture-0-2-well-architected",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "0-2-well-architected",
+  "title": "0.2 — The Well-Architected Framework Pillars",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "0.2 — The Well-Architected Framework Pillars"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 0 · Lesson 0.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "List the five pillars of a Well-Architected Framework.",
+        "Explain operational excellence, security, reliability, performance efficiency, and cost optimization.",
+        "Apply the pillars as a review lens for any architecture.",
+        "Recognize that trade-offs between pillars are a normal SA responsibility."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Well-Architected Framework — a structured set of best practices for building secure, resilient, efficient, and cost-effective systems.",
+        "Operational Excellence — running and monitoring systems to deliver business value and continuously improve.",
+        "Security — protecting data, systems, and assets through identity, detection, and protection.",
+        "Reliability — the ability to recover from failures and meet availability/throughput demands.",
+        "Performance Efficiency — using computing resources efficiently to meet requirements as they change.",
+        "Cost Optimization — avoiding unnecessary expense and selecting the right resources."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Why a framework matters"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Well-Architected Framework gives an SA a shared, repeatable vocabulary to evaluate designs. It prevents \"hero architecture\" — solutions that work only because one person holds the whole design in their head — and instead produces systems that are reviewable, measurable, and improvable."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The five pillars"
+    },
+    {
+      "type": "paragraph",
+      "text": "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures. Questions include: how do we detect failures, and how do we respond?"
+    },
+    {
+      "type": "paragraph",
+      "text": "Security is about protecting information and systems. It rests on six areas: identity and access management, detective controls, infrastructure protection, data protection, incident response, and applying security at all layers. The principle of least privilege is central."
+    },
+    {
+      "type": "paragraph",
+      "text": "Reliability requires a system to perform its intended function correctly and consistently, recovering from infrastructure or service failures and adapting to changing load. This covers foundational requirements (network, compute), change management, and failure management."
+    },
+    {
+      "type": "paragraph",
+      "text": "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves. It emphasizes selecting the right resource types and sizes, and going global when needed."
+    },
+    {
+      "type": "paragraph",
+      "text": "Cost Optimization is the ability to run systems to deliver business value at the lowest price point. It means understanding where money is spent, selecting the right resource types, analyzing spend over time, and managing demand."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Trade-offs are inevitable"
+    },
+    {
+      "type": "paragraph",
+      "text": "No design maximizes every pillar simultaneously. A highly reliable, secure system may cost more; an aggressively cost-optimized system may sacrifice some resilience. The SA's job is to make these trade-offs explicit and align them with business priorities."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "graph TD\n    WAF[Well-Architected Framework]\n    WAF --> OE[Operational Excellence<br/>run, monitor, improve]\n    WAF --> SEC[Security<br/>protect data & systems]\n    WAF --> REL[Reliability<br/>recover & meet demand]\n    WAF --> PERF[Performance Efficiency<br/>right resources, right size]\n    WAF --> COST[Cost Optimization<br/>lowest price for value]\n    OE -. trade-offs .-> COST\n    SEC -. trade-offs .-> PERF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Three",
+        "b) Five",
+        "c) Seven",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Reliability",
+        "b) Security",
+        "c) Performance Efficiency",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Cost Optimization",
+        "b) Security",
+        "c) Operational Excellence",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Because no design can maximize every pillar at once",
+        "b) Because the framework is incomplete",
+        "c) Because only cost matters",
+        "Answer: a"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "How many pillars are in the standard Well-Architected Framework?",
+        "Which pillar focuses on protecting data and systems at all layers?",
+        "The principle of least privilege primarily supports which pillar?",
+        "Why are trade-offs between pillars a normal part of architecture?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "AWS Well-Architected Framework: https://aws.amazon.com/architecture/well-architected/",
+        "Microsoft Azure Well-Architected Framework: https://learn.microsoft.com/azure/architecture/framework/",
+        "Google Cloud Architecture Framework: https://cloud.google.com/architecture/framework",
+        "\"The Well Architected Framework\" — official cloud provider whitepapers"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves."
+    },
+    {
+      "term": "Operational Excellence",
+      "definition": "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures."
+    },
+    {
+      "term": "Security",
+      "definition": "Security is about protecting information and systems."
+    },
+    {
+      "term": "Reliability",
+      "definition": "Reliability requires a system to perform its intended function correctly and consistently, recovering from infrastructure or service failures and adapting to changing load."
+    },
+    {
+      "term": "Performance Efficiency",
+      "definition": "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves."
+    },
+    {
+      "term": "Cost Optimization",
+      "definition": "Cost Optimization is the ability to run systems to deliver business value at the lowest price point."
+    },
+    {
+      "term": "Questions include",
+      "definition": "Questions include: how do we detect failures, and how do we respond?"
+    },
+    {
+      "term": "It rests on six areas",
+      "definition": "It rests on six areas: identity and access management, detective controls, infrastructure protection, data protection, incident response, and applying security at all layers."
+    },
+    {
+      "term": "It means understanding where money",
+      "definition": "It means understanding where money is spent, selecting the right resource types, analyzing spend over time, and managing demand."
+    }
+  ]
+}

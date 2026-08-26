@@ -1,0 +1,233 @@
+{
+  "id": "solution-architecture-lecture-5-3-lab-multicloud",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "5-3-lab-multicloud",
+  "title": "5.3 — Lab: Multi-Cloud with Terraform",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "5.3 — Lab: Multi-Cloud with Terraform"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 5 · Lesson 5.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use Terraform to provision resources across two cloud providers.",
+        "Structure reusable infrastructure with modules and input variables.",
+        "Manage provider configuration and state separation per environment.",
+        "Apply the same module to different providers via variable-driven design.",
+        "Validate a multi-cloud deployment end to end."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Provider — a Terraform plugin (aws, google, azurerm) that talks to a cloud API.",
+        "Module — a reusable, parameterized bundle of resources (the \"abstraction unit\").",
+        "Variable / Output — inputs and return values that parameterize and expose module data.",
+        "Backend — where Terraform stores state (local, S3, GCS, remote).",
+        "Multi-cloud — running workloads on >1 provider for resilience or capability fit."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Scenario"
+    },
+    {
+      "type": "paragraph",
+      "text": "Provision a \"hello world\" web endpoint on AWS (an S3-backed static site or EC2) and a counterpart on Google Cloud (a GCS bucket or GCE instance) using a single Terraform project with a shared module. The module accepts a provider_name and region, abstracting differences."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "A root configuration declares two providers and calls one web_node module twice — once per cloud — with different region and instance_type variables. State is stored in each provider's native object store (S3 for AWS, GCS for GCP) to respect blast-radius isolation."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Lab Steps"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Prerequisites"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Terraform >= 1.5 installed.",
+        "AWS and GCP accounts with credentials (AWS_ACCESS_KEY_ID, GOOGLE_CREDENTIALS).",
+        "Two empty buckets (S3 + GCS) for remote state."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 1 — Module definition"
+    },
+    {
+      "type": "paragraph",
+      "text": "Create modules/web_node/main.tf with a variable \"cloud\" (aws|gcp), variable \"region\", variable \"name\". Use count/for_each or provider aliases to branch resource creation."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 2 — AWS instance"
+    },
+    {
+      "type": "code",
+      "lang": "hcl",
+      "value": "provider \"aws\" { region = var.aws_region }\nmodule \"aws_node\" {\n  source = \"./modules/web_node\"\n  cloud  = \"aws\"\n  region = \"eu-west-1\"\n  name   = \"sa-academy-aws\"\n}"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 3 — GCP instance"
+    },
+    {
+      "type": "code",
+      "lang": "hcl",
+      "value": "provider \"google\" { project = var.gcp_project region = \"europe-west1\" }\nmodule \"gcp_node\" {\n  source = \"./modules/web_node\"\n  cloud  = \"gcp\"\n  region = \"europe-west1\"\n  name   = \"sa-academy-gcp\"\n}"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 4 — Variables & outputs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Define variables.tf (region, project, instance_type) and outputs.tf exporting endpoint URLs from each module."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Task 5 — Apply & verify"
+    },
+    {
+      "type": "paragraph",
+      "text": "Run terraform init, terraform plan, terraform apply. Confirm both resources exist via cloud consoles and terraform state list."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TD\n    Root[Root config] --> AWS[Provider: aws]\n    Root --> GCP[Provider: google]\n    AWS --> M1[Module web_node cloud=aws]\n    GCP --> M2[Module web_node cloud=gcp]\n    M1 --> S3[(S3 state backend)]\n    M2 --> GCS[(GCS state backend)]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Validation / Deliverable"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A Terraform project with modules/web_node, root main.tf, variables.tf, outputs.tf.",
+        "Successful terraform apply on both providers (paste terraform state list showing AWS + GCP resources).",
+        "A README explaining how to add a third cloud by reusing the module.",
+        "Bonus: add a tflint/validation block enforcing allowed regions."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Terraform docs — https://developer.hashicorp.com/terraform/docs",
+        "\"Terraform: Up & Running\" — Yevgeniy Brikman (O'Reilly)",
+        "AWS provider — https://registry.terraform.io/providers/hashicorp/aws/latest",
+        "Google provider — https://registry.terraform.io/providers/hashicorp/google/latest"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Lab Steps"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Validation / Deliverable"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Lab Steps",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Validation / Deliverable",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": "Confirm both resources exist via cloud consoles and terraform state list."
+    },
+    {
+      "term": "State",
+      "definition": "State is stored in each provider's native object store (S3 for AWS, GCS for GCP) to respect blast-radius isolation."
+    }
+  ]
+}

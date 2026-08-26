@@ -1,0 +1,263 @@
+{
+  "id": "solution-architecture-lecture-3-1-comunicazione-integrazione",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "3-1-comunicazione-integrazione",
+  "title": "3.1 — Communication & Integration Patterns (Gateway, BFF, Sidecar)",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "3.1 — Communication & Integration Patterns (Gateway, BFF, Sidecar)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 3 · Lesson 3.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Compare synchronous (REST/gRPC) and asynchronous (messaging) integration and choose appropriately.",
+        "Explain the API Gateway's role in edge composition, routing, and cross-cutting concerns.",
+        "Design a Backend-for-Frontend that tailors APIs to specific client needs.",
+        "Understand the Sidecar and service mesh patterns for decentralizing infrastructure concerns."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "API Gateway — a single entry point that routes, composes, authenticates, and rate-limits client requests to backend services.",
+        "Backend-for-Frontend (BFF) — a dedicated aggregation layer per client type (web, mobile) shaping responses to that client.",
+        "Sidecar — a companion container/process deployed alongside a service, handling cross-cutting infra (proxy, logging).",
+        "Service Mesh — a network of sidecars (data plane) managed by a control plane, providing mTLS, routing, and observability.",
+        "Synchronous Integration — request/response calls (REST, gRPC) that couple caller to callee's availability.",
+        "Asynchronous Integration — message/event publishing where producer and consumer are temporally decoupled."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Synchronous vs Asynchronous Integration"
+    },
+    {
+      "type": "paragraph",
+      "text": "Synchronous calls (REST over HTTP, gRPC) are intuitive: a client sends a request and waits for a response. They are good for commands needing an immediate answer and for simple request/reply. The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls. Asynchronous integration (message brokers, event streams) decouples producer and consumer in time: the producer emits and moves on; the consumer processes when ready. This improves resilience and throughput but introduces eventual consistency and message-ordering/delivery-semantics complexity (at-least-once vs exactly-once). A mature system uses both: sync for interactive reads/commands, async for workflow and propagation."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "API Gateway"
+    },
+    {
+      "type": "paragraph",
+      "text": "In a microservice system, exposing every service directly to clients is untenable: clients must know many addresses, handle many protocols, and reimplement auth, throttling, and aggregation. The API Gateway sits at the edge and provides routing, protocol translation, authentication/authorization, rate limiting, and response composition. It is a single choke point — which is both its strength (central policy) and its risk (a potential bottleneck or single point of failure, so it must be scaled and hardened). Avoid putting business logic in the gateway; keep it a thin, declarative routing/policy layer."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Backend-for-Frontend (BFF)"
+    },
+    {
+      "type": "paragraph",
+      "text": "A single gateway often still serves very different clients. A mobile app wants few, small, tailored payloads; a web SPA wants rich aggregated data. A BFF is a dedicated backend per frontend that calls the right services, aggregates, and trims payloads for that specific client. This prevents the \"one API fits none\" problem and stops client teams from coupling to internal service boundaries. Each BFF can be owned by the corresponding client team, shortening feedback loops."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Sidecar and Service Mesh"
+    },
+    {
+      "type": "paragraph",
+      "text": "Many cross-cutting concerns (retries, TLS, metrics, tracing) should not be coded into every service. The Sidecar pattern deploys a helper process/container next to each service; the service talks to its sidecar locally, and the sidecar handles networking. A service mesh (e.g., Istio, Linkerd) generalizes this: every service gets a sidecar proxy (data plane), centrally configured by a control plane. The mesh delivers mTLS, traffic shifting (canary), retries, and observability uniformly — without changing application code. Cost: operational complexity and an extra network hop per call."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TB\n    W[\"Web SPA\"] --> BFF_W[\"Web BFF\"]\n    M[\"Mobile App\"] --> BFF_M[\"Mobile BFF\"]\n    BFF_W --> GW[\"API Gateway\"]\n    BFF_M --> GW\n    GW --> S1[\"OrdersSvc\"]\n    GW --> S2[\"ShippingSvc\"]\n    subgraph Mesh[\"Service Mesh\"]\n        S1 --- SC1[\"Sidecar Proxy\"]\n        S2 --- SC2[\"Sidecar Proxy\"]\n        SC1 <-->|mTLS| SC2\n    end"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sequence — synchronous chain risk vs async:"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant C as Client\n    participant G as Gateway\n    participant O as OrdersSvc\n    participant P as PaymentSvc\n    C->>G: POST /orders\n    G->>O: create\n    O->>P: charge (sync)  %% availability coupling\n    P-->>O: ok\n    O-->>G: 201\n    G-->>C: Order created"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Messages get lost easily",
+        "b) Availability/latency coupling across chained calls",
+        "c) It cannot return data",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Storing the database",
+        "b) Edge routing, auth, rate-limiting, and composition",
+        "c) Rendering the UI",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Replace all microservices",
+        "b) Tailor and aggregate APIs for a specific client type",
+        "c) Encrypt disks",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) The control plane's database",
+        "b) The per-service sidecar proxies that handle networking",
+        "c) The load balancer hardware",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) You need an immediate synchronous answer",
+        "b) You want temporal decoupling and resilience to consumer downtime",
+        "c) The payload is tiny",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "A key risk of synchronous request/response integration is:",
+        "The API Gateway's main responsibility is:",
+        "A BFF is used to:",
+        "In a service mesh, the \"data plane\" is typically:",
+        "Asynchronous messaging is preferable when:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Chris Richardson, \"Microservice Patterns\" — Manning (gateway, BFF chapters)",
+        "\"Pattern: API Gateway / BFF\" — Microservices.io: https://microservices.io/patterns/apigateway.html",
+        "Istio documentation: https://istio.io/latest/docs/",
+        "Linkerd: https://linkerd.io/",
+        "\"gRPC\": https://grpc.io/docs/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "API Gateway",
+      "definition": "The API Gateway sits at the edge and provides routing, protocol translation, authentication/authorization, rate limiting, and response composition."
+    },
+    {
+      "term": "BFF",
+      "definition": "A BFF is a dedicated backend per frontend that calls the right services, aggregates, and trims payloads for that specific client."
+    },
+    {
+      "term": "Sidecar",
+      "definition": "The Sidecar pattern deploys a helper process/container next to each service; the service talks to its sidecar locally, and the sidecar handles networking."
+    },
+    {
+      "term": "service mesh",
+      "definition": "A service mesh (e."
+    },
+    {
+      "term": "They",
+      "definition": "They are good for commands needing an immediate answer and for simple request/reply."
+    },
+    {
+      "term": "The downside",
+      "definition": "The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls."
+    },
+    {
+      "term": "A mature system uses both",
+      "definition": "A mature system uses both: sync for interactive reads/commands, async for workflow and propagation."
+    },
+    {
+      "term": "Cost",
+      "definition": "Cost: operational complexity and an extra network hop per call."
+    }
+  ]
+}

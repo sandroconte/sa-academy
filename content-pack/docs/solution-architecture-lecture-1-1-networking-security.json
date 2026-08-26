@@ -1,0 +1,247 @@
+{
+  "id": "solution-architecture-lecture-1-1-networking-security",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "1-1-networking-security",
+  "title": "1.1 — Networking & Security (VPC, IAM, Zero Trust)",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "1.1 — Networking & Security (VPC, IAM, Zero Trust)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 1 · Lesson 1.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explain VPC, subnet, security group, and NACL and how they isolate resources.",
+        "Apply the principle of least privilege with IAM.",
+        "Describe Zero Trust as a security model.",
+        "Reason about network and identity boundaries when designing a cloud solution."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "VPC (Virtual Private Cloud) — an isolated virtual network you define in the cloud.",
+        "Subnet — a segmented range of IP addresses within a VPC (public vs. private).",
+        "Security Group — a stateful, instance/resource-level firewall (allow rules).",
+        "NACL (Network ACL) — a stateless, subnet-level firewall (allow/deny rules).",
+        "IAM (Identity & Access Management) — controls who/what can do what (least privilege).",
+        "Zero Trust — never trust, always verify; no implicit trust by network location."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Network isolation with VPC"
+    },
+    {
+      "type": "paragraph",
+      "text": "A VPC is your own logically isolated section of the cloud. Inside it you create subnets — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable. Segmentation limits blast radius: a compromise in one subnet should not expose everything."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Security groups vs NACLs"
+    },
+    {
+      "type": "paragraph",
+      "text": "Security Groups are stateful and attached to a resource (e.g., a VM or service). If you allow inbound traffic, the response is automatically allowed back out. They act as the primary allow-list. NACLs are stateless and operate at the subnet boundary; each direction must be explicitly ruled, and rules are evaluated in order. Use NACLs as a coarse subnet-level guard and security groups for fine-grained resource control."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Identity with IAM and least privilege"
+    },
+    {
+      "type": "paragraph",
+      "text": "IAM governs identities (users, roles, services) and their permissions. The least privilege principle grants only the permissions required for a task — nothing more. Prefer roles over long-lived keys, scope policies tightly, and separate human and machine identities."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Zero Trust"
+    },
+    {
+      "type": "paragraph",
+      "text": "Zero Trust abandons the old \"inside the network = trusted\" assumption. Every request is authenticated, authorized, and encrypted regardless of origin. It combines strong identity (IAM), micro-segmentation (VPC/subnets), and continuous verification. For an SA, Zero Trust means designing systems that do not implicitly trust network location."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TB\n    Internet((Internet)) --> ALB[Public Subnet:<br/>Load Balancer]\n    ALB --> SG1{Security Group:<br/>allow 443}\n    SG1 --> App[Private Subnet:<br/>App Tier]\n    App --> SG2{Security Group:<br/>allow from SG1}\n    SG2 --> DB[(Private Subnet:<br/>Database)]\n    NACL[NACL: subnet guard] -. guards .-> App\n    ZT[Zero Trust:<br/>verify every request] -. applies to .-> SG1\n    ZT -. applies to .-> SG2"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Both are identical",
+        "b) Security Groups are stateful and resource-level; NACLs are stateless and subnet-level",
+        "c) NACLs are only for databases",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Grant all access by default",
+        "b) Least privilege",
+        "c) Share one admin key",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Being inside the corporate network",
+        "b) Network location implies trust",
+        "c) Continuous verification of identity and authorization, regardless of location",
+        "Answer: c"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Private subnet",
+        "b) Public subnet",
+        "c) NACL subnet",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "What is the key difference between a Security Group and a NACL?",
+        "Which principle should guide IAM permission design?",
+        "In Zero Trust, what determines trust?",
+        "A subnet with a route to the internet is typically called:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "AWS VPC documentation: https://docs.aws.amazon.com/vpc/",
+        "AWS IAM documentation: https://docs.aws.amazon.com/iam/",
+        "NIST Zero Trust Architecture (SP 800-207): https://csrc.nist.gov/pubs/sp/800/207/final",
+        "\"Cloud Security Engineering\" — articles and provider security guides"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "VPC",
+      "definition": "A VPC is your own logically isolated section of the cloud."
+    },
+    {
+      "term": "subnets",
+      "definition": "Inside it you create subnets — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable."
+    },
+    {
+      "term": "Security Groups",
+      "definition": "Security Groups are stateful and attached to a resource (e.g., a VM or service)."
+    },
+    {
+      "term": "NACLs",
+      "definition": "NACLs are stateless and operate at the subnet boundary; each direction must be explicitly ruled, and rules are evaluated in order."
+    },
+    {
+      "term": "IAM",
+      "definition": "IAM governs identities (users, roles, services) and their permissions."
+    },
+    {
+      "term": "least privilege",
+      "definition": "The least privilege principle grants only the permissions required for a task — nothing more."
+    },
+    {
+      "term": "Zero Trust",
+      "definition": "Zero Trust abandons the old \"inside the network = trusted\" assumption."
+    },
+    {
+      "term": "Segmentation limits blast radius",
+      "definition": "Segmentation limits blast radius: a compromise in one subnet should not expose everything."
+    },
+    {
+      "term": "Every request",
+      "definition": "Every request is authenticated, authorized, and encrypted regardless of origin."
+    }
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "id": "solution-architecture-lecture-7-2-behavioral-mock",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "7-2-behavioral-mock",
+  "title": "7.2 — Behavioral & Leadership Mock Interviews",
+  "readingMin": 7,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "7.2 — Behavioral & Leadership Mock Interviews"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 7 · Lesson 7.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Use the STAR method to structure behavioral answers under pressure.",
+        "Recognize why SA roles are heavily tested on soft skills (stakeholder management, conflict, influence without authority, mentoring).",
+        "Prepare model answers for the most common leadership/behavioral prompts.",
+        "Self-assess communication and leadership presence."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Why SA Interviews Test Soft Skills"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Solution Architect sits at the intersection of business, engineering, and delivery. You rarely have direct reports, yet you must drive decisions, align disagreeing stakeholders, and be accountable for outcomes you don't personally implement. Interviewers therefore spend significant time on how you work with people, because a brilliant design that nobody adopts is worthless."
+    },
+    {
+      "type": "paragraph",
+      "text": "Expect questions on:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Stakeholder management & influencing without authority",
+        "Conflict resolution & saying no",
+        "Owning a mistake / failed decision",
+        "Mentoring & growing others",
+        "Prioritization under pressure"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The universal framework is STAR:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "S — Situation: brief context (1–2 sentences, no novel).",
+        "T — Task: your responsibility / the challenge.",
+        "A — Action: what you specifically did (use \"I\", not \"we\").",
+        "R — Result: outcome + what you learned (quantify when possible)."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Common mistake: turning STAR into \"we did X.\" Interviewers want your agency. Anchor on \"I recommended / I facilitated / I pushed back.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 1 — Saying No to a Stakeholder"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Tell me about a time you had to say no to a stakeholder.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I did not say no immediately; I asked what decision they actually needed to make (it was \"which regions are underperforming\").",
+        "I proposed a good-enough alternative: a nightly batch rollup surfaced in the existing dashboard, delivered in days not months.",
+        "I documented the trade-off in an ADR and showed the cost/risk of the real-time path.",
+        "I aligned the VP and engineering lead in one meeting so \"no\" became \"yes, but phased.\""
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: A VP of Sales wanted a real-time analytics feature in the Q1 release that would require a major rewrite of our ingestion pipeline.",
+        "T: As architect, I had to protect the release date and reliability while still serving the underlying need.",
+        "A:",
+        "R: The batch feature shipped in Q1; the real-time path was scheduled as a Q3 investment with a clear business case. Stakeholder trust increased because the refusal came with a better option."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Refusal delivered with a counter-proposal, not stonewalling.",
+        "Use of data/ADR to make the \"no\" objective, not personal.",
+        "Ability to separate the stated request from the actual need."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 2 — A Failed Architecture Decision"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Describe a failed architecture decision and how you handled it.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I owned the mistake publicly in the architecture forum — no blame-shifting.",
+        "I gathered traces proving the diagnosis (no distributed tracing, event spaghetti).",
+        "I wrote an ADR to orchestrate the critical order saga while keeping non-critical events choreographed (hybrid).",
+        "I ran a phased migration behind feature flags to avoid another big-bang."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: We chose a choreographed event mesh for an order system across 6 teams, betting on team autonomy.",
+        "T: I led the design; 6 months in, debugging cross-team flows took days and incidents spiked.",
+        "A:",
+        "R: Incident MTTR dropped from days to hours; the team adopted tracing as a standard. Lesson: match coordination style to criticality, not ideology."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Ownership without defensiveness.",
+        "Evidence-based diagnosis, not vibes.",
+        "A concrete corrective action + a durable lesson (ADR, new standard).",
+        "They didn't blame \"the business\" or \"the devs.\""
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 3 — Influencing Without Authority"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"How do you get engineers to follow an architecture they didn't help design?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I shared a draft ADR early and ran an open review, inviting objections.",
+        "I created a reference implementation + a template so adoption was \"plug in,\" not \"figure it out.\"",
+        "I paired with one team as a pilot, then let their success be the pitch to the others.",
+        "I removed friction (CI scaffolding, docs) so saying yes was easier than saying no."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: A platform decision (API Gateway + BFF) affected 4 product teams who weren't in the initial design.",
+        "T: I needed adoption without any reporting line to those teams.",
+        "A:",
+        "R: 3 of 4 teams adopted within a sprint; the 4th came after the pilot's metrics were shared. Influence came from lowering effort + visible proof."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Leveraging ADRs, pilots, and reducing friction rather than edicts.",
+        "Understanding that adoption is a product you must sell.",
+        "Patience / using proof over authority."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 4 — Conflict Between Stakeholders"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Tell me about a time two senior stakeholders wanted opposite things.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I quantified both: cost of always-on staging vs. delay cost of nightly shutdowns.",
+        "I proposed a compromise: autoscaled staging that sleeps when idle but boots on-demand via CI (cost down ~60%, zero dev friction).",
+        "I presented the model so each side saw their priority partially met."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: CFO wanted aggressive cloud cost cuts (turn off non-prod at night); CTO wanted 24/7 staging for faster releases.",
+        "T: I had to reconcile a financial vs. delivery conflict.",
+        "A:",
+        "R: Approved unanimously; became the standard env policy. Conflict resolved by reframing as a trade-off with numbers, not a political win."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Do they quantify the conflict instead of picking a side?",
+        "A creative third option rather than compromise-by-half.",
+        "Facilitation skill, not domination."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 5 — Mentoring a Junior Engineer"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"How do you onboard and grow a junior engineer into architecture thinking?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I gave them a bounded, safe slice (one microservice's API) rather than the whole system.",
+        "I used the \"show, then pair, then review, then own\" ladder; I reviewed ADRs they drafted.",
+        "I taught them to ask \"what's the trade-off?\" for every choice, using Well-Architected.",
+        "I connected their work to a business outcome so they saw impact."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: A new grad joined and was overwhelmed by our distributed system.",
+        "T: I was tasked with mentoring them toward autonomy.",
+        "A:",
+        "R: Within two quarters they owned a service end-to-end and presented an ADR to the forum. Growth came from scaffolded responsibility, not lectures."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Deliberate, structured mentoring (not \"they'll figure it out\").",
+        "Teaching judgment, not just tools.",
+        "Investing in people as a force multiplier."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 6 — Prioritizing Under Pressure"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"Three fires at once: a production incident, a stakeholder demo due tomorrow, and a design review. What do you do?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I triaged by impact & reversibility: production first (customer money), then delegated the demo prep to the product owner with a ready script, then rescheduled the design review with a clear reason.",
+        "I communicated the re-prioritization transparently to all parties before they chased me.",
+        "I used the incident as input to the (later) design review, turning a fire into a lesson."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: All three landed on a Tuesday; I was the only architect on call.",
+        "T: I had to protect production while not dropping the business commitment.",
+        "A:",
+        "R: Incident resolved; demo shipped with support; design review happened two days later and was richer for the incident data. Calm, transparent triage beat heroics."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Clear prioritization framework (impact/reversibility).",
+        "Communication before people feel ignored.",
+        "Delegation and trust in the team."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Question 7 — Communicating Architecture to Non-Technical Executives"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prompt: \"How would you explain a complex architecture decision to the board?\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MODEL ANSWER (STAR outline)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "I led with business outcome (faster features, lower risk) and a simple analogy (renovating a house while living in it).",
+        "I used one diagram with three boxes, not 30; attached a one-page risk/cost summary.",
+        "I answered \"what if it fails?\" with the phased rollback plan."
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "S: We needed to approve a Strangler Fig migration with 18-month payback.",
+        "T: The board needed to fund it without understanding Kubernetes.",
+        "A:",
+        "R: Funded unanimously; execs referenced the analogy later. Translation skill — outcome first, detail on request."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Interviewer listens for"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Audience adaptation (outcome > mechanism).",
+        "One clear diagram, not a wall of boxes.",
+        "Pre-empting the \"what if it fails\" question."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "STAR Template (copy this)"
+    },
+    {
+      "type": "code",
+      "lang": "",
+      "value": "S — Situation (1–2 sentences, context only):\n___________________________________________________________\n\nT — Task (your responsibility / the challenge):\n___________________________________________________________\n\nA — Action (what *you* did; use \"I\"; be specific):\n  - _______________________________________________________\n  - _______________________________________________________\n  - _______________________________________________________\n\nR — Result (outcome + lesson; quantify if possible):\n___________________________________________________________"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Self-Assessment Checklist"
+    },
+    {
+      "type": "paragraph",
+      "text": "Score yourself 1–5:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "My answers are in STAR form, not rambling stories.",
+        "I use \"I\" for my actions, not \"we.\"",
+        "Every failure story ends in ownership + a durable lesson.",
+        "I quantify results where I can (%, time, $).",
+        "I show influencing without authority via ADRs/pilots/friction-reduction.",
+        "I reframe conflict as a trade-off with numbers, not a political win.",
+        "I adapt communication to the audience (exec vs. engineer).",
+        "I demonstrate mentoring as structured, not accidental.",
+        "I stay calm and structured under pressure scenarios.",
+        "I prepared 2–3 stories reusable across multiple questions."
+      ]
+    },
+    {
+      "type": "blockquote",
+      "text": "Drill: Write one STAR story per question above on index cards. Practice aloud; aim for 2 minutes each. Have a friend poke holes (\"why didn't you just…?\") to build poise."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Why SA Interviews Test Soft Skills"
+    },
+    {
+      "title": "Question 1 — Saying No to a Stakeholder"
+    },
+    {
+      "title": "Question 2 — A Failed Architecture Decision"
+    },
+    {
+      "title": "Question 3 — Influencing Without Authority"
+    },
+    {
+      "title": "Question 4 — Conflict Between Stakeholders"
+    },
+    {
+      "title": "Question 5 — Mentoring a Junior Engineer"
+    },
+    {
+      "title": "Question 6 — Prioritizing Under Pressure"
+    },
+    {
+      "title": "Question 7 — Communicating Architecture to Non-Technical Executives"
+    },
+    {
+      "title": "STAR Template (copy this)"
+    },
+    {
+      "title": "Self-Assessment Checklist"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Why SA Interviews Test Soft Skills",
+      "definition": null
+    },
+    {
+      "term": "Question 1 — Saying No to a Stakeholder",
+      "definition": null
+    },
+    {
+      "term": "Question 2 — A Failed Architecture Decision",
+      "definition": null
+    },
+    {
+      "term": "Question 3 — Influencing Without Authority",
+      "definition": null
+    },
+    {
+      "term": "Question 4 — Conflict Between Stakeholders",
+      "definition": null
+    },
+    {
+      "term": "Question 5 — Mentoring a Junior Engineer",
+      "definition": null
+    },
+    {
+      "term": "Question 6 — Prioritizing Under Pressure",
+      "definition": null
+    },
+    {
+      "term": "STAR Template (copy this)",
+      "definition": null
+    },
+    {
+      "term": "Self-Assessment Checklist",
+      "definition": null
+    },
+    {
+      "term": "STAR",
+      "definition": null
+    },
+    {
+      "term": "Common mistake:",
+      "definition": null
+    },
+    {
+      "term": "Prompt:",
+      "definition": null
+    },
+    {
+      "term": "Drill:",
+      "definition": null
+    },
+    {
+      "term": "Prompt",
+      "definition": "Prompt: \"Tell me about a time you had to say no to a stakeholder.\""
+    }
+  ]
+}

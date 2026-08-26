@@ -1,0 +1,268 @@
+{
+  "id": "solution-architecture-lecture-3-3-data-management",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "3-3-data-management",
+  "title": "3.3 — Data Management Patterns (Database per Service, CDC)",
+  "readingMin": 4,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "3.3 — Data Management Patterns (Database per Service, CDC)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 3 · Lesson 3.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explain the Database-per-Service pattern and its consequences for consistency and querying.",
+        "Use polyglot persistence to match storage technology to data shape and access patterns.",
+        "Apply Change Data Capture (CDC) to propagate data changes without tight coupling.",
+        "Manage eventual consistency and distributed data needs with saga-based and CQRS techniques."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Database per Service — each service owns its data store; no service reads another's database directly.",
+        "Polyglot Persistence — using different storage technologies (SQL, document, graph, key-value) per service need.",
+        "Change Data Capture (CDC) — streaming a database's change log (e.g., via Debezium/WAL) to downstream consumers.",
+        "Eventual Consistency — replicas/data copies converge to the same state over time, not instantly.",
+        "Shared Database (anti-pattern) — multiple services coupling to one schema, reintroducing monolithic coupling.",
+        "Saga-based Consistency — achieving cross-service consistency via compensating transactions, not 2PC."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Database per Service"
+    },
+    {
+      "type": "paragraph",
+      "text": "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly. This preserves independent deployment and scaling, and prevents a schema change in one service from silently breaking another. The price is that you can no longer join across services or use a single ACID transaction. You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a Saga for writes that span services."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Polyglot Persistence"
+    },
+    {
+      "type": "paragraph",
+      "text": "With per-service ownership comes freedom to choose the right store. An orders service may use PostgreSQL for strong consistency and relational integrity; a catalog service may use Elasticsearch for full-text search; a recommendations service may use a graph database; a session service may use Redis. This \"polyglot persistence\" matches technology to the data's shape and access pattern, but multiplies operational burden (backups, monitoring, expertise). Adopt new engines deliberately, not gratuitously."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Change Data Capture (CDC)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sometimes other services need a copy of your data (e.g., a search index, an analytics store, or a read model). Rather than exposing your internal tables or pushing events from app code (where failures cause drift), CDC reads the database's transaction log (write-ahead log) and streams every insert/update/delete as an event (Debezium on Kafka Connect is the canonical example). Consumers build their own projections. CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Eventual Consistency & Cross-Service Writes"
+    },
+    {
+      "type": "paragraph",
+      "text": "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay. Design UIs and flows to tolerate this (e.g., \"order pending\" states). For multi-step writes, use a Saga with compensations (see Lesson 3.2) rather than distributed transactions. For reads that need joined data, use CQRS read models fed by events/CDC."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Avoid the Shared-Database Anti-Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "The most common mistake is declaring \"microservices\" while they all point at one shared database. That database becomes the real coupling point, and you have paid the distributed cost while gaining none of the autonomy. If you must start integrated, at least enforce logical schema ownership; the goal is to make extraction to per-service stores a mechanical step."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    O[\"OrdersSvc\"] --> OD[(\"PostgreSQL\\nOrders\")]\n    OD -->|WAL / CDC| DBZ[\"Debezium\"]\n    DBZ --> KAF[\"Kafka\"]\n    KAF --> SRCH[\"Search Index\\n(Elasticsearch)\"]\n    KAF --> AN[\"Analytics Store\"]\n    subgraph Forbidden\n        B[\"BillingSvc\"] -.->|direct read OD| OD\n    end"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sequence — CDC feeding a read model:"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant A as App\n    participant D as Orders DB (WAL)\n    participant C as Debezium\n    participant K as Kafka\n    participant R as Read Model\n    A->>D: INSERT order (committed)\n    D-->>C: log capture\n    C->>K: OrderCreated event\n    K->>R: update projection"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) All services share one database for simplicity",
+        "b) Each service owns its data; others access it only via its API/events, not directly",
+        "c) Use only NoSQL",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Use one database for everything",
+        "b) Choose the best storage technology per service's data shape",
+        "c) Avoid backups",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Polling application tables every second",
+        "b) Streaming the database transaction/WAL log to downstream consumers",
+        "c) Copying files nightly",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Two-phase commit (2PC)",
+        "b) A Saga with compensating transactions and eventual consistency",
+        "c) Direct SQL across databases",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) It is too fast",
+        "b) The database becomes the real coupling point, negating microservice autonomy",
+        "c) It uses too much memory",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "The Database-per-Service rule means:",
+        "Polyglot persistence allows you to:",
+        "Change Data Capture typically works by:",
+        "Cross-service writes should generally use:",
+        "The shared-database anti-pattern is problematic because:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Chris Richardson, \"Microservice Patterns\" — Manning (data management chapters)",
+        "Debezium (CDC) documentation: https://debezium.io/documentation/",
+        "Martin Fowler, \"Event Sourcing\" & \"CQRS\": https://martinfowler.com/",
+        "\"Designing Data-Intensive Applications\" — Martin Kleppmann (O'Reilly)",
+        "Pat Helland, \"Life Beyond Distributed Transactions\": https://www.cidrdb.org/cidr2007/papers/cidr07p15.pdf"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "each service owns its data and its schema",
+      "definition": "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly."
+    },
+    {
+      "term": "CDC",
+      "definition": "CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed."
+    },
+    {
+      "term": "eventual consistency",
+      "definition": "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay."
+    },
+    {
+      "term": "Saga",
+      "definition": "You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a Saga for writes that span services."
+    },
+    {
+      "term": "The golden rule of microservices data management",
+      "definition": "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly."
+    },
+    {
+      "term": "The price",
+      "definition": "The price is that you can no longer join across services or use a single ACID transaction."
+    },
+    {
+      "term": "The most common mistake",
+      "definition": "The most common mistake is declaring \"microservices\" while they all point at one shared database."
+    }
+  ]
+}

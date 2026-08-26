@@ -1,0 +1,47 @@
+{
+  "docId": "solution-architecture-lecture-1-3-migrazione-cloud",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-1-3-migrazione-cloud-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Which 7R strategy moves a system as-is with minimal change?",
+          "The Strangler Fig pattern is valuable because it:",
+          "Replacing a custom CRM with a SaaS product is an example of:",
+          "Which strategy offers the highest long-term cloud value but the most effort?"
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-1-3-migrazione-cloud-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The Strangler Fig pattern wraps the legacy system with a facade and incrementally routes specific features to new cloud-native implementations."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-3-migrazione-cloud-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Cloud migration is rarely one-size-fits-all."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-3-migrazione-cloud-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Strangler Fig is rarely one-size-fits-all."
+      },
+      "answerKey": false
+    }
+  ]
+}

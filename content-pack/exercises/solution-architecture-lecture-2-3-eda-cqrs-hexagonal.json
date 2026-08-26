@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues.",
+        "options": [
+          "This inverts the dependency",
+          "Benefits",
+          "Adapters",
+          "The current state"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Also called \"ports & _____\", it puts the domain model at the center, completely free of framework, database, or transport concerns.",
+        "options": [
+          "Drawbacks",
+          "Adapters",
+          "ports",
+          "Benefits"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is eventual consistency and the need for good tooling to trace and replay event flows.",
+        "options": [
+          "Benefits",
+          "Adapters",
+          "The cost",
+          "Drawbacks"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: a perfect audit log, the ability to reconstruct past state, and natural fit with CQRS (events drive read-model updates).",
+        "options": [
+          "The current state",
+          "Benefits",
+          "ports",
+          "CQRS separates them"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The cost",
+          "CQRS separates them",
+          "The current state",
+          "ports"
+        ],
+        "pairsRight": [
+          "The current state is derived by replaying events, or maintained as a projection.",
+          "The cost is eventual consistency and the need for good tooling to trace and replay event flows.",
+          "CQRS separates them: the command side processes intent and updates the write model; the query side serves read models (denormalized views) updated asynchronously.",
+          "Also called \"ports & adapters\", it puts the domain model at the center, completely free of framework, database, or transport concerns."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This inverts the dependency?",
+        "options": [
+          "This inverts the dependency: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues.",
+          "Also called \"ports & adapters\", it puts the domain model at the center, completely free of framework, database, or transport concerns.",
+          "Benefits: a perfect audit log, the ability to reconstruct past state, and natural fit with CQRS (events drive read-model updates).",
+          "The current state is derived by replaying events, or maintained as a projection."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Adapters?",
+        "options": [
+          "Also called \"ports & adapters\", it puts the domain model at the center, completely free of framework, database, or transport concerns.",
+          "This inverts the dependency: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues.",
+          "Benefits: a perfect audit log, the ability to reconstruct past state, and natural fit with CQRS (events drive read-model updates).",
+          "The current state is derived by replaying events, or maintained as a projection."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The cost?",
+        "options": [
+          "The current state is derived by replaying events, or maintained as a projection.",
+          "This inverts the dependency: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues.",
+          "The cost is eventual consistency and the need for good tooling to trace and replay event flows.",
+          "Also called \"ports & adapters\", it puts the domain model at the center, completely free of framework, database, or transport concerns."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "In Hexagonal architecture, a port is:",
+          "Event Sourcing stores:",
+          "CQRS primarily helps when:",
+          "In EDA, the producer of an event:",
+          "A key benefit of Event Sourcing is:"
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        1,
+        0,
+        4
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This inverts the dependency: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "CQRS is not free — it adds duplication and eventual consistency, so apply it only where read/write profiles genuinely diverge (e.g., a trading system, a reporting-heavy app)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Benefits: producers are decoupled from consumers, new subscribers can be added without touching the producer, and the system absorbs load spikes via buffered queues."
+      },
+      "answerKey": false
+    }
+  ]
+}

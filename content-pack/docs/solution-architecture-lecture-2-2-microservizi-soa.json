@@ -1,0 +1,268 @@
+{
+  "id": "solution-architecture-lecture-2-2-microservizi-soa",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "2-2-microservizi-soa",
+  "title": "2.2 — SOA & Microservices (DDD, Bounded Context)",
+  "readingMin": 4,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "2.2 — SOA & Microservices (DDD, Bounded Context)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 2 · Lesson 2.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Contrast Service-Oriented Architecture (SOA) and Microservices and explain how the latter evolved from the former.",
+        "Apply Domain-Driven Design to discover bounded contexts and define service boundaries.",
+        "Distinguish aggregates, entities, and value objects and their role in service design.",
+        "Recognize the organizational and operational prerequisites for microservices to succeed."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "SOA (Service-Oriented Architecture) — an integration style emphasizing reusable services, often coordinated via an Enterprise Service Bus (ESB) and formal contracts (SOAP/WSDL).",
+        "Microservices — small, independently deployable services owning their data, organized around business capabilities, communicating over lightweight protocols.",
+        "Bounded Context — a linguistic and semantic boundary within which a particular domain model is valid and consistent.",
+        "Ubiquitous Language — a shared vocabulary between developers and domain experts, scoped to a bounded context.",
+        "Aggregate — a cluster of domain objects treated as a single consistency unit, with one aggregate root.",
+        "Context Map — a DDD tool showing relationships (partnership, shared kernel, anti-corruption layer) between bounded contexts."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "From SOA to Microservices"
+    },
+    {
+      "type": "paragraph",
+      "text": "SOA emerged to break silos by exposing reusable services behind an ESB that handled routing, transformation, and orchestration. In practice, ESBs became heavyweight central bottlenecks, and \"services\" were often coarse-grained and shared databases. Microservices are a reaction: they keep SOA's service orientation but drop the central bus, favor lightweight protocols (REST, gRPC, messaging), and insist that each service is independently deployable and owns its data. Where SOA optimized for reuse, microservices optimize for replaceability and team autonomy."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Bounded Contexts as Service Seams"
+    },
+    {
+      "type": "paragraph",
+      "text": "The hardest part of microservices is not the technology — it is drawing the boundaries. Domain-Driven Design gives us the key tool: the bounded context. A bounded context is where a specific model and vocabulary hold true. \"Customer\" means something different in the Sales context (credit limit, orders) than in the Support context (tickets, satisfaction). Trying to force one global \"Customer\" object across both leads to a distributed monolith. Instead, model two bounded contexts, each with its own model, and connect them explicitly via a context map (e.g., an anti-corruption layer translating between them)."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Aggregates and Consistency"
+    },
+    {
+      "type": "paragraph",
+      "text": "Inside a bounded context, define aggregates: groups of objects that must be consistent together. The aggregate root is the only entry point; invariants are enforced within the aggregate, never across aggregates via distributed transactions. This rule is what makes services independently deployable — a service can guarantee consistency within its aggregate, and accept eventual consistency across aggregates/services. Oversized aggregates cause contention; undersized ones cause consistency bugs. Sizing aggregates is a core architectural skill."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Organizational Prerequisites"
+    },
+    {
+      "type": "paragraph",
+      "text": "Microservices are an organizational pattern as much as a technical one (Conway's Law). They require mature CI/CD, observability, and teams that can own a service end-to-end. Without these, you inherit distributed-system complexity (network failures, partial outages, data reconciliation) while gaining few of the benefits. Start with a modular monolith and extract services along bounded-context seams only when a real driver appears."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TB\n    subgraph Sales[\"Bounded Context: Sales\"]\n        O[\"Order (Aggregate Root)\"] --> LI[\"LineItem (Value Object)\"]\n        O --> Cust[\"Customer ref (id only)\"]\n    end\n    subgraph Support[\"Bounded Context: Support\"]\n        T[\"Ticket (Aggregate Root)\"] --> TS[\"TicketStatus\"]\n        T --> Cust2[\"Customer ref (id only)\"]\n    end\n    ACL[\"Anti-Corruption Layer\"] -->|translate events| Support\n    Sales -.->|CustomerCreated / CustomerUpdated event| ACL"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sequence diagram — service interaction across contexts via events:"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant S as Sales Service\n    participant B as Message Bus\n    participant P as Support Service\n    S->>B: CustomerCreated(customerId, name)\n    B->>P: deliver event\n    P->>P: create local Customer projection"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Microservices use SOAP, SOA uses REST",
+        "b) Microservices drop the central ESB and require independent deployability + data ownership",
+        "Answer: b",
+        "c) SOA has no services",
+        "d) They are identical"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) A database partition",
+        "b) A boundary where a specific domain model and ubiquitous language are valid",
+        "c) A microservice container",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Connect to the database directly",
+        "b) Be the only entry point enforcing invariants within the aggregate",
+        "c) Call other services",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) To speed up the network",
+        "b) To translate/isolate an external model so it does not corrupt the local domain model",
+        "c) To share a database",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) The team has no CI/CD",
+        "b) There is mature CI/CD, observability, and end-to-end team ownership",
+        "c) Everyone commits to one repository",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "What is the main practical difference between classic SOA and microservices?",
+        "In DDD, a bounded context is:",
+        "The aggregate root's responsibility is to:",
+        "Why is an Anti-Corruption Layer used between bounded contexts?",
+        "Microservices succeed best when:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Eric Evans, \"Domain-Driven Design\" — Addison-Wesley",
+        "Vaughn Vernon, \"Implementing Domain-Driven Design\" — Addison-Wesley",
+        "Sam Newman, \"Building Microservices\" — O'Reilly",
+        "Martin Fowler, \"Bounded Context\": https://martinfowler.com/bliki/BoundedContext.html",
+        "\"What are Microservices?\" — Martin Fowler & James Lewis: https://martinfowler.com/articles/microservices.html"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "bounded context",
+      "definition": "Domain-Driven Design gives us the key tool: the bounded context."
+    },
+    {
+      "term": "aggregates",
+      "definition": "Inside a bounded context, define aggregates: groups of objects that must be consistent together."
+    },
+    {
+      "term": "Microservices",
+      "definition": "Microservices are a reaction: they keep SOA's service orientation but drop the central bus, favor lightweight protocols (REST, gRPC, messaging), and insist that each service is independently deployable and owns its data."
+    },
+    {
+      "term": "The hardest part of microservices",
+      "definition": "The hardest part of microservices is not the technology — it is drawing the boundaries."
+    },
+    {
+      "term": "Domain-Driven Design gives us the key tool",
+      "definition": "Domain-Driven Design gives us the key tool: the bounded context."
+    },
+    {
+      "term": "A bounded context",
+      "definition": "A bounded context is where a specific model and vocabulary hold true."
+    },
+    {
+      "term": "The aggregate root",
+      "definition": "The aggregate root is the only entry point; invariants are enforced within the aggregate, never across aggregates via distributed transactions."
+    },
+    {
+      "term": "This rule",
+      "definition": "This rule is what makes services independently deployable — a service can guarantee consistency within its aggregate, and accept eventual consistency across aggregates/services."
+    },
+    {
+      "term": "Sizing aggregates",
+      "definition": "Sizing aggregates is a core architectural skill."
+    }
+  ]
+}

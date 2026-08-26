@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-7-3-system-design-mock",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "C: Two risks: (1) _____ — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive.",
+        "options": [
+          "vector store",
+          "you and an interviewer at a whiteboard for 45–60 minutes",
+          "Two retrieval paths",
+          "LLM latency/cost"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is slow-changing, embeddable, and safe to vectorize.",
+        "options": [
+          "The KB",
+          "Evolution",
+          "scrubbed order service",
+          "vector store"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Two retrieval paths: a vector store for the knowledge base, and a _____ for \"where's my order.",
+        "options": [
+          "Order data",
+          "you and an interviewer at a whiteboard for 45–60 minutes",
+          "scrubbed order service",
+          "The KB"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a realistic transcript.",
+        "options": [
+          "Evolution",
+          "Below",
+          "There",
+          "Two retrieval paths"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "vector store",
+          "LLM latency/cost",
+          "scrubbed order service",
+          "Evolution"
+        ],
+        "pairsRight": [
+          "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.",
+          "C: Two risks: (1) LLM latency/cost — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive.",
+          "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.",
+          "Evolution: add multilingual embeddings, agentic actions with approval, and eval/observability (answer-quality scoring) before scaling further."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is LLM latency/cost?",
+        "options": [
+          "C: Two risks: (1) LLM latency/cost — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive.",
+          "There is no single right answer.",
+          "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.",
+          "Unlike a take-home, the live session is you and an interviewer at a whiteboard for 45–60 minutes."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The KB?",
+        "options": [
+          "The KB is slow-changing, embeddable, and safe to vectorize.",
+          "Order data is real-time and PII — I retrieve only the authorized customer's order, scrub fields, and pass minimal context.",
+          "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.\" We never send raw PII to the LLM.",
+          "Below is a realistic transcript."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is scrubbed order service?",
+        "options": [
+          "(2) Vector store load — it's read-heavy and scales horizontally; cache embeddings.",
+          "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order.",
+          "Evolution: add multilingual embeddings, agentic actions with approval, and eval/observability (answer-quality scoring) before scaling further.",
+          "There is no single right answer."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "High-level diagram — boxes and arrows for the critical path first.",
+          "Deep dive — pick the riskiest part (data model, consistency, scaling) and go deep.",
+          "Clarify requirements — who, what scale, what's the core use case. Never skip.",
+          "Pin down NFRs — latency, availability, consistency, compliance, cost envelope.",
+          "Trade-offs — state what you chose and what you gave up, and how you'd evolve it."
+        ]
+      },
+      "answerKey": [
+        2,
+        3,
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Two retrieval paths: a vector store for the knowledge base, and a scrubbed order service for \"where's my order."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Below is a realistic transcript."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "C: Two risks: (1) vector store — mitigate with a semantic cache (identical questions skip generation), smaller model for easy queries, and async for non-interactive."
+      },
+      "answerKey": false
+    }
+  ]
+}
