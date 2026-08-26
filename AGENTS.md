@@ -96,6 +96,10 @@ npx vitest run <file>       # single file (either package)
 
 Typecheck gate for the client: `cd client && npx tsc --noEmit`.
 
+### Makefile shortcuts
+
+All of the above are wrapped in a root Makefile (`make help`): `install`, `pack`, `serve-pack`, `build`, `build-web`, `test`, `verify` (typecheck + tests — the pre-merge gate), `run-web|run-ios|run-android`, `device`, `deploy-web` (gh-pages), `publish-pack`, `clean`. Prefer `make verify` before declaring work done.
+
 ## Adding new tests
 
 - **Pipeline**: new file `pipeline/tests/<name>.test.ts` is auto-discovered (`include: tests/**/*.test.ts`). Fixtures in `tests/fixtures/`. Import source with `.js` extension (ESM/Node16 resolution).

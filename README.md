@@ -192,6 +192,27 @@ Run a single file: `npx vitest run unit/grading.test.ts` (or the pipeline equiva
 
 ---
 
+## Makefile
+
+Every workflow above has a `make` shortcut (run `make help` for the live list):
+
+```bash
+make install         # deps for pipeline + client
+make pack            # rebuild content-pack/ locally
+make serve-pack      # serve pack on :8173
+make build           # pipeline tsc + production web bundle
+make test            # both vitest suites        (make verify = typecheck + tests)
+make run-web|run-ios|run-android   # dev servers (auto EXPO_PUBLIC_PACK_BASE)
+make device          # Expo Go on physical device via LAN IP
+make deploy-web      # publish web bundle to gh-pages branch
+make publish-pack    # manually commit+push regenerated pack (normally CI's job)
+make clean | distclean
+```
+
+Override defaults, e.g. `make serve-pack PACK_PORT=9000`.
+
+---
+
 ## Content pipeline & CI
 
 - The Action (`.github/workflows/content-pipeline.yml`) runs on push (paths `pipeline/**`, `subjects.config.json`), every 6 hours, and manually via *workflow_dispatch*.
