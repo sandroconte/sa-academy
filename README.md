@@ -149,6 +149,17 @@ The Android emulator reaches your machine via the special alias **`10.0.2.2`** �
 
 If the pack fails to load on the device, the app still shows cached/local data with the offline banner — check that port 8173 is reachable from the phone.
 
+#### Troubleshooting: "Project is incompatible with this version of Expo Go"
+
+The store builds of Expo Go lag behind the latest SDK — the Google Play build currently ships **SDK 54**, while this project uses **SDK 57**. Install the matching build straight from Expo instead of the store:
+
+1. On the phone, open <https://expo.dev/go>
+2. Pick **SDK 57** → platform **Android** (device) or the emulator variant
+3. Download and install the APK (`Expo-Go-57.x.x.apk`); allow *install unknown apps* for the browser when prompted
+4. Restart `npx expo start` and scan the QR code again
+
+Reference: [docs.expo.dev — Expo Go version mismatch](https://docs.expo.dev/troubleshooting/expo-go-version-mismatch).
+
 ---
 
 ## Testing
