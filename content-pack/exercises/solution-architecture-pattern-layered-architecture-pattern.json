@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-layered-architecture-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is crucial in identifying the business and user trends within your platform as well as across the business domain.",
+        "options": [
+          "Your enterprise systems",
+          "If your organization",
+          "Monitoring and analysis of business transactions",
+          "Here"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is accessible over a more systematic mechanism like SOAP or REST by converting the complexities of database connection handling and transactional behaviours.",
+        "options": [
+          "Here",
+          "Software systems",
+          "Scope creeps and requirement changes",
+          "This layer will make sure that data"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not an afterthought anymore.",
+        "options": [
+          "Software systems",
+          "This layer will make sure that data",
+          "Your enterprise systems",
+          "Data security"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are pretty common in enterprise software systems.",
+        "options": [
+          "Software systems",
+          "Here",
+          "Data security",
+          "Scope creeps and requirement changes"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "This layer will make sure that data",
+          "It is understandable that these systems",
+          "Here",
+          "Your enterprise systems"
+        ],
+        "pairsRight": [
+          "Here are some of the basic requirements which needs to be addressed with an enterprise software system.",
+          "It is understandable that these systems are not in the same way that enterprise architects or business leaders wants it to be.",
+          "Your enterprise systems are built throughout a longer period of time and there can be many different systems which has been playing key parts in your enterprise system.",
+          "This layer will make sure that data is accessible over a more systematic mechanism like SOAP or REST by converting the complexities of database connection handling and transactional behaviours."
+        ]
+      },
+      "answerKey": [
+        3,
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Monitoring and analysis of business transactions?",
+        "options": [
+          "Here are some of the basic requirements which needs to be addressed with an enterprise software system.",
+          "Data security is not an afterthought anymore.",
+          "If your organization is somewhat ahead of time thinking and going with the bleeding edge technology, you could have ended up having some amount of your business data in cloud services, micro services or some type of HTTP services layer.",
+          "Monitoring and analysis of business transactions is crucial in identifying the business and user trends within your platform as well as across the business domain."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This layer will make sure that data?",
+        "options": [
+          "Software systems are not started in a manner that they are well thought out at the beginning.",
+          "This layer will make sure that data is accessible over a more systematic mechanism like SOAP or REST by converting the complexities of database connection handling and transactional behaviours.",
+          "Data security is not an afterthought anymore.",
+          "Enterprise software systems are typically running down under and most of the end users like employees, partners and customers think that as a luxury in their hands and expect it to run 24x7x365."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Data security?",
+        "options": [
+          "Data security is not an afterthought anymore.",
+          "Software systems are not started in a manner that they are well thought out at the beginning.",
+          "Scope creeps and requirement changes are pretty common in enterprise software systems.",
+          "Here are some of the basic requirements which needs to be addressed with an enterprise software system."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Scope creeps and requirement changes are pretty common in enterprise software systems."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Software systems are not started in a manner that they are well thought out at the beginning."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Enterprise software systems is accessible over a more systematic mechanism like SOAP or REST by converting the complexities of database connection handling and transactional behaviours."
+      },
+      "answerKey": false
+    }
+  ]
+}

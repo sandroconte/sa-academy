@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: real-time information system solution architecture",
+        "options": [
+          "A more detailed view of the above architecture",
+          "Given below",
+          "A message broker",
+          "Figure"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are not the most efficient when it comes to resource consumption.",
+        "options": [
+          "Figure",
+          "But those systems",
+          "A detailed view of this architecture",
+          "This WebSocket sink"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is mentioned in the below figure.",
+        "options": [
+          "There",
+          "A more detailed view of the above architecture",
+          "This WebSocket sink",
+          "Then WSO2 API Manager has a WebSocket API that"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is then exposed as a protected REST API over the WSO2 API Manager for synchronous communication via client applications.",
+        "options": [
+          "This data service",
+          "Figure",
+          "A detailed view of this architecture",
+          "These events"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The remainder of the functionality",
+          "A more detailed view of the above architecture",
+          "Figure",
+          "There"
+        ],
+        "pairsRight": [
+          "The remainder of the functionality is same as the previous architecture.",
+          "Figure: real-time information system solution architecture",
+          "There are many message brokers available in the market that does just that.",
+          "A more detailed view of the above architecture is mentioned in the below figure."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure?",
+        "options": [
+          "The remainder of the functionality is same as the previous architecture.",
+          "One of the key aspects of handling data in real-time is to design the system to act on events in an asynchronous manner rather than in a synchronized manner.",
+          "That is through selling data about users and their behaviors.",
+          "Figure: real-time information system solution architecture"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But those systems?",
+        "options": [
+          "But those systems are not the most efficient when it comes to resource consumption.",
+          "A more detailed view of the above architecture is mentioned in the below figure.",
+          "The WSO2 SI is configured to receive the events via the HTTP interface through an HTTP source configuration in a Siddhi application.",
+          "Once the details are provided, you can select the “Create & Publish” option to do push the WebSocket API to the developer portal where users can consume that with a valid OAuth2 token."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is A more detailed view of the above architecture?",
+        "options": [
+          "The WSO2 SI is configured to receive the events via the HTTP interface through an HTTP source configuration in a Siddhi application.",
+          "A more detailed view of the above architecture is mentioned in the below figure.",
+          "If your organization is just getting started with building a real-time, event-driven information system without much load on the system, you can build a cut-down version of the previous architecture (without losing any functionality) by only using the WSO2 platform.",
+          "Then WSO2 API Manager has a WebSocket API that is exposed over the gateway and consumed by the consumer applications like mobile and web applications which receives the events in real-time."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "That is through selling data about users and their behaviors."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Then WSO2 API Manager has a WebSocket API that is exposed over the gateway and consumed by the consumer applications like mobile and web applications which receives the events in real-time."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "WSO2 SI is to design the system to act on events in an asynchronous manner rather than in a synchronized manner."
+      },
+      "answerKey": false
+    }
+  ]
+}

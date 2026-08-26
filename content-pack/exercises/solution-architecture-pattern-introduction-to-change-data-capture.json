@@ -1,0 +1,167 @@
+{
+  "docId": "solution-architecture-pattern-introduction-to-change-data-capture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is often called Systems of Records data or source data.",
+        "options": [
+          "derived data systems",
+          "Each event",
+          "This version",
+          "Kafka Connect"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are few options to detect the changes done to the source database.",
+        "options": [
+          "This version",
+          "Debezium",
+          "There",
+          "Change events"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Process of observing all data changes written to a database and _____ them in a form in which they can be replicated to derived data systems.",
+        "options": [
+          "extracting",
+          "Polling",
+          "Although the term CDC",
+          "Mentioned below"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are resource-intensive and can drag the database.",
+        "options": [
+          "But they",
+          "extracting",
+          "Although the term CDC",
+          "Tools in the market"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Kafka Connect",
+          "Debezium",
+          "Each event",
+          "This version"
+        ],
+        "pairsRight": [
+          "Kafka Connect is used as connectors for change detection and propagation.",
+          "Debezium is an open-source CDC platform built on top of Apache Kafka.",
+          "This version is often called Systems of Records data or source data.",
+          "Each event is timestamped and contains only a single change."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This version?",
+        "options": [
+          "This version is often called Systems of Records data or source data.",
+          "Mentioned below are some renowned open-source tools in the market.",
+          "So there should be a way of capturing the changes done to the source data system and propagating them to derived data systems in a reliable and scalable manner.",
+          "But they are resource-intensive and can drag the database."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "There are few options to detect the changes done to the source database.",
+          "Mentioned below are some renowned open-source tools in the market.",
+          "Although the term CDC is relatively new, the underlying concept was there in the industry as database replication and ETL(Extract Transform Load).",
+          "Initially, a single database fulfils every data need of the application."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is extracting?",
+        "options": [
+          "Initially, a single database fulfils every data need of the application.",
+          "Although the term CDC is relatively new, the underlying concept was there in the industry as database replication and ETL(Extract Transform Load).",
+          "Mentioned below are some renowned open-source tools in the market.",
+          "Process of observing all data changes written to a database and extracting them in a form in which they can be replicated to derived data systems."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Change capture",
+          "Change detection",
+          "Change propagation"
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Debezium is an open-source CDC platform built on top of Apache Kafka."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "There are few options to detect the changes done to the source database."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Polling is used as connectors for change detection and propagation."
+      },
+      "answerKey": false
+    }
+  ]
+}

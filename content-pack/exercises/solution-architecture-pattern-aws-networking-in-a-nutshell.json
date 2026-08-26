@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-aws-networking-in-a-nutshell",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is comprised of two services: AWS Site-to-Site VPN and AWS Client VPN.",
+        "options": [
+          "AWS VPN",
+          "If you",
+          "AWS Cloud Map",
+          "Amazon Route 53"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the leading cloud services provider in the world.",
+        "options": [
+          "There",
+          "Amazon Web Services or AWS",
+          "AWS Cloud Map",
+          "AWS Transit Gateway"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a cloud resource discovery service.",
+        "options": [
+          "AWS App Mesh",
+          "AWS Cloud Map",
+          "Given below",
+          "Modern applications"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the most versatile cloud services provider offering 100s of various cloud services for customers globally.",
+        "options": [
+          "AWS Global Accelerator",
+          "Amazon Web Services or AWS",
+          "CloudFront",
+          "AWS"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "AWS Direct Connect",
+          "Amazon Web Services or AWS",
+          "Source",
+          "AWS App Mesh"
+        ],
+        "pairsRight": [
+          "AWS Direct Connect is a cloud service solution that makes it easy to establish a dedicated network connection from your premises to AWS.",
+          "Amazon Web Services or AWS is the leading cloud services provider in the world.",
+          "AWS App Mesh is a service mesh that provides application-level networking to make it easy for your services to communicate with each other across multiple types of compute infrastructure.",
+          "Source: https://aws.amazon.com/products/networking/"
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is AWS VPN?",
+        "options": [
+          "AWS Global Accelerator is a service that improves the availability and performance of your applications with local or global users.",
+          "AWS VPN is comprised of two services: AWS Site-to-Site VPN and AWS Client VPN.",
+          "Figure: AWS networking services in a nutshell",
+          "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Amazon Web Services or AWS?",
+        "options": [
+          "Amazon Web Services or AWS is the leading cloud services provider in the world.",
+          "Given below is a summary of each AWS networking service (which is extracted from the official AWS documentation).",
+          "AWS Global Accelerator is a service that improves the availability and performance of your applications with local or global users.",
+          "AWS is the most versatile cloud services provider offering 100s of various cloud services for customers globally."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is AWS Cloud Map?",
+        "options": [
+          "AWS Cloud Map is a cloud resource discovery service.",
+          "AWS VPN is comprised of two services: AWS Site-to-Site VPN and AWS Client VPN.",
+          "CloudFront is integrated with AWS — both physical locations that are directly connected to the AWS global infrastructure, as well as other AWS services.",
+          "AWS Transit Gateway is a service that enables customers to connect their Amazon Virtual Private Clouds (VPCs) and their on-premises networks to a single gateway."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "AWS Global Accelerator is a service that improves the availability and performance of your applications with local or global users."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Amazon CloudFront is a fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency, high transfer speeds, all within a developer-friendly environment."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "AWS Transit Gateway is a summary of each AWS networking service (which is extracted from the official AWS documentation)."
+      },
+      "answerKey": false
+    }
+  ]
+}

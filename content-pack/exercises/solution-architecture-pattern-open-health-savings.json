@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-pattern-open-health-savings",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-open-health-savings-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is legacy based, requires connectivity with databases or requires connectivity with EMRs.",
+        "options": [
+          "Hence FHIR based applications",
+          "These devices basically live with humans and",
+          "Whether the existing system",
+          "Common challenge of integration"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is provided to maintain its life cycle.",
+        "options": [
+          "Hence FHIR based applications",
+          "For each API a graphical interface",
+          "These devices basically live with humans and",
+          "There"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are now widely adopted not only in the US but in other continents of the world i.e Europe, Asia etc.",
+        "options": [
+          "Common challenge of integration",
+          "There",
+          "Hence FHIR based applications",
+          "For each API a graphical interface"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to compromise on a language both health institutions and consumer driven apps could speak.",
+        "options": [
+          "There",
+          "These devices basically live with humans and",
+          "Hence FHIR based applications",
+          "Common challenge of integration"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Which",
+          "Hence FHIR based applications",
+          "For each API a graphical interface",
+          "These devices basically live with humans and"
+        ],
+        "pairsRight": [
+          "These devices basically live with humans and are able to collect a lot of information that can be valuable.",
+          "Which is depicted in Figure 6.",
+          "For each API a graphical interface is provided to maintain its life cycle.",
+          "Hence FHIR based applications are now widely adopted not only in the US but in other continents of the world i.e Europe, Asia etc."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Whether the existing system?",
+        "options": [
+          "Whether the existing system is legacy based, requires connectivity with databases or requires connectivity with EMRs.",
+          "These devices basically live with humans and are able to collect a lot of information that can be valuable.",
+          "There are tons of other apps such as Cardiac Risk, Duke Pillbox which provides quality of services for both patients and Health institutions.",
+          "Common challenge of integration is to compromise on a language both health institutions and consumer driven apps could speak."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is For each API a graphical interface?",
+        "options": [
+          "Which is depicted in Figure 6.",
+          "Whether the existing system is legacy based, requires connectivity with databases or requires connectivity with EMRs.",
+          "Common challenge of integration is to compromise on a language both health institutions and consumer driven apps could speak.",
+          "For each API a graphical interface is provided to maintain its life cycle."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Hence FHIR based applications?",
+        "options": [
+          "Whether the existing system is legacy based, requires connectivity with databases or requires connectivity with EMRs.",
+          "Hence FHIR based applications are now widely adopted not only in the US but in other continents of the world i.e Europe, Asia etc.",
+          "These devices basically live with humans and are able to collect a lot of information that can be valuable.",
+          "Which is depicted in Figure 6."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Collaboration and Governance - It would be essential to have a platform for internal developers in the given HC institution to maintain APIs. APIs will have it’s own evolutionary cycle i.e development, test, publish, version upgrade, deprecate, retire etc. It’ll be important to be able to lifecycle manage and govern these APIs. Hence there should be a collaboration between internal developers and external application developers via API Developer Portal (store). API Store should be a marketplace for all application developers. It should allow them to discover APIs and subscribe to them. The lifecycle changes to these APIs should also be vivid in the store.",
+          "Security and Consent Management - Data in EHR is personal and sensitive. A health institution should only share personal data with third party apps through obtaining consent from the individual/patient. Further it would be essential for data in the system to be free from intrusion.",
+          "Spec compliance - An organization should interpret and materialize the standard FHIR specification published by HL7. This API specification contains 100+ API definitions and Implementations Guides. API First approach will be beneficial. Third party applications who would depend on the platform could continue with implementation without blocked waiting till the whole system is available.",
+          "Current system - The existing HC system might involve in house databases, file systems, legacy systems, EMRs i.e Epic, Cerner for maintaining EHR. Hence it might require to orchestrate between multiple sub systems, enrich, transform different data types in order to be FHIR compliant."
+        ]
+      },
+      "answerKey": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Hence FHIR based applications are now widely adopted not only in the US but in other continents of the world i.e Europe, Asia etc."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Common challenge of integration is to compromise on a language both health institutions and consumer driven apps could speak."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Common challenge of integration is legacy based, requires connectivity with databases or requires connectivity with EMRs."
+      },
+      "answerKey": false
+    }
+  ]
+}

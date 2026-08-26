@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-microservices-security-pattern-policy-based",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is successful, microservice will execute the remaining business logic and provide the deisred output to the user.",
+        "options": [
+          "The better approach to build a microservices architecture",
+          "One of the key advantages of this approach",
+          "Once this validation",
+          "Architecture"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is what exactly Open Policy Agent (OPA) is trying to promote with it's decoupled policy agent approach.",
+        "options": [
+          "OPA",
+          "This",
+          "Once this validation",
+          "The better approach to build a microservices architecture"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a component which you can easily bind in to this architecture by running it as a sidecar container along with the microservice.",
+        "options": [
+          "One of the key advantages of this approach",
+          "Once this validation",
+          "This",
+          "OPA"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to use containers, pods and service mesh so that you get the total control over the architecture.",
+        "options": [
+          "Once this validation",
+          "Architecture",
+          "OPA",
+          "The better approach to build a microservices architecture"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The better approach to build a microservices architecture",
+          "Once this validation",
+          "One of the key advantages of this approach",
+          "This"
+        ],
+        "pairsRight": [
+          "One of the key advantages of this approach is that each and every microservice can have it's own set of policies and data which is local to that microservice.",
+          "This is what exactly Open Policy Agent (OPA) is trying to promote with it's decoupled policy agent approach.",
+          "Once this validation is successful, microservice will execute the remaining business logic and provide the deisred output to the user.",
+          "The better approach to build a microservices architecture is to use containers, pods and service mesh so that you get the total control over the architecture."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Once this validation?",
+        "options": [
+          "One of the key advantages of this approach is that each and every microservice can have it's own set of policies and data which is local to that microservice.",
+          "The better approach to build a microservices architecture is to use containers, pods and service mesh so that you get the total control over the architecture.",
+          "Implementing security for a microservices architecture can be done with 2 approaches.",
+          "Once this validation is successful, microservice will execute the remaining business logic and provide the deisred output to the user."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "Once this validation is successful, microservice will execute the remaining business logic and provide the deisred output to the user.",
+          "This is what exactly Open Policy Agent (OPA) is trying to promote with it's decoupled policy agent approach.",
+          "The better approach to build a microservices architecture is to use containers, pods and service mesh so that you get the total control over the architecture.",
+          "One of the key advantages of this approach is that each and every microservice can have it's own set of policies and data which is local to that microservice."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is OPA?",
+        "options": [
+          "Implementing security for a microservices architecture can be done with 2 approaches.",
+          "The better approach to build a microservices architecture is to use containers, pods and service mesh so that you get the total control over the architecture.",
+          "Once this validation is successful, microservice will execute the remaining business logic and provide the deisred output to the user.",
+          "OPA is a component which you can easily bind in to this architecture by running it as a sidecar container along with the microservice."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is what exactly Open Policy Agent (OPA) is trying to promote with it's decoupled policy agent approach."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Once this validation is successful, microservice will execute the remaining business logic and provide the deisred output to the user."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is successful, microservice will execute the remaining business logic and provide the deisred output to the user."
+      },
+      "answerKey": false
+    }
+  ]
+}

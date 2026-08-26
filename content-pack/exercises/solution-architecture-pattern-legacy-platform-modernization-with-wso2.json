@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-legacy-platform-modernization-with-wso2",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is capable of supporting certain aspects like automation, cloud-native, agile development, and improve monitoring aspects, the rest of the platform is still not ready to build that integrated experience.",
+        "options": [
+          "If your organization",
+          "Once the platform",
+          "Even though the API management platform",
+          "Once the Integration and the API management components"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is to move a considerable amount of legacy and in-house capabilities into the new microservices style deployment as well as migrating away from the existing legacy ESB which plays a major role in the overall platform.",
+        "options": [
+          "Once the existing challenges and the broader picture",
+          "Even though the API management platform",
+          "The next phase",
+          "Users"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are a couple of things yet to be addressed.",
+        "options": [
+          "As an enterprise architect who",
+          "There",
+          "Even though the API management platform",
+          "But there"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is planning a modernization effort, not thinking about cloud migration is a big mistake.",
+        "options": [
+          "As an enterprise architect who",
+          "Even though the API management platform",
+          "Once the Integration and the API management components",
+          "If you"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "If you",
+          "The other aspect",
+          "Figure",
+          "But there"
+        ],
+        "pairsRight": [
+          "Figure: Legacy enterprise platform — challenges and expectations",
+          "But there are people who think outside the box and look for proactive approaches to solve complex problems rather than act in a reactive manner.",
+          "The other aspect is that you have to plan it properly and execute accordingly.",
+          "If you are an engineer or an architect working in the field of enterprise IT, you may be hearing terms like “digital transformation”, “cloud-native”, “microservices”, “architecture modernization” several times a day."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Even though the API management platform?",
+        "options": [
+          "Even though the API management platform is capable of supporting certain aspects like automation, cloud-native, agile development, and improve monitoring aspects, the rest of the platform is still not ready to build that integrated experience.",
+          "The next phase is to move a considerable amount of legacy and in-house capabilities into the new microservices style deployment as well as migrating away from the existing legacy ESB which plays a major role in the overall platform.",
+          "Figure: Legacy enterprise platform — challenges and expectations",
+          "As an enterprise architect who is planning a modernization effort, not thinking about cloud migration is a big mistake."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The next phase?",
+        "options": [
+          "The other aspect is that you have to plan it properly and execute accordingly.",
+          "The next phase is to move a considerable amount of legacy and in-house capabilities into the new microservices style deployment as well as migrating away from the existing legacy ESB which plays a major role in the overall platform.",
+          "Even though the API management platform is capable of supporting certain aspects like automation, cloud-native, agile development, and improve monitoring aspects, the rest of the platform is still not ready to build that integrated experience.",
+          "Once the Integration and the API management components are in place, the platform is capable of handling another set of challenges and supports the new capabilities mentioned below."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "There are a couple of things yet to be addressed.",
+          "All is well up to this point and the system is providing more and more functionalities to the users and the overall maintenance, management, innovation aspects are vastly improved.",
+          "Once the Integration and the API management components are in place, the platform is capable of handling another set of challenges and supports the new capabilities mentioned below.",
+          "Users are mainly interacting with the system through SOAP/XML over HTTP/S and they handle the complexity of XML processing at the client-side applications."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Even though the API management platform is capable of supporting certain aspects like automation, cloud-native, agile development, and improve monitoring aspects, the rest of the platform is still not ready to build that integrated experience."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Once the Integration and the API management components are in place, the platform is capable of handling another set of challenges and supports the new capabilities mentioned below."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "All are mainly interacting with the system through SOAP/XML over HTTP/S and they handle the complexity of XML processing at the client-side applications."
+      },
+      "answerKey": false
+    }
+  ]
+}

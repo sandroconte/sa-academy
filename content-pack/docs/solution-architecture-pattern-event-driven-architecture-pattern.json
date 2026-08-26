@@ -1,0 +1,71 @@
+{
+  "id": "solution-architecture-pattern-event-driven-architecture-pattern",
+  "subjectId": "solution-architecture",
+  "kind": "pattern",
+  "category": "vendor-neutral",
+  "slug": "event-driven-architecture-pattern",
+  "title": "Event-Driven Architecture Pattern",
+  "readingMin": 1,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Event-Driven Architecture Pattern"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Introduction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Enterprise systems are built on 2 fundamental messaging models. Which are"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Synchronous messaging (request-response)",
+        "Asynchronous messaging (pub-sub, callback, batch)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Out of these 2 models, synchronous messaging style is the most common pattern and within enterprises. But that doesn't reduce the importance of the asynchronous messaging architectures. In layman's terms, asynchronous messaging means that the consumer and the producer are decoupled and the producer would not get an immediate response to his message."
+    },
+    {
+      "type": "paragraph",
+      "text": "Event-Driven architecture is one such asynchronous messging pattern where a set of actors called publishers generate a set of events and a set of subscribers or consumers consume these events independently and process those events asynchronously. We call this pattern as pub-sub model."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Architecture"
+    }
+  ],
+  "sections": [
+    {
+      "title": "Introduction"
+    },
+    {
+      "title": "Architecture"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Introduction",
+      "definition": null
+    },
+    {
+      "term": "Architecture",
+      "definition": "Event-Driven architecture is one such asynchronous messging pattern where a set of actors called publishers generate a set of events and a set of subscribers or consumers consume these events independently and process those events asynchronously."
+    },
+    {
+      "term": "Enterprise systems",
+      "definition": "Enterprise systems are built on 2 fundamental messaging models."
+    },
+    {
+      "term": "Event-Driven architecture",
+      "definition": "Event-Driven architecture is one such asynchronous messging pattern where a set of actors called publishers generate a set of events and a set of subscribers or consumers consume these events independently and process those events asynchronously."
+    }
+  ]
+}

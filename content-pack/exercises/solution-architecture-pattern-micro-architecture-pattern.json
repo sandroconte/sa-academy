@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-micro-architecture-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are real back end business logic implementations.",
+        "options": [
+          "It is important understand that these functionalities",
+          "The microservices started with MS",
+          "The hexagons marked with MI",
+          "Then the configuration of the service mesh"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality.",
+        "options": [
+          "The hexagons marked with MI",
+          "The microservices started with MS",
+          "Micro API Gateway",
+          "Then the configuration of the service mesh"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally.",
+        "options": [
+          "Micro API Gateway",
+          "It is important understand that these functionalities",
+          "The hexagons marked with MI",
+          "Then the configuration of the service mesh"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a special component in this architecture since it has some cross cutting features which are already available in other components.",
+        "options": [
+          "The microservices started with MS",
+          "Then the configuration of the service mesh",
+          "The hexagons marked with MI",
+          "Micro API Gateway"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The microservices started with MS",
+          "The hexagons marked with MI",
+          "It is important understand that these functionalities",
+          "Then the configuration of the service mesh"
+        ],
+        "pairsRight": [
+          "It is important understand that these functionalities are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally.",
+          "The microservices started with MS are real back end business logic implementations.",
+          "The hexagons marked with MI are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality.",
+          "Then the configuration of the service mesh is done through the control plane of the service mesh."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The microservices started with MS?",
+        "options": [
+          "The microservices started with MS are real back end business logic implementations.",
+          "The hexagons marked with MI are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality.",
+          "It is important understand that these functionalities are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally.",
+          "Micro API Gateway is a special component in this architecture since it has some cross cutting features which are already available in other components."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The hexagons marked with MI?",
+        "options": [
+          "The hexagons marked with MI are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality.",
+          "The microservices started with MS are real back end business logic implementations.",
+          "Micro API Gateway is a special component in this architecture since it has some cross cutting features which are already available in other components.",
+          "It is important understand that these functionalities are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is It is important understand that these functionalities?",
+        "options": [
+          "The hexagons marked with MI are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality.",
+          "Then the configuration of the service mesh is done through the control plane of the service mesh.",
+          "The microservices started with MS are real back end business logic implementations.",
+          "It is important understand that these functionalities are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The hexagons marked with MI are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "It is important understand that these functionalities are available for internal, inter-micro service communication while micro gateway uses these functionalities to expose services externally."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Then the configuration of the service mesh are integration microservices which are integrating existing micro services (MS type) and provide a complex and advanced functionality."
+      },
+      "answerKey": false
+    }
+  ]
+}

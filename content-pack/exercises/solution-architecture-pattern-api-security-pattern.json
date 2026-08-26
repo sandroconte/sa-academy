@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-api-security-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are out of your control, you might not have the luxury of completely introducing a new security mechanism like OAuth2 with these applications.",
+        "options": [
+          "The entire consumer and business landscape",
+          "These user credentials",
+          "APIs",
+          "If the end user applications"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are securely stored within this IdP.",
+        "options": [
+          "Protecting these valuable information access",
+          "These user credentials",
+          "User authentication",
+          "The entire consumer and business landscape"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is crucial in enterprise software design.",
+        "options": [
+          "Protecting these valuable information access",
+          "APIs",
+          "API Security",
+          "These user credentials"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are the interface to external and internal users through which valuable business information is shared.",
+        "options": [
+          "Now enterprises",
+          "APIs",
+          "These user credentials",
+          "Protecting these valuable information access"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "APIs",
+          "These user credentials",
+          "Now enterprises",
+          "User authentication"
+        ],
+        "pairsRight": [
+          "User authentication is the basic requirement of providing access to any system.",
+          "Now enterprises are reqiured to offer their business services through different channels to their internal and external consumers.",
+          "APIs are the interface to external and internal users through which valuable business information is shared.",
+          "These user credentials are securely stored within this IdP."
+        ]
+      },
+      "answerKey": [
+        2,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is If the end user applications?",
+        "options": [
+          "User authentication is the basic requirement of providing access to any system.",
+          "API Security is an evolving concept which has been there for less than a decade.",
+          "The entire consumer and business landscape is becoming more and more digital savvy and it is essential for any enterprise regardless of their domain, to blend into this digital transformation.",
+          "If the end user applications are out of your control, you might not have the luxury of completely introducing a new security mechanism like OAuth2 with these applications."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is These user credentials?",
+        "options": [
+          "User authentication is the basic requirement of providing access to any system.",
+          "APIs are the interface to external and internal users through which valuable business information is shared.",
+          "These user credentials are securely stored within this IdP.",
+          "The entire consumer and business landscape is becoming more and more digital savvy and it is essential for any enterprise regardless of their domain, to blend into this digital transformation."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Protecting these valuable information access?",
+        "options": [
+          "Protecting these valuable information access is crucial in enterprise software design.",
+          "Now enterprises are reqiured to offer their business services through different channels to their internal and external consumers.",
+          "The entire consumer and business landscape is becoming more and more digital savvy and it is essential for any enterprise regardless of their domain, to blend into this digital transformation.",
+          "These user credentials are securely stored within this IdP."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Protecting these valuable information access is crucial in enterprise software design."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "These user credentials are securely stored within this IdP."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "These user credentials is becoming more and more digital savvy and it is essential for any enterprise regardless of their domain, to blend into this digital transformation."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,903 @@
+{
+  "version": {
+    "patterns": "6ea8caee3007b2507abcac4c5b879a633ed2615f",
+    "lectures": "d810398b572f5d1ac1e0b2574ed6fa75753823f9"
+  },
+  "subjects": [
+    {
+      "id": "solution-architecture",
+      "name": "Solution Architecture"
+    }
+  ],
+  "docs": [
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "corruption-layer-pattern",
+      "file": "docs/solution-architecture-pattern-anti-corruption-layer-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-anti-corruption-layer-pattern.json",
+      "sha256": "4187054b2dda84a825d209a3fcaad66ef0ee53c0e6a04748565290606b2f7a3b"
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "led-connectivity-pattern",
+      "file": "docs/solution-architecture-pattern-api-led-connectivity-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-api-led-connectivity-pattern.json",
+      "sha256": "3db63fd52bff82da7a120686919d9f9c383397c0ff494a302e05d84a91d2c94b"
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "technology-selection-guides",
+      "title": "platform-selection-guide",
+      "file": "docs/solution-architecture-pattern-api-management-platform-selection-guide.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-api-management-platform-selection-guide.json",
+      "sha256": "05771d18aadb9d8ba946b6943fcb24bc0f40b113b85889972b1c7700cb42a5bc"
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "party-km-integration",
+      "file": "docs/solution-architecture-pattern-api-manager-3rd-party-km-integration.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-api-manager-3rd-party-km-integration.json",
+      "sha256": "f783eb9471c7a001f7425a1d4864dd236a445bd90616e20aea898ef098ad11eb"
+    },
+    {
+      "id": "solution-architecture-pattern-api-security-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "api-security-pattern",
+      "file": "docs/solution-architecture-pattern-api-security-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-api-security-pattern.json",
+      "sha256": "244dd8446a85002c24ae61e085177e7bf54c8787e0070fc5232272abbee71ac2"
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "reference-architecture-aws",
+      "file": "docs/solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws.json",
+      "sha256": "526803cad140999f4f8e809d5fa1fe59dc11870ad168977b6f3643b32db7d778"
+    },
+    {
+      "id": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "reference-architecture-azure",
+      "file": "docs/solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure.json",
+      "sha256": "a5311c1043c2720ba75ad4b74dad3ab3ddbe11138f7b3abf293643e48fde649d"
+    },
+    {
+      "id": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "technology-reference-architecture",
+      "file": "docs/solution-architecture-pattern-automotive-industry-information-technology-reference-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-automotive-industry-information-technology-reference-architecture.json",
+      "sha256": "10f6635dffa19b6a0162522037c0df575cda8fcdd3bf399979cdc97c5f4ee863"
+    },
+    {
+      "id": "solution-architecture-pattern-aws-networking-in-a-nutshell",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "in-a-nutshell",
+      "file": "docs/solution-architecture-pattern-aws-networking-in-a-nutshell.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-aws-networking-in-a-nutshell.json",
+      "sha256": "7d70ba56e044d2cae1a9b6ad1d69df417d7fcea54d74027ec58c092dd40b582f"
+    },
+    {
+      "id": "solution-architecture-pattern-azure-networking-services-in-a-nutshell",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "in-a-nutshell",
+      "file": "docs/solution-architecture-pattern-azure-networking-services-in-a-nutshell.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-azure-networking-services-in-a-nutshell.json",
+      "sha256": "14cdbf00a652a7038a4ccd9272046b0d0f2f91835a2fe2e8b6abe4ff6227f359"
+    },
+    {
+      "id": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "sidecar-pattern-microservices",
+      "file": "docs/solution-architecture-pattern-ballerina-sidecar-pattern-microservices.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-ballerina-sidecar-pattern-microservices.json",
+      "sha256": "e5dff5b50ce225aa51e07b8647b7fc6cd1c74c5a75722327be4bcbc18eba1055"
+    },
+    {
+      "id": "solution-architecture-pattern-centralized-identity-access-management-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Centralized Identity and Access Management Pattern",
+      "file": "docs/solution-architecture-pattern-centralized-identity-access-management-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-centralized-identity-access-management-pattern.json",
+      "sha256": "d5004fdd1954945ffe9bd547307920f53d76b7975b36cb9e075610465466dac9"
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "Cloud Application Security Pattern",
+      "file": "docs/solution-architecture-pattern-cloud-application-security-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-cloud-application-security-pattern.json",
+      "sha256": "f9e31c66a876772ac69592fe570dd0777ffe7b77a9c254c970632b52b6d83822"
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "migration-strangler-pattern",
+      "file": "docs/solution-architecture-pattern-cloud-migration-strangler-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-cloud-migration-strangler-pattern.json",
+      "sha256": "0b9a4142031002335cb6a5f70981cb53b2ac7536e4345a65bda8cbc401990308"
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "enterpise-architecture-pattern",
+      "file": "docs/solution-architecture-pattern-decentralized-enterpise-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-decentralized-enterpise-architecture-pattern.json",
+      "sha256": "cd59368781a8de3b461bb20db6c9e40b1374575751fa2bbad556d4d3043f92f6"
+    },
+    {
+      "id": "solution-architecture-pattern-digital-health-platform-open-source-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "open-source-architecture",
+      "file": "docs/solution-architecture-pattern-digital-health-platform-open-source-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-digital-health-platform-open-source-architecture.json",
+      "sha256": "67ba9c92b9bf449b82df6e978a30f5de92930e23bbed69c8dda7df9ce54aeeda"
+    },
+    {
+      "id": "solution-architecture-pattern-effective-ground-transportation-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "transportation-architecture-pattern",
+      "file": "docs/solution-architecture-pattern-effective-ground-transportation-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-effective-ground-transportation-architecture-pattern.json",
+      "sha256": "2c2100dc5d7b66fe77d583b569ee35879faf69699022748dd38d343c7d91e6a7"
+    },
+    {
+      "id": "solution-architecture-pattern-energy-information-technology-reference-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "technology-reference-architecture",
+      "file": "docs/solution-architecture-pattern-energy-information-technology-reference-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-energy-information-technology-reference-architecture.json",
+      "sha256": "558f26ef2ee0d51ee34879951aece1f6115edc56590b85cf8d7e275ba8594def"
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-cicd-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "enterprise-cicd-pattern",
+      "file": "docs/solution-architecture-pattern-enterprise-cicd-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-enterprise-cicd-pattern.json",
+      "sha256": "5469e194cffc9e184fddc97669b1b70dc17905dc787dd0f21acd0b82625d2bde"
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "enterprise-software-stack",
+      "file": "docs/solution-architecture-pattern-enterprise-software-stack.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-enterprise-software-stack.json",
+      "sha256": "50fafa4d91e16e0ce8cf69de3cfee84d72b735516b43a9ed0ae3fca1337354ad"
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Event driven architecture with Kafka",
+      "file": "docs/solution-architecture-pattern-event-driven-architecture-kafka-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-event-driven-architecture-kafka-pattern.json",
+      "sha256": "a555ece380fc2fa8f0d29d06beff2cebe9c4942bd1ab1fe292d1394e00929ab3"
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Event-Driven Architecture Pattern",
+      "file": "docs/solution-architecture-pattern-event-driven-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-event-driven-architecture-pattern.json",
+      "sha256": "469412e5c869fcaaea68772e05de4679d8ae161a47cf9cc6c04c16545e3c14fd"
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "system-kafka-wso2",
+      "file": "docs/solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2.json",
+      "sha256": "1b0823429b32a7cff3e302adaa6fdaaafba12584c78bdefb4f0727f1879b0cf2"
+    },
+    {
+      "id": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "and-technical-architecture",
+      "file": "docs/solution-architecture-pattern-future-retail-a-business-and-technical-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-future-retail-a-business-and-technical-architecture.json",
+      "sha256": "a618f84b64f9310ab7ea6b2337afac5f99e8a624afd76cd07d6ebf7025495f63"
+    },
+    {
+      "id": "solution-architecture-pattern-graphql-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "GraphQL based solution architecture patterns",
+      "file": "docs/solution-architecture-pattern-graphql-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-graphql-pattern.json",
+      "sha256": "4f30d77f233f406269295cf4c4ae60c376203f7a2c6cb69f70dd54ff06ca7286"
+    },
+    {
+      "id": "solution-architecture-pattern-higher-education-information-technology-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "information-technology-architecture",
+      "file": "docs/solution-architecture-pattern-higher-education-information-technology-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-higher-education-information-technology-architecture.json",
+      "sha256": "b5d5995e42ae8fb0f4a2122c833764b3cf828f6eb8ac8c4809505cd46784932c"
+    },
+    {
+      "id": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "reference-architecture-wso2",
+      "file": "docs/solution-architecture-pattern-hospitality-platform-reference-architecture-wso2.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-hospitality-platform-reference-architecture-wso2.json",
+      "sha256": "a68b5ae6561c5989e5e70dfc78203218329391f7b946877e67b6037bf29e6bed"
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-api-management-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "api-management-pattern",
+      "file": "docs/solution-architecture-pattern-hybrid-api-management-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-hybrid-api-management-pattern.json",
+      "sha256": "f742eff0c6c47d465bb03c3d18d3e9fe2f87c5e330ba200a515b5278136de505"
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-integration-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "hybrid-integration-pattern",
+      "file": "docs/solution-architecture-pattern-hybrid-integration-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-hybrid-integration-pattern.json",
+      "sha256": "89672da77ac0e95398824d34bfd94d0c1f0981b1c7cd52f775d53cb310f30e2f"
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "enterprise-platform-architecture",
+      "file": "docs/solution-architecture-pattern-innovation-driven-enterprise-platform-architecture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-innovation-driven-enterprise-platform-architecture.json",
+      "sha256": "a2c2fb3f5d7b89521ac31c03d4f0c7c15fe7957b2e4c93ab6f51b275a9a19eb1"
+    },
+    {
+      "id": "solution-architecture-pattern-integration-platform-selection-guide",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "technology-selection-guides",
+      "title": "platform-selection-guide",
+      "file": "docs/solution-architecture-pattern-integration-platform-selection-guide.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-integration-platform-selection-guide.json",
+      "sha256": "cd378a87f7bd8d0bfa3e29fa9e325e5a1f247152f49c4a2a24582b37eee0121e"
+    },
+    {
+      "id": "solution-architecture-pattern-introduction-to-change-data-capture",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "change-data-capture",
+      "file": "docs/solution-architecture-pattern-introduction-to-change-data-capture.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-introduction-to-change-data-capture.json",
+      "sha256": "6d34cc69355a56390340c950304b104bfd0ec84e6a83db050fa9d5c5bb93d0e0"
+    },
+    {
+      "id": "solution-architecture-pattern-istio-service-mesh-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Istio Service Mesh Pattern",
+      "file": "docs/solution-architecture-pattern-istio-service-mesh-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-istio-service-mesh-pattern.json",
+      "sha256": "d3946a0fd3db9aad3c8078dda9c592e8f67bf861a9fa9ba3df61b195445f9f1c"
+    },
+    {
+      "id": "solution-architecture-pattern-kubernetes-deployment-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Kubernetes Deployment Pattern",
+      "file": "docs/solution-architecture-pattern-kubernetes-deployment-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-kubernetes-deployment-pattern.json",
+      "sha256": "4d7b83eaaf922bfd6faade8a51469e5019d614cffaacf227c3daa7526570c26a"
+    },
+    {
+      "id": "solution-architecture-pattern-layered-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "layered-architecture-pattern",
+      "file": "docs/solution-architecture-pattern-layered-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-layered-architecture-pattern.json",
+      "sha256": "ce6c1b0d25eb2ce6fe77a0a350ea33074c3b1a46b8ea2b98cfaaf6f181606f87"
+    },
+    {
+      "id": "solution-architecture-pattern-legacy-platform-modernization-with-wso2",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "modernization-with-wso2",
+      "file": "docs/solution-architecture-pattern-legacy-platform-modernization-with-wso2.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-legacy-platform-modernization-with-wso2.json",
+      "sha256": "3730d228880438d6651cd46ed3fac78ba1e7989b9a86bd525035df71c2c6ee6a"
+    },
+    {
+      "id": "solution-architecture-pattern-micro-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "micro-architecture-pattern",
+      "file": "docs/solution-architecture-pattern-micro-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-micro-architecture-pattern.json",
+      "sha256": "67d730c80c1ac014b25dba3a236fb49653e210842a42805b2b46cf89dca60c6f"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "pattern1-decentralized-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern1-decentralized-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern1-decentralized-gateway.json",
+      "sha256": "4d3432ecdcc7519245c920d68a1ace6c716064257e3b57f3c57886c59913262b"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern2-locked-down-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "locked-down-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern2-locked-down-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern2-locked-down-gateway.json",
+      "sha256": "4224fc120f628299f479ea5158799ce883f1e735466bcb01fcb5d98297e62461"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "pattern3-seasonal-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern3-seasonal-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern3-seasonal-gateway.json",
+      "sha256": "fb606e6ff02f9015d5a3fcfb5e59941cbb524ed74984287d79ff6f8539c2d48d"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "data-center-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway.json",
+      "sha256": "968e0f26c51e2f4bddc96b84353f6030e54b3e319a127f643d0e34b0169ffd18"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern5-service-mesh-sidecar-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "mesh-sidecar-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern5-service-mesh-sidecar-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern5-service-mesh-sidecar-gateway.json",
+      "sha256": "9580f8b51750070e2490c08f2b902e57b2fbb8550a25e11fe022eb0f4c9f6e26"
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "hybrid-api-gateway",
+      "file": "docs/solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway.json",
+      "sha256": "7ac037e4dffd85aa663db19299625eb20203cc66366386e0ee50209667dc25f7"
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "and-api-management",
+      "file": "docs/solution-architecture-pattern-microservices-governance-and-api-management.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microservices-governance-and-api-management.json",
+      "sha256": "fb6c8e59edb04a918cbd16eace6bdea8e1e375418f5d2f305ef7fd6a43f005c9"
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-security-pattern-policy-based",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Microservices Security Pattern - Implementing a policy based security for microservices with OPA",
+      "file": "docs/solution-architecture-pattern-microservices-security-pattern-policy-based.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microservices-security-pattern-policy-based.json",
+      "sha256": "ec1b169d792ebc7860f70b04aa78118053c2ba6456127cb912bc7334a17d7412"
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-with-nats-messaging",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Microservices architecture with NATS messaging",
+      "file": "docs/solution-architecture-pattern-microservices-with-nats-messaging.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microservices-with-nats-messaging.json",
+      "sha256": "ea530eaa51ed3cac675b423dfd9d913809a849e51ab3a91f832903f226e8255c"
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "service-mesh-pattern",
+      "file": "docs/solution-architecture-pattern-microservices-without-service-mesh-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-microservices-without-service-mesh-pattern.json",
+      "sha256": "c2a3ab81508e955a01bb69d87750413560dd6a968ecc932079f51eb53d823304"
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "field-enterprise-wso2",
+      "file": "docs/solution-architecture-pattern-modern-brown-field-enterprise-wso2.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-modern-brown-field-enterprise-wso2.json",
+      "sha256": "77f5d8657d56c80b105ab085022b4e8ce244e8ebdc08d74f0adf72f623a519eb"
+    },
+    {
+      "id": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "Multi Cloud Enterprise Deployment Pattern",
+      "file": "docs/solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern.json",
+      "sha256": "b5462f074d6d3e2e5af34d8223cac53c26b1278c72812cc186a2d36e9a2b3af2"
+    },
+    {
+      "id": "solution-architecture-pattern-open-health-savings",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "open-health-savings",
+      "file": "docs/solution-architecture-pattern-open-health-savings.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-open-health-savings.json",
+      "sha256": "2f1dd0a6483cc0c9b3e376f0eb418f4f7906f7e970170bb5d6dd73e7ea4ea0d9"
+    },
+    {
+      "id": "solution-architecture-pattern-openapi-based-digital-transformation-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "digital-transformation-pattern",
+      "file": "docs/solution-architecture-pattern-openapi-based-digital-transformation-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-openapi-based-digital-transformation-pattern.json",
+      "sha256": "a97095bc7ed04376b8d97131fb17a6915e3549a170476901371abdc336747b6f"
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "cloud-foundry-pattern",
+      "file": "docs/solution-architecture-pattern-pivotal-cloud-foundry-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-pivotal-cloud-foundry-pattern.json",
+      "sha256": "99012e00825c9ae1e60d4fb767f43e82254fdee05f5f7d64da58a1ab45c214a2"
+    },
+    {
+      "id": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "api-manager-pattern",
+      "file": "docs/solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern.json",
+      "sha256": "38b37cf323b94d377843f8e232a8cfa020ba285efffad0a13d2a7609128b853e"
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "Security Federation Pattern",
+      "file": "docs/solution-architecture-pattern-security-federation-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-security-federation-pattern.json",
+      "sha256": "622039c5fbb270e82ca1b47aa3a616aed435965c50c963f36402afb8d5a55476"
+    },
+    {
+      "id": "solution-architecture-pattern-soa-governance-to-api-management-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-neutral",
+      "title": "api-management-pattern",
+      "file": "docs/solution-architecture-pattern-soa-governance-to-api-management-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-soa-governance-to-api-management-pattern.json",
+      "sha256": "c7c5d2cf83d1fa07eb8ac7211dcf0e744ae55664c1249b43d0111ee327bd7d45"
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "industry-specific",
+      "title": "reference-architecture-pattern",
+      "file": "docs/solution-architecture-pattern-telecommunication-reference-architecture-pattern.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-telecommunication-reference-architecture-pattern.json",
+      "sha256": "2526913f904414f227f2202e75bd251ea5789c133ea5c12b6ebe93f174891eea"
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns",
+      "subjectId": "solution-architecture",
+      "kind": "pattern",
+      "category": "vendor-specific",
+      "title": "ei7-solution-patterns",
+      "file": "docs/solution-architecture-pattern-wso2-ei7-solution-patterns.json",
+      "exercisesFile": "exercises/solution-architecture-pattern-wso2-ei7-solution-patterns.json",
+      "sha256": "caeb378a2d8a28358b1799504e2028e8ae91e0b4ec6bc4020bad8dc2c4e3a65e"
+    }
+  ],
+  "modules": [
+    {
+      "id": "foundations",
+      "subjectId": "solution-architecture",
+      "title": "Foundations",
+      "position": 0
+    },
+    {
+      "id": "integration-apis",
+      "subjectId": "solution-architecture",
+      "title": "Integration & APIs",
+      "position": 1
+    },
+    {
+      "id": "cloud-microservices",
+      "subjectId": "solution-architecture",
+      "title": "Cloud & Microservices",
+      "position": 2
+    },
+    {
+      "id": "security-governance",
+      "subjectId": "solution-architecture",
+      "title": "Security & Governance",
+      "position": 3
+    },
+    {
+      "id": "solution-architecture-extra",
+      "subjectId": "solution-architecture",
+      "title": "Extra patterns",
+      "position": 4
+    }
+  ],
+  "moduleDocs": [
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-ballerina-sidecar-pattern-microservices",
+      "position": 0
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-cloud-application-security-pattern",
+      "position": 1
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-cloud-migration-strangler-pattern",
+      "position": 2
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-enterprise-cicd-pattern",
+      "position": 3
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-istio-service-mesh-pattern",
+      "position": 4
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-kubernetes-deployment-pattern",
+      "position": 5
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-microgateway-pattern5-service-mesh-sidecar-gateway",
+      "position": 6
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-microservices-security-pattern-policy-based",
+      "position": 7
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-microservices-without-service-mesh-pattern",
+      "position": 8
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-multi-cloud-enterprise-deployment-pattern",
+      "position": 9
+    },
+    {
+      "moduleId": "cloud-microservices",
+      "docId": "solution-architecture-pattern-pivotal-cloud-foundry-pattern",
+      "position": 10
+    },
+    {
+      "moduleId": "foundations",
+      "docId": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern",
+      "position": 0
+    },
+    {
+      "moduleId": "foundations",
+      "docId": "solution-architecture-pattern-enterprise-software-stack",
+      "position": 1
+    },
+    {
+      "moduleId": "foundations",
+      "docId": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture",
+      "position": 2
+    },
+    {
+      "moduleId": "foundations",
+      "docId": "solution-architecture-pattern-layered-architecture-pattern",
+      "position": 3
+    },
+    {
+      "moduleId": "foundations",
+      "docId": "solution-architecture-pattern-micro-architecture-pattern",
+      "position": 4
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-api-led-connectivity-pattern",
+      "position": 0
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-api-management-platform-selection-guide",
+      "position": 1
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-api-manager-3rd-party-km-integration",
+      "position": 2
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-api-security-pattern",
+      "position": 3
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-aws",
+      "position": 4
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-apim-ei-deployment-reference-architecture-azure",
+      "position": 5
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-event-driven-architecture-kafka-pattern",
+      "position": 6
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-event-driven-architecture-pattern",
+      "position": 7
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-event-driven-real-time-information-system-kafka-wso2",
+      "position": 8
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-graphql-pattern",
+      "position": 9
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-hybrid-api-management-pattern",
+      "position": 10
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-hybrid-integration-pattern",
+      "position": 11
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-introduction-to-change-data-capture",
+      "position": 12
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway",
+      "position": 13
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-microservices-governance-and-api-management",
+      "position": 14
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-microservices-with-nats-messaging",
+      "position": 15
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-openapi-based-digital-transformation-pattern",
+      "position": 16
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-reusable-api-platform-wso2-api-manager-pattern",
+      "position": 17
+    },
+    {
+      "moduleId": "integration-apis",
+      "docId": "solution-architecture-pattern-soa-governance-to-api-management-pattern",
+      "position": 18
+    },
+    {
+      "moduleId": "security-governance",
+      "docId": "solution-architecture-pattern-centralized-identity-access-management-pattern",
+      "position": 0
+    },
+    {
+      "moduleId": "security-governance",
+      "docId": "solution-architecture-pattern-security-federation-pattern",
+      "position": 1
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-anti-corruption-layer-pattern",
+      "position": 0
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-automotive-industry-information-technology-reference-architecture",
+      "position": 1
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-aws-networking-in-a-nutshell",
+      "position": 2
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-azure-networking-services-in-a-nutshell",
+      "position": 3
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-digital-health-platform-open-source-architecture",
+      "position": 4
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-effective-ground-transportation-architecture-pattern",
+      "position": 5
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-energy-information-technology-reference-architecture",
+      "position": 6
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-future-retail-a-business-and-technical-architecture",
+      "position": 7
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-higher-education-information-technology-architecture",
+      "position": 8
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-hospitality-platform-reference-architecture-wso2",
+      "position": 9
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-integration-platform-selection-guide",
+      "position": 10
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-legacy-platform-modernization-with-wso2",
+      "position": 11
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway",
+      "position": 12
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-microgateway-pattern2-locked-down-gateway",
+      "position": 13
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway",
+      "position": 14
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway",
+      "position": 15
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-modern-brown-field-enterprise-wso2",
+      "position": 16
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-open-health-savings",
+      "position": 17
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-telecommunication-reference-architecture-pattern",
+      "position": 18
+    },
+    {
+      "moduleId": "solution-architecture-extra",
+      "docId": "solution-architecture-pattern-wso2-ei7-solution-patterns",
+      "position": 19
+    }
+  ]
+}

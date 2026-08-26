@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-api-led-connectivity-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are certain industries that are still not utilizing the power of the digital age and the value of structural information exchange patterns to boost their businesses.",
+        "options": [
+          "But there",
+          "Note",
+          "But if you",
+          "Figure 2"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is such a fundamental concept that can live nicely in both existing monolithic enterprise as well as modern cloud-native, microservices-based enterprise.",
+        "options": [
+          "But this",
+          "Note",
+          "But if you",
+          "API-led connectivity or API-led integration"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: API-led connectivity, business architecture",
+        "options": [
+          "Having the fundamental architecture right at the start",
+          "But there",
+          "Running business operations using software applications",
+          "Figure 1"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: API-led integration, solution architecture",
+        "options": [
+          "Figure 2",
+          "API-led connectivity or API-led integration",
+          "Note",
+          "Digital transformation"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "But if you",
+          "The fundamental requirement of the digital transformation",
+          "Having the fundamental architecture right at the start",
+          "But there"
+        ],
+        "pairsRight": [
+          "But if you are exposing your business products and services through digital mediums, that is indeed a specialty depending on your vertical.",
+          "Having the fundamental architecture right at the start is crucial in any successful project whether it is large or small.",
+          "But there are certain industries that are still not utilizing the power of the digital age and the value of structural information exchange patterns to boost their businesses.",
+          "The fundamental requirement of the digital transformation is the integration of your existing set of systems, applications, and data."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But there?",
+        "options": [
+          "But there are certain industries that are still not utilizing the power of the digital age and the value of structural information exchange patterns to boost their businesses.",
+          "Disclaimer: The original architecture diagram of the above figure can be found in the below link. [1] https://blogs.mulesoft.com/dev/api-dev/what-is-api-led-connectivity/",
+          "But this is not a necessity and someone can come up with a fully distributed solution architecture even with the above-mentioned business architecture if needed.",
+          "Having the fundamental architecture right at the start is crucial in any successful project whether it is large or small."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is API-led connectivity or API-led integration?",
+        "options": [
+          "API-led connectivity or API-led integration is such a fundamental concept that can live nicely in both existing monolithic enterprise as well as modern cloud-native, microservices-based enterprise.",
+          "Running business operations using software applications is not something to make your enterprise special.",
+          "Let’s dig a bit deep and understand the business architecture of a typical enterprise with an API-driven approach.",
+          "Disclaimer: The original architecture diagram of the above figure can be found in the below link. [1] https://blogs.mulesoft.com/dev/api-dev/what-is-api-led-connectivity/"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 1?",
+        "options": [
+          "The fundamental requirement of the digital transformation is the integration of your existing set of systems, applications, and data.",
+          "But if you are exposing your business products and services through digital mediums, that is indeed a specialty depending on your vertical.",
+          "Figure 1: API-led connectivity, business architecture",
+          "Digital transformation is something that every business must adopt if they want to be in the game."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Digital transformation is something that every business must adopt if they want to be in the game."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Having the fundamental architecture right at the start is crucial in any successful project whether it is large or small."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-led-connectivity-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Digital transformation is not something to make your enterprise special."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "solution-architecture-pattern-microgateway-pattern6-hybrid-api-gateway",
+  "subjectId": "solution-architecture",
+  "kind": "pattern",
+  "category": "vendor-specific",
+  "slug": "microgateway-pattern6-hybrid-api-gateway",
+  "title": "hybrid-api-gateway",
+  "readingMin": 1,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Hybrid API gateway pattern"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Introduction"
+    },
+    {
+      "type": "paragraph",
+      "text": "In all the deployment patterns mentioned above, the management aspect of the deployment needs to be handled by the enterprise. It gives them the utmost flexibility and control over the platform. But sometimes, organizations with limited IT staff and skill set wants to outsource some of the management and hosting capabilties of the platform while keeping the important components. This is what exactly the hybrid API gateway pattern provides."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Figure 1: Hybrid API gateway pattern"
+    },
+    {
+      "type": "image",
+      "url": "../images/Microgateway-Pattern6-Hybrid-API-Gateway.png",
+      "alt": "Hybrid API Gateway pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "In this deployment pattern, the critical runtime component of the API platform which is the gateway will be running under the control of the enterprise. It can be run on a private data center, public IaaS cloud or both. In the meantime, the management components of API publisher, Developer Portal, Analytics and Key manager will be hosted and maintained by WSO2 within their public API Cloud."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Hybrid API gateway pattern"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Hybrid API gateway pattern",
+      "definition": "This is what exactly the hybrid API gateway pattern provides."
+    },
+    {
+      "term": "This",
+      "definition": "This is what exactly the hybrid API gateway pattern provides."
+    },
+    {
+      "term": "Figure 1",
+      "definition": "Figure 1: Hybrid API gateway pattern"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-cloud-application-security-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are stored within the enterprise user store (AD, LDAP, JDBC) which is connected with the WSO2 IS.",
+        "options": [
+          "Introduction",
+          "Here",
+          "Now users can provide the credentials which",
+          "Enterprises"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases.",
+        "options": [
+          "Architecture",
+          "Introduction",
+          "Enterprises",
+          "There"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the challenges",
+        "options": [
+          "Architecture",
+          "There",
+          "Enterprises",
+          "Here"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are done, when a user tries to log into the respective cloud application, it will be redirected to the WSO2 IS authentication endpoint.",
+        "options": [
+          "Once these settings",
+          "Enterprises",
+          "Now users can provide the credentials which",
+          "Here"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Here",
+          "Introduction",
+          "Once these settings",
+          "Architecture"
+        ],
+        "pairsRight": [
+          "With the above mentioned architecture, enterprises will be able to reap the following benefits.",
+          "Here are some of the challenges",
+          "With the introduction of more and more cloud based applications, user management within the enterprise will become challenging.",
+          "Once these settings are done, when a user tries to log into the respective cloud application, it will be redirected to the WSO2 IS authentication endpoint."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Now users can provide the credentials which?",
+        "options": [
+          "Here are some of the challenges",
+          "Now users can provide the credentials which are stored within the enterprise user store (AD, LDAP, JDBC) which is connected with the WSO2 IS.",
+          "With the introduction of more and more cloud based applications, user management within the enterprise will become challenging.",
+          "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Enterprises?",
+        "options": [
+          "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases.",
+          "There are many cloud software service providers who is dominating the respective technology area.",
+          "Once these settings are done, when a user tries to log into the respective cloud application, it will be redirected to the WSO2 IS authentication endpoint.",
+          "With the above mentioned architecture, enterprises will be able to reap the following benefits."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "With the introduction of more and more cloud based applications, user management within the enterprise will become challenging.",
+          "Here are some of the challenges",
+          "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases.",
+          "With the above mentioned architecture, enterprises will be able to reap the following benefits."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here are some of the challenges"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Enterprises are more and more out sourcing their internal IT applications to cloud based solutions due to the fact that maintainence cost of these on premise solutions are much more higher than the cloud counterparts in most cases."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-application-security-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "With the above mentioned Once these settings, enterprises will be able to reap the following benefits."
+      },
+      "answerKey": false
+    }
+  ]
+}

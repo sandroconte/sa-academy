@@ -1,0 +1,245 @@
+{
+  "id": "solution-architecture-pattern-kubernetes-deployment-pattern",
+  "subjectId": "solution-architecture",
+  "kind": "pattern",
+  "category": "vendor-neutral",
+  "slug": "kubernetes-deployment-pattern",
+  "title": "Kubernetes Deployment Pattern",
+  "readingMin": 4,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Kubernetes Deployment Pattern"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Introduction"
+    },
+    {
+      "type": "paragraph",
+      "text": "Container based deployments are becoming more and more popular within enterprise software architectures due to the many advantages it bring to the table. There are many articles which explains the advantages of containers vs virtual machines or physical machines. Running your application within a container does not solve all your problems. To reap the full benefits of a container based deployment, containers needs to be properly managed. Container orchestration platforms does just that. Kubernetes has become the defacto standard in container orchestration. It provides capabilities like"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Run work loads (applications) in containers",
+        "Automated rollouts and rollbacks",
+        "Service discovery and load balancing",
+        "Self-healing and automatic scaling",
+        "Storage Orchestration"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "In simple terms, kubernetes has provided an operating system to run your work loads (applications) within a data center by hiding the underlying complexity of the data center. Similar to running an application on your laptop or desktop, kubernetes provides a higher level interfaces to run your applications on containers."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "In kubernetes, there are few concepts which we need to understand before diving deep into the solutions architecture."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Pod"
+    },
+    {
+      "type": "paragraph",
+      "text": "Pod is the smallest unit of execution in kubernetes. It can run one or more containers and has its own ip address."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Service"
+    },
+    {
+      "type": "paragraph",
+      "text": "A service is a kubernetes component which can wrap one or more similar pods and expose a given functionality (service) to outside world. A service can expose more than one pod and load balance traffic between them. Service has its own IP address and port when accessing from external client."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Ingress Controller"
+    },
+    {
+      "type": "paragraph",
+      "text": "This provides an interface to external clients to access the services which are running within the kubernetes cluster. Typically, major load balaning vendors have implementations of this ingress controller."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Deployment"
+    },
+    {
+      "type": "paragraph",
+      "text": "A deployment is a configuration which can create a given set of kubernetes artefacts like pods, services, replica sets, etc."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Namespace"
+    },
+    {
+      "type": "paragraph",
+      "text": "Namespaces are used to categorize different components which are related within kubernetes. As an example, different teams can utilize the same kubernetes cluster and run their own services by using their own namespaces without interfering with other teams."
+    },
+    {
+      "type": "image",
+      "url": "images/Kubernetes-Deployment-Pattern.png",
+      "alt": "Kubernetes Deployment Pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "As depicted in the above figure,"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Individual work loads or applications can run within a pod as one or more containers.",
+        "Pod can contain the (micro)service, a support service (e.g. database), side car proxy (e.g. envoy) and other containers based on the requirement.",
+        "A single pod cannot cannot offer services to a scaling client requirements and grouping multiple pods into a service is the correct approach to take when deploying in kubernetes.",
+        "These services can expose the functionality of pods to external client through an ingress controller.",
+        "When designing these services, categorizing them based on the functionality into namespaces is recommended.",
+        "Once these namespaces are defined, the cluster wide resource allocations can be easily done. As an example, if a given set of services require more resources than the other services, you can enforce resource allocations at namespace level."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Under the hood"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kubernetes runs on top of an infrastructure layer. This can be any of the physical, virtual or cloud based resources. To set up a kubernetes cluster on a given infrastructure, you have to setup the relevant kubernetes components."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Overlay network"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kubernetes has various components which acts like their own hosts with their own ip addresses, port ranges, and access with localhost interfaces. All these activities are controller by the overlay network implemented in kubernetes platform. It allows services within kubernetes to contact other services using their own ClusterIPs while routing external traffic from external IP addresses."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Kubernetes master"
+    },
+    {
+      "type": "paragraph",
+      "text": "These are the nodes which controls the state of the kubernetes cluster. It collects information from kubernetes workers and push commands to these workers to maintain the state."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Kubernetes worker"
+    },
+    {
+      "type": "paragraph",
+      "text": "These are the nodes which runs the actual work loads in a container platform as pods, services. These workers get commands from manager to run the work loads."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "etcd"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kubernetes uses etcd as the key value store to keep the metadata about the state of the kubernetes cluster."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Image repository"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kubernetes runs containers using an image repository. This repository contains the container images which contains the work load."
+    },
+    {
+      "type": "heading",
+      "level": 4,
+      "text": "Storage"
+    },
+    {
+      "type": "paragraph",
+      "text": "Containers are ephemeral in nature and they will come and go without keeping any state. But all the applications cannot survive without the state. To keep state across container restarts, kubernetes offers storage services."
+    },
+    {
+      "type": "paragraph",
+      "text": "Even though not directly related to core kubernetes functionalities, monitoring and logging plays a key role when managing a kubernetes environment. It provides visibility into the kubernetes cluster and it's operations. Having proper monitoring is a key when monitoring the application level details for debugging issues."
+    }
+  ],
+  "sections": [
+    {
+      "title": "Introduction"
+    },
+    {
+      "title": "Architecture"
+    },
+    {
+      "title": "Under the hood"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Introduction",
+      "definition": null
+    },
+    {
+      "term": "Architecture",
+      "definition": "In kubernetes, there are few concepts which we need to understand before diving deep into the solutions architecture."
+    },
+    {
+      "term": "Under the hood",
+      "definition": null
+    },
+    {
+      "term": "Container based deployments",
+      "definition": "Container based deployments are becoming more and more popular within enterprise software architectures due to the many advantages it bring to the table."
+    },
+    {
+      "term": "There",
+      "definition": "There are many articles which explains the advantages of containers vs virtual machines or physical machines."
+    },
+    {
+      "term": "Pod",
+      "definition": "Pod is the smallest unit of execution in kubernetes."
+    },
+    {
+      "term": "A service",
+      "definition": "A service is a kubernetes component which can wrap one or more similar pods and expose a given functionality (service) to outside world."
+    },
+    {
+      "term": "A deployment",
+      "definition": "A deployment is a configuration which can create a given set of kubernetes artefacts like pods, services, replica sets, etc."
+    },
+    {
+      "term": "Namespaces",
+      "definition": "Namespaces are used to categorize different components which are related within kubernetes."
+    },
+    {
+      "term": "All these activities",
+      "definition": "All these activities are controller by the overlay network implemented in kubernetes platform."
+    },
+    {
+      "term": "These",
+      "definition": "These are the nodes which controls the state of the kubernetes cluster."
+    },
+    {
+      "term": "Containers",
+      "definition": "Containers are ephemeral in nature and they will come and go without keeping any state."
+    },
+    {
+      "term": "Having proper monitoring",
+      "definition": "Having proper monitoring is a key when monitoring the application level details for debugging issues."
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-modern-brown-field-enterprise-wso2",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Modern enterprise system with WSO2 technology",
+        "options": [
+          "Apache Kafka and NATS",
+          "The microservices style of development",
+          "When there",
+          "Figure"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is required when there is a need to process a huge amount of asynchronous data points (events) coming into the system.",
+        "options": [
+          "The above architecture discussed a private deployment which",
+          "This component",
+          "Business Intelligence or Business Analytics",
+          "These"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the word every one chant when there is a need to expose your business functionality to the external world and API management is the de-facto way of doing that.",
+        "options": [
+          "Figure",
+          "API gateway",
+          "Digital transformation",
+          "These"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is where the centralized management of authentication, authorization, provisioning, SSO, MFA happens.",
+        "options": [
+          "Business Intelligence or Business Analytics",
+          "The above architecture discussed a private deployment which",
+          "This",
+          "The microservices style of development"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "When there",
+          "Apache Kafka and NATS",
+          "There",
+          "This component"
+        ],
+        "pairsRight": [
+          "This component is required when there is a need to process a huge amount of asynchronous data points (events) coming into the system.",
+          "When there is a plethora of applications and systems that need to work together, the integration platform is the glue that connects various systems.",
+          "There are distributed alternatives like Open Policy Agent (OPA) that exists for microservices and API security.",
+          "Apache Kafka and NATS are 2 of the best technologies available to fulfill this requirement."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure?",
+        "options": [
+          "The microservices style of development is better suited for this sort of service development.",
+          "When there is a plethora of applications and systems that need to work together, the integration platform is the glue that connects various systems.",
+          "Figure: Modern enterprise system with WSO2 technology",
+          "This is where the centralized management of authentication, authorization, provisioning, SSO, MFA happens."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This component?",
+        "options": [
+          "This component is required when there is a need to process a huge amount of asynchronous data points (events) coming into the system.",
+          "These are the forms where this enterprise system interacts in a request-response style of communication.",
+          "Apache Kafka and NATS are 2 of the best technologies available to fulfill this requirement.",
+          "The microservices style of development is better suited for this sort of service development."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Digital transformation?",
+        "options": [
+          "Apache Kafka and NATS are 2 of the best technologies available to fulfill this requirement.",
+          "Once the services are built as microservices or integration services, these services need to be exposed to various consumer channels.",
+          "Digital transformation is the word every one chant when there is a need to expose your business functionality to the external world and API management is the de-facto way of doing that.",
+          "An API gateway is the main component which does all these gatekeeping work."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is where the centralized management of authentication, authorization, provisioning, SSO, MFA happens."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "These are the forms where this enterprise system interacts in a request-response style of communication."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-modern-brown-field-enterprise-wso2-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "API gateway is the word every one chant when there is a need to expose your business functionality to the external world and API management is the de-facto way of doing that."
+      },
+      "answerKey": false
+    }
+  ]
+}

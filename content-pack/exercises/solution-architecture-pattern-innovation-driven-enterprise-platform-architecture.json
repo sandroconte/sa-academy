@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are internal business events that most organizations do not pay much attention to.",
+        "options": [
+          "When the systems",
+          "These",
+          "Hence the integration of applications and data",
+          "Innovation"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is handled by the kubernetes platform so that the application does not need to worry about it and will not get impacted by those failures.",
+        "options": [
+          "That means any failure of a node or multiple nodes",
+          "But the challenge with these applications",
+          "Event broker",
+          "The main advantage of these applications"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that it is not something one can learn or teach.",
+        "options": [
+          "The challenge with innovation",
+          "The amount of work to perform the migration",
+          "Another key requirement of an integration framework",
+          "These"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not as rosy as it appears from the outset.",
+        "options": [
+          "Identity and Access Management",
+          "Almost all the products and services that we can imagine",
+          "It is a great platform to run applications and there",
+          "Hence it"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Another key requirement of an integration framework",
+          "Hence the integration of applications and data",
+          "Integration",
+          "These components"
+        ],
+        "pairsRight": [
+          "Integration is just the beginning of innovation",
+          "Another key requirement of an integration framework is the ability to integrate with on-premise systems as well as cloud-based applications which are sometimes called hybrid integration.",
+          "These components are also important in any digital transformation project that you are planning to implement within your organization.",
+          "Hence the integration of applications and data is a core requirement of transforming a business into a digital business."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is These?",
+        "options": [
+          "API gateway is the main component that interacts with the consumers that are coming through these different channels like mobile and web.",
+          "These are internal business events that most organizations do not pay much attention to.",
+          "Hence the integration of applications and data is a core requirement of transforming a business into a digital business.",
+          "The main advantage of these applications is the reduction of the management overhead of the application in terms of development, testing, deployment, and infrastructure."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is That means any failure of a node or multiple nodes?",
+        "options": [
+          "That is where identity and access management come into play.",
+          "Almost all the products and services that we can imagine are available at the fingertips of the customer.",
+          "That means any failure of a node or multiple nodes is handled by the kubernetes platform so that the application does not need to worry about it and will not get impacted by those failures.",
+          "This is where the concept of APIs comes into play."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The challenge with innovation?",
+        "options": [
+          "These components are also important in any digital transformation project that you are planning to implement within your organization.",
+          "The challenge with innovation is that it is not something one can learn or teach.",
+          "There are 1000s of cloud applications available in the market for almost any business use case.",
+          "Almost all the products and services that we can imagine are available at the fingertips of the customer."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This portal is used by the application developers and partners to find, test, subscribe and build innovative applications to offer additional services to the consumers of the organization."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But the challenge with these applications is that organizations do not have any control over the feature functionality and the customizations which were possible with the on-premise and hybrid applications."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-innovation-driven-enterprise-platform-architecture-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The main advantage of these applications is the component that will collect information in real-time and supports very high message rates and volumes so that it won’t lose any important business event."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-enterprise-software-stack",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "You have to consider many different aspects when designing an _____.",
+        "options": [
+          "Enterprise software architecture",
+          "Figure 1",
+          "Another cloud offering which",
+          "Another such service"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the key factors you need to put your close attention to.",
+        "options": [
+          "One such an approach",
+          "Enterprise software architecture",
+          "Here",
+          "Figure 1"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are many organizations who offers different levels of enterprise software capabilities as cloud services or “as a Service” offerings.",
+        "options": [
+          "Here",
+          "There",
+          "Another cloud offering which",
+          "Enterprise software architecture"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Enterprise software architecture stack",
+        "options": [
+          "One such an approach",
+          "Figure 1",
+          "There",
+          "Here"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "One such an approach",
+          "Here",
+          "There",
+          "Another cloud offering which"
+        ],
+        "pairsRight": [
+          "There are many organizations who offers different levels of enterprise software capabilities as cloud services or “as a Service” offerings.",
+          "One such an approach is “Serverless” platforms where they run your programs for you in the cloud as and when necessary instead of running them all the time in the case of a PaaS or PCF.",
+          "Another cloud offering which is getting popular these days is \"IDaaS\" which is \"Identity as a Service\" which provides various Identity and Access Management capabilities as a cloud offering.",
+          "Here are some of the key factors you need to put your close attention to."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Enterprise software architecture?",
+        "options": [
+          "Another cloud offering which is getting popular these days is \"IDaaS\" which is \"Identity as a Service\" which provides various Identity and Access Management capabilities as a cloud offering.",
+          "You have to consider many different aspects when designing an enterprise software architecture.",
+          "One such an approach is “Serverless” platforms where they run your programs for you in the cloud as and when necessary instead of running them all the time in the case of a PaaS or PCF.",
+          "Another such service is \"MBaaS\" which expands to \"Mobile Backend as a Service\" which will provide you a platform to run your mobile backends for various mobile applications running on different platforms."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "One such an approach is “Serverless” platforms where they run your programs for you in the cloud as and when necessary instead of running them all the time in the case of a PaaS or PCF.",
+          "Here are some of the key factors you need to put your close attention to.",
+          "There are many organizations who offers different levels of enterprise software capabilities as cloud services or “as a Service” offerings.",
+          "Another such service is \"MBaaS\" which expands to \"Mobile Backend as a Service\" which will provide you a platform to run your mobile backends for various mobile applications running on different platforms."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is There?",
+        "options": [
+          "Here are some of the key factors you need to put your close attention to.",
+          "One such an approach is “Serverless” platforms where they run your programs for you in the cloud as and when necessary instead of running them all the time in the case of a PaaS or PCF.",
+          "Another such service is \"MBaaS\" which expands to \"Mobile Backend as a Service\" which will provide you a platform to run your mobile backends for various mobile applications running on different platforms.",
+          "There are many organizations who offers different levels of enterprise software capabilities as cloud services or “as a Service” offerings."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1: Enterprise software architecture stack"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Another such service is \"MBaaS\" which expands to \"Mobile Backend as a Service\" which will provide you a platform to run your mobile backends for various mobile applications running on different platforms."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-enterprise-software-stack-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Enterprise software architecture is \"MBaaS\" which expands to \"Mobile Backend as a Service\" which will provide you a platform to run your mobile backends for various mobile applications running on different platforms."
+      },
+      "answerKey": false
+    }
+  ]
+}

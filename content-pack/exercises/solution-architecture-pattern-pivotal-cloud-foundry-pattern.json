@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-pivotal-cloud-foundry-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is exactly what Pivotal Cloud Foundry has done with their architecture.",
+        "options": [
+          "So what",
+          "Figure 1",
+          "That",
+          "Figure 4"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the drawbacks or challenges with adopting a mega cloud",
+        "options": [
+          "Here",
+          "Some of them",
+          "Enterprises",
+          "So what"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are developed and contributed by Pivotal and others are independent vendors.",
+        "options": [
+          "Does that mean cloud",
+          "Enterprises",
+          "Figure 4",
+          "Some of them"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is special about Pivotal version of the Cloud Foundry?",
+        "options": [
+          "So what",
+          "Figure 3",
+          "Cloud Foundry",
+          "This"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Figure 4",
+          "Once the application and the runtime",
+          "Does that mean cloud",
+          "Here"
+        ],
+        "pairsRight": [
+          "Here are some of the drawbacks or challenges with adopting a mega cloud",
+          "Once the application and the runtime is fixed into an artefact as a VM, container image or binary, these needs to be run on top of a computing infrastrutre which is abstracted away by an operating system.",
+          "Does that mean cloud is not something we should adhere to?",
+          "Figure 4: PCF vs CF (source: https://docs.pivotal.io/pivotalcf/2-6/concepts/overview.html)"
+        ]
+      },
+      "answerKey": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is That?",
+        "options": [
+          "That is exactly what Pivotal Cloud Foundry has done with their architecture.",
+          "Here are some of the drawbacks or challenges with adopting a mega cloud",
+          "This is where the concept of a private cloud comes into the picture.",
+          "Figure 3: Pivotal Cloud Foundry - detailed look (Source: https://www.slideshare.net/Pivotal/t3-pivotal-cloud-foundry-a-technical-overview)"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "Once the application and the runtime is fixed into an artefact as a VM, container image or binary, these needs to be run on top of a computing infrastrutre which is abstracted away by an operating system.",
+          "Here are some of the drawbacks or challenges with adopting a mega cloud",
+          "Some of them are developed and contributed by Pivotal and others are independent vendors.",
+          "That is exactly what Pivotal Cloud Foundry has done with their architecture."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Some of them?",
+        "options": [
+          "Here are some of the drawbacks or challenges with adopting a mega cloud",
+          "Some of them are developed and contributed by Pivotal and others are independent vendors.",
+          "Figure 3: Pivotal Cloud Foundry - detailed look (Source: https://www.slideshare.net/Pivotal/t3-pivotal-cloud-foundry-a-technical-overview)",
+          "Figure 1: Enterprise application workload seggregation"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Does that mean cloud is not something we should adhere to?"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Once the application and the runtime is fixed into an artefact as a VM, container image or binary, these needs to be run on top of a computing infrastrutre which is abstracted away by an operating system."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-pivotal-cloud-foundry-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here is not something we should adhere to?"
+      },
+      "answerKey": false
+    }
+  ]
+}

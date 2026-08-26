@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-event-driven-architecture-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Enterprise systems are built on 2 fundamental messaging models."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Event-Driven architecture is one such asynchronous messging pattern where a set of actors called publishers generate a set of events and a set of subscribers or consumers consume these events independently and process those events asynchronously."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Event-Driven Enterprise systems is one such asynchronous messging pattern where a set of actors called publishers generate a set of events and a set of subscribers or consumers consume these events independently and process those events asynchronously."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-anti-corruption-layer-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the distributed version of the traditional ESB or the anti corruption layer.",
+        "options": [
+          "Even though these systems",
+          "This",
+          "Here",
+          "Some argues that service mesh"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the advantages of using this pattern.",
+        "options": [
+          "Some argues that service mesh",
+          "Here",
+          "Even though these systems",
+          "Enterprise software systems"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer.",
+        "options": [
+          "This",
+          "Here",
+          "Enterprise software systems",
+          "Even though these systems"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are built in isolation, they can't operate in isolation within enterprise.",
+        "options": [
+          "Here",
+          "Even though these systems",
+          "This",
+          "Enterprise software systems"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "This",
+          "Here",
+          "Enterprise software systems",
+          "Some argues that service mesh"
+        ],
+        "pairsRight": [
+          "Here are some of the advantages of using this pattern.",
+          "This is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer.",
+          "Enterprise software systems are built with heterogenous systems which uses best of breed technologies to solve the respective problem at hand.",
+          "Some argues that service mesh is the distributed version of the traditional ESB or the anti corruption layer."
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Some argues that service mesh?",
+        "options": [
+          "This is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer.",
+          "Enterprise software systems are built with heterogenous systems which uses best of breed technologies to solve the respective problem at hand.",
+          "Here are some of the advantages of using this pattern.",
+          "Some argues that service mesh is the distributed version of the traditional ESB or the anti corruption layer."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "Enterprise software systems are built with heterogenous systems which uses best of breed technologies to solve the respective problem at hand.",
+          "Even though these systems are built in isolation, they can't operate in isolation within enterprise.",
+          "Here are some of the advantages of using this pattern.",
+          "Some argues that service mesh is the distributed version of the traditional ESB or the anti corruption layer."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "Here are some of the advantages of using this pattern.",
+          "Some argues that service mesh is the distributed version of the traditional ESB or the anti corruption layer.",
+          "This is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer.",
+          "Enterprise software systems are built with heterogenous systems which uses best of breed technologies to solve the respective problem at hand."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Some argues that service mesh is the distributed version of the traditional ESB or the anti corruption layer."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-anti-corruption-layer-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here is not a new concept and the traditionally, Enterprise Service Bus (ESB) has been used as this intermediate layer."
+      },
+      "answerKey": false
+    }
+  ]
+}

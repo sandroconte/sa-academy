@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is quite new and challenge some of the well established concept like API Management platforms while offering the freedom to the developers to use any technology they like when implementing the business logic.",
+        "options": [
+          "A control plane",
+          "This solutions architecture pattern",
+          "This",
+          "Having a proper monitoring and analytics capability"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is where the container orchestration systems comes into rescue.",
+        "options": [
+          "Having a proper monitoring and analytics capability",
+          "The well-known approach to expose a set of REST APIs",
+          "This",
+          "There"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is crucial when we want to",
+        "options": [
+          "That",
+          "There",
+          "This solutions architecture pattern",
+          "Having a proper monitoring and analytics capability"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are new set of technology vendors who are developing entire platforms which abstract out all the functionalities except service development and sell the entire platform using this type of architecture pattern underneath.",
+        "options": [
+          "This",
+          "That",
+          "Container based deployments",
+          "There"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "A control plane",
+          "Container based deployments",
+          "That",
+          "The deployment model we"
+        ],
+        "pairsRight": [
+          "Container based deployments are becoming more and more common within enterprise software ecosystem and there are many cloud service providers offer managed container services.",
+          "That is where the container runtimes become useful.",
+          "A control plane is the place where this configuration of various QOS capabilities are handled.",
+          "The deployment model we are proposing here is a service mesh and the role of a control plane is to control and configure the mesh."
+        ]
+      },
+      "answerKey": [
+        2,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This solutions architecture pattern?",
+        "options": [
+          "That is where the container runtimes become useful.",
+          "The well-known approach to expose a set of REST APIs is to use a fully blown API Management platform and start creating APIs in an API gateway.",
+          "This solutions architecture pattern is quite new and challenge some of the well established concept like API Management platforms while offering the freedom to the developers to use any technology they like when implementing the business logic.",
+          "A control plane is the place where this configuration of various QOS capabilities are handled."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "This is where the container orchestration systems comes into rescue.",
+          "The deployment model we are proposing here is a service mesh and the role of a control plane is to control and configure the mesh.",
+          "Having a proper monitoring and analytics capability is crucial when we want to",
+          "The well-known approach to expose a set of REST APIs is to use a fully blown API Management platform and start creating APIs in an API gateway."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Having a proper monitoring and analytics capability?",
+        "options": [
+          "This is where the container orchestration systems comes into rescue.",
+          "The well-known approach to expose a set of REST APIs is to use a fully blown API Management platform and start creating APIs in an API gateway.",
+          "Having a proper monitoring and analytics capability is crucial when we want to",
+          "That is where the container runtimes become useful."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "That is where the container runtimes become useful."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "All the supportive functionalities are provided through other components."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-decentralized-enterpise-architecture-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This are new set of technology vendors who are developing entire platforms which abstract out all the functionalities except service development and sell the entire platform using this type of architecture pattern underneath."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1: Decentralized API Gateway pattern"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "If there is a requirement to implement shared throttling across apis, microgateway will communicate with the external traffic manager."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern1-decentralized-gateway-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1 is a requirement to implement shared throttling across apis, microgateway will communicate with the external traffic manager."
+      },
+      "answerKey": false
+    }
+  ]
+}

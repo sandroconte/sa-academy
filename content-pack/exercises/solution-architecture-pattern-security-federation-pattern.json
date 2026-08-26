@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-security-federation-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the solutions architecture diagram of federated security pattern.",
+        "options": [
+          "Here",
+          "If this 3rd party system",
+          "Architecture",
+          "Then WSO2 IS"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not a scalable and maintainable solution due to the fact that users have to remember multiple username/password pairs and applications have their own user profiles and adding/removing/modifying these profiles is a tedious task.",
+        "options": [
+          "This",
+          "Here",
+          "Architecture",
+          "If this 3rd party system"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Here is the solutions _____ diagram of federated security pattern.",
+        "options": [
+          "Architecture",
+          "This",
+          "Here",
+          "Then WSO2 IS"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a legacy application or an application which is not supported OOTB or through the connector store, users can write a custom outbound authenticator.",
+        "options": [
+          "Architecture",
+          "Then WSO2 IS",
+          "If this 3rd party system",
+          "This"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Architecture",
+          "If this 3rd party system",
+          "Then WSO2 IS",
+          "Here"
+        ],
+        "pairsRight": [
+          "Then WSO2 IS is configured to consider these applications as service providers so that when a user tries to access any of these applications, user will be redirected towards WSO2 IS for authentication purpose.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "If this 3rd party system is a legacy application or an application which is not supported OOTB or through the connector store, users can write a custom outbound authenticator."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "This is not a scalable and maintainable solution due to the fact that users have to remember multiple username/password pairs and applications have their own user profiles and adding/removing/modifying these profiles is a tedious task.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "Then WSO2 IS is configured to consider these applications as service providers so that when a user tries to access any of these applications, user will be redirected towards WSO2 IS for authentication purpose."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "Then WSO2 IS is configured to consider these applications as service providers so that when a user tries to access any of these applications, user will be redirected towards WSO2 IS for authentication purpose.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "This is not a scalable and maintainable solution due to the fact that users have to remember multiple username/password pairs and applications have their own user profiles and adding/removing/modifying these profiles is a tedious task.",
+          "If this 3rd party system is a legacy application or an application which is not supported OOTB or through the connector store, users can write a custom outbound authenticator."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Architecture?",
+        "options": [
+          "If this 3rd party system is a legacy application or an application which is not supported OOTB or through the connector store, users can write a custom outbound authenticator.",
+          "Here is the solutions architecture diagram of federated security pattern.",
+          "This is not a scalable and maintainable solution due to the fact that users have to remember multiple username/password pairs and applications have their own user profiles and adding/removing/modifying these profiles is a tedious task.",
+          "Then WSO2 IS is configured to consider these applications as service providers so that when a user tries to access any of these applications, user will be redirected towards WSO2 IS for authentication purpose."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is not a scalable and maintainable solution due to the fact that users have to remember multiple username/password pairs and applications have their own user profiles and adding/removing/modifying these profiles is a tedious task."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here is the solutions architecture diagram of federated security pattern."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-security-federation-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Architecture is configured to consider these applications as service providers so that when a user tries to access any of these applications, user will be redirected towards WSO2 IS for authentication purpose."
+      },
+      "answerKey": false
+    }
+  ]
+}

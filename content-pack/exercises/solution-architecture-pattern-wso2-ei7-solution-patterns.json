@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-wso2-ei7-solution-patterns",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that file processing is not a request/response type of operation.",
+        "options": [
+          "Micro Integrator",
+          "WSO2 EI7",
+          "WSO2 SI",
+          "The reason"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is powered by Siddhi.io, a well-known, cloud-native, open-source stream processing engine.",
+        "options": [
+          "WSO2 SI",
+          "WSO2 EI7 and its capabilities",
+          "WSO2 SI can be effectively used for",
+          "WSO2 Micro Integrator"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Then this ESB product converted into a fully-fledged integration platform with the _____ of Enterprise Integrator 6.",
+        "options": [
+          "The reason",
+          "WSO2 SI can be effectively used for",
+          "Introduction",
+          "Work with streaming messaging systems"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are mentioned in the previous sections.",
+        "options": [
+          "Those additional components and their usage",
+          "WSO2 EI7 and its capabilities",
+          "Figure",
+          "The reason"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Work with streaming messaging systems",
+          "Micro Integrator",
+          "What you get with WSO2 EI 7.0",
+          "That"
+        ],
+        "pairsRight": [
+          "The Micro Integrator is a powerful configuration-driven approach to integration, which allows developers to build integration solutions with a low-code or design-first approach.",
+          "Work with streaming messaging systems: It is fully compatible with Kafka and NATS, and provides advanced stream processing capabilities required to utilize the full potential of streaming data.",
+          "That is where the integration hub comes into the picture.",
+          "What you get with WSO2 EI 7.0 are 2 separate components (profiles) which need to be run in different JVMs as separate processes."
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The reason?",
+        "options": [
+          "WSO2 EI7 is fronted with an API management layer along with the Identity and Access Management layer which handles the interfacing functionality to internal/external consumers of data.",
+          "The reason is that file processing is not a request/response type of operation.",
+          "Figure: Synchronous Hybrid Integration Pattern",
+          "WSO2 SI is powered by Siddhi.io, a well-known, cloud-native, open-source stream processing engine."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is WSO2 SI?",
+        "options": [
+          "Then this ESB product converted into a fully-fledged integration platform with the introduction of Enterprise Integrator 6.",
+          "WSO2 SI is powered by Siddhi.io, a well-known, cloud-native, open-source stream processing engine.",
+          "The Micro Integrator is a powerful configuration-driven approach to integration, which allows developers to build integration solutions with a low-code or design-first approach.",
+          "What you get with WSO2 EI 7.0 are 2 separate components (profiles) which need to be run in different JVMs as separate processes."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Introduction?",
+        "options": [
+          "Those additional components and their usage are mentioned below in brief.",
+          "Then this ESB product converted into a fully-fledged integration platform with the introduction of Enterprise Integrator 6.",
+          "The reason is that file processing is not a request/response type of operation.",
+          "WSO2 EI7 and its capabilities are mentioned in the previous sections."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Work with streaming messaging systems: It is fully compatible with Kafka and NATS, and provides advanced stream processing capabilities required to utilize the full potential of streaming data."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Those additional components and their usage are mentioned below in brief."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-wso2-ei7-solution-patterns-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Those additional components and their usage are not in the critical path of these use cases."
+      },
+      "answerKey": false
+    }
+  ]
+}

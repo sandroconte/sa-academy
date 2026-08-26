@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-hybrid-integration-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-hybrid-integration-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Such an integration platform is called as an hybrid integration platform (HIP)."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-integration-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Integration is one of the key capabilities required within any enterprise software system."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-hybrid-integration-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Depending on the infrastructure a given software system is one of the key capabilities required within any enterprise software system."
+      },
+      "answerKey": false
+    }
+  ]
+}

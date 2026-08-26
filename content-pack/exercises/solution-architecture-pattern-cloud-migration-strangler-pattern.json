@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-cloud-migration-strangler-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is something you should do after considering all the facts.",
+        "options": [
+          "The intention of this post",
+          "The other advantage of this approach",
+          "But this",
+          "Once the migration"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Enterprise Architecture — Before migration",
+        "options": [
+          "The other advantage of this approach",
+          "Once the migration",
+          "This layer",
+          "Figure 1"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are valid and hold true to a certain extent.",
+        "options": [
+          "All the systems",
+          "All those points",
+          "That",
+          "The intention of this post"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Enterprise Architecture — migrated",
+        "options": [
+          "All those points",
+          "Figure 3",
+          "But if you",
+          "The intention of this post"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "That",
+          "These additional capabilities",
+          "The other advantage of this approach",
+          "Figure 1"
+        ],
+        "pairsRight": [
+          "Figure 1: Enterprise Architecture — Before migration",
+          "These additional capabilities are optional and you should not worry much at the beginning.",
+          "The other advantage of this approach is that, you don’t need to wait till the end of the migration to reap the real benefits of the new architecture.",
+          "That is where we can use the concept of “Strangler Pattern” or “Strangler Facade” to our rescue."
+        ]
+      },
+      "answerKey": [
+        3,
+        1,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But this?",
+        "options": [
+          "Figure 1: Enterprise Architecture — Before migration",
+          "Figure 2: Enterprise Architecture — During migration",
+          "But this is something you should do after considering all the facts.",
+          "But if you are thinking of moving out to a on-premise deployment with container technologies, you can deploy the strangler facade on the same deployment."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 1?",
+        "options": [
+          "These additional capabilities are optional and you should not worry much at the beginning.",
+          "Figure 1: Enterprise Architecture — Before migration",
+          "Figure 2: Enterprise Architecture — During migration",
+          "There is a common notion about cloud that it is"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is All those points?",
+        "options": [
+          "There is a common notion about cloud that it is",
+          "Once the migration is done, you can achieve the requirements which were initially put in front of you by your CIO/CTO.",
+          "The other advantage of this approach is that, you don’t need to wait till the end of the migration to reap the real benefits of the new architecture.",
+          "All those points are valid and hold true to a certain extent."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 3: Enterprise Architecture — migrated"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "There is a common notion about cloud that it is"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-cloud-migration-strangler-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Once the migration are optional and you should not worry much at the beginning."
+      },
+      "answerKey": false
+    }
+  ]
+}

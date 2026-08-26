@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-api-management-platform-selection-guide",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the fundamental features of a developer portal.",
+        "options": [
+          "Here",
+          "Instead of having a central team who",
+          "API analytics component",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the million-dollar question.",
+        "options": [
+          "One simple method",
+          "Given below",
+          "This",
+          "The other key addition of this figure"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are designing our API platform to be future-proof.",
+        "options": [
+          "The fundamental idea of an API",
+          "But we cannot let it go if we",
+          "These",
+          "Here"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is like a doorkeeper or a receptionist.",
+        "options": [
+          "Figure",
+          "You can imagine that gateway",
+          "That",
+          "There"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "If you",
+          "Given below",
+          "This",
+          "There"
+        ],
+        "pairsRight": [
+          "Given below are a couple of examples where organizations have used APIs to improve their business processes with gateway functionality.",
+          "There are many other advanced features you would be interested in with the popularity of your API program.",
+          "If you are starting off your API journey, the above-mentioned functionalities are more than enough to expose your business functionality to a wider audience.",
+          "This is the million-dollar question."
+        ]
+      },
+      "answerKey": [
+        2,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Here?",
+        "options": [
+          "Here are some of the fundamental features of a developer portal.",
+          "The selection of the underlying infrastructure layer is totally up to the respective organization.",
+          "Figure: Using an API gateway to expose business functionality to users",
+          "API development component is the component where API developers will interact with when building the APIs."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is This?",
+        "options": [
+          "The other key addition of this figure is the separation of internal and external gateways so that those APIs don’t impact each other during the execution (runtime).",
+          "Here are some of the fundamental features of a developer portal.",
+          "The fundamental idea of an API is to build an interface that exposes your business functionality to internal and external users.",
+          "This is the million-dollar question."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But we cannot let it go if we?",
+        "options": [
+          "But we cannot let it go if we are designing our API platform to be future-proof.",
+          "The next step of reaching out and growing your business is to expose certain functionalities to end-users or the customers.",
+          "Instead of having a central team who is managing the entire platform, you should be able to federate the API platform according to the needs of different departments or BUs.",
+          "You can imagine that gateway is like a doorkeeper or a receptionist."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is the million-dollar question."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure: Using an API gateway to expose business functionality to users"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-management-platform-selection-guide-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "API development component are designing our API platform to be future-proof."
+      },
+      "answerKey": false
+    }
+  ]
+}

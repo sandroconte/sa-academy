@@ -1,0 +1,13 @@
+{
+  "docId": "solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern4-multi-data-center-gateway-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1: Multi data center API gateway pattern"
+      },
+      "answerKey": true
+    }
+  ]
+}

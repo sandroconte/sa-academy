@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-event-driven-architecture-kafka-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is set up, external applications and systems can interact with the cluster through 4 standard APIs.",
+        "options": [
+          "Once Kafka cluster",
+          "Kafka architecture",
+          "Architecture",
+          "Here"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Kafka has aggregated several _____ of existing messaging systems into a one single solution through it's unique design.",
+        "options": [
+          "Kafka architecture",
+          "Here",
+          "Advantages",
+          "Once Kafka cluster"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The unique, yet simple _____ has made Kafka an easy to use component which integrate well with existing enterprise architectures.",
+        "options": [
+          "Architecture",
+          "Advantages",
+          "Here",
+          "Kafka architecture"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are some of the advantages of Kafka",
+        "options": [
+          "Architecture",
+          "Once Kafka cluster",
+          "Kafka architecture",
+          "Here"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Once Kafka cluster",
+          "Here",
+          "Advantages",
+          "Architecture"
+        ],
+        "pairsRight": [
+          "Here are some of the advantages of Kafka",
+          "Kafka has aggregated several advantages of existing messaging systems into a one single solution through it's unique design.",
+          "Once Kafka cluster is set up, external applications and systems can interact with the cluster through 4 standard APIs.",
+          "The unique, yet simple architecture has made Kafka an easy to use component which integrate well with existing enterprise architectures."
+        ]
+      },
+      "answerKey": [
+        2,
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Once Kafka cluster?",
+        "options": [
+          "Kafka architecture is a simple yet powerful architecture which blends well within most of the existing architectures.",
+          "The unique, yet simple architecture has made Kafka an easy to use component which integrate well with existing enterprise architectures.",
+          "Kafka has aggregated several advantages of existing messaging systems into a one single solution through it's unique design.",
+          "Once Kafka cluster is set up, external applications and systems can interact with the cluster through 4 standard APIs."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Advantages?",
+        "options": [
+          "Once Kafka cluster is set up, external applications and systems can interact with the cluster through 4 standard APIs.",
+          "Kafka has aggregated several advantages of existing messaging systems into a one single solution through it's unique design.",
+          "The unique, yet simple architecture has made Kafka an easy to use component which integrate well with existing enterprise architectures.",
+          "Here are some of the advantages of Kafka"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Architecture?",
+        "options": [
+          "Once Kafka cluster is set up, external applications and systems can interact with the cluster through 4 standard APIs.",
+          "The unique, yet simple architecture has made Kafka an easy to use component which integrate well with existing enterprise architectures.",
+          "Kafka architecture is a simple yet powerful architecture which blends well within most of the existing architectures.",
+          "Here are some of the advantages of Kafka"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Kafka has aggregated several advantages of existing messaging systems into a one single solution through it's unique design."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Here are some of the advantages of Kafka"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-event-driven-architecture-kafka-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Advantages are some of the advantages of Kafka"
+      },
+      "answerKey": false
+    }
+  ]
+}

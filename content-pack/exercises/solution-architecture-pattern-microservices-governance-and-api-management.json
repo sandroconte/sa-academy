@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-microservices-governance-and-api-management",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is somewhat detailed and if we summarized that, microservices architecture is a “software development practice where teams develop, deploy and manage services independently which are self-contained and serve a specific business purpose”.",
+        "options": [
+          "Some examples",
+          "The above definition",
+          "Figure",
+          "One of the key capabilities of the governance platform"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that every microservice should be exposed via an API management platform.",
+        "options": [
+          "Figure",
+          "The other arguable fact about microservices development",
+          "Introduction",
+          "The idea of governance in the context of microservices"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the management of lifecycle states.",
+        "options": [
+          "One example",
+          "That",
+          "This",
+          "People"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is often called as “service discovery” where the runtime discover the actual URL of the service by calling the governance platform.",
+        "options": [
+          "One of the common misconceptions in the world of technology",
+          "This functionality",
+          "This",
+          "When the services"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "One of the key aspects of any governance process",
+          "Source",
+          "Figure",
+          "One of the key aspects of the governance"
+        ],
+        "pairsRight": [
+          "One of the key aspects of the governance is the security of assets (services) that are maintained by the platform.",
+          "Source: https://medium.com/ibm-garage/microservices-technical-governance-f5aed10189d1",
+          "One of the key aspects of any governance process is the management of users and their permissions.",
+          "Figure: IT governance in a nutshell"
+        ]
+      },
+      "answerKey": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The above definition?",
+        "options": [
+          "While there is no precise definition of this architectural style, there are certain common characteristics around organization around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data” source: https://martinfowler.com/articles/microservices.html",
+          "That functionality is provided by the governance platform as we discussed earlier in this writing.",
+          "Even in a situation like that where all the microservices are exposed via an API platform, those platforms are not capable of handling the governance aspect of the microservices development (except the API proxy part).",
+          "The above definition is somewhat detailed and if we summarized that, microservices architecture is a “software development practice where teams develop, deploy and manage services independently which are self-contained and serve a specific business purpose”."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The other arguable fact about microservices development?",
+        "options": [
+          "The other arguable fact about microservices development is that every microservice should be exposed via an API management platform.",
+          "The first lifecycle is a generic lifecycle to initiate an idea and prove that as a valuable and doable idea.",
+          "Another aspect of the runtime governance is the ability to send real time notifications (emails) to the respective parties when there are changes happening on services.",
+          "What you see in the above figure at the top half is a production environment that has various types of microservices deployed with multiple replicas."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is One example?",
+        "options": [
+          "What you see in the above figure at the top half is a production environment that has various types of microservices deployed with multiple replicas.",
+          "Even in a situation like that where all the microservices are exposed via an API platform, those platforms are not capable of handling the governance aspect of the microservices development (except the API proxy part).",
+          "This is where the organizational structures, teams and individuals are identified and assigned with specific functions as part of the service delivery.",
+          "One example is the management of lifecycle states."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "What you see in the above figure at the top half is a production environment that has various types of microservices deployed with multiple replicas."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is where the organizational structures, teams and individuals are identified and assigned with specific functions as part of the service delivery."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-governance-and-api-management-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "References is the use of a REST API exposed by the governance platform to change the state of the lifecycle of a microservice during a CICD pipeline execution."
+      },
+      "answerKey": false
+    }
+  ]
+}

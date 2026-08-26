@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-pattern-api-manager-3rd-party-km-integration",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "WSO2 API Manager comes with a componentized _____ where each component can be deployed separately if required.",
+        "options": [
+          "Note",
+          "If the requirement",
+          "Architecture",
+          "Figure 2"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: WSO2 API Manager 3rd party key manager integration",
+        "options": [
+          "There",
+          "Figure 1",
+          "Architecture",
+          "But this"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Sequence diagram view of component interaction",
+        "options": [
+          "Figure 2",
+          "Reference implementation",
+          "If you",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "You can find a _____ of a custom key manager with SurfOauth as an external IdP in the below medium post.",
+        "options": [
+          "If you",
+          "Architecture",
+          "Reference implementation",
+          "Note"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "But this",
+          "Reference implementation",
+          "There",
+          "Figure 2"
+        ],
+        "pairsRight": [
+          "Figure 2: Sequence diagram view of component interaction",
+          "But this is optional and based on the grant type and the backend implementation, you can decide on whether to share the user store or not.",
+          "You can find a reference implementation of a custom key manager with SurfOauth as an external IdP in the below medium post.",
+          "There are 4 main components of API Manager is depicted here along with the users of those profiles."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Architecture?",
+        "options": [
+          "If you are building the sample code, make sure you use the below repository.",
+          "WSO2 API Manager comes with a componentized architecture where each component can be deployed separately if required.",
+          "But this is optional and based on the grant type and the backend implementation, you can decide on whether to share the user store or not.",
+          "You can find a reference implementation of a custom key manager with SurfOauth as an external IdP in the below medium post."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 1?",
+        "options": [
+          "There are 4 main components of API Manager is depicted here along with the users of those profiles.",
+          "If you are building the sample code, make sure you use the below repository.",
+          "If the requirement is just to share the same user base with the API platform, going with an approach like identity federation is recommended over implementing a 3rd party key manager.",
+          "Figure 1: WSO2 API Manager 3rd party key manager integration"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure 2?",
+        "options": [
+          "There are 4 main components of API Manager is depicted here along with the users of those profiles.",
+          "But this is optional and based on the grant type and the backend implementation, you can decide on whether to share the user store or not.",
+          "If the requirement is just to share the same user base with the API platform, going with an approach like identity federation is recommended over implementing a 3rd party key manager.",
+          "Figure 2: Sequence diagram view of component interaction"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Once the application is registered, the user needs to subscribe to APIs using this application. This subscription information will be stored in the API management database which is shared between store, publisher and key manager components. Once subscribed, users can generate access tokens using a supported grant type. At this point, the client will call the /token endpoint of the key manager which will eventually route this request to the external IdP using the custom implementation. This external IdP will generate the access token and store them at IdP side.",
+          "API gateway will call the introspection endpoint (/tokeninfo) of the key manager to validate the token and the subscription details. Custom implementation will call the introspection endpoint of the external IdP for token validation and get the status of the token with any additional details like scope, userId, clientId, and validity.",
+          "API developers will log into the API publisher and create APIs. This process will invoke the key manager component and register the resources at the resource server (key manager) side. Custom implementation will route this request to the external IdP and register the resources at the IdP side.",
+          "The client application will use this token to consume the resources by calling the resource server which is the gateway component in this case.",
+          "Once the API is published to the store, API consumers (application developers) log into the API store and create applications to subscribe to these APIs. This application creation will trigger the dynamic client registration endpoint of the key manager component and it will delegate the functionality to the external IdP through the custom extension. The application IDs and secrets are stored at the external IdP side. In addition to that, functionalities like the update, delete applications are also supported by this implementation."
+        ]
+      },
+      "answerKey": [
+        2,
+        4,
+        0,
+        3,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Note: In the above figure, it has connected the same user store (LDAP/AD/JDBC) to both WSO2 API Manager and the IdP."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "WSO2 API Manager comes with a componentized architecture where each component can be deployed separately if required."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-api-manager-3rd-party-km-integration-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "You can find a But this of a custom key manager with SurfOauth as an external IdP in the below medium post."
+      },
+      "answerKey": false
+    }
+  ]
+}

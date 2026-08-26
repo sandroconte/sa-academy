@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-microservices-without-service-mesh-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Service Mesh Architecture",
+        "options": [
+          "Figure",
+          "The practical meaning of this idea",
+          "Error handling",
+          "NATS server"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is making a lot of changes to its architecture and rethinking the ways to improve the service mesh technology.",
+        "options": [
+          "The practical meaning of this idea",
+          "There",
+          "Even Istio",
+          "Figure"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is a point that most teams who adopt microservices find it challenging to deal with.",
+        "options": [
+          "But there",
+          "Even Istio",
+          "The popular solution to deal with these challenges",
+          "There"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are becoming a commodity in the enterprise world.",
+        "options": [
+          "Error handling",
+          "Microservices",
+          "Figure",
+          "NATS server"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "A service mesh",
+          "But there",
+          "The popular solution to deal with these challenges",
+          "NATS server"
+        ],
+        "pairsRight": [
+          "A service mesh is a technology that is used to help microservices communicate with each other in a centrally manageable manner without adding complexity to the microservices logic.",
+          "But there is a point that most teams who adopt microservices find it challenging to deal with.",
+          "The NATS server is capable of providing the capabilities such as",
+          "The popular solution to deal with these challenges is the Service Mesh."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Figure?",
+        "options": [
+          "Microservices are becoming a commodity in the enterprise world.",
+          "Figure: Service Mesh Architecture",
+          "The practical meaning of this idea is that microservices can use an entity such as a message broker (dumb pipe) when communicating with each other (inter-service communication).",
+          "That is when the number of microservices goes beyond a certain limit (let’s say 25 in some cases), people start realizing the real challenges that microservices architecture brings to the table."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Even Istio?",
+        "options": [
+          "The popular solution to deal with these challenges is the Service Mesh.",
+          "Even Istio is making a lot of changes to its architecture and rethinking the ways to improve the service mesh technology.",
+          "The NATS server is capable of providing the capabilities such as",
+          "That is when the number of microservices goes beyond a certain limit (let’s say 25 in some cases), people start realizing the real challenges that microservices architecture brings to the table."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is But there?",
+        "options": [
+          "But there is a point that most teams who adopt microservices find it challenging to deal with.",
+          "The practical meaning of this idea is that microservices can use an entity such as a message broker (dumb pipe) when communicating with each other (inter-service communication).",
+          "Error handling is much easier since communication happens between the microservice and the message broker.",
+          "Even Istio is making a lot of changes to its architecture and rethinking the ways to improve the service mesh technology."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The popular solution to deal with these challenges is the Service Mesh."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Even Istio is making a lot of changes to its architecture and rethinking the ways to improve the service mesh technology."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microservices-without-service-mesh-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The practical meaning of this idea: Service Mesh Architecture"
+      },
+      "answerKey": false
+    }
+  ]
+}

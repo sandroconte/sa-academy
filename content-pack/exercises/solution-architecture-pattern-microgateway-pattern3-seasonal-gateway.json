@@ -1,0 +1,29 @@
+{
+  "docId": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Figure 1: Seasonal API Gateway pattern"
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But the drawback of that approach is that, if your traffic fluctuates based on the seasons, scaling all the components would add additional complexity and will take more time than expected."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-microgateway-pattern3-seasonal-gateway-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "But the drawback of that approach: Seasonal API Gateway pattern"
+      },
+      "answerKey": false
+    }
+  ]
+}

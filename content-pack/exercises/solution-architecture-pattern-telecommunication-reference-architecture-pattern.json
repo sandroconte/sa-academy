@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-pattern-telecommunication-reference-architecture-pattern",
+  "items": [
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "This is one of the major reasons for the _____ of GSMA OneAPI.",
+        "options": [
+          "Figure 4",
+          "Introduction",
+          "Figure 6",
+          "Following diagram"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are well suited for this architecture.",
+        "options": [
+          "The below figure showcases the products which",
+          "Figure 2",
+          "That",
+          "WSO2 offers products which"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is depicted in the below figure.",
+        "options": [
+          "Introduction",
+          "This",
+          "The idea of the information technology architecture",
+          "Typical information technology architecure within a MNO"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "In _____, the technology which used to connect people needs to be connected in a more meaningful manner.",
+        "options": [
+          "Summary",
+          "The main focus of this whitepaper",
+          "Figure 3",
+          "The idea of the information technology architecture"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Figure 1",
+          "Figure 5",
+          "Figure 3",
+          "Typical information technology architecure within a MNO"
+        ],
+        "pairsRight": [
+          "Figure 1: Telecommunication industry stake holders",
+          "Figure 5: Telecommunications Information Technology reference architecture (WSO2 mapped)",
+          "Typical information technology architecure within a MNO is depicted in the below figure.",
+          "Figure 3: Telecommunications Information technology architecture (basic)"
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Introduction?",
+        "options": [
+          "This is the core of any telecommunication system which provides the connectivity of subscribers.",
+          "The only requirement is to implement the set of APIs defined by OneAPI specification using the API management layer and relevant system integrations through integration layer.",
+          "This is one of the major reasons for the introduction of GSMA OneAPI.",
+          "The idea of the information technology architecture is to define the systems and their interactions where subsciber related information resides."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The below figure showcases the products which?",
+        "options": [
+          "The below figure showcases the products which are well suited for this architecture.",
+          "Figure 3: Telecommunications Information technology architecture (basic)",
+          "This is one of the major reasons for the introduction of GSMA OneAPI.",
+          "In summary, the technology which used to connect people needs to be connected in a more meaningful manner."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Typical information technology architecure within a MNO?",
+        "options": [
+          "Typical information technology architecure within a MNO is depicted in the below figure.",
+          "The interaction of these systems and how they are presented to the subscribers makes the differentiation across multiple MNOs operating in the same region since most of these MNOs owned the same type of network and technological capabilities.",
+          "Figure 2: Telecommunication network architecture",
+          "Figure 3: Telecommunications Information technology architecture (basic)"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The interaction of these systems and how they are presented to the subscribers makes the differentiation across multiple MNOs operating in the same region since most of these MNOs owned the same type of network and technological capabilities."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The idea of the information technology architecture is to define the systems and their interactions where subsciber related information resides."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-pattern-telecommunication-reference-architecture-pattern-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The main focus of this whitepaper: Telecommunication industry stake holders"
+      },
+      "answerKey": false
+    }
+  ]
+}
