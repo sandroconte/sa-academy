@@ -1,0 +1,598 @@
+{
+  "id": "solution-architecture-lecture-7-4-security-mock",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "7-4-security-mock",
+  "title": "Security Architecture — Interview Prep Handout",
+  "readingMin": 9,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "Security Architecture — Interview Prep Handout"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "For a Software/Solution Architect case-study interview with a VP (cybersecurity product company)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Written in English on purpose — same language as your interview, so you build vocabulary and reasoning patterns together."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "1. How to use this handout"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is not a definitions dictionary — it's built around how to reason out loud in a case-study discussion. For every topic you'll find:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "The core concept (short, no fluff)",
+        "The trade-offs a VP-level interviewer actually cares about",
+        "2–3 \"thinking out loud\" phrases you can reuse",
+        "A follow-up question they might throw at you"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Read once, then talk through each section out loud in English, as if answering. That's where the real prep happens."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "2. Threat Modeling & STRIDE"
+    },
+    {
+      "type": "paragraph",
+      "text": "Core idea: before designing anything, identify what could go wrong. STRIDE is a classification of threat types:"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Letter",
+          "Threat",
+          "Typical mitigation"
+        ],
+        [
+          "S",
+          "Spoofing (identity)",
+          "Strong auth, mTLS, signed tokens"
+        ],
+        [
+          "T",
+          "Tampering (data/integrity)",
+          "Checksums, signatures, immutable logs"
+        ],
+        [
+          "R",
+          "Repudiation (denying an action)",
+          "Audit logs, non-repudiation (signed actions)"
+        ],
+        [
+          "I",
+          "Information Disclosure",
+          "Encryption at rest/in transit, least privilege"
+        ],
+        [
+          "D",
+          "Denial of Service",
+          "Rate limiting, autoscaling, WAF"
+        ],
+        [
+          "E",
+          "Elevation of Privilege",
+          "RBAC/ABAC, least privilege, input validation"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: threat modeling has a cost in delivery speed — the skill is doing it proportionally (a lightweight STRIDE pass on a new service vs. a full formal review for a component handling PII/payment data)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Before jumping into the design, I'd want to threat-model the data flow — who are the actors, what data crosses trust boundaries.\"",
+        "\"The main attack surface here is X, so I'd prioritize mitigating spoofing and information disclosure first.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"How would you prioritize which threats to address first with limited engineering time?\" → Answer using impact × likelihood, not \"fix everything.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "3. Zero Trust Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Core idea: never trust based on network location; verify every request explicitly, every time — \"never trust, always verify.\""
+    },
+    {
+      "type": "paragraph",
+      "text": "Key pillars:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Identity-centric: every user/service has a verifiable identity (not just \"inside the VPN = trusted\").",
+        "Least privilege access, granted per-request/per-session, not standing broad access.",
+        "Micro-segmentation: network split into small zones so lateral movement is limited after a breach.",
+        "Continuous verification: re-check posture/context (device health, location, behavior) not just at login.",
+        "Assume breach: design as if an attacker is already inside."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: Zero Trust adds latency and operational complexity (more auth checks, more policy management) — worth it for high-value systems, potentially overkill for low-risk internal tools."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"I'd design this assuming the network perimeter is already compromised, so authorization has to happen at every hop, not just at the edge.\"",
+        "\"Rather than a flat VPC, I'd segment by trust zone so a compromised service can't reach everything.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"How does Zero Trust change how services talk to each other internally?\" → mTLS between services, short-lived credentials, service identity (e.g., SPIFFE/SPIRE, IAM roles), no implicit trust from \"same VPC.\""
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "4. Identity & Access — OAuth2 / OIDC / IAM"
+    },
+    {
+      "type": "paragraph",
+      "text": "(Your strongest natural ground — you already work with AWS Cognito. Use real examples from Compass/Area Riservata here.)"
+    },
+    {
+      "type": "paragraph",
+      "text": "OAuth2 = authorization framework (delegated access — \"can this app act on my behalf\"). OIDC = identity layer on top of OAuth2 (adds the ID Token — \"who is this user\")."
+    },
+    {
+      "type": "paragraph",
+      "text": "Key flows to be fluent on:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Authorization Code + PKCE — the standard for web/mobile apps today (no implicit flow anymore — deprecated for security reasons: token leakage via browser history/redirects).",
+        "Client Credentials — service-to-service, no user involved.",
+        "Refresh tokens — short-lived access tokens + longer-lived refresh tokens, rotated on use to detect theft (refresh token rotation)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Access control models:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "RBAC (role-based) — simple, coarse-grained, scales poorly with complex permission matrices.",
+        "ABAC (attribute-based) — policy evaluated on attributes (user, resource, context) — more flexible, more complex to reason about and audit."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: RBAC is easier to audit and explain to compliance; ABAC is more flexible for complex multi-tenant permission logic but harder to reason about at scale — many real systems use a hybrid."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"In my experience with Cognito-based auth, the key decision was whether to keep authorization logic centralized in the identity layer or push it down into each service — we chose...\"",
+        "\"I'd avoid rolling custom token validation logic and rely on a well-audited library/standard instead.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"How would you design authorization for a multi-tenant B2B product where each customer has different permission structures?\" → this is a strong ABAC/hybrid discussion, and a great place to bring in real experience."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "5. Secrets Management & Rotation"
+    },
+    {
+      "type": "paragraph",
+      "text": "Core idea: secrets (API keys, DB credentials, certificates) must never live in code, config files, or environment variables checked into version control."
+    },
+    {
+      "type": "paragraph",
+      "text": "Key practices:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Centralized secrets store (AWS Secrets Manager, HashiCorp Vault, Parameter Store).",
+        "Automatic rotation — especially for DB credentials and service-to-service tokens.",
+        "Least-privilege access to secrets themselves — not every service needs every secret.",
+        "Short-lived credentials over long-lived static ones where possible (e.g., IAM roles with temporary STS tokens instead of hardcoded AWS keys)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: rotation adds operational risk (a bad rotation can cause an outage) — needs to be automated and tested, not manual."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"I'd treat secrets rotation as a first-class operational concern, not an afterthought — tested in staging before it ever runs in prod.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"What happens to active sessions/connections when you rotate a credential?\" → graceful rotation (both old and new valid during an overlap window) vs. hard cutover."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "6. Application Security Testing — SAST / DAST / SCA"
+    },
+    {
+      "type": "paragraph",
+      "text": "(You have real Veracode experience — lead with it.)"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Type",
+          "What it checks",
+          "When it runs"
+        ],
+        [
+          "SAST (Static)",
+          "Source code for known vulnerable patterns",
+          "At build/PR time, before deploy"
+        ],
+        [
+          "DAST (Dynamic)",
+          "Running application, simulating attacks",
+          "Post-deploy, in staging"
+        ],
+        [
+          "SCA (Software Composition Analysis)",
+          "Third-party/open-source dependencies for known CVEs",
+          "At build time, continuously"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: SAST catches issues early (cheaper to fix) but has false positives and can't catch runtime/config issues; DAST is more realistic but later in the cycle and slower. Mature pipelines use both, gated at different stages."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"In my current pipeline, we gate merges on SAST results through Veracode, and treat critical findings as blocking rather than advisory.\"",
+        "\"The real challenge isn't running the scanner — it's triaging findings so real vulnerabilities aren't drowned out by noise.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"How do you handle a critical vulnerability found in a widely-used dependency across many services?\" → SCA + centralized dependency management + a fast patch/rollout process, not manual per-repo fixes."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "7. Secure Multi-Tenant Architecture"
+    },
+    {
+      "type": "paragraph",
+      "text": "Highly likely topic for a cybersecurity product company (their whole business is protecting customer environments)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Key decisions to be ready to discuss:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Isolation model: shared database with tenant_id column vs. schema-per-tenant vs. database-per-tenant vs. full infrastructure isolation. Trade-off = cost/operational complexity vs. blast radius if something goes wrong.",
+        "Data residency — some enterprise/government customers require data to stay in specific regions (relevant for an \"international\" product company).",
+        "Noisy neighbor problem — one tenant's load shouldn't degrade another's — rate limiting, resource quotas per tenant.",
+        "Cross-tenant data leakage as the single worst failure mode — how do you prevent a query bug from ever returning another tenant's data (defense in depth: app-layer checks + DB-layer row security + tests specifically for this)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"For a security product specifically, cross-tenant isolation isn't just a bug risk — it's the core trust promise of the product, so I'd treat it as a first-class design constraint, not an implementation detail.\""
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Likely follow-up: \"Would you recommend shared or isolated infrastructure for a new enterprise customer with strict compliance requirements?\" → depends on contract/compliance tier — good answer shows you'd tier isolation by customer segment, not use one model for everyone."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "8. Compliance Frameworks — SOC 2 / ISO 27001 / GDPR"
+    },
+    {
+      "type": "paragraph",
+      "text": "You don't need to be a compliance expert — you need to show you understand how architecture decisions map to compliance requirements."
+    },
+    {
+      "type": "list",
+      "items": [
+        "SOC 2 — US-centric, trust service criteria (security, availability, confidentiality, processing integrity, privacy). Common in B2B SaaS sold to enterprise US customers. Architecturally: access logging, encryption, change management, incident response process.",
+        "ISO 27001 — international standard, broader ISMS (information security management system) — process-heavy, not just technical controls.",
+        "GDPR — EU data protection law. Architecturally relevant: data minimization, right to erasure (can you actually delete a user's data across all systems?), data residency, breach notification within 72 hours."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Trade-off to mention: compliance requirements sometimes conflict with product speed (e.g., \"right to erasure\" is hard in event-sourced/append-only systems) — good architects design for this from day one rather than retrofitting."
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Compliance isn't a checkbox at the end — decisions like data retention and deletion need to be designed into the data model up front.\""
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "9. Cloud Security Architecture (AWS-oriented — your home turf)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Be ready to reason about, using your own stack (Cognito, Lambda, ElastiCache/Redis, OpenShift):"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Network segmentation: VPCs, private subnets for data stores, security groups as micro-firewalls.",
+        "IAM least privilege: role-per-service, no shared broad IAM users; use of instance/task roles over static credentials.",
+        "Encryption: at rest (KMS-managed keys) and in transit (TLS everywhere, including internal service-to-service).",
+        "Logging & observability for security: CloudTrail for API-level audit, centralized log aggregation, alerting on anomalous access patterns.",
+        "Container/platform security (OpenShift/ArgoCD relevant): image scanning before deploy (ties back to SCA), signed images, least-privilege pod security policies, GitOps as an audit trail (every change is a reviewed, versioned commit)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Phrases to use:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Because we deploy through ArgoCD, every production change is traceable to a Git commit — that GitOps trail is itself a security control, not just a delivery convenience.\""
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "10. General Case-Study Reasoning Framework"
+    },
+    {
+      "type": "paragraph",
+      "text": "When they hand you an open case (\"design a system that handles X\"), structure your thinking out loud like this:"
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Clarify — ask 2–3 sharp questions before designing anything (scale, compliance constraints, existing systems, what \"secure\" specifically means for this case).",
+        "State assumptions explicitly — \"I'll assume X; let me know if that's wrong.\"",
+        "Identify trust boundaries and data sensitivity — what's the crown-jewel data here?",
+        "Propose a design at a high level first, then drill into the parts they push on.",
+        "Name trade-offs out loud, don't just pick one option silently — this is what a VP is actually evaluating.",
+        "Mention how you'd validate it — testing, monitoring, what would tell you it's working (or failing) in production."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Key English phrases for this framework:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Before I design anything, I'd like to clarify a couple of assumptions.\"",
+        "\"Let's say we assume X — I'll flag if that changes my answer.\"",
+        "\"There's a trade-off here between Y and Z; given what you've described, I'd lean toward Y because...\"",
+        "\"One thing I'd want to validate post-launch is...\"",
+        "\"I don't have enough information to be certain — my best guess, with the caveat that I'd confirm with the security team, is...\""
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "11. Quick self-check before the interview"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Can I explain STRIDE and Zero Trust in under 60 seconds each, in English, without notes?",
+        "Do I have 1 real story (Compass/Area Riservata or elsewhere) mapped to: IAM design, a security trade-off, and a compliance-driven decision?",
+        "Can I say the 5 \"thinking out loud\" phrases above without hesitating?",
+        "Do I have 2 smart questions ready for the VP about the product/security posture?"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Good luck — this handout is meant to be talked through out loud, not just read."
+    }
+  ],
+  "sections": [
+    {
+      "title": "1. How to use this handout"
+    },
+    {
+      "title": "2. Threat Modeling & STRIDE"
+    },
+    {
+      "title": "3. Zero Trust Architecture"
+    },
+    {
+      "title": "4. Identity & Access — OAuth2 / OIDC / IAM"
+    },
+    {
+      "title": "5. Secrets Management & Rotation"
+    },
+    {
+      "title": "6. Application Security Testing — SAST / DAST / SCA"
+    },
+    {
+      "title": "7. Secure Multi-Tenant Architecture"
+    },
+    {
+      "title": "8. Compliance Frameworks — SOC 2 / ISO 27001 / GDPR"
+    },
+    {
+      "title": "9. Cloud Security Architecture (AWS-oriented — your home turf)"
+    },
+    {
+      "title": "10. General Case-Study Reasoning Framework"
+    },
+    {
+      "title": "11. Quick self-check before the interview"
+    }
+  ],
+  "terms": [
+    {
+      "term": "1. How to use this handout",
+      "definition": null
+    },
+    {
+      "term": "2. Threat Modeling & STRIDE",
+      "definition": null
+    },
+    {
+      "term": "3. Zero Trust Architecture",
+      "definition": null
+    },
+    {
+      "term": "4. Identity & Access — OAuth2 / OIDC / IAM",
+      "definition": null
+    },
+    {
+      "term": "5. Secrets Management & Rotation",
+      "definition": null
+    },
+    {
+      "term": "6. Application Security Testing — SAST / DAST / SCA",
+      "definition": null
+    },
+    {
+      "term": "7. Secure Multi-Tenant Architecture",
+      "definition": null
+    },
+    {
+      "term": "8. Compliance Frameworks — SOC 2 / ISO 27001 / GDPR",
+      "definition": null
+    },
+    {
+      "term": "10. General Case-Study Reasoning Framework",
+      "definition": null
+    },
+    {
+      "term": "11. Quick self-check before the interview",
+      "definition": null
+    },
+    {
+      "term": "how to reason out loud",
+      "definition": "This is not a definitions dictionary — it's built around how to reason out loud in a case-study discussion."
+    },
+    {
+      "term": "talk through each section out loud in English",
+      "definition": "Read once, then talk through each section out loud in English, as if answering."
+    },
+    {
+      "term": "Core idea:",
+      "definition": null
+    },
+    {
+      "term": "Trade-off to mention:",
+      "definition": null
+    },
+    {
+      "term": "Phrases to use:",
+      "definition": null
+    },
+    {
+      "term": "Likely follow-up:",
+      "definition": null
+    },
+    {
+      "term": "impact × likelihood",
+      "definition": "\" → Answer using impact × likelihood, not \"fix everything."
+    },
+    {
+      "term": "OAuth2",
+      "definition": "OAuth2 = authorization framework (delegated access — \"can this app act on my behalf\")."
+    },
+    {
+      "term": "OIDC",
+      "definition": "OIDC = identity layer on top of OAuth2 (adds the ID Token — \"who is this user\")."
+    },
+    {
+      "term": "product",
+      "definition": "Likely follow-up: \"How would you design authorization for a multi-tenant B2B product where each customer has different permission structures?"
+    },
+    {
+      "term": "how architecture decisions map to compliance requirements.",
+      "definition": null
+    },
+    {
+      "term": "Key English phrases for this framework:",
+      "definition": null
+    },
+    {
+      "term": "This",
+      "definition": "This is not a definitions dictionary — it's built around how to reason out loud in a case-study discussion."
+    },
+    {
+      "term": "Core idea",
+      "definition": "Core idea: before designing anything, identify what could go wrong."
+    },
+    {
+      "term": "STRIDE",
+      "definition": "STRIDE is a classification of threat types:"
+    },
+    {
+      "term": "Trade-off to mention",
+      "definition": "Trade-off to mention: threat modeling has a cost in delivery speed — the skill is doing it proportionally (a lightweight STRIDE pass on a new service vs. a full formal review for a component handling PII/payment data)."
+    },
+    {
+      "term": "Likely follow-up",
+      "definition": "Likely follow-up: \"How would you prioritize which threats to address first with limited engineering time?\" → Answer using impact × likelihood, not \"fix everything.\""
+    }
+  ]
+}

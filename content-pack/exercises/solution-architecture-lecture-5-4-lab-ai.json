@@ -1,0 +1,13 @@
+{
+  "docId": "solution-architecture-lecture-5-4-lab-ai",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-5-4-lab-ai-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "At runtime: query → embedding → similarity search → top-k chunks → prompt template → LLM → answer with citations."
+      },
+      "answerKey": true
+    }
+  ]
+}

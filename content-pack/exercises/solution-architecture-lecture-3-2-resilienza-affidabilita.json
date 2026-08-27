@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-3-2-resilienza-affidabilita",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order.",
+        "options": [
+          "This",
+          "Example",
+          "Saga",
+          "The goal"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ has services react to each other's events with no coordinator; it is more decoupled and resilient to central failure, but harder to trace and easy to tangle.",
+        "options": [
+          "Fallback",
+          "Saga",
+          "Choreography",
+          "Rate limiting"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: return a cached catalog when the recommendation service is down, or a default shipping estimate.",
+        "options": [
+          "Fallback provides a safe degraded path",
+          "Orchestration",
+          "This",
+          "Fallback"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the job of resilience patterns.",
+        "options": [
+          "This",
+          "Fallback provides a safe degraded path",
+          "Fallback",
+          "Saga"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Orchestration",
+          "Rate limiting",
+          "This",
+          "Saga"
+        ],
+        "pairsRight": [
+          "A Saga replaces the distributed transaction with a sequence of local transactions; each step has a compensating action to undo it if a later step fails.",
+          "This is the job of resilience patterns.",
+          "Rate limiting (token bucket, leaky bucket) protects a service from spikes and abusive clients, often at the gateway.",
+          "Orchestration uses a central coordinator (e."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Example?",
+        "options": [
+          "Example: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order.",
+          "A Saga replaces the distributed transaction with a sequence of local transactions; each step has a compensating action to undo it if a later step fails.",
+          "Orchestration uses a central coordinator (e.",
+          "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Choreography?",
+        "options": [
+          "This is the job of resilience patterns.",
+          "Example: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order.",
+          "The goal is to contain failure so one broken component degrades gracefully instead of cascading into a full outage.",
+          "Choreography has services react to each other's events with no coordinator; it is more decoupled and resilient to central failure, but harder to trace and easy to tangle."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Fallback provides a safe degraded path?",
+        "options": [
+          "Rate limiting (token bucket, leaky bucket) protects a service from spikes and abusive clients, often at the gateway.",
+          "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate.",
+          "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate.",
+          "Example: Create Order → Reserve Inventory → Charge Card; if charging fails, compensate by releasing inventory and cancelling the order."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "The Bulkhead pattern protects availability by:",
+          "A Circuit Breaker in the \"open\" state:",
+          "In a Saga, a compensating transaction:",
+          "Retries should generally:",
+          "A key advantage of Saga orchestration over choreography is:"
+        ]
+      },
+      "answerKey": [
+        1,
+        0,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Rate limiting (token bucket, leaky bucket) protects a service from spikes and abusive clients, often at the gateway."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Fallback provides a safe degraded path: return a cached catalog when the recommendation service is down, or a default shipping estimate."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Saga is to contain failure so one broken component degrades gracefully instead of cascading into a full outage."
+      },
+      "answerKey": false
+    }
+  ]
+}

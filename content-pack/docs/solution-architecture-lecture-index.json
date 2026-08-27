@@ -1,0 +1,180 @@
+{
+  "id": "solution-architecture-lecture-index",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "index",
+  "title": "📑 Indice Generale delle Lezioni",
+  "readingMin": 1,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "📑 Indice Generale delle Lezioni"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 0: Onboarding & Il Ruolo dell'Architect"
+    },
+    {
+      "type": "list",
+      "items": [
+        "0.1 - Definizione del Ruolo e Mindset",
+        "0.2 - I Pillar del Well-Architected Framework",
+        "0.3 - Il Processo di Progettazione"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 1: I Fondamenti del Cloud e dell'Infrastruttura"
+    },
+    {
+      "type": "list",
+      "items": [
+        "1.1 - Networking e Sicurezza (VPC, IAM, Zero Trust)",
+        "1.2 - Calcolo, Storage e Database (CAP Theorem)",
+        "1.3 - Strategie di Migrazione al Cloud (7R, Strangler)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 2: Architetture Software: Stili e Pattern"
+    },
+    {
+      "type": "list",
+      "items": [
+        "2.1 - Monoliti e Architetture Modulari",
+        "2.2 - SOA e Microservizi (DDD, Bounded Context)",
+        "2.3 - EDA, CQRS, Event Sourcing e Hexagonal"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 3: Pattern di Design per Soluzioni Cloud-Native"
+    },
+    {
+      "type": "list",
+      "items": [
+        "3.1 - Pattern di Comunicazione (Gateway, BFF, Sidecar)",
+        "3.2 - Pattern di Resilienza (Circuit Breaker, Saga, Bulkhead)",
+        "3.3 - Pattern di Data Management (DB per Servizio, CDC)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 4: Governance, Decisioni e Qualità"
+    },
+    {
+      "type": "list",
+      "items": [
+        "4.1 - Architecture Decision Records (ADR)",
+        "4.2 - Metriche Architetturali (Coupling, DORA)",
+        "4.3 - Infrastructure as Code e GitOps"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 5: Casi d'Uso e Laboratori"
+    },
+    {
+      "type": "list",
+      "items": [
+        "5.1 - Lab: Strangler Fig per Modernizzazione",
+        "5.2 - Lab: Architettura Event-Driven con Kafka",
+        "5.3 - Lab: Soluzione Multi-Cloud con Terraform",
+        "5.4 - Lab: AI-Enabled Architecture (RAG)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 6: Progetto Finale"
+    },
+    {
+      "type": "list",
+      "items": [
+        "6.1 - Progetto di Sintesi (RFP e SAD)"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Modulo 7: Preparazione al Colloquio & Mock Interview"
+    },
+    {
+      "type": "list",
+      "items": [
+        "7.1 - Technical Mock Interviews (Scenario-Based)",
+        "7.2 - Behavioral & Leadership Mock Interviews",
+        "7.3 - System Design Mock Interview",
+        "7.4 - Security Architecture Mock Interview"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Modulo 0: Onboarding & Il Ruolo dell'Architect"
+    },
+    {
+      "title": "Modulo 1: I Fondamenti del Cloud e dell'Infrastruttura"
+    },
+    {
+      "title": "Modulo 2: Architetture Software: Stili e Pattern"
+    },
+    {
+      "title": "Modulo 3: Pattern di Design per Soluzioni Cloud-Native"
+    },
+    {
+      "title": "Modulo 4: Governance, Decisioni e Qualità"
+    },
+    {
+      "title": "Modulo 5: Casi d'Uso e Laboratori"
+    },
+    {
+      "title": "Modulo 6: Progetto Finale"
+    },
+    {
+      "title": "Modulo 7: Preparazione al Colloquio & Mock Interview"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Modulo 0: Onboarding & Il Ruolo dell'Architect",
+      "definition": null
+    },
+    {
+      "term": "Modulo 1: I Fondamenti del Cloud e dell'Infrastruttura",
+      "definition": null
+    },
+    {
+      "term": "Modulo 2: Architetture Software: Stili e Pattern",
+      "definition": null
+    },
+    {
+      "term": "Modulo 3: Pattern di Design per Soluzioni Cloud-Native",
+      "definition": null
+    },
+    {
+      "term": "Modulo 4: Governance, Decisioni e Qualità",
+      "definition": null
+    },
+    {
+      "term": "Modulo 5: Casi d'Uso e Laboratori",
+      "definition": null
+    },
+    {
+      "term": "Modulo 6: Progetto Finale",
+      "definition": null
+    },
+    {
+      "term": "Modulo 7: Preparazione al Colloquio & Mock Interview",
+      "definition": null
+    }
+  ]
+}

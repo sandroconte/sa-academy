@@ -1,0 +1,389 @@
+{
+  "id": "solution-architecture-lecture-6-1-progetto-finale",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "6-1-progetto-finale",
+  "title": "6.1 — Final Synthesis Project (RFP & SAD)",
+  "readingMin": 5,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "6.1 — Final Synthesis Project (RFP & SAD)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 6 · Lesson 6.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Interpret a realistic Request for Proposal (RFP) and translate business goals into an architecture vision.",
+        "Produce Architecture Decision Records (ADRs) that justify trade-offs with evidence.",
+        "Design a logical and physical target architecture using cloud-native, event-driven, multi-region patterns.",
+        "Define a pragmatic migration strategy (7R / Strangler Fig) that de-risks legacy modernization.",
+        "Document a complete Software Architecture Document (SAD) and present it convincingly to stakeholders.",
+        "Self-assess against an evaluation rubric covering completeness, soundness, clarity, and communication."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "RFP (Request for Proposal) — a client document inviting vendors/architects to propose a solution to a stated business problem.",
+        "SAD (Software Architecture Document) — the formal deliverable describing the architecture, rationale, and constraints.",
+        "ADR (Architecture Decision Record) — a short, immutable record of an important architectural decision, its context, and consequences.",
+        "7R — the seven cloud migration strategies: Rehost, Replatform, Refactor, Repurchase, Retain, Retire, Relocate.",
+        "Strangler Fig Pattern — incrementally replacing legacy functionality with new services behind a façade until the old system is \"strangled.\"",
+        "NFR (Non-Functional Requirement) — quality attributes such as scalability, availability, security, and latency.",
+        "Event-Driven Architecture (EDA) — components communicate through events, enabling loose coupling and real-time reactions.",
+        "Multi-Region — running workloads across multiple geographic regions for resilience, latency, and compliance."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The Capstone at a Glance"
+    },
+    {
+      "type": "paragraph",
+      "text": "This is the capstone of the Solution Architect Academy. Working individually or in teams of 2–4, you step into the role of a Solution Architect responding to a client RFP. Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+    },
+    {
+      "type": "paragraph",
+      "text": "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt. You are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The RFP Brief (Sample Scenario)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Client: Northwind Retail Group (NRG) — a mid-size retailer (≈1,200 employees, €180M annual revenue) operating in the EU and UK."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Required Deliverables"
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Architecture Decision Records (ADRs) — at least 6 ADRs for pivotal choices (cloud provider, decomposition strategy, data stores, event backbone, AI approach, multi-region topology). Each ADR must state context, decision, alternatives considered, and consequences.",
+        "Logical & Physical Architecture — with diagrams. Logical: domains, bounded contexts, data flows. Physical: concrete services, clusters, regions, networks.",
+        "Migration Plan — map each legacy component to one of the 7R strategies; sequence using the Strangler Fig pattern; define cutover and rollback.",
+        "Resilience & Data Strategy — failure modes, circuit breakers, bulkheads, idempotency; data partitioning, replication, consistency, GDPR handling.",
+        "Cost & Risk Assessment — TCO model, savings thesis, top-10 risks with likelihood/impact/mitigation.",
+        "The SAD Document — the integrated deliverable (structure below) that ties 1–5 together."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "SAD Template (Structure to Follow)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Use the arc42-inspired structure below. Every section must be present, even if brief."
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Introduction & Goals — context, stakeholders, success metrics.",
+        "Constraints — technical, organizational, legal (GDPR/PCI), budget.",
+        "Context & Scope — system boundary, external actors, current vs. target.",
+        "Solution Strategy — the big architectural ideas and patterns.",
+        "Building Blocks (Logical) — bounded contexts, modules, interfaces.",
+        "Runtime/Physical View — deployment, regions, nodes, containers.",
+        "Data View — stores, flows, ownership, retention.",
+        "Cross-Cutting Concepts — security, logging, config, CI/CD.",
+        "Architecture Decisions (ADRs) — numbered records.",
+        "Migration & Roadmap — 7R mapping, Strangler phases, milestones.",
+        "Quality/Resilience & NFR Mapping — how each NFR is met.",
+        "Risks & Costs — risk register, TCO.",
+        "Glossary."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Evaluation Rubric"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Dimension",
+          "Weight",
+          "What \"excellent\" looks like"
+        ],
+        [
+          "Completeness",
+          "20%",
+          "All 13 SAD sections + 6 ADRs present and coherent."
+        ],
+        [
+          "Soundness of ADRs",
+          "20%",
+          "Decisions justified with alternatives, evidence, and honest consequences."
+        ],
+        [
+          "Diagram Clarity",
+          "15%",
+          "Mermaid/C4 diagrams are readable, correctly labeled, and consistent."
+        ],
+        [
+          "NFR Coverage",
+          "15%",
+          "Every stated NFR (avail, latency, security, DR) has a concrete mechanism."
+        ],
+        [
+          "Trade-off Analysis",
+          "15%",
+          "Conflicts (cost vs. resilience, speed vs. quality) are surfaced and resolved."
+        ],
+        [
+          "Communication",
+          "15%",
+          "SAD reads like a professional proposal; pitch is clear and persuasive."
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Suggested Timeline (9-Month Engagement)"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Weeks 1–2: RFP analysis, stakeholders, baseline ADR 000 (provider/strategy).",
+        "Weeks 3–5: Logical architecture, domain decomposition, ADRs 001–003.",
+        "Weeks 6–8: Physical architecture, data & resilience strategy, ADRs 004–006.",
+        "Weeks 9–12: Strangler migration plan, first legacy module cutover (read-only path).",
+        "Weeks 13–18: AI assistant spike, multi-region topology, DR drills.",
+        "Weeks 19–24: Cost/risk model, SAD integration, stakeholder review & pitch.",
+        "Weeks 25–36: Incremental delivery aligned to SAD; monthly demos."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Target Architecture Overview (Mermaid)"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TB\n    subgraph Edge[\"Edge / Global\"]\n        DNS[\"Route 53 / Global LB\"]\n        WAF[\"WAF + CDN\"]\n    end\n    subgraph EU[\"Region: EU-West (Primary)\"]\n        GW1[\"API Gateway\"]\n        SC1[\"Storefront Svc\"]\n        ORD1[\"Order Svc\"]\n        CRM1[\"CRM Svc\"]\n        BUS1[\"Event Bus: Kafka\"]\n        AI1[\"AI Assistant (RAG)\"]\n        DB1[(\"Postgres + Aurora Global\")]\n    end\n    subgraph UK[\"Region: UK-South (Active)\"]\n        GW2[\"API Gateway\"]\n        SC2[\"Storefront Svc\"]\n        ORD2[\"Order Svc\"]\n        BUS2[\"Event Bus: Kafka\"]\n        DB2[(\"Read Replica / Sync)\")]\n    end\n    DNS --> WAF --> GW1 & GW2\n    GW1 --> SC1 --> ORD1 --> BUS1\n    GW2 --> SC2 --> ORD2 --> BUS2\n    BUS1 <--> BUS2\n    BUS1 --> AI1\n    ORD1 --> DB1\n    ORD2 --> DB2\n    DB1 <--> DB2"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Migration Phases (Strangler Fig)"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    A[\"Legacy Monolith\\nPHP/MySQL\"] --> B[\"Façade / API GW\\n+ Auth\"]\n    B --> C[\"Strangle: Catalog\\n(Replatform)\"]\n    B --> D[\"Strangle: Cart/Order\\n(Refactor)\"]\n    B --> E[\"Strangle: CRM\\n(Repurchase/SaaS)\"]\n    B --> F[\"AI Assistant\\n(RAG over events)\"]\n    C --> G[\"New Cloud-Native\\nPlatform\"]\n    D --> G\n    E --> G\n    F --> G\n    A -. \"retire when\\n0 traffic\" .-> H[\"Decommission\"]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Project Deliverables & SAD Template"
+    },
+    {
+      "type": "paragraph",
+      "text": "Submit a single ZIP (or Git repo) containing:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "SAD.md — the full document using the 13-section template above.",
+        "adr/ — one markdown file per ADR (ADR-000-provider.md, …).",
+        "diagrams/ — exported PNG/SVG of each Mermaid diagram plus the .mmd sources.",
+        "migration.md — the 7R mapping table and Strangler sequencing.",
+        "cost-risk.md — TCO model and risk register.",
+        "pitch.pdf or pitch.md — a 5-minute stakeholder presentation."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Example 7R mapping table (illustrative):"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Legacy Component",
+          "7R Strategy",
+          "Rationale"
+        ],
+        [
+          "Storefront PHP",
+          "Replatform → containers",
+          "Lift to ECS/K8s, externalize sessions"
+        ],
+        [
+          "MySQL DB",
+          "Replatform → Aurora Global",
+          "Managed, multi-region, less ops"
+        ],
+        [
+          "Order logic",
+          "Refactor → microservice",
+          "Core domain, needs independence"
+        ],
+        [
+          "SugarCRM",
+          "Repurchase → SaaS CRM",
+          "Retire custom maintenance"
+        ],
+        [
+          "Reporting ETL",
+          "Retire",
+          "Replaced by event lakehouse"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Evaluation Rubric"
+    },
+    {
+      "type": "paragraph",
+      "text": "See the rubric table in the Explanation section. Final grade = weighted sum, with a hard gate: a submission missing any of the six required deliverables (ADRs, logical/physical architecture, migration plan, resilience & data strategy, cost & risk, SAD) cannot score above \"Incomplete\" regardless of other quality."
+    },
+    {
+      "type": "paragraph",
+      "text": "Suggested scoring bands:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A (90–100): All dimensions strong; ADRs show real engineering judgment; diagrams unambiguous; NFRs fully traced.",
+        "B (75–89): Complete and sound, minor gaps in trade-off depth or NFR tracing.",
+        "C (60–74): Present but shallow; weak consequences or missing diagram clarity.",
+        "D (<60): Incomplete or technically unsound; NFRs unaddressed."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "arc42 Architecture Documentation Template — https://arc42.org/",
+        "TOGAF Standard (ADM & artifacts) — https://www.opengroup.org/togaf",
+        "7R Cloud Migration Strategies (AWS) — https://aws.amazon.com/whitepapers/migration-strategy-the-6-rs/",
+        "Strangler Fig Pattern (Martin Fowler) — https://martinfowler.com/bliki/StranglerFigApplication.html",
+        "ADR Template (M. Nygard) — https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+        "\"Software Architecture in Practice\" (Bass, Clements, Kazman) — https://resources.sei.cmu.edu/library/book.cfm?query=software%20architecture%20in%20practice",
+        "\"The Practice of Cloud System Administration\" (Lim et al.) — https://www.cloudatlasbook.com/",
+        "C4 Model for diagrams — https://c4model.com/",
+        "GDPR guidance (EU) — https://gdpr.eu/",
+        "PCI-DSS standards — https://www.pcisecuritystandards.org/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Project Deliverables & SAD Template"
+    },
+    {
+      "title": "Evaluation Rubric"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": "See the rubric table in the Explanation section."
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Project Deliverables & SAD Template",
+      "definition": null
+    },
+    {
+      "term": "Evaluation Rubric",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Software Architecture Document (SAD)",
+      "definition": null
+    },
+    {
+      "term": "Client:",
+      "definition": null
+    },
+    {
+      "term": "This",
+      "definition": "This is the capstone of the Solution Architect Academy."
+    },
+    {
+      "term": "Your goal",
+      "definition": "Your goal is to deliver a convincing, technically sound proposal and, most importantly, a complete Software Architecture Document (SAD) that a delivery team could actually execute."
+    },
+    {
+      "term": "The exercise mirrors real engagements",
+      "definition": "The exercise mirrors real engagements: ambiguous requirements, conflicting stakeholders, budget ceilings, and legacy debt."
+    },
+    {
+      "term": "You",
+      "definition": "You are graded not on building the system, but on architecting it — making defensible decisions, documenting them, and communicating the trade-offs."
+    }
+  ]
+}

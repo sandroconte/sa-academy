@@ -1,0 +1,263 @@
+{
+  "id": "solution-architecture-lecture-2-1-monoliti-modulari",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "2-1-monoliti-modulari",
+  "title": "2.1 — Monoliths & Modular Architecture",
+  "readingMin": 4,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "2.1 — Monoliths & Modular Architecture"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 2 · Lesson 2.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Distinguish a traditional monolith from a modular monolith and know when each is appropriate.",
+        "Understand the trade-offs between deployment simplicity and architectural boundaries.",
+        "Apply module boundaries, explicit dependencies, and build-time enforcement to a monolith.",
+        "Recognize the warning signs that indicate a monolith should be decomposed."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Monolith — a single deployable unit containing all application logic, often sharing one database and one process.",
+        "Modular Monolith — a single deployable that is internally organized into well-isolated modules with explicit, enforced contracts.",
+        "Module Boundary — a logical seam that restricts which code may depend on which, enforced at compile/link time.",
+        "Shared Kernel — a small, explicitly agreed-upon subset of code shared between modules (use sparingly).",
+        "Deployment Coupling — the property that changing one part forces redeploying the whole system.",
+        "Architecture Fitness Function — an automated check that guards a desired architectural property (e.g., \"module A must not import module B\")."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What a Monolith Really Is"
+    },
+    {
+      "type": "paragraph",
+      "text": "A \"monolith\" is frequently used as a pejorative, but it simply means the system ships as one artifact (a JAR, WAR, binary, or single process tree) and runs in one deployment unit. This is not inherently bad. A well-built monolith is easy to develop, test, debug, and deploy: a single codebase, one transaction boundary, and one database make reasoning about consistency trivial. Teams can move fast when they do not have to worry about network calls, distributed transactions, or service versioning."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The Problem: The Big Ball of Mud"
+    },
+    {
+      "type": "paragraph",
+      "text": "The failure mode of monoliths is not \"being one unit\" but unstructured coupling. Over time, layers blur: a controller calls a repository in another feature, a domain object reaches into another domain's tables, and a \"small change\" ripples across the entire codebase. This is the \"big ball of mud\" — an architecture defined only by expedience. The cost is not the deployment model; it is the absence of boundaries."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Modular Monolith to the Rescue"
+    },
+    {
+      "type": "paragraph",
+      "text": "A modular monolith keeps the single-deployable advantage but introduces strict internal modules. Each module owns its domain logic and data access; dependencies between modules are explicit and directed (a DAG, never a cycle). Communication across module boundaries happens through published interfaces, not through shared mutable state. The database may still be shared physically, but each module logically owns its tables/schema."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Enforcing Boundaries"
+    },
+    {
+      "type": "paragraph",
+      "text": "Boundaries that exist only on a whiteboard rot quickly. Use build tooling to enforce them:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Java: ArchUnit, or module-info.java (JPMS).",
+        ".NET: internal access modifiers + Roslyn analyzers.",
+        "JavaScript/TS: ESLint no-restricted-imports or import boundaries via depcheck.",
+        "A CI \"fitness function\" fails the build when a forbidden dependency is introduced."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "When to Stay Modular, When to Split"
+    },
+    {
+      "type": "paragraph",
+      "text": "A modular monolith is the right default for most teams and most of a product's life. It gives you many microservice benefits (team autonomy, clear ownership) without distributed-system costs. Move to separate services only when you have a concrete driver: independent scalability of one component, independent deploy frequency, or a hard technology mismatch. A modular monolith is also the safest intermediate step before extracting microservices — the boundaries you enforce now become your future service seams."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    subgraph MM[\"Modular Monolith (single deployable)\"]\n        A[\"Orders Module\"] -->|published interface| B[\"Shipping Module\"]\n        C[\"Billing Module\"] -->|published interface| B\n        A -.->|FORBIDDEN: direct DB/import| C\n    end\n    DB[(\"Single Shared DB\\n(logical schemas per module)\")]\n    A --> DB\n    B --> DB\n    C --> DB"
+    },
+    {
+      "type": "paragraph",
+      "text": "Textual example — an ArchUnit rule enforcing a boundary:"
+    },
+    {
+      "type": "code",
+      "lang": "java",
+      "value": "@ArchTest\nstatic final ArchRule orders_must_not_depend_on_billing =\n    noClasses().that().resideInAPackage(\"..orders..\")\n               .should().dependOnClassesThat()\n               .resideInAPackage(\"..billing..\");"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) They use a single database",
+        "b) They are deployed as one unit",
+        "c) Unstructured coupling that creates a \"big ball of mud\"",
+        "Answer: c"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Using containers",
+        "b) Having enforced internal module boundaries and explicit dependencies",
+        "c) Being written in a functional language",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) JUnit",
+        "b) ArchUnit",
+        "c) Maven Surefire",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) As soon as the team grows beyond 5 people",
+        "b) When there is a concrete driver like independent scaling or deploy frequency",
+        "c) Monoliths are always wrong, so immediately",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "What is the primary failure mode that makes monoliths hard to maintain?",
+        "A modular monolith differs from a traditional monolith mainly by:",
+        "Which tool can enforce architecture boundaries in a Java build?",
+        "When is extracting a microservice usually justified over keeping a modular monolith?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Building Modular Monoliths\" — Spring blog: https://spring.io/blog/2018/11/08/modular-monoliths",
+        "\"Architecture Patterns with Python\" — Manning (modular boundaries chapter)",
+        "ArchUnit documentation: https://www.archunit.org/",
+        "Sam Newman, \"Monolith to Microservices\" — O'Reilly",
+        "\"Java Platform Module System\" (JPMS): https://openjdk.org/projects/jigsaw/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "modular monolith",
+      "definition": "A modular monolith keeps the single-deployable advantage but introduces strict internal modules."
+    },
+    {
+      "term": "This",
+      "definition": "This is not inherently bad."
+    },
+    {
+      "term": "A well-built monolith",
+      "definition": "A well-built monolith is easy to develop, test, debug, and deploy: a single codebase, one transaction boundary, and one database make reasoning about consistency trivial."
+    },
+    {
+      "term": "The failure mode of monoliths",
+      "definition": "The failure mode of monoliths is not \"being one unit\" but unstructured coupling."
+    },
+    {
+      "term": "The cost",
+      "definition": "The cost is not the deployment model; it is the absence of boundaries."
+    },
+    {
+      "term": "A modular monolith",
+      "definition": "A modular monolith is the right default for most teams and most of a product's life."
+    }
+  ]
+}

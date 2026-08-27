@@ -1,0 +1,224 @@
+{
+  "id": "solution-architecture-lecture-1-3-migrazione-cloud",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "1-3-migrazione-cloud",
+  "title": "1.3 — Cloud Migration Strategies (7R, Strangler)",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "1.3 — Cloud Migration Strategies (7R, Strangler)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 1 · Lesson 1.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "List and differentiate the 7R cloud migration strategies.",
+        "Choose an appropriate 7R strategy for a given workload.",
+        "Explain the Strangler Fig pattern for incremental migration.",
+        "Recognize trade-offs between speed (rehost) and long-term value (refactor)."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "7R — seven common migration approaches: rehost, replatform, refactor, repurchase, retire, retain, relocate.",
+        "Rehost (lift-and-shift) — move as-is with minimal change.",
+        "Replatform — move with some optimization, no architecture change.",
+        "Refactor/Re-architect — redesign to leverage cloud-native features.",
+        "Repurchase — replace with a SaaS product.",
+        "Retire / Retain — decommission or keep (for now).",
+        "Relocate — move hypervisor/VMware workloads wholesale to the cloud.",
+        "Strangler Fig — incrementally replace legacy functionality behind a facade until the old system is \"strangled\"."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The 7R strategies"
+    },
+    {
+      "type": "paragraph",
+      "text": "Cloud migration is rarely one-size-fits-all. The 7R framework helps an SA map each workload:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Rehost (\"lift-and-shift\"): move VMs as-is. Fast, low risk, but you inherit inefficiencies.",
+        "Replatform: move with a few tweaks (e.g., managed database) without re-architecting.",
+        "Refactor / Re-architect: redesign to use cloud-native services (containers, serverless, managed data stores) for elasticity and cost savings — highest effort, highest long-term value.",
+        "Repurchase: drop custom software for a SaaS equivalent (e.g., CRM).",
+        "Retire: shut down redundant systems discovered during discovery.",
+        "Retain: keep some workloads on-prem (compliance, latency, cost).",
+        "Relocate: move an entire VMware/hypervisor estate to a cloud equivalent with little change."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Choosing a strategy"
+    },
+    {
+      "type": "paragraph",
+      "text": "The SA weighs time-to-value, cost, risk, and business case. Rehost gets you to the cloud quickly; refactor unlocks cloud benefits but needs investment. Retire and retain require honest portfolio analysis."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The Strangler Fig pattern"
+    },
+    {
+      "type": "paragraph",
+      "text": "Big-bang migrations are risky. The Strangler Fig pattern wraps the legacy system with a facade and incrementally routes specific features to new cloud-native implementations. Over time, the new system \"strangles\" the old one, which can then be retired. This reduces risk, allows continuous delivery, and gives business value early."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    User((User)) --> F[Façade / Router]\n    F --> LEG[Legacy System]\n    F --> NEW1[New Service A]\n    F --> NEW2[New Service B]\n    NEW1 -. incrementally added .-> F\n    NEW2 -. incrementally added .-> F\n    LEG -. strangled & retired .-> X[Decommissioned]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Refactor",
+        "b) Rehost",
+        "c) Repurchase",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Retain",
+        "b) Repurchase",
+        "c) Relocate",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Does a risky big-bang cutover",
+        "b) Migrates incrementally behind a façade, reducing risk",
+        "c) Avoids the cloud entirely",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Rehost",
+        "b) Retire",
+        "c) Refactor / Re-architect",
+        "Answer: c"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Which 7R strategy moves a system as-is with minimal change?",
+        "Replacing a custom CRM with a SaaS product is an example of:",
+        "The Strangler Fig pattern is valuable because it:",
+        "Which strategy offers the highest long-term cloud value but the most effort?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "AWS 7 R's of migration: https://aws.amazon.com/blogs/enterprise-strategy/2022/05/09/the-7-rs-of-migration/",
+        "Martin Fowler — Strangler Fig pattern: https://martinfowler.com/bliki/StranglerFigApplication.html",
+        "\"Cloud Migration Patterns\" — articles and cloud provider migration guides",
+        "Nikolai Ashanin — Solution Architect Road Map: https://github.com/NikAshanin/Solution-Architect-Road-Map"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Strangler Fig",
+      "definition": "The Strangler Fig pattern wraps the legacy system with a facade and incrementally routes specific features to new cloud-native implementations."
+    },
+    {
+      "term": "Cloud migration",
+      "definition": "Cloud migration is rarely one-size-fits-all."
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-1-1-networking-security",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is authenticated, authorized, and encrypted regardless of origin.",
+        "options": [
+          "VPC",
+          "Every request",
+          "subnets",
+          "Security Groups"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ abandons the old \"inside the network = trusted\" assumption.",
+        "options": [
+          "Segmentation limits blast radius",
+          "VPC",
+          "Zero Trust",
+          "least privilege"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Inside it you create _____ — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable.",
+        "options": [
+          "subnets",
+          "NACLs",
+          "Zero Trust",
+          "VPC"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are stateful and attached to a resource (e.g., a VM or service).",
+        "options": [
+          "Security Groups",
+          "Segmentation limits blast radius",
+          "IAM",
+          "subnets"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "least privilege",
+          "IAM",
+          "Zero Trust",
+          "Security Groups"
+        ],
+        "pairsRight": [
+          "Zero Trust abandons the old \"inside the network = trusted\" assumption.",
+          "The least privilege principle grants only the permissions required for a task — nothing more.",
+          "Security Groups are stateful and attached to a resource (e.g., a VM or service).",
+          "IAM governs identities (users, roles, services) and their permissions."
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Every request?",
+        "options": [
+          "The least privilege principle grants only the permissions required for a task — nothing more.",
+          "Every request is authenticated, authorized, and encrypted regardless of origin.",
+          "A VPC is your own logically isolated section of the cloud.",
+          "IAM governs identities (users, roles, services) and their permissions."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Zero Trust?",
+        "options": [
+          "Zero Trust abandons the old \"inside the network = trusted\" assumption.",
+          "Every request is authenticated, authorized, and encrypted regardless of origin.",
+          "A VPC is your own logically isolated section of the cloud.",
+          "The least privilege principle grants only the permissions required for a task — nothing more."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is subnets?",
+        "options": [
+          "Every request is authenticated, authorized, and encrypted regardless of origin.",
+          "Security Groups are stateful and attached to a resource (e.g., a VM or service).",
+          "Zero Trust abandons the old \"inside the network = trusted\" assumption.",
+          "Inside it you create subnets — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "What is the key difference between a Security Group and a NACL?",
+          "In Zero Trust, what determines trust?",
+          "Which principle should guide IAM permission design?",
+          "A subnet with a route to the internet is typically called:"
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Inside it you create subnets — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "NACLs are stateless and operate at the subnet boundary; each direction must be explicitly ruled, and rules are evaluated in order."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Inside it you create Zero Trust — typically public subnets (with a route to the internet) for load balancers and bastion hosts, and private subnets for application and data tiers that should not be directly reachable."
+      },
+      "answerKey": false
+    }
+  ]
+}

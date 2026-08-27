@@ -1,0 +1,251 @@
+{
+  "id": "solution-architecture-lecture-4-3-iac-automazione",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "4-3-iac-automazione",
+  "title": "4.3 — Infrastructure as Code & GitOps",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4.3 — Infrastructure as Code & GitOps"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 4 · Lesson 4.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Contrast declarative vs imperative infrastructure and explain immutable infrastructure.",
+        "Compare Terraform, AWS CloudFormation, and Pulumi in terms of model and portability.",
+        "Define GitOps and explain the roles of ArgoCD and Flux.",
+        "Explain drift detection and why it matters for compliance.",
+        "Sketch a GitOps delivery pipeline from commit to cluster reconciliation."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Infrastructure as Code (IaC) — managing infrastructure through machine-readable definition files, not manual clicks.",
+        "Declarative — you state the desired end state; the tool computes the diff (Terraform, CloudFormation).",
+        "Imperative — you script the sequence of actions to reach a state.",
+        "Immutable infrastructure — never mutate running servers; replace them with new versions.",
+        "GitOps — Git is the single source of truth; a controller reconciles cluster state to Git.",
+        "Drift — divergence between declared state and actual state."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "IaC fundamentals"
+    },
+    {
+      "type": "paragraph",
+      "text": "IaC replaces manual console configuration with versioned files, enabling code review, rollback, and reproducibility. Declarative tools (Terraform, CloudFormation, Pulumi's declarative mode) let you describe the target topology; the engine plans and applies changes. Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps. Declarative is preferred for environments because it enables planning and idempotence."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Tool comparison"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Terraform — open-source, multi-cloud, HCL language, large provider ecosystem; state file tracks resources.",
+        "CloudFormation — AWS-native, YAML/JSON, tight IAM integration, no state file to manage externally.",
+        "Pulumi — uses general-purpose languages (TypeScript, Python, Go); great for developers, same multi-cloud reach."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Immutable infrastructure"
+    },
+    {
+      "type": "paragraph",
+      "text": "Instead of patching a live VM, you build a new image (with the patch) and swap it. This eliminates configuration drift, makes rollbacks trivial (redeploy old image), and improves auditability. Containers and VM images (Packer) are the typical vehicles."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "GitOps"
+    },
+    {
+      "type": "paragraph",
+      "text": "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts). A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes. This gives auditability (every change is a commit), easy rollback (revert the commit), and closed-loop automation."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Drift detection"
+    },
+    {
+      "type": "paragraph",
+      "text": "Drift happens when someone manually changes infra or an external process alters it. Terraform's plan shows drift; CloudFormation drift detection and ArgoCD's OutOfSync status surface it. GitOps controllers can auto-heal by re-applying desired state, which is essential for compliance and security posture."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "sequenceDiagram\n    participant Dev as Developer\n    participant Git as Git Repo\n    participant Ctrl as ArgoCD/Flux\n    participant K8s as Kubernetes Cluster\n    Dev->>Git: Push manifest change\n    Git-->>Ctrl: Webhook / Poll\n    Ctrl->>K8s: Reconcile (apply desired state)\n    K8s-->>Ctrl: Report actual state\n    Ctrl->>Ctrl: Detect drift -> auto-heal"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. You script each action step by step",
+        "B. You declare desired state; the tool computes the diff",
+        "C. It cannot support multi-cloud",
+        "D. It requires manual state tracking",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. The production database",
+        "B. Git repositories",
+        "C. A ticketing system",
+        "D. The load balancer",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. Network latency between regions",
+        "B. Divergence between declared and actual state",
+        "C. A Terraform provider bug",
+        "D. A Git merge conflict",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. SSH-ing into a server to apply a patch",
+        "B. Replacing a VM with a newly built image containing the patch",
+        "C. Editing config files in place",
+        "D. Manual console changes",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Which statement about declarative IaC is true?",
+        "GitOps uses which system as the single source of truth?",
+        "What is \"drift\" in infrastructure?",
+        "Which is an example of immutable infrastructure?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Terraform docs — https://developer.hashicorp.com/terraform/docs",
+        "AWS CloudFormation — https://docs.aws.amazon.com/cloudformation/",
+        "Pulumi — https://www.pulumi.com/docs/",
+        "ArgoCD — https://argo-cd.readthedocs.io/",
+        "Flux — https://fluxcd.io/docs/",
+        "\"Infrastructure as Code\" — Kief Morris (O'Reilly)"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Declarative",
+      "definition": "Declarative is preferred for environments because it enables planning and idempotence."
+    },
+    {
+      "term": "Imperative",
+      "definition": "Imperative approaches (raw CLI scripts, Ansible ad-hoc) describe steps."
+    },
+    {
+      "term": "ArgoCD",
+      "definition": "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes."
+    },
+    {
+      "term": "Flux",
+      "definition": "A controller running in the cluster — ArgoCD or Flux — continuously compares live state to Git and reconciles, pulling changes."
+    },
+    {
+      "term": "GitOps extends IaC",
+      "definition": "GitOps extends IaC: Git holds the desired cluster state (manifests, Helm charts)."
+    }
+  ]
+}

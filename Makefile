@@ -71,14 +71,30 @@ run-ios: ## iOS simulator (localhost reachable as-is)
 	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://localhost:$(PACK_PORT) npx expo start
 	@echo "Press i to launch the simulator"
 
-run-android: ## Android emulator (host alias 10.0.2.2)
-	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://10.0.2.2:$(PACK_PORT) npx expo start
-	@echo "Press a to launch the emulator"
+run-android: ## Android dev build on emulator/USB device (reverse Metro + pack to host)
+	@command -v adb >/dev/null 2>&1 && { \
+	  adb reverse tcp:8081 tcp:8081 2>/dev/null || true; \
+	  adb reverse tcp:$(PACK_PORT) tcp:$(PACK_PORT) 2>/dev/null || true; \
+	  echo "adb reverse: 8081 (Metro) + $(PACK_PORT) (pack) -> host"; } || true
+	@cd $(PACK_DIR) 2>/dev/null && (python3 -m http.server $(PACK_PORT) >/tmp/serve-pack.log 2>&1 &) \
+	  && echo "content-pack server on :$(PACK_PORT)"
+	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://localhost:$(PACK_PORT) npx expo start
+	@echo "Press a (emulator) or open the dev build on your USB device"
 
-device: ## Physical device via Expo Go (uses LAN IP; same Wi-Fi required)
-	@if [ -z "$(LAN_IP)" ]; then echo "No LAN IP found on en0 — set it manually."; exit 1; fi
-	cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://$(LAN_IP):$(PACK_PORT) npx expo start
-	@echo "Scan the QR with Expo Go — pack base: http://$(LAN_IP):$(PACK_PORT)"
+device: ## Physical device: dev build via USB (adb reverse) or Expo Go over LAN
+	@if command -v adb >/dev/null 2>&1 && adb get-state >/dev/null 2>&1; then \
+	  adb reverse tcp:8081 tcp:8081 2>/dev/null || true; \
+	  adb reverse tcp:$(PACK_PORT) tcp:$(PACK_PORT) 2>/dev/null || true; \
+	  cd $(PACK_DIR) 2>/dev/null && (python3 -m http.server $(PACK_PORT) >/tmp/serve-pack.log 2>&1 &) \
+	    && echo "content-pack server on :$(PACK_PORT)"; \
+	  cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://localhost:$(PACK_PORT) npx expo start; \
+	  echo "Open the dev build on your USB device"; \
+	else \
+	  if [ -z "$(LAN_IP)" ]; then echo "No LAN IP on en0 and no adb device — set one manually."; exit 1; fi; \
+	  cd $(PACK_DIR) 2>/dev/null && (python3 -m http.server $(PACK_PORT) >/tmp/serve-pack.log 2>&1 &) \
+	    && echo "content-pack server on :$(PACK_PORT) (LAN $(LAN_IP))"; \
+	  cd $(CLIENT_DIR) && EXPO_PUBLIC_PACK_BASE=http://$(LAN_IP):$(PACK_PORT) npx expo start; \
+	  echo "Scan the QR with Expo Go — pack base: http://$(LAN_IP):$(PACK_PORT)"; fi
 
 # Standalone APK install on a connected device (no Expo Go / dev server).
 # Builds the native project once, then installs via adb.

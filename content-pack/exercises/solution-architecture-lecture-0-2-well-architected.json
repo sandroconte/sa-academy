@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-0-2-well-architected",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves.",
+        "options": [
+          "Performance Efficiency",
+          "Cost Optimization",
+          "Operational Excellence",
+          "Questions include"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is about protecting information and systems.",
+        "options": [
+          "It means understanding where money",
+          "Performance Efficiency",
+          "Reliability",
+          "Security"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: how do we detect failures, and how do we respond?",
+        "options": [
+          "It rests on six areas",
+          "Resources",
+          "Questions include",
+          "Security"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ focuses on running and monitoring systems to deliver business value and continually improving processes and procedures.",
+        "options": [
+          "It rests on six areas",
+          "Security",
+          "Reliability",
+          "Operational Excellence"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Operational Excellence",
+          "Reliability",
+          "Security",
+          "Resources"
+        ],
+        "pairsRight": [
+          "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures.",
+          "Security is about protecting information and systems.",
+          "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves.",
+          "Reliability requires a system to perform its intended function correctly and consistently, recovering from infrastructure or service failures and adapting to changing load."
+        ]
+      },
+      "answerKey": [
+        0,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Performance Efficiency?",
+        "options": [
+          "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves.",
+          "Security is about protecting information and systems.",
+          "It rests on six areas: identity and access management, detective controls, infrastructure protection, data protection, incident response, and applying security at all layers.",
+          "Questions include: how do we detect failures, and how do we respond?"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Security?",
+        "options": [
+          "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures.",
+          "Questions include: how do we detect failures, and how do we respond?",
+          "It means understanding where money is spent, selecting the right resource types, analyzing spend over time, and managing demand.",
+          "Security is about protecting information and systems."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Questions include?",
+        "options": [
+          "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves.",
+          "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures.",
+          "Security is about protecting information and systems.",
+          "Questions include: how do we detect failures, and how do we respond?"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "The principle of least privilege primarily supports which pillar?",
+          "How many pillars are in the standard Well-Architected Framework?",
+          "Why are trade-offs between pillars a normal part of architecture?",
+          "Which pillar focuses on protecting data and systems at all layers?"
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Performance Efficiency is the ability to use computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technology evolves."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Operational Excellence focuses on running and monitoring systems to deliver business value and continually improving processes and procedures."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "It means understanding where money: identity and access management, detective controls, infrastructure protection, data protection, incident response, and applying security at all layers."
+      },
+      "answerKey": false
+    }
+  ]
+}

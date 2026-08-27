@@ -1,0 +1,151 @@
+{
+  "docId": "solution-architecture-lecture-7-1-technical-mock",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an _____ note.",
+        "options": [
+          "Interviewer listens for",
+          "MODEL ANSWER",
+          "They",
+          "rarely a coding test"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The rest of this lesson is a set of _____ in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+        "options": [
+          "Interviewer listens for",
+          "Prompt",
+          "The rest of this lesson",
+          "mock scenarios"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are assessing five things:",
+        "options": [
+          "They",
+          "rarely a coding test",
+          "A technical Solution Architect interview",
+          "The rest of this lesson"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Each scenario has a realistic prompt, a structured _____ (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note.",
+        "options": [
+          "MODEL ANSWER",
+          "Prompt",
+          "They",
+          "Interviewer listens for"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "Prompt",
+          "They",
+          "mock scenarios",
+          "Interviewer listens for"
+        ],
+        "pairsRight": [
+          "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note.",
+          "Prompt: \"You're asked to migrate a 15-year-old monolith — a core ERP system — to a cloud-native architecture.",
+          "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+          "They are assessing five things:"
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        2,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Interviewer listens for?",
+        "options": [
+          "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+          "A technical Solution Architect interview is rarely a coding test.",
+          "They are assessing five things:",
+          "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is mock scenarios?",
+        "options": [
+          "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note.",
+          "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+          "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+          "A technical Solution Architect interview is rarely a coding test."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is They?",
+        "options": [
+          "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture.",
+          "They are assessing five things:",
+          "A technical Solution Architect interview is rarely a coding test.",
+          "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an Interviewer listens for note."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A technical Solution Architect interview is rarely a coding test."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The rest of this lesson is a set of mock scenarios in the style of jassics/security-interview-questions' \"Security Architect Scenario Questions,\" but re-themed for Solution Architecture."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Each scenario has a realistic prompt, a structured MODEL ANSWER (bullets with Tools: / Techniques: / Output: sub-bullets), and an MODEL ANSWER note."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-4-1-adr",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-4-1-adr-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the _____ describing the problem and constraints, the Decision itself, and the Consequences (positive and negative).",
+        "options": [
+          "Context",
+          "Architecture Decision Record",
+          "Options considered",
+          "Decision"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later.",
+        "options": [
+          "Write one whenever a decision",
+          "Context",
+          "It encourages consistency across teams and",
+          "Consequences"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "An Architecture _____ Record is a single, immutable, version-controlled document that records one consequential decision.",
+        "options": [
+          "Write one whenever a decision",
+          "Consequences",
+          "Decision",
+          "Context"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the _____ (positive and negative).",
+        "options": [
+          "Consequences",
+          "Decision",
+          "It encourages consistency across teams and",
+          "Write one whenever a decision"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "They",
+          "Decision",
+          "It encourages consistency across teams and",
+          "Write one whenever a decision"
+        ],
+        "pairsRight": [
+          "They are cheap to write (a page or two) and live in the same repository as the code, so the knowledge travels with the system.",
+          "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision.",
+          "It encourages consistency across teams and is the de-facto open standard.",
+          "Write one whenever a decision is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later."
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Context?",
+        "options": [
+          "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the Consequences (positive and negative).",
+          "Options considered are often summarized to show the decision was not arbitrary.",
+          "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision.",
+          "They are cheap to write (a page or two) and live in the same repository as the code, so the knowledge travels with the system."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Write one whenever a decision?",
+        "options": [
+          "Write one whenever a decision is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later.",
+          "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the Consequences (positive and negative).",
+          "It encourages consistency across teams and is the de-facto open standard.",
+          "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Decision?",
+        "options": [
+          "Write one whenever a decision is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later.",
+          "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision.",
+          "They are cheap to write (a page or two) and live in the same repository as the code, so the knowledge travels with the system.",
+          "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "When should you NOT write an ADR?",
+          "What is the primary purpose of an ADR?",
+          "What does \"Superseded\" status mean?",
+          "In the standard ADR format, which section explains the trade-offs after the choice is made?"
+        ]
+      },
+      "answerKey": [
+        1,
+        3,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "An Architecture Context Record is a single, immutable, version-controlled document that records one consequential decision."
+      },
+      "answerKey": false
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr-truefalse-3",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Common triggers are often summarized to show the decision was not arbitrary."
+      },
+      "answerKey": false
+    }
+  ]
+}

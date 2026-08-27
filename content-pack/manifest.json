@@ -1,7 +1,7 @@
 {
   "version": {
     "patterns": "6ea8caee3007b2507abcac4c5b879a633ed2615f",
-    "lectures": "d810398b572f5d1ac1e0b2574ed6fa75753823f9"
+    "lectures": "4a028921f51fd6e114ae082cdf9280ed290ac1b7"
   },
   "subjects": [
     {
@@ -10,6 +10,256 @@
     }
   ],
   "docs": [
+    {
+      "id": "solution-architecture-lecture-0-1-ruolo-architect",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "0.1 — The Solution Architect Role & Mindset",
+      "file": "docs/solution-architecture-lecture-0-1-ruolo-architect.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-0-1-ruolo-architect.json",
+      "sha256": "c6cf0a216ec2d1de563779480e05746ff082e99146f61096be341f1490a0b98b"
+    },
+    {
+      "id": "solution-architecture-lecture-0-2-well-architected",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "0.2 — The Well-Architected Framework Pillars",
+      "file": "docs/solution-architecture-lecture-0-2-well-architected.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-0-2-well-architected.json",
+      "sha256": "4782e5081fbfcff672b67742b5da0eedf8469770be7fe45a996eb7451d1d3e1c"
+    },
+    {
+      "id": "solution-architecture-lecture-0-3-processo-progettazione",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "0.3 — The Design Process",
+      "file": "docs/solution-architecture-lecture-0-3-processo-progettazione.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-0-3-processo-progettazione.json",
+      "sha256": "ce26e7a521b677126a56a0043ffebd53681c517bf521a19f83bf931db0b589cd"
+    },
+    {
+      "id": "solution-architecture-lecture-1-1-networking-security",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "1.1 — Networking & Security (VPC, IAM, Zero Trust)",
+      "file": "docs/solution-architecture-lecture-1-1-networking-security.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-1-1-networking-security.json",
+      "sha256": "b74a535cd07aeebda9929f7a2e9a8027387fb75bfec07d5e3904f15cc4864fa4"
+    },
+    {
+      "id": "solution-architecture-lecture-1-2-compute-storage-db",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "1.2 — Compute, Storage & Databases (CAP Theorem)",
+      "file": "docs/solution-architecture-lecture-1-2-compute-storage-db.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-1-2-compute-storage-db.json",
+      "sha256": "ff01c48376de50b673ab2697ff65d41d19720eda83f66d7f657502976f05763e"
+    },
+    {
+      "id": "solution-architecture-lecture-1-3-migrazione-cloud",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "1.3 — Cloud Migration Strategies (7R, Strangler)",
+      "file": "docs/solution-architecture-lecture-1-3-migrazione-cloud.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-1-3-migrazione-cloud.json",
+      "sha256": "077938b80307bfcd676f998838a2054e959cb76fe08a4b5d0cffc9b45699be24"
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "2.1 — Monoliths & Modular Architecture",
+      "file": "docs/solution-architecture-lecture-2-1-monoliti-modulari.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-2-1-monoliti-modulari.json",
+      "sha256": "4bdaa1a159a416059bc497a2daa64d2e8f69972323cb104dee33b5b81a1d72fc"
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "2.2 — SOA & Microservices (DDD, Bounded Context)",
+      "file": "docs/solution-architecture-lecture-2-2-microservizi-soa.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-2-2-microservizi-soa.json",
+      "sha256": "27fba164c7c04eeea6d80bdeb20b051a1cd91b6d4eda7f244df9b6cdf0360868"
+    },
+    {
+      "id": "solution-architecture-lecture-2-3-eda-cqrs-hexagonal",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "2.3 — EDA, CQRS, Event Sourcing & Hexagonal",
+      "file": "docs/solution-architecture-lecture-2-3-eda-cqrs-hexagonal.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-2-3-eda-cqrs-hexagonal.json",
+      "sha256": "a827a23c5aebae2c09d0f172b3d1afc6299b173081fd4711dfa8873888e55172"
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "3.1 — Communication & Integration Patterns (Gateway, BFF, Sidecar)",
+      "file": "docs/solution-architecture-lecture-3-1-comunicazione-integrazione.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-3-1-comunicazione-integrazione.json",
+      "sha256": "e1d14719239eb1a92e378c4961a97ee99817fa67e242f7643bb0911135331883"
+    },
+    {
+      "id": "solution-architecture-lecture-3-2-resilienza-affidabilita",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "3.2 — Resilience & Reliability Patterns (Circuit Breaker, Saga, Bulkhead)",
+      "file": "docs/solution-architecture-lecture-3-2-resilienza-affidabilita.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-3-2-resilienza-affidabilita.json",
+      "sha256": "bdc4c5d8a89c5e2f2056b5f6b392667764c816ecbb96a52ae93fdde02ae461e6"
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "3.3 — Data Management Patterns (Database per Service, CDC)",
+      "file": "docs/solution-architecture-lecture-3-3-data-management.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-3-3-data-management.json",
+      "sha256": "7e3b1cc9f4f9a46ed69b59179cf20741b719e2972ce5d17d32eca731f149ef20"
+    },
+    {
+      "id": "solution-architecture-lecture-4-1-adr",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "4.1 — Architecture Decision Records (ADR)",
+      "file": "docs/solution-architecture-lecture-4-1-adr.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-4-1-adr.json",
+      "sha256": "de14fa45aa6b06fa09827b18a9de169ae54963f081728e52dc5c977167b6a431"
+    },
+    {
+      "id": "solution-architecture-lecture-4-2-metriche-qualita",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "4.2 — Architecture Quality Metrics (Coupling, DORA)",
+      "file": "docs/solution-architecture-lecture-4-2-metriche-qualita.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-4-2-metriche-qualita.json",
+      "sha256": "6d3408642de2fd8bd53ef6ba5835eba02b3777853b9f35226955aa156cc3a022"
+    },
+    {
+      "id": "solution-architecture-lecture-4-3-iac-automazione",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "4.3 — Infrastructure as Code & GitOps",
+      "file": "docs/solution-architecture-lecture-4-3-iac-automazione.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-4-3-iac-automazione.json",
+      "sha256": "023242b951776a108d27486744b1f87948fd49dfdb6c5b561bbf61a09f7c68c1"
+    },
+    {
+      "id": "solution-architecture-lecture-5-1-lab-strangler",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "5.1 — Lab: Strangler Fig Modernization",
+      "file": "docs/solution-architecture-lecture-5-1-lab-strangler.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-5-1-lab-strangler.json",
+      "sha256": "c0ba13b504d717c7245232f858798c9c3eb53341ea61e0ee7af72b7a5620b152"
+    },
+    {
+      "id": "solution-architecture-lecture-5-2-lab-eda",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "5.2 — Lab: Event-Driven Architecture with Kafka",
+      "file": "docs/solution-architecture-lecture-5-2-lab-eda.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-5-2-lab-eda.json",
+      "sha256": "dd235107a29a14ce31e77e07ff0fe5c627f6d9f7ad81265452a06fb4f4ed0def"
+    },
+    {
+      "id": "solution-architecture-lecture-5-3-lab-multicloud",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "5.3 — Lab: Multi-Cloud with Terraform",
+      "file": "docs/solution-architecture-lecture-5-3-lab-multicloud.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-5-3-lab-multicloud.json",
+      "sha256": "cfcc0b0d1f989759c2509fbee346a72c7fbfb41218f3ddac8a0a19509be1383f"
+    },
+    {
+      "id": "solution-architecture-lecture-5-4-lab-ai",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "5.4 — Lab: AI-Enabled Architecture (RAG)",
+      "file": "docs/solution-architecture-lecture-5-4-lab-ai.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-5-4-lab-ai.json",
+      "sha256": "853a2c28fafb7243deae37ed1f65cfa3c4f170484ea02278da061bfde8f7752d"
+    },
+    {
+      "id": "solution-architecture-lecture-6-1-progetto-finale",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "6.1 — Final Synthesis Project (RFP & SAD)",
+      "file": "docs/solution-architecture-lecture-6-1-progetto-finale.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-6-1-progetto-finale.json",
+      "sha256": "3d0863a575e06a4af797d0593efa9b09ad6c45d22fb0b993882e06de719e8e09"
+    },
+    {
+      "id": "solution-architecture-lecture-7-1-technical-mock",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "7.1 — Technical Mock Interviews (Scenario-Based)",
+      "file": "docs/solution-architecture-lecture-7-1-technical-mock.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-7-1-technical-mock.json",
+      "sha256": "0b241e7e56080e39bfb0cd614227319c87665d8f8d31ce2527417c6db8503a37"
+    },
+    {
+      "id": "solution-architecture-lecture-7-2-behavioral-mock",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "7.2 — Behavioral & Leadership Mock Interviews",
+      "file": "docs/solution-architecture-lecture-7-2-behavioral-mock.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-7-2-behavioral-mock.json",
+      "sha256": "6eecd5f98160d7717f541bad44d41d5903989c1e9821e2f7e294ffbf91403fb6"
+    },
+    {
+      "id": "solution-architecture-lecture-7-3-system-design-mock",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "7.3 — System Design Mock Interview",
+      "file": "docs/solution-architecture-lecture-7-3-system-design-mock.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-7-3-system-design-mock.json",
+      "sha256": "5e26683d9a2a9881d5dc3394b12968f3810d3b2a094c8414bb6ae044f2f80c30"
+    },
+    {
+      "id": "solution-architecture-lecture-7-4-security-mock",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "Security Architecture — Interview Prep Handout",
+      "file": "docs/solution-architecture-lecture-7-4-security-mock.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-7-4-security-mock.json",
+      "sha256": "9e4309eb207524f9f5586705b7b70290a50fd9917aec2315cac5af15cfa19651"
+    },
+    {
+      "id": "solution-architecture-lecture-index",
+      "subjectId": "solution-architecture",
+      "kind": "lecture",
+      "category": "lectures",
+      "title": "📑 Indice Generale delle Lezioni",
+      "file": "docs/solution-architecture-lecture-index.json",
+      "exercisesFile": "exercises/solution-architecture-lecture-index.json",
+      "sha256": "5935a8285709543b2d907aba016a478a0c7c4590f6329a48809e5fea6de0da68"
+    },
     {
       "id": "solution-architecture-pattern-anti-corruption-layer-pattern",
       "subjectId": "solution-architecture",

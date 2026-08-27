@@ -1,0 +1,169 @@
+{
+  "docId": "solution-architecture-lecture-2-1-monoliti-modulari",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is easy to develop, test, debug, and deploy: a single codebase, one transaction boundary, and one database make reasoning about consistency trivial.",
+        "options": [
+          "A well-built monolith",
+          "A modular monolith",
+          "modular monolith",
+          "The cost"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the right default for most teams and most of a product's life.",
+        "options": [
+          "A well-built monolith",
+          "A modular monolith",
+          "The cost",
+          "The failure mode of monoliths"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not \"being one unit\" but unstructured coupling.",
+        "options": [
+          "A modular monolith",
+          "A well-built monolith",
+          "The failure mode of monoliths",
+          "modular monolith"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not inherently bad.",
+        "options": [
+          "The failure mode of monoliths",
+          "modular monolith",
+          "A well-built monolith",
+          "This"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "A modular monolith",
+          "This",
+          "The failure mode of monoliths",
+          "modular monolith"
+        ],
+        "pairsRight": [
+          "This is not inherently bad.",
+          "The failure mode of monoliths is not \"being one unit\" but unstructured coupling.",
+          "A modular monolith keeps the single-deployable advantage but introduces strict internal modules.",
+          "A modular monolith is the right default for most teams and most of a product's life."
+        ]
+      },
+      "answerKey": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is A well-built monolith?",
+        "options": [
+          "A modular monolith keeps the single-deployable advantage but introduces strict internal modules.",
+          "A modular monolith is the right default for most teams and most of a product's life.",
+          "A well-built monolith is easy to develop, test, debug, and deploy: a single codebase, one transaction boundary, and one database make reasoning about consistency trivial.",
+          "This is not inherently bad."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is A modular monolith?",
+        "options": [
+          "This is not inherently bad.",
+          "A well-built monolith is easy to develop, test, debug, and deploy: a single codebase, one transaction boundary, and one database make reasoning about consistency trivial.",
+          "A modular monolith is the right default for most teams and most of a product's life.",
+          "A modular monolith keeps the single-deployable advantage but introduces strict internal modules."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The failure mode of monoliths?",
+        "options": [
+          "The failure mode of monoliths is not \"being one unit\" but unstructured coupling.",
+          "A modular monolith keeps the single-deployable advantage but introduces strict internal modules.",
+          "The cost is not the deployment model; it is the absence of boundaries.",
+          "This is not inherently bad."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "What is the primary failure mode that makes monoliths hard to maintain?",
+          "A modular monolith differs from a traditional monolith mainly by:",
+          "When is extracting a microservice usually justified over keeping a modular monolith?",
+          "Which tool can enforce architecture boundaries in a Java build?"
+        ]
+      },
+      "answerKey": [
+        0,
+        1,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A modular monolith is the right default for most teams and most of a product's life."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "This is not inherently bad."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-1-monoliti-modulari-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A well-built monolith is not \"being one unit\" but unstructured coupling."
+      },
+      "answerKey": false
+    }
+  ]
+}

@@ -13,7 +13,7 @@ interface BlockViewProps {
   onSelect?: (blockIndex: number, quote: string, start: number, end: number) => void;
 }
 
-export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockViewProps) {
+export const BlockView = React.memo(function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockViewProps) {
   const isWeb = Platform.OS === "web";
 
   // web: tag the DOM node so the reader's selectionchange listener can map back to a block
@@ -87,7 +87,8 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
     }
     return (
       <TextInput
-        editable={false}
+        editable
+        showSoftInputOnFocus={false}
         multiline
         scrollEnabled={false}
         underlineColorAndroid="transparent"
@@ -160,7 +161,7 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
         </View>
       );
   }
-}
+});
 
 const s = StyleSheet.create({
   h1: { color: "#f5f5f5", fontSize: 26, fontWeight: "700", marginTop: 8, marginBottom: 12 },

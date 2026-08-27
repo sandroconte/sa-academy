@@ -1,0 +1,267 @@
+{
+  "id": "solution-architecture-lecture-1-2-compute-storage-db",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "1-2-compute-storage-db",
+  "title": "1.2 — Compute, Storage & Databases (CAP Theorem)",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "1.2 — Compute, Storage & Databases (CAP Theorem)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 1 · Lesson 1.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Compare compute models: VM, containers, and serverless.",
+        "Distinguish object, block, and file storage.",
+        "Contrast SQL and NoSQL databases and when to use each.",
+        "Explain the CAP theorem and its trade-offs for distributed data."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Compute models — VM (full OS control), containers (packaged apps), serverless (event-driven, no server management).",
+        "Object storage — flat store for blobs (e.g., S3-style), accessed via API.",
+        "Block storage — raw volumes attached to compute (like a disk).",
+        "File storage — shared hierarchical file systems (NFS/SMB).",
+        "SQL vs NoSQL — relational/ACID vs. flexible-schema, horizontally scalable.",
+        "CAP theorem — a distributed store can guarantee only two of Consistency, Availability, Partition tolerance at once."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Compute: VM, containers, serverless"
+    },
+    {
+      "type": "paragraph",
+      "text": "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads. Containers package an app with its dependencies for portability and fast scaling, often orchestrated with Kubernetes. Serverless (functions/event-driven) removes server management entirely and scales to zero, ideal for spiky or event-driven workloads but with constraints on runtime and state."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Storage tiers"
+    },
+    {
+      "type": "paragraph",
+      "text": "Block storage behaves like a disk and suits databases and VMs. Object storage is highly durable and cheap for unstructured data (images, backups, logs) accessed via HTTP APIs. File storage provides a shared filesystem for multiple consumers needing POSIX-style access."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "SQL vs NoSQL"
+    },
+    {
+      "type": "paragraph",
+      "text": "SQL databases enforce schemas and ACID transactions — right when consistency and relationships matter (finance, orders). NoSQL stores (document, key-value, column, graph) trade some consistency for horizontal scalability and flexible schemas — right for high-volume, schema-evolving, or loosely structured data."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The CAP theorem"
+    },
+    {
+      "type": "paragraph",
+      "text": "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response). Partition tolerance is mandatory in real networks, so the practical choice is CP (strong consistency, may be unavailable) vs. AP (always available, may serve stale data). An SA picks based on domain: payments favor CP; a cache or feed may favor AP."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "graph TD\n    C[Compute] --> VM[VM: full OS control]\n    C --> CONT[Containers: portable, fast scale]\n    C --> SERV[Serverless: no servers, scale to zero]\n    S[Storage] --> BLK[Block: disk-like]\n    S --> OBJ[Object: blobs via API]\n    S --> FILE[File: shared FS]\n    D[Databases] --> SQL[SQL: ACID, schema]\n    D --> NOSQL[NoSQL: scale, flexible]\n    CAP[CAP] --> CP[CP: consistent, may be down]\n    CAP --> AP[AP: available, may be stale]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Virtual Machine",
+        "b) Serverless",
+        "c) Bare metal",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Block storage",
+        "b) Object storage",
+        "c) RAM",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Schema is unknown and volume is tiny",
+        "b) Consistency and relationships/ACID matter",
+        "c) You never need transactions",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Consistency and Availability",
+        "b) Cost and Performance",
+        "c) SQL and NoSQL",
+        "Answer: a"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Which compute model scales to zero and requires no server management?",
+        "Where are images, backups, and logs best stored economically?",
+        "SQL databases are most appropriate when:",
+        "According to CAP, during a network partition you choose between:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "AWS Compute, Storage, and Database primers: https://aws.amazon.com/products/",
+        "\"Designing Data-Intensive Applications\" — Martin Kleppmann",
+        "CAP theorem (Brewer): https://en.wikipedia.org/wiki/CAP_theorem",
+        "\"Database Internals\" — Alex Petrov"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Virtual Machines",
+      "definition": "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads."
+    },
+    {
+      "term": "Containers",
+      "definition": "Containers package an app with its dependencies for portability and fast scaling, often orchestrated with Kubernetes."
+    },
+    {
+      "term": "Serverless",
+      "definition": "Serverless (functions/event-driven) removes server management entirely and scales to zero, ideal for spiky or event-driven workloads but with constraints on runtime and state."
+    },
+    {
+      "term": "Block storage",
+      "definition": "Block storage behaves like a disk and suits databases and VMs."
+    },
+    {
+      "term": "Object storage",
+      "definition": "Object storage is highly durable and cheap for unstructured data (images, backups, logs) accessed via HTTP APIs."
+    },
+    {
+      "term": "File storage",
+      "definition": "File storage provides a shared filesystem for multiple consumers needing POSIX-style access."
+    },
+    {
+      "term": "SQL",
+      "definition": "SQL databases enforce schemas and ACID transactions — right when consistency and relationships matter (finance, orders)."
+    },
+    {
+      "term": "NoSQL",
+      "definition": "NoSQL stores (document, key-value, column, graph) trade some consistency for horizontal scalability and flexible schemas — right for high-volume, schema-evolving, or loosely structured data."
+    },
+    {
+      "term": "CAP theorem",
+      "definition": "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response)."
+    },
+    {
+      "term": "Consistency",
+      "definition": "SQL databases enforce schemas and ACID transactions — right when consistency and relationships matter (finance, orders)."
+    },
+    {
+      "term": "Availability",
+      "definition": "The CAP theorem states that in a distributed data system, when a network partition occurs you must choose between Consistency (every read sees the latest write) and Availability (every request gets a response)."
+    },
+    {
+      "term": "Partition tolerance",
+      "definition": "Partition tolerance is mandatory in real networks, so the practical choice is CP (strong consistency, may be unavailable) vs."
+    },
+    {
+      "term": "Virtual Machines give you full control of the OS and",
+      "definition": "Virtual Machines give you full control of the OS and are best for legacy or stateful workloads."
+    },
+    {
+      "term": "An SA picks based on domain",
+      "definition": "An SA picks based on domain: payments favor CP; a cache or feed may favor AP."
+    }
+  ]
+}

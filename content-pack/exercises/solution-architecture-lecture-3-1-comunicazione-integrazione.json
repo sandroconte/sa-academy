@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-3-1-comunicazione-integrazione",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are good for commands needing an immediate answer and for simple request/reply.",
+        "options": [
+          "Sidecar",
+          "A mature system uses both",
+          "Cost",
+          "They"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "The _____ pattern deploys a helper process/container next to each service; the service talks to its sidecar locally, and the sidecar handles networking.",
+        "options": [
+          "Sidecar",
+          "BFF",
+          "API Gateway",
+          "Cost"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: operational complexity and an extra network hop per call.",
+        "options": [
+          "API Gateway",
+          "Cost",
+          "service mesh",
+          "A mature system uses both"
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "A _____ is a dedicated backend per frontend that calls the right services, aggregates, and trims payloads for that specific client.",
+        "options": [
+          "Sidecar",
+          "The downside",
+          "BFF",
+          "Cost"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "service mesh",
+          "They",
+          "A mature system uses both",
+          "The downside"
+        ],
+        "pairsRight": [
+          "A mature system uses both: sync for interactive reads/commands, async for workflow and propagation.",
+          "The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls.",
+          "They are good for commands needing an immediate answer and for simple request/reply.",
+          "A service mesh (e."
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is They?",
+        "options": [
+          "A mature system uses both: sync for interactive reads/commands, async for workflow and propagation.",
+          "They are good for commands needing an immediate answer and for simple request/reply.",
+          "The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls.",
+          "Cost: operational complexity and an extra network hop per call."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Sidecar?",
+        "options": [
+          "Cost: operational complexity and an extra network hop per call.",
+          "A BFF is a dedicated backend per frontend that calls the right services, aggregates, and trims payloads for that specific client.",
+          "The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls.",
+          "The Sidecar pattern deploys a helper process/container next to each service; the service talks to its sidecar locally, and the sidecar handles networking."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Cost?",
+        "options": [
+          "The API Gateway sits at the edge and provides routing, protocol translation, authentication/authorization, rate limiting, and response composition.",
+          "Cost: operational complexity and an extra network hop per call.",
+          "A mature system uses both: sync for interactive reads/commands, async for workflow and propagation.",
+          "The downside is availability coupling — if a dependency is slow or down, the caller is blocked, and latency compounds across chained calls."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "A key risk of synchronous request/response integration is:",
+          "A BFF is used to:",
+          "The API Gateway's main responsibility is:",
+          "Asynchronous messaging is preferable when:",
+          "In a service mesh, the \"data plane\" is typically:"
+        ]
+      },
+      "answerKey": [
+        0,
+        2,
+        1,
+        4,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "A service mesh (e."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The API Gateway sits at the edge and provides routing, protocol translation, authentication/authorization, rate limiting, and response composition."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-1-comunicazione-integrazione-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The service mesh pattern deploys a helper process/container next to each service; the service talks to its sidecar locally, and the sidecar handles networking."
+      },
+      "answerKey": false
+    }
+  ]
+}

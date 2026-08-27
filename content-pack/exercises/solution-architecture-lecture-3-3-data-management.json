@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-3-3-data-management",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a _____ for writes that span services.",
+        "options": [
+          "Saga",
+          "each service owns its data and its schema",
+          "CDC",
+          "The golden rule of microservices data management"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept _____: after a write, replicas converge within some (bounded) delay.",
+        "options": [
+          "eventual consistency",
+          "each service owns its data and its schema",
+          "The most common mistake",
+          "Saga"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____: each service owns its data and its schema; other services may not read or write that database directly.",
+        "options": [
+          "The price",
+          "CDC",
+          "Saga",
+          "The golden rule of microservices data management"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is that you can no longer join across services or use a single ACID transaction.",
+        "options": [
+          "The price",
+          "each service owns its data and its schema",
+          "The golden rule of microservices data management",
+          "CDC"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "The golden rule of microservices data management",
+          "CDC",
+          "eventual consistency",
+          "The price"
+        ],
+        "pairsRight": [
+          "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay.",
+          "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly.",
+          "CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed.",
+          "The price is that you can no longer join across services or use a single ACID transaction."
+        ]
+      },
+      "answerKey": [
+        1,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is Saga?",
+        "options": [
+          "The price is that you can no longer join across services or use a single ACID transaction.",
+          "CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed.",
+          "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay.",
+          "You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a Saga for writes that span services."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is eventual consistency?",
+        "options": [
+          "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay.",
+          "The most common mistake is declaring \"microservices\" while they all point at one shared database.",
+          "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly.",
+          "You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a Saga for writes that span services."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The golden rule of microservices data management?",
+        "options": [
+          "Because you cannot use two-phase commit (2PC) across services without sacrificing availability, cross-service operations accept eventual consistency: after a write, replicas converge within some (bounded) delay.",
+          "You must instead fetch-and-assemble in the application (via API/BFF), or maintain read models through events/CDC, or use a Saga for writes that span services.",
+          "CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed.",
+          "The golden rule of microservices data management: each service owns its data and its schema; other services may not read or write that database directly."
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "Change Data Capture typically works by:",
+          "Polyglot persistence allows you to:",
+          "The shared-database anti-pattern is problematic because:",
+          "Cross-service writes should generally use:",
+          "The Database-per-Service rule means:"
+        ]
+      },
+      "answerKey": [
+        4,
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The most common mistake is declaring \"microservices\" while they all point at one shared database."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "CDC is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-3-3-data-management-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "eventual consistency is reliable (it reflects committed transactions), decoupled (producers need no awareness of consumers), and non-intrusive — but it exposes the schema at the log level, so schema evolution must be managed."
+      },
+      "answerKey": false
+    }
+  ]
+}

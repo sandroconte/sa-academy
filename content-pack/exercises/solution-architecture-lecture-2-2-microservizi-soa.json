@@ -1,0 +1,171 @@
+{
+  "docId": "solution-architecture-lecture-2-2-microservizi-soa",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-cloze-0",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is where a specific model and vocabulary hold true.",
+        "options": [
+          "Domain-Driven Design gives us the key tool",
+          "This rule",
+          "aggregates",
+          "A bounded context"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-cloze-1",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is not the technology — it is drawing the boundaries.",
+        "options": [
+          "aggregates",
+          "Sizing aggregates",
+          "The hardest part of microservices",
+          "The aggregate root"
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-cloze-2",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ is the only entry point; invariants are enforced within the aggregate, never across aggregates via distributed transactions.",
+        "options": [
+          "The aggregate root",
+          "This rule",
+          "bounded context",
+          "aggregates"
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-cloze-3",
+      "type": "cloze",
+      "payload": {
+        "prompt": "_____ are a reaction: they keep SOA's service orientation but drop the central bus, favor lightweight protocols (REST, gRPC, messaging), and insist that each service is independently deployable and owns its data.",
+        "options": [
+          "The aggregate root",
+          "A bounded context",
+          "Domain-Driven Design gives us the key tool",
+          "Microservices"
+        ]
+      },
+      "answerKey": 3
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-matching-0",
+      "type": "matching",
+      "payload": {
+        "pairsLeft": [
+          "A bounded context",
+          "Sizing aggregates",
+          "Domain-Driven Design gives us the key tool",
+          "bounded context"
+        ],
+        "pairsRight": [
+          "Domain-Driven Design gives us the key tool: the bounded context.",
+          "Sizing aggregates is a core architectural skill.",
+          "A bounded context is where a specific model and vocabulary hold true.",
+          "Domain-Driven Design gives us the key tool: the bounded context."
+        ]
+      },
+      "answerKey": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-mcq-0",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is A bounded context?",
+        "options": [
+          "A bounded context is where a specific model and vocabulary hold true.",
+          "This rule is what makes services independently deployable — a service can guarantee consistency within its aggregate, and accept eventual consistency across aggregates/services.",
+          "Domain-Driven Design gives us the key tool: the bounded context.",
+          "Inside a bounded context, define aggregates: groups of objects that must be consistent together."
+        ]
+      },
+      "answerKey": 0
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-mcq-1",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The hardest part of microservices?",
+        "options": [
+          "A bounded context is where a specific model and vocabulary hold true.",
+          "The hardest part of microservices is not the technology — it is drawing the boundaries.",
+          "Sizing aggregates is a core architectural skill.",
+          "Microservices are a reaction: they keep SOA's service orientation but drop the central bus, favor lightweight protocols (REST, gRPC, messaging), and insist that each service is independently deployable and owns its data."
+        ]
+      },
+      "answerKey": 1
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-mcq-2",
+      "type": "mcq",
+      "payload": {
+        "prompt": "What is The aggregate root?",
+        "options": [
+          "Domain-Driven Design gives us the key tool: the bounded context.",
+          "This rule is what makes services independently deployable — a service can guarantee consistency within its aggregate, and accept eventual consistency across aggregates/services.",
+          "The aggregate root is the only entry point; invariants are enforced within the aggregate, never across aggregates via distributed transactions.",
+          "The hardest part of microservices is not the technology — it is drawing the boundaries."
+        ]
+      },
+      "answerKey": 2
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-ordering-0",
+      "type": "ordering",
+      "payload": {
+        "items": [
+          "The aggregate root's responsibility is to:",
+          "Why is an Anti-Corruption Layer used between bounded contexts?",
+          "In DDD, a bounded context is:",
+          "What is the main practical difference between classic SOA and microservices?",
+          "Microservices succeed best when:"
+        ]
+      },
+      "answerKey": [
+        3,
+        2,
+        0,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "The hardest part of microservices is not the technology — it is drawing the boundaries."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-truefalse-1",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Sizing aggregates is a core architectural skill."
+      },
+      "answerKey": true
+    },
+    {
+      "id": "solution-architecture-lecture-2-2-microservizi-soa-truefalse-2",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Domain-Driven Design gives us the key tool: the The aggregate root."
+      },
+      "answerKey": false
+    }
+  ]
+}

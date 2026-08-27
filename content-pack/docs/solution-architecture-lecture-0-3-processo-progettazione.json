@@ -1,0 +1,245 @@
+{
+  "id": "solution-architecture-lecture-0-3-processo-progettazione",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "0-3-processo-progettazione",
+  "title": "0.3 — The Design Process",
+  "readingMin": 2,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "0.3 — The Design Process"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 0 · Lesson 0.3 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Walk through the phases of a structured solution design process.",
+        "Distinguish requirements gathering from evaluation and documentation.",
+        "Explain how prototyping and feedback loops reduce risk.",
+        "Connect the design process back to the SA's multiple working roles."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Design Process — a repeatable sequence from understanding the problem to validating the solution.",
+        "Requirements (functional & non-functional) — what the system must do vs. how well it must do it.",
+        "NFR — non-functional requirements: performance, security, scalability, compliance.",
+        "Proof of Concept (POC) — a small build to validate a risky assumption.",
+        "Iterative refinement — revisiting the design as new constraints appear."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "From problem to validated design"
+    },
+    {
+      "type": "paragraph",
+      "text": "A disciplined design process keeps an SA from jumping to a solution before understanding the problem. The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Requirements first"
+    },
+    {
+      "type": "paragraph",
+      "text": "The SA collects functional requirements (features) and non-functional requirements (NFRs: latency, throughput, security, compliance, cost ceiling). As a Business Analyst / Product Owner the SA manages the backlog; as a Technical Leader they ensure NFRs and security governance are explicit rather than assumed."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Explore and evaluate"
+    },
+    {
+      "type": "paragraph",
+      "text": "Options are compared against the Well-Architected pillars. Trade-offs are surfaced and documented. The SA, acting as Technical Consultant, produces cost and effort estimations so the business can choose knowingly."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Design, prototype, review"
+    },
+    {
+      "type": "paragraph",
+      "text": "High-level design (components, boundaries, data flow) is followed by low-level design (interfaces, schemas, sequences). A POC de-risks the hardest assumption — a new technology, a scaling limit, an integration. Feedback loops bring the design back to stakeholders. Finally, the SA governs the design through reviews and keeps documentation alive as the system evolves."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    A[Understand context<br/>& stakeholders] --> B[Gather requirements<br/>functional + NFR]\n    B --> C[Explore & evaluate<br/>options / trade-offs]\n    C --> D[High & low level<br/>design + docs]\n    D --> E[POC / prototype<br/>de-risk]\n    E --> F[Review & iterate]\n    F -->|new constraints| C"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) To replace the final implementation",
+        "b) To de-risk the hardest assumption",
+        "c) To produce user documentation",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Functional requirements",
+        "b) Non-functional requirements (NFRs)",
+        "c) Backlog items",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) The Well-Architected pillars",
+        "b) The marketing plan",
+        "c) The office location",
+        "Answer: a"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) A new constraint discovered during review",
+        "b) The project ending",
+        "c) A completed POC with no issues",
+        "Answer: a"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "What is the primary purpose of a Proof of Concept in the design process?",
+        "Which type of requirement covers latency, security, and compliance?",
+        "In the design process, trade-offs are typically evaluated against what?",
+        "What triggers a return to the \"explore options\" phase?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Nikolai Ashanin — Solution Architect Road Map: https://github.com/NikAshanin/Solution-Architect-Road-Map",
+        "\"Software Architecture in Practice\" — Bass, Clements, Kazman",
+        "\"Design It!\" — Michael Keeling"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Understand the context and stakeholders",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Gather and classify requirements",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Explore and evaluate options",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Produce the design and documentation",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Validate with a POC or prototype",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Review, govern, and iterate",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "The typical flow is",
+      "definition": "The typical flow is: (1) Understand the context and stakeholders, (2) Gather and classify requirements, (3) Explore and evaluate options, (4) Produce the design and documentation, (5) Validate with a POC or prototype, and (6) Review, govern, and iterate."
+    },
+    {
+      "term": "Options",
+      "definition": "Options are compared against the Well-Architected pillars."
+    },
+    {
+      "term": "Trade-offs",
+      "definition": "Trade-offs are surfaced and documented."
+    }
+  ]
+}

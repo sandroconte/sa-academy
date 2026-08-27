@@ -1,0 +1,262 @@
+{
+  "id": "solution-architecture-lecture-4-1-adr",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "4-1-adr",
+  "title": "4.1 — Architecture Decision Records (ADR)",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4.1 — Architecture Decision Records (ADR)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 4 · Lesson 4.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explain what an Architecture Decision Record is and why lightweight documentation of decisions matters.",
+        "Describe the standard ADR structure (context, decision, consequences) and the MADR variant.",
+        "Recognize the right moment in a project lifecycle to write an ADR.",
+        "Author a clear, traceable ADR for a realistic architectural choice.",
+        "Use ADRs to build an institutional memory that survives team changes."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Architecture Decision Record (ADR) — a short, durable document that captures an important architecture decision and its rationale.",
+        "Architecture Decision (AD) — a software design choice that is hard to reverse or has significant structural impact.",
+        "MADR — Markdown Architecture Decision Records, a popular lightweight, template-driven ADR format.",
+        "Context — the forces, constraints, and situation that make a decision necessary.",
+        "Consequences — the resulting context after the decision: benefits, costs, and trade-offs.",
+        "Supersession — replacing an ADR with a new one (status: Superseded) rather than deleting history."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "What is an ADR and why write one?"
+    },
+    {
+      "type": "paragraph",
+      "text": "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision. Architects constantly make choices — which database, which integration style, which framework. Without a record, the \"why\" evaporates when the original authors leave. ADRs make decisions explicit, reviewable, and reversible-by-design. They are cheap to write (a page or two) and live in the same repository as the code, so the knowledge travels with the system."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Standard format"
+    },
+    {
+      "type": "paragraph",
+      "text": "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the Consequences (positive and negative). Options considered are often summarized to show the decision was not arbitrary. Storing ADRs in git gives you a timestamped audit trail and pull-request review."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "MADR style"
+    },
+    {
+      "type": "paragraph",
+      "text": "The MADR (Markdown ADR) template formalizes this with numbered files (0001-use-postgres.md), a decision drivers section, considered options with pros/cons, and an outcome. It encourages consistency across teams and is the de-facto open standard."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "When to write an ADR"
+    },
+    {
+      "type": "paragraph",
+      "text": "Write one whenever a decision is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later. Do not write ADRs for trivial or easily reversible choices. Common triggers: selecting a messaging backbone, choosing eventual vs strong consistency, adopting a new framework, or defining a service boundary."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Example ADR snippet"
+    },
+    {
+      "type": "code",
+      "lang": "markdown",
+      "value": "# 3. Use Kafka for inter-service events\n## Status: Accepted\n## Context: We need async, replayable event distribution across 8 services.\n## Decision: Adopt Apache Kafka as the central event backbone.\n## Consequences: + replayability, + decoupling; - operational complexity, - learning curve."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart LR\n    A[Problem / Force] --> B{Architecturally Significant?}\n    B -- No --> C[Document in code/README]\n    B -- Yes --> D[Write ADR: Context]\n    D --> E[ADR: Decision + Options]\n    E --> F[ADR: Consequences]\n    F --> G[Status: Accepted]\n    G --> H[PR Review + Merge]\n    H --> I[Future: Supersede if needed]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. To replace a detailed design document",
+        "B. To record the rationale and context of significant architecture decisions",
+        "C. To document every line of code",
+        "D. To generate infrastructure automatically",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. Context",
+        "B. Decision",
+        "C. Consequences",
+        "D. Drivers",
+        "Answer: C"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. When choosing a central event backbone",
+        "B. When adopting a new security framework",
+        "C. For a trivial, easily reversible code-level choice",
+        "D. When defining a service boundary",
+        "Answer: C"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. The decision was rejected",
+        "B. The ADR is replaced by a newer decision, preserving history",
+        "C. The ADR is still a draft",
+        "D. The decision is final and eternal",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "What is the primary purpose of an ADR?",
+        "In the standard ADR format, which section explains the trade-offs after the choice is made?",
+        "When should you NOT write an ADR?",
+        "What does \"Superseded\" status mean?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "MADR template — https://adr.github.io/madr/",
+        "Nygard's original ADR article — https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+        "\"Building Evolutionary Architectures\" — Ford, Parsons, Kua (O'Reilly)",
+        "ADR GitHub org — https://github.com/joelparkerhenderson/architecture-decision-record"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Context",
+      "definition": "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the Consequences (positive and negative)."
+    },
+    {
+      "term": "Decision",
+      "definition": "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision."
+    },
+    {
+      "term": "Consequences",
+      "definition": "A minimal ADR contains a title, a status (Proposed, Accepted, Deprecated, Superseded), the Context describing the problem and constraints, the Decision itself, and the Consequences (positive and negative)."
+    },
+    {
+      "term": "Architecture Decision Record",
+      "definition": "An Architecture Decision Record is a single, immutable, version-controlled document that records one consequential decision."
+    },
+    {
+      "term": "They",
+      "definition": "They are cheap to write (a page or two) and live in the same repository as the code, so the knowledge travels with the system."
+    },
+    {
+      "term": "Options considered",
+      "definition": "Options considered are often summarized to show the decision was not arbitrary."
+    },
+    {
+      "term": "It encourages consistency across teams and",
+      "definition": "It encourages consistency across teams and is the de-facto open standard."
+    },
+    {
+      "term": "Write one whenever a decision",
+      "definition": "Write one whenever a decision is architecturally significant: it affects structure, cross-team contracts, security, or cost, and is costly to change later."
+    },
+    {
+      "term": "Common triggers",
+      "definition": "Common triggers: selecting a messaging backbone, choosing eventual vs strong consistency, adopting a new framework, or defining a service boundary."
+    }
+  ]
+}

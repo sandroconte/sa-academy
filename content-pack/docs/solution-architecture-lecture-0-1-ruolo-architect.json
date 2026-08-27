@@ -1,0 +1,260 @@
+{
+  "id": "solution-architecture-lecture-0-1-ruolo-architect",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "0-1-ruolo-architect",
+  "title": "0.1 — The Solution Architect Role & Mindset",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "0.1 — The Solution Architect Role & Mindset"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 0 · Lesson 0.1 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Describe the multi-faceted working roles an SA operates across (consultant, leader, analyst, developer, PM).",
+        "Identify the core personal skills an SA must cultivate to be effective.",
+        "Explain the SA mindset as a balance of business and technical concerns.",
+        "Articulate how an SA acts as a translator between stakeholders and owns the \"why\" and \"how\"."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Solution Architect (SA) — the person accountable for the technical vision, design, and alignment of a solution with business goals.",
+        "Technical Consultant — pre-sales, architecture assessments, cost/effort estimation, incident triage, stakeholder management.",
+        "Technical Leader — high/low-level design, documentation, testing support, mentoring, technology selection, NFR/security governance.",
+        "Business Analyst / Product Owner — market & product knowledge, backlog and roadmap management.",
+        "Mindset — a balanced, translation-oriented posture that couples business value with technical feasibility."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "A role without a single title"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Solution Architect does not fit neatly into one job description. In practice, an SA fluidly occupies several working roles. As a Technical Consultant, they manage stakeholders, support pre-sale activities, perform architecture assessments, produce cost and effort estimations, and help triage incidents. As a Technical Leader, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security. As a Business Analyst / Product Owner, they develop market and product knowledge, manage the backlog, and shape the roadmap. As a Developer, they build proof-of-concepts and perform code review. As a Project Manager, they support planning, manage dependencies, and track license costs."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The personal skill set"
+    },
+    {
+      "type": "paragraph",
+      "text": "Beyond technical depth, an SA relies on a broad personal skill set. Presentation skills (public speaking, white-boarding) let them communicate a vision. Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment. Time management keeps competing priorities under control. The Mind must operate abstractly while switching between tactical and strategic thinking, making decisions under uncertainty with stress resistance. Self-development — continuous education, discipline, a growth plan, and the ability to learn quickly — keeps the SA current. Relation management requires empathy and emotional intelligence. Finally, hands-on Programming (quick POCs, strong in the relevant stack) and strong Analysis & Design skills (design patterns, analytics) ground the role in reality."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "The SA mindset"
+    },
+    {
+      "type": "paragraph",
+      "text": "The defining trait of an SA is mindset. They balance business and technical concerns, refusing to optimize one at the total expense of the other. They act as a translator between business stakeholders and engineering teams, converting strategy into implementable design and converting technical constraints into business trade-offs. Crucially, the SA owns both the \"why\" (the reasoning and business justification) and the \"how\" (the architecture and approach) of a solution."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "graph TD\n    SA[Solution Architect]\n    SA --> TC[Technical Consultant<br/>pre-sale, assessment, estimation, triage]\n    SA --> TL[Technical Leader<br/>design, docs, mentoring, NFR/security]\n    SA --> BA[Business Analyst / PO<br/>backlog, roadmap, market]\n    SA --> DEV[Developer<br/>POC, code review]\n    SA --> PM[Project Manager<br/>planning, dependencies, license cost]\n    SA -->|Mindset| M[BALANCE business + technical<br/>TRANSLATE stakeholders<br/>OWN why + how]"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Technical Leader",
+        "b) Business Analyst / Product Owner",
+        "c) Chief Financial Officer",
+        "Answer: c"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Only the \"how\" of a solution",
+        "b) Only the budget",
+        "c) Both the \"why\" and the \"how\" of a solution",
+        "Answer: c"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Presentation",
+        "b) Relation management",
+        "c) Self-development",
+        "Answer: a"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "a) Writing application business logic only",
+        "b) Architecture assessments and cost estimation",
+        "c) Managing the company payroll",
+        "Answer: b"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "Which of the following is NOT typically a working role an SA occupies?",
+        "What does an SA \"own\" according to the SA mindset?",
+        "Which personal skill helps an SA communicate vision through public speaking and white-boarding?",
+        "As a Technical Consultant, an SA is likely to perform which activity?"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Nikolai Ashanin — Solution Architect Road Map (GitHub): https://github.com/NikAshanin/Solution-Architect-Road-Map",
+        "\"Fundamentals of Software Architecture\" — Mark Richards & Neal Ford",
+        "\"Software Architecture: The Hard Parts\" — Neal Ford et al."
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": "Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment."
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "Technical Consultant",
+      "definition": "As a Technical Consultant, they manage stakeholders, support pre-sale activities, perform architecture assessments, produce cost and effort estimations, and help triage incidents."
+    },
+    {
+      "term": "Technical Leader",
+      "definition": "As a Technical Leader, they own high- and low-level technical design, write architecture documentation, support testing, mentor engineers, select technologies, and govern non-functional requirements (NFRs) and security."
+    },
+    {
+      "term": "Business Analyst / Product Owner",
+      "definition": "As a Business Analyst / Product Owner, they develop market and product knowledge, manage the backlog, and shape the roadmap."
+    },
+    {
+      "term": "Developer",
+      "definition": "As a Developer, they build proof-of-concepts and perform code review."
+    },
+    {
+      "term": "Project Manager",
+      "definition": "As a Project Manager, they support planning, manage dependencies, and track license costs."
+    },
+    {
+      "term": "Presentation",
+      "definition": "Presentation skills (public speaking, white-boarding) let them communicate a vision."
+    },
+    {
+      "term": "Communication",
+      "definition": "Communication — stakeholder management, clear explanation, negotiation, conflict management, networking — keeps alignment."
+    },
+    {
+      "term": "Time management",
+      "definition": "Time management keeps competing priorities under control."
+    },
+    {
+      "term": "Mind",
+      "definition": "The Mind must operate abstractly while switching between tactical and strategic thinking, making decisions under uncertainty with stress resistance."
+    },
+    {
+      "term": "Self-development",
+      "definition": "Self-development — continuous education, discipline, a growth plan, and the ability to learn quickly — keeps the SA current."
+    },
+    {
+      "term": "Relation management",
+      "definition": "Relation management requires empathy and emotional intelligence."
+    },
+    {
+      "term": "Programming",
+      "definition": "Finally, hands-on Programming (quick POCs, strong in the relevant stack) and strong Analysis & Design skills (design patterns, analytics) ground the role in reality."
+    },
+    {
+      "term": "Analysis & Design",
+      "definition": "Finally, hands-on Programming (quick POCs, strong in the relevant stack) and strong Analysis & Design skills (design patterns, analytics) ground the role in reality."
+    },
+    {
+      "term": "\"why\"",
+      "definition": null
+    },
+    {
+      "term": "\"how\"",
+      "definition": null
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "docId": "solution-architecture-lecture-7-2-behavioral-mock",
+  "items": [
+    {
+      "id": "solution-architecture-lecture-7-2-behavioral-mock-truefalse-0",
+      "type": "truefalse",
+      "payload": {
+        "statement": "Prompt: \"Tell me about a time you had to say no to a stakeholder.\""
+      },
+      "answerKey": true
+    }
+  ]
+}

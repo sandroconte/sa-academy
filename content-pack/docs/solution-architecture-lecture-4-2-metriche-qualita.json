@@ -1,0 +1,242 @@
+{
+  "id": "solution-architecture-lecture-4-2-metriche-qualita",
+  "subjectId": "solution-architecture",
+  "kind": "lecture",
+  "category": "lectures",
+  "slug": "4-2-metriche-qualita",
+  "title": "4.2 — Architecture Quality Metrics (Coupling, DORA)",
+  "readingMin": 3,
+  "blocks": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "4.2 — Architecture Quality Metrics (Coupling, DORA)"
+    },
+    {
+      "type": "blockquote",
+      "text": "Module 4 · Lesson 4.2 — Solution Architect Academy"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Learning Objectives"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Define coupling and cohesion and explain why they predict maintainability.",
+        "Compute afferent/efferent coupling and instability (I = Ce / (Ca + Ce)).",
+        "Interpret cyclomatic complexity as a risk indicator for modules.",
+        "Describe the four DORA metrics and their elite/low performer bands.",
+        "Explain how fitness functions make quality measurable and continuous."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Key Concepts"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Afferent coupling (Ca) — number of external components that depend on a given component.",
+        "Efferent coupling (Ce) — number of external components a given component depends on.",
+        "Instability (I) — I = Ce / (Ca + Ce); ranges 0 (maximally stable) to 1 (maximally unstable).",
+        "Cohesion — degree to which elements within a module belong together.",
+        "Cyclomatic complexity — count of independent paths through code; higher means harder to test.",
+        "DORA metrics — Deployment Frequency, Lead Time for Changes, Change Failure Rate, MTTR.",
+        "Fitness function — an objective test that guards an architectural quality."
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Explanation"
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Structural metrics: coupling and cohesion"
+    },
+    {
+      "type": "paragraph",
+      "text": "Coupling measures inter-dependencies. A module with high Ca is a \"hub\" — changing it risks many consumers, so it should be stable (low Ce). Instability I = Ce/(Ca+Ce) lets you balance the two: stable components (I near 0) should not depend on volatile ones. Cohesion is the counterpart: a highly cohesive module does one thing well, which lowers cognitive load and coupling. Low cohesion + high coupling is the classic recipe for a \"big ball of mud.\""
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Cyclomatic complexity"
+    },
+    {
+      "type": "paragraph",
+      "text": "Defined as M = E − N + 2P (edges − nodes + 2×connected components) on a control-flow graph. Practically, it equals decision points + 1. A method with complexity > 10 is a testing/risk hotspot; > 20 is a strong refactor candidate. Aggregated per service, it signals where defects concentrate."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "DORA metrics"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Accelerate / DORA research correlates four delivery metrics with organizational performance:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Deployment Frequency — how often you ship to production (elite: on-demand, multiple/day).",
+        "Lead Time for Changes — commit to production (elite: < 1 day).",
+        "Change Failure Rate — % of deployments causing failure (elite: 0–15%).",
+        "MTTR — time to restore service (elite: < 1 hour)."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "These quantify the \"time to value\" and \"stability\" trade-off better than vanity metrics like lines of code."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Fitness functions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Coined in \"Building Evolutionary Architectures,\" a fitness function is an automated check (test, static analysis, policy gate) that verifies a quality attribute continuously. Example: a test asserting that no service imports another service's internal package (coupling guard), or a pipeline step rejecting deploys that raise p99 latency."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Example / Diagram"
+    },
+    {
+      "type": "code",
+      "lang": "mermaid",
+      "value": "flowchart TD\n    subgraph Static[\"Structural Metrics\"]\n      A[Module X] -->|Ce dependenze| B[External libs]\n      C[Other modules] -->|Ca dipendono| A\n      I[\"I = Ce/(Ca+Ce)\"]\n    end\n    subgraph DORA[\"DORA Delivery Metrics\"]\n      DF[Deployment Frequency]\n      LT[Lead Time for Changes]\n      CF[Change Failure Rate]\n      M[MTTR]\n    end\n    FF[Fitness Function] -->|guards| A\n    FF -->|gates in CI/CD| DF"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Quiz"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. 0.25",
+        "B. 0.75",
+        "C. 0.33",
+        "D. 1.0",
+        "Answer: B (6 / (2+6) = 0.75)"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. Lead Time for Changes",
+        "B. Deployment Frequency",
+        "C. MTTR",
+        "D. Change Failure Rate",
+        "Answer: C"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. A unit test for business logic only",
+        "B. An automated guard that verifies an architectural quality",
+        "C. A diagram of the system",
+        "D. A deployment script",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "list",
+      "items": [
+        "A. A poorly designed system",
+        "B. A maintainable, well-structured module",
+        "C. High cyclomatic complexity",
+        "D. High instability",
+        "Answer: B"
+      ]
+    },
+    {
+      "type": "ordered-list",
+      "items": [
+        "If a component has Ca = 2 and Ce = 6, its instability I is:",
+        "Which DORA metric measures time to recover from a failure?",
+        "A fitness function is best described as:",
+        "High cohesion combined with low coupling generally indicates:"
+      ]
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Resources"
+    },
+    {
+      "type": "list",
+      "items": [
+        "\"Building Evolutionary Architectures\" — Ford, Parsons, Kua (O'Reilly)",
+        "DORA research / Accelerate — https://dora.dev/guides/",
+        "\"Clean Architecture\" — Robert C. Martin",
+        "SonarQube complexity & coupling docs — https://docs.sonarqube.org/"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "title": "Learning Objectives"
+    },
+    {
+      "title": "Key Concepts"
+    },
+    {
+      "title": "Explanation"
+    },
+    {
+      "title": "Example / Diagram"
+    },
+    {
+      "title": "Quiz"
+    },
+    {
+      "title": "Resources"
+    }
+  ],
+  "terms": [
+    {
+      "term": "Learning Objectives",
+      "definition": null
+    },
+    {
+      "term": "Key Concepts",
+      "definition": null
+    },
+    {
+      "term": "Explanation",
+      "definition": null
+    },
+    {
+      "term": "Example / Diagram",
+      "definition": null
+    },
+    {
+      "term": "Quiz",
+      "definition": null
+    },
+    {
+      "term": "Resources",
+      "definition": null
+    },
+    {
+      "term": "A module with high Ca",
+      "definition": "A module with high Ca is a \"hub\" — changing it risks many consumers, so it should be stable (low Ce)."
+    },
+    {
+      "term": "Cohesion",
+      "definition": "Cohesion is the counterpart: a highly cohesive module does one thing well, which lowers cognitive load and coupling."
+    },
+    {
+      "term": "Example",
+      "definition": "Example: a test asserting that no service imports another service's internal package (coupling guard), or a pipeline step rejecting deploys that raise p99 latency."
+    }
+  ]
+}
