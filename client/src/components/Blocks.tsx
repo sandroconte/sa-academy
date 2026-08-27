@@ -72,19 +72,32 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
     textStyle: StyleProp<TextStyle>;
     text: string;
     selectHandler?: (e: NativeSyntheticEvent<{ selection: { start: number; end: number } }>) => void;
-  }) => (
-    <TextInput
-      editable={false}
-      multiline
-      scrollEnabled={false}
-      underlineColorAndroid="transparent"
-      style={[textStyle, s.inputBase]}
-      onSelectionChange={selectHandler}
-      {...webAttr}
-    >
-      {segments(text)}
-    </TextInput>
-  );
+  }) => {
+    // Web: render a real <Text> (a DOM <span>) so the reader's document-level
+    // `selectionchange` listener can capture the selection (a textarea's
+    // internal selection is NOT exposed to window.getSelection()).
+    // Native: read-only TextInput, the only RN 0.86 component reporting
+    // selection via onSelectionChange.
+    if (isWeb) {
+      return (
+        <Text style={textStyle} selectable {...webAttr}>
+          {segments(text)}
+        </Text>
+      );
+    }
+    return (
+      <TextInput
+        editable={false}
+        multiline
+        scrollEnabled={false}
+        underlineColorAndroid="transparent"
+        style={[textStyle, s.inputBase]}
+        onSelectionChange={selectHandler}
+      >
+        {segments(text)}
+      </TextInput>
+    );
+  };
 
   switch (block.type) {
     case "heading":
