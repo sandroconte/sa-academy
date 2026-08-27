@@ -19,6 +19,12 @@ CREATE INDEX IF NOT EXISTS exercises_doc ON exercises(doc_id);
 CREATE TABLE IF NOT EXISTS progress(
   doc_id TEXT PRIMARY KEY, status TEXT NOT NULL DEFAULT 'unread',
   percent REAL NOT NULL DEFAULT 0, last_read_at INTEGER, read_marked_at INTEGER);
+CREATE TABLE IF NOT EXISTS notes(
+  id TEXT PRIMARY KEY, doc_id TEXT NOT NULL, block_index INTEGER NOT NULL,
+  section_title TEXT NOT NULL, quote TEXT NOT NULL, start INTEGER NOT NULL, end INTEGER NOT NULL,
+  created_at INTEGER NOT NULL, updated_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS notes_doc ON notes(doc_id);
+CREATE INDEX IF NOT EXISTS notes_doc_block ON notes(doc_id, block_index);
 CREATE TABLE IF NOT EXISTS attempts(
   id INTEGER PRIMARY KEY AUTOINCREMENT, exercise_id TEXT NOT NULL, doc_id TEXT NOT NULL,
   correct INTEGER NOT NULL, answered_at INTEGER NOT NULL);
