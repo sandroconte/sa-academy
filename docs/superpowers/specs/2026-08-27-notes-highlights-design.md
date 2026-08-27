@@ -137,8 +137,10 @@ The reader passes `notesByBlock: Map<number, Note[]>` into `BlockView`.
   - section title (small, muted label),
   - the quote (1–2 lines, truncated with ellipsis).
 - Tap a row → `router.push({ pathname: "/doc/[id]", params: { anchor: String(blockIndex) } })`.
-- Delete: swipe-to-delete where supported, plus a trailing 🗑 button (with confirm) for
-  Android/web.
+- Delete: **swipe-to-delete** using `Swipeable` from `react-native-gesture-handler` (already
+  available via Expo; will be added explicitly to `package.json`). Swiping a row reveals a red
+  **Delete** action. On **web**, `Swipeable` is unsupported, so each row also shows a trailing
+  **🗑** button (with confirm). Both paths call `deleteNote`.
 - When opened from the reader header (`/notes?docId=ID`), the list is pre-filtered to that doc
   with a "Show all" toggle to return to the global view.
 
