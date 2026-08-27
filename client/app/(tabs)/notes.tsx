@@ -27,18 +27,22 @@ export default function NotesScreen() {
 
   const renderItem = ({ item }: { item: NoteRow }) => {
     const inner = (
-      <Pressable style={s.row} onPress={() => open(item)}>
-        <Text style={s.docTitle}>{item.docTitle}</Text>
-        {item.sectionTitle ? <Text style={s.section}>{item.sectionTitle}</Text> : null}
-        <Text style={s.quote} numberOfLines={2}>
-          {item.quote}
-        </Text>
+      <View style={s.row}>
+        <Pressable style={{ flex: 1 }} onPress={() => open(item)}>
+          <Text style={s.docTitle} numberOfLines={1} ellipsizeMode="tail">
+            {item.docTitle}
+          </Text>
+          {item.sectionTitle ? <Text style={s.section}>{item.sectionTitle}</Text> : null}
+          <Text style={s.quote} numberOfLines={2}>
+            {item.quote}
+          </Text>
+        </Pressable>
         {Platform.OS === "web" ? (
           <Pressable style={s.delBtn} onPress={() => deleteNote(item.id).then(load)}>
             <Text style={s.delTxt}>🗑</Text>
           </Pressable>
         ) : null}
-      </Pressable>
+      </View>
     );
 
     if (Platform.OS === "web") return inner;
@@ -74,7 +78,7 @@ export default function NotesScreen() {
 }
 
 const s = StyleSheet.create({
-  row: { backgroundColor: "#11131a", borderRadius: 10, padding: 14, borderWidth: 1, borderColor: "#8883" },
+  row: { position: "relative", backgroundColor: "#11131a", borderRadius: 10, padding: 14, borderWidth: 1, borderColor: "#8883" },
   docTitle: { color: "#8ab4f8", fontSize: 13, marginBottom: 2 },
   section: { color: "#888", fontSize: 12, marginBottom: 4 },
   quote: { color: "#e6e6e6", fontSize: 15, lineHeight: 22 },
