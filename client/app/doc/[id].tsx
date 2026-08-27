@@ -55,12 +55,12 @@ export default function DocScreen() {
   );
 
   // native selection (read-only TextInput onSelectionChange in BlockView)
-  const handleSelect = useCallback((blockIndex: number, quote: string, _start: number, _end: number) => {
+  const handleSelect = useCallback((blockIndex: number, quote: string, start: number, end: number) => {
     if (!quote) {
       setSelection(null);
       return;
     }
-    setSelection({ blockIndex, quote, start: _start, end: _end });
+    setSelection({ blockIndex, quote, start, end });
   }, []);
 
   // web selection (document selectionchange → map via data-blockindex)
@@ -126,7 +126,9 @@ export default function DocScreen() {
     setNotesByBlock((prev) => {
       const next = new Map(prev);
       const arr = next.get(selection.blockIndex) ?? [];
-      next.set(selection.blockIndex, [...arr, note]);
+      if (!arr.some((n) => n.id === note.id)) {
+        next.set(selection.blockIndex, [...arr, note]);
+      }
       return next;
     });
     setSelection(null);
