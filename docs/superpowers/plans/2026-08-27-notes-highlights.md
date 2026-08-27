@@ -189,7 +189,8 @@ export interface TextSegment {
  */
 export function deriveSectionTitle(blocks: Block[], blockIndex: number): string {
   let current = "";
-  for (let i = 0; i <= blockIndex && i < blocks.length; i++) {
+  // exclusive of blockIndex: a note ON a heading has no preceding section yet
+  for (let i = 0; i < blockIndex && i < blocks.length; i++) {
     const b = blocks[i];
     if (b.type === "heading") current = b.text ?? "";
   }
@@ -214,15 +215,20 @@ export function segmentsForHighlights(text: string, notes: HighlightRange[]): Te
     .filter((r): r is { start: number; end: number } => r !== null)
     .sort((a, b) => a.start - b.start);
 
-  const clipped: { start: number; end: number }[] = [];
+  // merge overlapping/adjacent ranges into a single highlighted span
+  const merged: { start: number; end: number }[] = [];
   for (const r of ranges) {
-    const start = Math.max(r.start, clipped.length ? clipped[clipped.length - 1].end : 0);
-    if (start < r.end) clipped.push({ start, end: r.end });
+    const last = merged[merged.length - 1];
+    if (last && r.start <= last.end) {
+      last.end = Math.max(last.end, r.end);
+    } else {
+      merged.push({ start: r.start, end: r.end });
+    }
   }
 
   const segments: TextSegment[] = [];
   let pos = 0;
-  for (const r of clipped) {
+  for (const r of merged) {
     if (r.start > pos) segments.push({ text: text.slice(pos, r.start), highlighted: false });
     segments.push({ text: text.slice(r.start, r.end), highlighted: true });
     pos = r.end;
