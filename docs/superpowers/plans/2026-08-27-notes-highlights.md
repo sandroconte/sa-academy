@@ -4,7 +4,7 @@
 
 **Goal:** Let users select text in any reader, save it as a highlighted note (the quote only), see highlights inline, and browse/delete notes from a global Notes tab + a per-doc header button, with tap-to-jump back to the source section.
 
-**Architecture:** A new `notes` SQLite table (doc_id, block_index, quote + offsets + section title) backs the feature. Pure helpers (section derivation, highlight segmentation, grouping) live in `src/lib/highlights.ts` so they are unit-testable in Node. The reader (`app/doc/[id].tsx`) captures selection: native uses per-`Text` `onSelectionChange`; web uses a `selectionchange` listener mapped via `data-blockindex`. `BlockView` renders highlights and forwards selection. A new `app/(tabs)/notes.tsx` lists notes with swipe-to-delete (native) / button (web).
+**Architecture:** A new `notes` SQLite table (doc_id, block_index, quote + offsets + section title) backs the feature. Pure helpers (section derivation, highlight segmentation, grouping) live in `src/lib/highlights.ts` so they are unit-testable in Node. The reader (`app/doc/[id].tsx`) captures selection: native blocks render as a read-only `TextInput` whose `onSelectionChange` reports the selected quote + offsets (the plain `<Text>` component has no `onSelectionChange` in RN 0.86); web uses a `selectionchange` listener mapped via `data-blockindex`. `BlockView` renders highlights inside the `TextInput` (nested `<Text>`) and forwards selection. A new `app/(tabs)/notes.tsx` lists notes with swipe-to-delete (native) / button (web).
 
 **Tech Stack:** Expo SDK 57, React Native, `expo-sqlite` (async API), `expo-router`, `react-native-gesture-handler` (v3.2.1, already in node_modules) for `Swipeable`, vitest (node env) for unit tests of pure logic.
 
@@ -395,8 +395,8 @@ git commit -m "feat(client): add notes data layer (add/list/delete/by-block)"
 
 ```tsx
 import React, { type ReactNode } from "react";
-import { View, Text, Image, StyleSheet, Platform } from "react-native";
-import type { NativeSyntheticEvent } from "react-native";
+import { View, Text, TextInput, Image, StyleSheet, Platform } from "react-native";
+import type { NativeSyntheticEvent, StyleProp, TextStyle } from "react-native";
 import type { Block, Note } from "../lib/types";
 import { resolveImageUrl } from "../lib/images";
 import { segmentsForHighlights, type HighlightRange } from "../lib/highlights";
@@ -411,12 +411,11 @@ interface BlockViewProps {
 
 export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockViewProps) {
   const isWeb = Platform.OS === "web";
-  const selectable = !isWeb && !!onSelect && blockIndex !== undefined;
 
   // web: tag the DOM node so the reader's selectionchange listener can map back to a block
   const webAttr =
     isWeb && blockIndex !== undefined
-      ? // react-native-web forwards data-* to the underlying span
+      ? // react-native-web forwards data-* to the underlying textarea
         ({ "data-blockindex": String(blockIndex) } as Record<string, string>)
       : {};
 
@@ -430,6 +429,9 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
       else onSelect(blockIndex, "", -1, -1); // collapsed → clear
     };
 
+  // Renders the block text with highlight spans. RN TextInput accepts nested
+  // <Text> children (it wraps them in <Text>), so per-span highlight
+  // backgrounds work while still allowing native text selection.
   const segments = (text: string): ReactNode => {
     if (!text) return null;
     if (!notes || notes.length === 0) return text;
@@ -448,39 +450,55 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
     );
   };
 
+  // Read-only multiline TextInput: gives us BOTH inline highlight rendering
+  // (nested Text) AND native selection capture (onSelectionChange), which the
+  // plain <Text> component does not support in RN 0.86.
+  const Selectable = ({
+    textStyle,
+    text,
+    selectHandler,
+  }: {
+    textStyle: StyleProp<TextStyle>;
+    text: string;
+    selectHandler?: (e: NativeSyntheticEvent<{ selection: { start: number; end: number } }>) => void;
+  }) => (
+    <TextInput
+      editable={false}
+      multiline
+      scrollEnabled={false}
+      underlineColorAndroid="transparent"
+      style={[textStyle, s.inputBase]}
+      onSelectionChange={selectHandler}
+      {...webAttr}
+    >
+      {segments(text)}
+    </TextInput>
+  );
+
   switch (block.type) {
     case "heading":
       return (
-        <Text
-          style={block.level === 1 ? s.h1 : block.level === 2 ? s.h2 : s.h3}
-          selectable={selectable}
-          onSelectionChange={makeSelect(block.text)}
-          {...webAttr}
-        >
-          {segments(block.text ?? "")}
-        </Text>
+        <Selectable
+          textStyle={block.level === 1 ? s.h1 : block.level === 2 ? s.h2 : s.h3}
+          text={block.text ?? ""}
+          selectHandler={isWeb ? undefined : makeSelect(block.text)}
+        />
       );
     case "paragraph":
       return (
-        <Text style={s.p} selectable={selectable} onSelectionChange={makeSelect(block.text)} {...webAttr}>
-          {segments(block.text ?? "")}
-        </Text>
+        <Selectable textStyle={s.p} text={block.text ?? ""} selectHandler={isWeb ? undefined : makeSelect(block.text)} />
       );
     case "blockquote":
       return (
         <View style={s.quote}>
-          <Text style={s.p} selectable={selectable} onSelectionChange={makeSelect(block.text)} {...webAttr}>
-            {segments(block.text ?? "")}
-          </Text>
+          <Selectable textStyle={s.p} text={block.text ?? ""} selectHandler={isWeb ? undefined : makeSelect(block.text)} />
         </View>
       );
     case "list":
       return (
         <>
           {block.items?.map((it, i) => (
-            <Text key={i} style={s.li} selectable={selectable} onSelectionChange={makeSelect(it)} {...webAttr}>
-              {segments(it)}
-            </Text>
+            <Selectable key={i} textStyle={s.li} text={it} selectHandler={isWeb ? undefined : makeSelect(it)} />
           ))}
         </>
       );
@@ -488,9 +506,7 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
       return (
         <>
           {block.items?.map((it, i) => (
-            <Text key={i} style={s.li} selectable={selectable} onSelectionChange={makeSelect(it)} {...webAttr}>
-              {segments(`${i + 1}.  ${it}`)}
-            </Text>
+            <Selectable key={i} textStyle={s.li} text={`${i + 1}.  ${it}`} selectHandler={isWeb ? undefined : makeSelect(it)} />
           ))}
         </>
       );
@@ -498,9 +514,7 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
       return (
         <View style={s.code}>
           <Text style={s.codeLang}>{block.lang}</Text>
-          <Text style={s.codeText} selectable={selectable} onSelectionChange={makeSelect(block.value)} {...webAttr}>
-            {segments(block.value ?? "")}
-          </Text>
+          <Selectable textStyle={s.codeText} text={block.value ?? ""} selectHandler={isWeb ? undefined : makeSelect(block.value)} />
         </View>
       );
     case "image":
@@ -540,13 +554,14 @@ const s = StyleSheet.create({
   th: { backgroundColor: "#8881" },
   td: { color: "#d6d6d6", flex: 1, padding: 8, fontSize: 14 },
   hl: { backgroundColor: "#3b82f655", borderRadius: 3 },
+  inputBase: { padding: 0, borderWidth: 0, backgroundColor: "transparent" },
 });
 ```
 
 - [ ] **Step 2: Typecheck and commit**
 
 Run: `cd client && npx tsc --noEmit`
-Expected: no new errors (the `webAttr` spread is typed `Record<string,string>` which RN accepts on `Text`).
+Expected: no new errors (the `webAttr` spread is typed `Record<string,string>` which RN accepts on `TextInput`).
 
 ```bash
 git add client/src/components/Blocks.tsx
@@ -620,7 +635,7 @@ export default function DocScreen() {
     [id],
   );
 
-  // native selection (per-Text onSelectionChange)
+  // native selection (read-only TextInput onSelectionChange in BlockView)
   const handleSelect = useCallback((blockIndex: number, quote: string, _start: number, _end: number) => {
     if (!quote) {
       setSelection(null);
