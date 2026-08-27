@@ -111,7 +111,7 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
       return (
         <>
           {block.items?.map((it, i) => (
-            <Selectable key={i} textStyle={s.li} text={`${i + 1}.  ${it}`} selectHandler={isWeb ? undefined : makeSelect(it)} />
+            <Selectable key={i} textStyle={s.li} text={`${i + 1}.  ${it}`} selectHandler={isWeb ? undefined : makeSelect(`${i + 1}.  ${it}`)} />
           ))}
         </>
       );
