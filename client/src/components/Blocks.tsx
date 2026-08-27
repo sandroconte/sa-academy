@@ -29,9 +29,15 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
       if (!onSelect || blockIndex === undefined) return;
       const t = text ?? "";
       const { start, end } = e.nativeEvent.selection;
-      // native selection: report quote + offsets; collapse → clear
-      if (end > start) onSelect(blockIndex, t.slice(start, end), start, end);
-      else onSelect(blockIndex, "", -1, -1);
+      // native selection: report quote + offsets; collapse (no range) → clear.
+      // Handle both selection directions (RN may report start > end).
+      if (end !== start) {
+        const lo = Math.min(start, end);
+        const hi = Math.max(start, end);
+        onSelect(blockIndex, t.slice(lo, hi), lo, hi);
+      } else {
+        onSelect(blockIndex, "", -1, -1);
+      }
     };
 
   // Renders the block text with highlight spans. RN TextInput accepts nested
