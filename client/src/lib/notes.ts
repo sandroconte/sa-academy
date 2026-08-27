@@ -32,7 +32,10 @@ function rowToNote(r: NoteRow): Note {
   };
 }
 
-/** Insert a note, or return the existing one if (doc, block, quote) already exists. */
+/**
+ * Insert a note, or return the existing one if an identical (doc, block, quote)
+ * already exists. Dedupe is enforced at the app level (single-user local DB).
+ */
 export async function addNote(input: {
   docId: string;
   blockIndex: number;
@@ -42,14 +45,11 @@ export async function addNote(input: {
   end: number;
 }): Promise<Note> {
   const db = await getDb();
-  const existing = await db.getFirstAsync<{ id: string }>(
-    "SELECT id FROM notes WHERE doc_id=? AND block_index=? AND quote=?",
+  const existing = await db.getFirstAsync<NoteRow>(
+    "SELECT * FROM notes WHERE doc_id=? AND block_index=? AND quote=?",
     [input.docId, input.blockIndex, input.quote],
   );
-  if (existing) {
-    const row = await db.getFirstAsync<NoteRow>("SELECT * FROM notes WHERE id=?", [existing.id]);
-    return rowToNote(row!);
-  }
+  if (existing) return rowToNote(existing);
   const id = newId();
   const now = Date.now();
   await db.runAsync(
