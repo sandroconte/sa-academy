@@ -42,6 +42,10 @@ export default function TabLayout() {
         name="practice"
         options={{ title: "Practice", headerRight: HeaderSearch, tabBarIcon: (p) => <TabIcon name="barbell" color={p.color} /> }}
       />
+      <Tabs.Screen
+        name="notes"
+        options={{ title: "Notes", headerRight: HeaderSearch, tabBarIcon: (p) => <TabIcon name="bookmark" color={p.color} /> }}
+      />
     </Tabs>
   );
 }
