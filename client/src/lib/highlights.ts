@@ -27,7 +27,7 @@ export function deriveSectionTitle(blocks: Block[], blockIndex: number): string 
 /**
  * Split `text` into segments, marking the ranges covered by any note as
  * highlighted. Uses stored offsets when they match `quote`; otherwise falls
- * back to `indexOf(quote)`; clips overlaps. Pure + deterministic.
+ * back to `indexOf(quote)`; merges overlapping ranges. Pure + deterministic.
  */
 export function segmentsForHighlights(text: string, notes: HighlightRange[]): TextSegment[] {
   const ranges = notes
@@ -42,19 +42,19 @@ export function segmentsForHighlights(text: string, notes: HighlightRange[]): Te
     .filter((r): r is { start: number; end: number } => r !== null)
     .sort((a, b) => a.start - b.start);
 
-  const clipped: { start: number; end: number }[] = [];
+  const merged: { start: number; end: number }[] = [];
   for (const r of ranges) {
-    const last = clipped[clipped.length - 1];
+    const last = merged[merged.length - 1];
     if (last && r.start <= last.end) {
       last.end = Math.max(last.end, r.end);
     } else {
-      clipped.push({ start: r.start, end: r.end });
+      merged.push({ start: r.start, end: r.end });
     }
   }
 
   const segments: TextSegment[] = [];
   let pos = 0;
-  for (const r of clipped) {
+  for (const r of merged) {
     if (r.start > pos) segments.push({ text: text.slice(pos, r.start), highlighted: false });
     segments.push({ text: text.slice(r.start, r.end), highlighted: true });
     pos = r.end;

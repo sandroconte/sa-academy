@@ -30,7 +30,7 @@ describe("segmentsForHighlights", () => {
       { text: "fghij", highlighted: false },
     ]);
   });
-  it("clips overlapping ranges", () => {
+  it("merges overlapping ranges into one highlighted span", () => {
     const text = "abcdefghij";
     const segs = segmentsForHighlights(text, [
       { start: 2, end: 6, quote: "cdef" },
@@ -41,6 +41,10 @@ describe("segmentsForHighlights", () => {
       { text: "cdefgh", highlighted: true },
       { text: "ij", highlighted: false },
     ]);
+  });
+
+  it("returns a single unhighlighted segment when notes is empty", () => {
+    expect(segmentsForHighlights("hello", [])).toEqual([{ text: "hello", highlighted: false }]);
   });
   it("falls back to indexOf when offsets are invalid", () => {
     const text = "the quick brown fox";
