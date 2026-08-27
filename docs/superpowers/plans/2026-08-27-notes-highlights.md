@@ -415,7 +415,7 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
   // web: tag the DOM node so the reader's selectionchange listener can map back to a block
   const webAttr =
     isWeb && blockIndex !== undefined
-      ? // react-native-web forwards data-* to the underlying textarea
+      ? // react-native-web forwards data-* to the underlying <span>
         ({ "data-blockindex": String(blockIndex) } as Record<string, string>)
       : {};
 
@@ -460,6 +460,11 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
   // Read-only multiline TextInput: gives us BOTH inline highlight rendering
   // (nested Text) AND native selection capture (onSelectionChange), which the
   // plain <Text> component does not support in RN 0.86.
+  // On WEB we must render a real <Text> (a DOM <span>): RNW renders TextInput
+  // as a <textarea>, and a textarea's internal selection is NOT exposed to
+  // window.getSelection() — so the reader's document-level `selectionchange`
+  // listener would capture nothing. A <span> selection IS exposed, so web uses
+  // <Text selectable data-blockindex> and relies on that listener instead.
   const Selectable = ({
     textStyle,
     text,
@@ -468,19 +473,27 @@ export function BlockView({ block, doc, blockIndex, notes, onSelect }: BlockView
     textStyle: StyleProp<TextStyle>;
     text: string;
     selectHandler?: (e: NativeSyntheticEvent<{ selection: { start: number; end: number } }>) => void;
-  }) => (
-    <TextInput
-      editable={false}
-      multiline
-      scrollEnabled={false}
-      underlineColorAndroid="transparent"
-      style={[textStyle, s.inputBase]}
-      onSelectionChange={selectHandler}
-      {...webAttr}
-    >
-      {segments(text)}
-    </TextInput>
-  );
+  }) => {
+    if (isWeb) {
+      return (
+        <Text style={textStyle} selectable {...webAttr}>
+          {segments(text)}
+        </Text>
+      );
+    }
+    return (
+      <TextInput
+        editable={false}
+        multiline
+        scrollEnabled={false}
+        underlineColorAndroid="transparent"
+        style={[textStyle, s.inputBase]}
+        onSelectionChange={selectHandler}
+      >
+        {segments(text)}
+      </TextInput>
+    );
+  };
 
   switch (block.type) {
     case "heading":
@@ -568,7 +581,7 @@ const s = StyleSheet.create({
 - [ ] **Step 2: Typecheck and commit**
 
 Run: `cd client && npx tsc --noEmit`
-Expected: no new errors (the `webAttr` spread is typed `Record<string,string>` which RN accepts on `TextInput`).
+Expected: no new errors (the `webAttr` spread is typed `Record<string,string>` which RN accepts on `Text`).
 
 ```bash
 git add client/src/components/Blocks.tsx
