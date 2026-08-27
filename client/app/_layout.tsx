@@ -1,11 +1,11 @@
 import { useFonts } from 'expo-font';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { DarkTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Text, View } from 'react-native';
-import 'react-native-reanimated';
 
-import { useColorScheme } from '@/components/useColorScheme';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import { useContent } from '../src/stores/content';
 
 export {
@@ -49,19 +49,19 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
-    <View style={{ flex: 1 }}>
-      <StaleBanner />
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-          <Stack.Screen name="search" options={{ presentation: 'modal' }} />
-        </Stack>
-      </ThemeProvider>
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: "#0b0d12" }}>
+        <StaleBanner />
+        <ThemeProvider value={DarkTheme}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+            <Stack.Screen name="search" options={{ presentation: 'modal' }} />
+          </Stack>
+        </ThemeProvider>
+      </View>
+    </GestureHandlerRootView>
   );
 }
 

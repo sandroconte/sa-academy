@@ -66,3 +66,15 @@ export interface Exercise {
 export function displayTitle(title: string): string {
   return title.includes(" ") ? title : title.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 }
+
+export interface Note {
+  id: string;
+  docId: string;
+  blockIndex: number;
+  sectionTitle: string;
+  quote: string;
+  start: number;
+  end: number;
+  createdAt: number;
+  updatedAt: number;
+}
